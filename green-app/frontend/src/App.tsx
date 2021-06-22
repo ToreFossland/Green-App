@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import SimpleBottomNavigation from './navbar';
 
 function App() {
   return (
@@ -18,7 +19,9 @@ function App() {
         >
           Learn React
         </a>
+        <SimpleBottomNavigation/>
       </header>
+    
     </div>
   );
 }
