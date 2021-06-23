@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "name":"Therese Sigmundstad",
+        "email": "therese@mail.com",
+        "password": "hello!",
+        "points": 5
+    },
+    {
+        "id":2,
+        "name":"Benedicte Rimmereid",
+        "email": "benedicte@mail.com",
+        "password": "ab3!22",
+        "points": 10
+    },
+    {
+        "id":3,
+        "name":"Tore Fossland",
+        "email": "tore@mail.com",
+        "password": "howareyou!",
+        "points": 5
+    },
+    {
+        "id":4,
+        "name":"Elise Muller",
+        "email": "elise@mail.com",
+        "password": "abc123",
+        "points": 50
+    }
+]
