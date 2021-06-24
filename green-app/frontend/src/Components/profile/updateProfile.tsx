@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 
-function updateProfile() {
+function UpdateProfile() {
     const classes = useStyles();
 
     return (
@@ -68,4 +68,4 @@ function updateProfile() {
     )
 }
 
-export default updateProfile
+export default UpdateProfile

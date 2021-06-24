@@ -15,6 +15,8 @@ import Login from "../Components/login";
 import Box from '@material-ui/core/Box';
 import { Paper } from '@material-ui/core';
 
+import ProfilePage from '../Components/profile/profilePage';
+
 const useStyles = makeStyles({
   root: {
     width: 500
@@ -46,16 +48,10 @@ export default function SimpleBottomNavigation() {
             </BottomNavigation>
             </Paper>
             <Switch>
-                <Route path="/home">
-                    <Home />
-                </Route>
-                <Route path="/profile" component={Login} />
+                <Route path="/home" component={Login} />
+                <Route path="/profile" component={ProfilePage} />
             </Switch>
         </Box>
     </Router>
   );
 }
-
-function Home() {
-    return <h2>Home</h2>;
-  }
