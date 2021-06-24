@@ -1,16 +1,19 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import SimpleBottomNavigation from './navbar';
+import SimpleBottomNavigation from './menu/menu';
 import ProfilePage from './Components/profile/profilePage';
 import Login from "./Components/login";
 
-function App() {
+
+export default function App() {
   return (
     <div className="App">
-        <ProfilePage/>
+        <SimpleBottomNavigation/>
     </div>
   );
 }
 
-export default App;
+
+
+
