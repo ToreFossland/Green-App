@@ -5,6 +5,11 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { flexbox } from '@material-ui/system';
 import Button from '@material-ui/core/Button';
+import { MemoryRouter as Router } from 'react-router';
+import Link from '@material-ui/core/Link';
+import { Link as RouterLink } from 'react-router-dom';
+import { Route, Switch } from "react-router-dom";
+import UpdateProfile from './updateProfile';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -49,12 +54,18 @@ function ProfilePage() {
         <p> {users[3].email} </p>
         <h4> Dine poeng: {users[3].points} </h4>
 
-        <Button variant="contained" color="primary" onClick={(e) => {
-          e.preventDefault();
-          console.log('click');
-        }} >
-        Oppdater profil
-        </Button>
+
+        <Router>
+          <Button variant="contained" color="primary" component={RouterLink} to="updateProfile"  className="btn btn-primary" >
+            Oppdater profil
+          </Button>
+          <Switch>
+                <Route path="/updateProfile" component={UpdateProfile} />
+          </Switch>
+        </Router>
+
+
+
 
 
     </div>

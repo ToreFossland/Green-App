@@ -40,29 +40,35 @@ function UpdateProfile() {
 
     return (
         <div>
-            <div className='App-header' style = {{display:'flex', flexDirection: 'row'}}>
+            <div className='App' style = {{display:'flex', flexDirection: 'row'}}>
                 <ImageAvatars/>
                 <div style = {{display:'flex', flexDirection: 'column'}}>
                     <form className={classes.root} noValidate autoComplete="off">
-                    <TextField id="changeFirstName" label={users[3].name} variant="outlined" inputProps={{disabled:true}}/>
-                    <TextField id="changeLastName" label={users[3].email} variant="outlined" inputProps={{disabled:true}}/>
+                    <TextField id="changeFirstName" label={'first name'} variant="outlined" />
+                    <TextField id="changeLastName" label={'last name'} variant="outlined" />
                     </form>
                 </div>
-
-                <Button variant="contained" onClick={(e) => {
-                    e.preventDefault();
-                    console.log('click');
-                    }} >
-                    Endre passord
-                </Button>
-
-                <Button variant="contained" color="secondary" startIcon={<DeleteIcon />} onClick={(e) => {
-                    e.preventDefault();
-                    console.log('click');
-                    }} >
-                    Slett bruker
-                </Button>
             </div>
+            <Button variant="contained" color='primary' onClick={(e) => {
+                e.preventDefault();
+                console.log('click');
+                }} >
+                Lagre
+            </Button>
+
+            <Button variant="contained" onClick={(e) => {
+                e.preventDefault();
+                console.log('click');
+                }} >
+                Endre passord
+            </Button>
+
+            <Button variant="contained" color="secondary" startIcon={<DeleteIcon />} onClick={(e) => {
+                e.preventDefault();
+                console.log('click');
+                }} >
+                Slett bruker
+            </Button>
 
         </div>
     )
