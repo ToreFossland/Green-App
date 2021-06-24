@@ -95,20 +95,11 @@ export default function SignUp() {
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick={(e) => {
-              let id = Users.length + 1;
-              console.log(id);
-            }}
+            onClick={(e) => {}}
           >
             Sign Up
           </Button>
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link href="/login" variant="body2">
-                Already have an account? Login
-              </Link>
-            </Grid>
-          </Grid>
+          <Grid container justify="flex-end"></Grid>
         </form>
       </div>
     </Container>

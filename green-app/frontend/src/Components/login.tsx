@@ -9,7 +9,9 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { useState } from "react";
 import users from "../Users.json";
-import { Link } from "@material-ui/core";
+import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
+import SignUp from "./Signup";
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -72,36 +74,30 @@ export default function Login() {
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
           />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-            onClick={(e) => {
-              e.preventDefault();
-              let userId = null;
-              for (var i = 0; i < users.length; i++) {
-                if (
-                  users[i].email === username &&
-                  users[i].password === password
-                ) {
-                  console.log(users[i].id);
-                  userId = users[i].id;
-                  // window.location.href = "./ProfilePage";
+          <Link to="/Signup">
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              onClick={(e) => {
+                e.preventDefault();
+                let userId = null;
+                for (var i = 0; i < users.length; i++) {
+                  if (
+                    users[i].email === username &&
+                    users[i].password === password
+                  ) {
+                    console.log(users[i].id);
+                    userId = users[i].id;
+                  }
                 }
-              }
-            }}
-          >
-            Login
-          </Button>
-          <Grid container>
-            <Grid data-cy="registerLink" item>
-              <Link data-cy="signUpLink" href="./SignupPage">
-                {"Don't have an account? Sign up"}
-              </Link>
-            </Grid>
-          </Grid>
+              }}
+            >
+              Login
+            </Button>
+          </Link>
         </form>
       </div>
     </Grid>
