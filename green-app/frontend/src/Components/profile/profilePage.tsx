@@ -5,6 +5,10 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { flexbox } from '@material-ui/system';
 import Button from '@material-ui/core/Button';
+import { MemoryRouter as Router } from 'react-router';
+import Link from '@material-ui/core/Link';
+import { Link as RouterLink } from 'react-router-dom';
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -46,17 +50,16 @@ function ProfilePage() {
             <ImageAvatars/>
             <h3> {users[3].name} </h3>
         </div>
-        <p> {users[3].email} </p>
-        <h4> Dine poeng: {users[3].points} </h4>
+        <div>
+          <p> {users[3].email} </p>
+          <h4> Dine poeng: {users[3].points} </h4>
+        </div>
 
-        <Button variant="contained" color="primary" onClick={(e) => {
-          e.preventDefault();
-          console.log('click');
-        }} >
-        Oppdater profil
-        </Button>
-
-
+        <div>
+            <Button variant="contained" color="primary" component={RouterLink} to="/updateprofile" className="btn btn-primary" >
+              Oppdater profil
+            </Button>
+        </div>
     </div>
   );
 }

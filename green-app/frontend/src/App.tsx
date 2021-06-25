@@ -4,6 +4,8 @@ import './App.css';
 import Users from "./Users.json";
 import Login from "./Components/login";
 import Signup from "./Components/Signup";
+import Profile from "./Components/profile/profilePage";
+import UpdateProfile from "./Components/profile/updateProfile";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { Link} from "react-router-dom";
 
@@ -22,6 +24,8 @@ export default function App() {
       <Switch>
         <Route exact path="/login" component={Login} />
         <Route exact path="/"  component={Signup} />
+        <Route exact path="/profile"  component={Profile} />
+        <Route exact path="/updateprofile"  component={UpdateProfile} />
       </Switch>
     </div>
   </BrowserRouter>
