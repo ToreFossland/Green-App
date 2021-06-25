@@ -56,12 +56,6 @@ function ProfilePage() {
         Oppdater profil
         </Button>
 
-        <Button variant="contained" color="primary" onClick={(e) => {
-          e.preventDefault();
-          console.log('click');
-        }} >
-        Endre passord
-        </Button>
 
     </div>
   );
