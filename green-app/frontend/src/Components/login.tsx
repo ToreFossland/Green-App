@@ -11,7 +11,7 @@ import { useState } from "react";
 import users from "../Users.json";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import { Link as RouterLink } from "react-router-dom";
-import SignUp from "./Signup";
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),

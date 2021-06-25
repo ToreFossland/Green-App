@@ -8,11 +8,10 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { useState } from "react";
-import { MemoryRouter as Router } from "react-router";
 import Users from "../Users.json";
 import Login from "./login";
 import { Switch, Route } from "react-router-dom";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, BrowserRouter } from "react-router-dom";
 import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles((theme) => ({
@@ -40,8 +39,7 @@ export default function SignUp() {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   return (
-    <Router>
-      <Switch>
+    <BrowserRouter>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
           <div className={classes.paper}>
@@ -106,11 +104,12 @@ export default function SignUp() {
                 Sign Up
               </Button>
               <Grid container justify="flex-end"></Grid>
-              <Route path="/login" component={Login} />
             </form>
+            <Switch>
+              <Route path="/login" component={Login} />
+            </Switch>
           </div>
         </Container>
-      </Switch>
-    </Router>
+    </BrowserRouter>
   );
 }
