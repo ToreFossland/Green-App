@@ -8,6 +8,7 @@ import Profile from "./Components/profile/profilePage";
 import UpdateProfile from "./Components/profile/updateProfile";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { Link} from "react-router-dom";
+import HomePage from "./Components/homePage";
 
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
         <Route exact path="/"  component={Signup} />
         <Route exact path="/profile"  component={Profile} />
         <Route exact path="/updateprofile"  component={UpdateProfile} />
+        <Route exact path="/home"  component={HomePage} />
       </Switch>
     </div>
   </BrowserRouter>
