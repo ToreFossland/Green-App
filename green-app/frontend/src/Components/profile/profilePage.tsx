@@ -8,8 +8,7 @@ import Button from '@material-ui/core/Button';
 import { MemoryRouter as Router } from 'react-router';
 import Link from '@material-ui/core/Link';
 import { Link as RouterLink } from 'react-router-dom';
-import { Route, Switch } from "react-router-dom";
-import UpdateProfile from './updateProfile';
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -51,22 +50,16 @@ function ProfilePage() {
             <ImageAvatars/>
             <h3> {users[3].name} </h3>
         </div>
-        <p> {users[3].email} </p>
-        <h4> Dine poeng: {users[3].points} </h4>
+        <div>
+          <p> {users[3].email} </p>
+          <h4> Dine poeng: {users[3].points} </h4>
+        </div>
 
-
-        <Router>
-          <Button variant="contained" color="primary" component={RouterLink} to="updateProfile"  className="btn btn-primary" >
-            Oppdater profil
-          </Button>
-          <Switch>
-                <Route path="/updateProfile" component={UpdateProfile} />
-          </Switch>
-        </Router>
-
-
-
-
+        <div>
+            <Button variant="contained" color="primary" component={RouterLink} to="/updateProfile" className="btn btn-primary" >
+              Oppdater profil
+            </Button>
+        </div>
 
     </div>
   );
