@@ -1,7 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import SimpleBottomNavigation from './navbar';
 import Users from "./Users.json";
 import Login from "./Components/login";
 import Signup from "./Components/Signup";
@@ -21,12 +20,8 @@ export default function App() {
         of them to render at a time
       */}
       <Switch>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route exact path="/">
-          <Signup />
-        </Route>
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/"  component={Signup} />
       </Switch>
     </div>
   </BrowserRouter>
