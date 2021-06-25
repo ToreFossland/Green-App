@@ -9,7 +9,9 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { useState } from "react";
 import users from "../Users.json";
-import { Link } from "@material-ui/core";
+import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";  
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -88,20 +90,12 @@ export default function Login() {
                 ) {
                   console.log(users[i].id);
                   userId = users[i].id;
-                  // window.location.href = "./ProfilePage";
                 }
               }
             }}
           >
             Login
           </Button>
-          <Grid container>
-            <Grid data-cy="registerLink" item>
-              <Link data-cy="signUpLink" href="./SignupPage">
-                {"Don't have an account? Sign up"}
-              </Link>
-            </Grid>
-          </Grid>
         </form>
       </div>
     </Grid>
