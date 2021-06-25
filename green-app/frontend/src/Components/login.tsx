@@ -74,30 +74,28 @@ export default function Login() {
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
           />
-          <Link to="/Signup">
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              onClick={(e) => {
-                e.preventDefault();
-                let userId = null;
-                for (var i = 0; i < users.length; i++) {
-                  if (
-                    users[i].email === username &&
-                    users[i].password === password
-                  ) {
-                    console.log(users[i].id);
-                    userId = users[i].id;
-                  }
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+            onClick={(e) => {
+              e.preventDefault();
+              let userId = null;
+              for (var i = 0; i < users.length; i++) {
+                if (
+                  users[i].email === username &&
+                  users[i].password === password
+                ) {
+                  console.log(users[i].id);
+                  userId = users[i].id;
                 }
-              }}
-            >
-              Login
-            </Button>
-          </Link>
+              }
+            }}
+          >
+            Login
+          </Button>
         </form>
       </div>
     </Grid>
