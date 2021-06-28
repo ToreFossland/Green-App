@@ -1,32 +1,31 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 import Login from "./Components/login";
 import Signup from "./Components/Signup";
 import Profile from "./Components/profile/profilePage";
 import UpdateProfile from "./Components/profile/updateProfile";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
-import HomePage from "./Components/homePage";
-
+import MainPage from "./Components/MainPage";
 
 export default function App() {
   return (
     <BrowserRouter>
-    <div>
-      {/*
+      <div>
+        {/*
         A <Switch> looks through all its children <Route>
         elements and renders the first one whose path
         matches the current URL. Use a <Switch> any time
         you have multiple routes, but you want only one
         of them to render at a time
       */}
-      <Switch>
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/signup"  component={Signup} />
-        <Route exact path="/profile"  component={Profile} />
-        <Route exact path="/updateprofile"  component={UpdateProfile} />
-        <Route exact path="/"  component={HomePage} />
-      </Switch>
-    </div>
-  </BrowserRouter>
+        <Switch>
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/updateprofile" component={UpdateProfile} />
+          <Route exact path="/" component={MainPage} />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
