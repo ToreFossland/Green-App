@@ -1,7 +1,7 @@
-import React from 'react';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
+import React from "react";
+import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -10,14 +10,14 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     paper: {
       padding: theme.spacing(2),
-      textAlign: 'center',
+      textAlign: "left",
       color: theme.palette.text.secondary,
       marginTop: theme.spacing(8),
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
     },
-  }),
+  })
 );
 
 export default function FullWidthGrid() {
@@ -27,7 +27,9 @@ export default function FullWidthGrid() {
     <div className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <Paper className={classes.paper}>xs=12</Paper>
+          <Paper className={classes.paper}>
+            Klar for å redde verden, "navn"?
+          </Paper>
         </Grid>
         <Grid item xs={12} sm={6}>
           <Paper className={classes.paper}>xs=12 sm=6</Paper>
