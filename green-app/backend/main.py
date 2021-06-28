@@ -5,23 +5,42 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from pydantic import BaseModel
 
 fake_users_db = {
-    "johndoe": {
-        "username": "johndoe@example.com",
+    "johndoe@mail.com": {
         "name": "John Doe",
         "company": "Equinor",
-        "hashed_password": "fakehashedsecret",
         "points" : 150,
         "disabled": False,
+        "hashed_password": "fakehashedsecret",
     },
-    "alice": {
-        "username": "alice@example.com",
-        "name": "Alice Wonderson",
+      "therese@mail.com": {
+        "name": "Therese Sigmundstad",
         "company": "Equinor",
-        "hashed_password": "fakehashedsecret2",
-        "points" : 100,
-        "disabled": True,
+        "points" : 200,
+        "disabled": False,
+        "hashed_password": "fakehashedsecret",
     },
-}
+     "benedicte@mail.com": {
+        "name": "Benedicte Rimmereid",
+        "company": "Equinor",
+        "points" : 340,
+        "disabled": False,
+        "hashed_password": "fakehashedsecret",
+    },
+    "tore@mail.com": {
+        "name": "Tore Fossland",
+        "company": "Equinor",
+        "points" : 250,
+        "disabled": False,
+        "hashed_password": "fakehashedsecret",
+    },  
+     "elise@mail.com": {
+        "name": "Elise Muller",
+        "company": "Equinor",
+        "points" : 250,
+        "disabled": False,
+        "hashed_password": "fakehashedsecret",
+    },
+    }
 
 app = FastAPI()
 
@@ -34,7 +53,6 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 
 class User(BaseModel):
-    username: str
     name: str 
     company: str
     points: int
@@ -70,8 +88,6 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
 
 
 async def get_current_active_user(current_user: User = Depends(get_current_user)):
-    if current_user.disabled:
-        raise HTTPException(status_code=400, detail="Inactive user")
     return current_user
 
 
@@ -85,7 +101,7 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()):
     if not hashed_password == user.hashed_password:
         raise HTTPException(status_code=400, detail="Incorrect username or password")
 
-    return {"access_token": user.username, "token_type": "bearer"}
+    return {"access_token": user.name, "token_type": "bearer"}
 
 
 @app.get("/users/me")
