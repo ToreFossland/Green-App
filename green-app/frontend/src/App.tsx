@@ -31,8 +31,8 @@ export default function App() {
           <Route exact path="/" component={MainPage} />
           <Route exact path="/activities" component={Activities} />
         </Switch>
+        <Menu/>
       </div>
-      <Menu/>
     </ThemeProvider>
     </BrowserRouter>
   );

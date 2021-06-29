@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
@@ -24,9 +25,9 @@ export default function LabelBottomNavigation() {
 
   return (
     <BottomNavigation value={value} onChange={handleChange} className={classes.stickToBottom}>
-      <BottomNavigationAction label="Home" value="" icon={<HomeIcon />} />
-      <BottomNavigationAction label="My Profile" value="profile" icon={<AccountCircleIcon />} />
-      <BottomNavigationAction label="Add Activity" value="activities" icon={<AddCircleIcon />} />
+      <BottomNavigationAction component={Link} to="/" label="Home" value="" icon={<HomeIcon />} />
+      <BottomNavigationAction component={Link} to="/profile" label="My Profile" value="profile" icon={<AccountCircleIcon />} />
+      <BottomNavigationAction component={Link} to="/activities" label="Add Activity" value="activities" icon={<AddCircleIcon />} />
     </BottomNavigation>
   );
 }
