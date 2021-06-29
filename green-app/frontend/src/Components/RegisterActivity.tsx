@@ -1,6 +1,6 @@
 
 
-const registerActivity = () => {
+const RegisterActivity = () => {
     return (
         <div>
 
@@ -8,4 +8,4 @@ const registerActivity = () => {
     )
 }
 
-export default registerActivity
+export default RegisterActivity
