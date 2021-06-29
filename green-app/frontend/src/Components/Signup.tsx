@@ -1,5 +1,5 @@
 import Avatar from "@material-ui/core/Avatar";
-import SubmitButton from "../Components/styles/SubmitButton";
+import SubmitButton from "../styles/StSubmitButton";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
@@ -11,7 +11,7 @@ import { useState } from "react";
 //import Users from "../Users.json";
 //import Login from "./login";
 import { Link as RouterLink } from "react-router-dom";
-import Paper from "../styles/StyledPaper";
+import Paper from "../styles/StPaper";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -82,9 +82,9 @@ export default function SignUp() {
           <SubmitButton
             component={RouterLink}
             to="/login"
-            type="submit"
-            fullWidth
-            variant="contained"
+            //type="submit"
+            //fullWidth
+            //variant="contained"
             //color="primary"
           >
             Sign Up

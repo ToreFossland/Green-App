@@ -9,7 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { useState } from "react";
 import users from "../Users.json";
-import Paper from "../styles/StyledPaper";
+import Paper from "../styles/StPaper";
 
 const useStyles = makeStyles((theme) => ({
   form: {

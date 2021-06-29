@@ -1,6 +1,6 @@
 import { createMuiTheme, styled } from '@material-ui/core/styles';
 import Paper from "@material-ui/core/Paper";
-import GlobalTheme from "../globalTheme";
+import GlobalTheme from "../GlobalTheme";
 
 const theme = GlobalTheme;
 

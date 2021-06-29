@@ -1,4 +1,4 @@
-import Paper from "../styles/StyledPaper";
+import Paper from "../styles/StPaper";
 import Grid from "@material-ui/core/Grid";
 
 export default function FullWidthGrid() {

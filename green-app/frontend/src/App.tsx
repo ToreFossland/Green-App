@@ -1,13 +1,13 @@
 import React from "react";
 import "./App.css";
-import Login from "./Components/login";
-import Signup from "./Components/Signup";
-import Profile from "./Components/profile/profilePage";
-import UpdateProfile from "./Components/profile/updateProfile";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import Profile from "./components/profile/ProfilePage";
+import UpdateProfile from "./components/profile/UpdateProfile";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
-import MainPage from "./Components/MainPage";
+import MainPage from "./components/MainPage";
 import { ThemeProvider } from "@material-ui/styles";
-import GlobalTheme from "./globalTheme"
+import GlobalTheme from "./GlobalTheme"
 
 export default function App() {
   return (

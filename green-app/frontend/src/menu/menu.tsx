@@ -11,11 +11,11 @@ import {
     Switch,
     Route
   } from "react-router-dom";
-import Login from "../Components/login";
+import Login from "../components/Login";
 import Box from '@material-ui/core/Box';
 import { Paper } from '@material-ui/core';
 
-import ProfilePage from '../Components/profile/profilePage';
+import ProfilePage from '../components/profile/ProfilePage';
 
 const useStyles = makeStyles({
   root: {
