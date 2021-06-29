@@ -13,6 +13,4 @@ const MyPaper = styled(Paper) ({
     color: theme.palette.text.secondary,
 });
 
-export default function StyledComponents() {
-    return <MyPaper />;
-}
+export default MyPaper;

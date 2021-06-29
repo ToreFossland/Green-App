@@ -6,10 +6,13 @@ import Profile from "./Components/profile/profilePage";
 import UpdateProfile from "./Components/profile/updateProfile";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import MainPage from "./Components/MainPage";
+import { ThemeProvider } from "@material-ui/styles";
+import GlobalTheme from "./globalTheme"
 
 export default function App() {
   return (
     <BrowserRouter>
+    <ThemeProvider theme={GlobalTheme}>
       <div>
         {/*
         A <Switch> looks through all its children <Route>
@@ -26,6 +29,7 @@ export default function App() {
           <Route exact path="/" component={MainPage} />
         </Switch>
       </div>
+    </ThemeProvider>
     </BrowserRouter>
   );
 }

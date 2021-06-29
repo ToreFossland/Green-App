@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
-import MyPaper from "./StyledPaper";
+import MyPaper from "../styles/StyledPaper";
 import Grid from "@material-ui/core/Grid";
 
 
@@ -12,7 +12,7 @@ export default function FullWidthGrid() {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <MyPaper>
-            Klar for å redde verden, "navn"?
+            Heihei
           </MyPaper>
         </Grid>
         <Grid item xs={12} sm={6}>

@@ -1,5 +1,5 @@
 import React from 'react'
-import ImageAvatars from './avatar'
+import ImageAvatars from '../../styles/avatar'
 import users from "../../Users.json";
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';

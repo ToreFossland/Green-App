@@ -13,6 +13,7 @@ import Login from "./login";
 import { Switch, Route } from "react-router-dom";
 import { Link as RouterLink, BrowserRouter } from "react-router-dom";
 import Link from "@material-ui/core/Link";
+import MyPaper from "../styles/StyledPaper";
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   paper: {
