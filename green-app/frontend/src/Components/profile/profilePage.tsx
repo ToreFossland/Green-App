@@ -37,7 +37,7 @@ function ProfilePage() {
   const [name, setName] = React.useState("name23");
 
   return (
-    <div>
+    <div  className="App">
         <div className="App-header" style = {{display:'flex', flexDirection: 'row'}}>
             <ImageAvatars/>
             <h3> {users[3].name} </h3>

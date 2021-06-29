@@ -34,36 +34,39 @@ function UpdateProfile() {
     const classes = useStyles();
 
     return (
-        <div>
-            <div className='App' style = {{display:'flex', flexDirection: 'row'}}>
+        <div  className='App'>
+            <div style = {{display:'flex', flexDirection: 'row'}}>
                 <ImageAvatars/>
-                <div style = {{display:'flex', flexDirection: 'column'}}>
+                <div>
                     <form className={classes.root} noValidate autoComplete="off">
                     <TextField id="changeFirstName" label={'first name'} variant="outlined" />
                     <TextField id="changeLastName" label={'last name'} variant="outlined" />
                     </form>
                 </div>
             </div>
-            <Button variant="contained" color='primary' onClick={(e) => {
-                e.preventDefault();
-                console.log('click');
-                }} >
-                Lagre
-            </Button>
+            <div style = {{display:'flex', flexDirection: 'row'}}>
+              <Button variant="contained" color='primary' onClick={(e) => {
+                  e.preventDefault();
+                  console.log('click');
+                  }} >
+                  Lagre
+              </Button>
 
-            <Button variant="contained" onClick={(e) => {
-                e.preventDefault();
-                console.log('click');
-                }} >
-                Endre passord
-            </Button>
+              <Button variant="contained" onClick={(e) => {
+                  e.preventDefault();
+                  console.log('click');
+                  }} >
+                  Endre passord
+              </Button>
 
-            <Button variant="contained" color="secondary" startIcon={<DeleteIcon />} onClick={(e) => {
-                e.preventDefault();
-                console.log('click');
-                }} >
-                Slett bruker
-            </Button>
+              <Button variant="contained" color="secondary" startIcon={<DeleteIcon />} onClick={(e) => {
+                  e.preventDefault();
+                  console.log('click');
+                  }} >
+                  Slett bruker
+              </Button>
+            </div>
+
 
         </div>
     )
