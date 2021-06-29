@@ -43,6 +43,7 @@ function ProfilePage() {
             <h3> {users[3].name} </h3>
         </div>
         <div>
+          {/* <p> {users[3].company} </p> */}
           <p> {users[3].email} </p>
           <h4> Dine poeng: {users[3].points} </h4>
         </div>
