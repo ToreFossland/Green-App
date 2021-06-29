@@ -9,16 +9,9 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { useState } from "react";
 import users from "../Users.json";
-import { BrowserRouter as Router, Link } from "react-router-dom";
-import { Link as RouterLink } from "react-router-dom";
+import Paper from "../styles/StyledPaper";
 
 const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
   form: {
     width: "100%",
     marginTop: theme.spacing(1),
@@ -34,7 +27,7 @@ export default function Login() {
 
   return (
     <Grid container direction="row" justify="center" alignItems="center">
-      <div className={classes.paper}>
+      <Paper>
         <Avatar>
           <LockOutlinedIcon />
         </Avatar>
@@ -93,7 +86,7 @@ export default function Login() {
             Login
           </Button>
         </form>
-      </div>
+      </Paper>
     </Grid>
   );
 }
