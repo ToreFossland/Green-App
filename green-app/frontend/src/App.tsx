@@ -11,15 +11,25 @@ import { Link } from "react-router-dom";
 
 export default function App() {
   const [data, setData] = useState({});
+  const [postId, setPostId] = useState(0);
 
   useEffect(() => {
-    fetch("https://cors-anywhere.herokuapp.com/http://localhost:8000/users")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch(console.log);
-  });
+    // POST request using fetch inside useEffect React hook
+    let formData = new FormData();
+
+    formData.append("username", "tore@mail.com");
+    formData.append("password", "secret");
+
+    const requestOptions = {
+      method: "POST",
+      headers: {},
+      body: formData,
+    };
+    fetch("http://127.0.0.1:8000/token", requestOptions).then((response) =>
+      console.log(response)
+    );
+    // empty dependency array means this effect will only run once (like componentDidMount in classes)
+  }, []);
 
   return (
     <BrowserRouter>
