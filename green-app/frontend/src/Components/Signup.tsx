@@ -1,5 +1,6 @@
 import Avatar from "@material-ui/core/Avatar";
 import SubmitButton from "../styles/StSubmitButton";
+import { Button } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
@@ -80,7 +81,7 @@ export default function SignUp() {
               />
             </Grid>
           </Grid>
-          <SubmitButton
+          <Button
             component={RouterLink}
             to="/login"
             //type="submit"
@@ -89,7 +90,7 @@ export default function SignUp() {
             //color="primary"
           >
             Sign Up
-          </SubmitButton>
+          </Button>
           <Grid container justify="flex-end"></Grid>
         </form>
       </Paper>
