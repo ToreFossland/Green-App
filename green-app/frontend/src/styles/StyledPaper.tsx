@@ -1,7 +1,8 @@
 import { createMuiTheme, styled } from '@material-ui/core/styles';
 import Paper from "@material-ui/core/Paper";
+import GlobalTheme from "../globalTheme";
 
-const theme = createMuiTheme();
+const theme = GlobalTheme;
 
 const MyPaper = styled(Paper) ({
     marginTop: theme.spacing(8),
