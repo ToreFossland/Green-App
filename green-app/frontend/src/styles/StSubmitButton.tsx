@@ -10,5 +10,5 @@ const MySubmitButton = styled(Button)({
 
 export default function styledSubmitButton(){
   const linkTo = "";
-  return <MySubmitButton alt="link" src= > </MySubmitButton>
+  return <MySubmitButton> </MySubmitButton>
 }
