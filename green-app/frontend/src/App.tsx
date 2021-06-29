@@ -10,27 +10,7 @@ import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export default function App() {
-  const [data, setData] = useState({});
-  const [postId, setPostId] = useState(0);
-
-  useEffect(() => {
-    // POST request using fetch inside useEffect React hook
-    let formData = new FormData();
-
-    formData.append("username", "tore@mail.com");
-    formData.append("password", "secret");
-
-    const requestOptions = {
-      method: "POST",
-      headers: {},
-      body: formData,
-    };
-    fetch("http://127.0.0.1:8000/token", requestOptions).then((response) =>
-      console.log(response)
-    );
-    // empty dependency array means this effect will only run once (like componentDidMount in classes)
-  }, []);
-
+  let token = localStorage.getItem("token");
   return (
     <BrowserRouter>
       <div>
@@ -42,8 +22,8 @@ export default function App() {
         of them to render at a time
       */}
         <Switch>
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/" component={Signup} />
+          <Route exact path="/" component={Login} />
+          <Route exact path="/signup" component={Signup} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/updateprofile" component={UpdateProfile} />
         </Switch>
