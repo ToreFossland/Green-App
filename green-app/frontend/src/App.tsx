@@ -8,6 +8,8 @@ import { Switch, Route, BrowserRouter } from "react-router-dom";
 import MainPage from "./components/MainPage";
 import { ThemeProvider } from "@material-ui/styles";
 import GlobalTheme from "./GlobalTheme"
+import Activities from "./menu/registerActivity";
+import Menu from "./menu/Menu";
 
 export default function App() {
   return (
@@ -27,7 +29,9 @@ export default function App() {
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/updateprofile" component={UpdateProfile} />
           <Route exact path="/" component={MainPage} />
+          <Route exact path="/activities" component={Activities} />
         </Switch>
+        <Menu/>
       </div>
     </ThemeProvider>
     </BrowserRouter>

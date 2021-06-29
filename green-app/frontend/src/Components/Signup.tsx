@@ -26,6 +26,7 @@ export default function SignUp() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [company, setCompany] = useState("");
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />

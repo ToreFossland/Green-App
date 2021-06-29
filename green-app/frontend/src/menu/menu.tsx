@@ -1,57 +1,33 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import HomeIcon from '@material-ui/icons/Home';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import { MemoryRouter as Router } from 'react-router';
-import { Link as RouterLink } from 'react-router-dom';
-import Link from '@material-ui/core/Link';
-import {
-    Switch,
-    Route
-  } from "react-router-dom";
-import Login from "../components/Login";
-import Box from '@material-ui/core/Box';
-import { Paper } from '@material-ui/core';
-
-import ProfilePage from '../components/profile/ProfilePage';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 
 const useStyles = makeStyles({
-  root: {
-    width: 500
+  stickToBottom: {
+    width: '100%',
+    position: 'fixed',
+    bottom: 0,
   },
 });
 
-export default function SimpleBottomNavigation() {
+export default function LabelBottomNavigation() {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState('');
+
+  const handleChange = (event: React.ChangeEvent<{}>, newValue: string) => {
+    setValue(newValue);
+  };
 
   return (
-    <Router>
-        <Box>
-        <Paper style={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
-            <BottomNavigation
-            value={value}
-            onChange={(event, newValue) => {
-                setValue(newValue);
-            }}
-            showLabels
-            className={classes.root}
-            >
-            <Link component={RouterLink} to="/home">
-                <BottomNavigationAction label="Home" icon={<HomeIcon />} />
-            </Link>
-            <Link component={RouterLink} to="/profile">
-                <BottomNavigationAction label="Profile" icon={<AccountCircleIcon />} />
-            </Link>
-            </BottomNavigation>
-            </Paper>
-            <Switch>
-                <Route path="/home" component={Login} />
-                <Route path="/profile" component={ProfilePage} />
-            </Switch>
-        </Box>
-    </Router>
+    <BottomNavigation value={value} onChange={handleChange} className={classes.stickToBottom}>
+      <BottomNavigationAction component={Link} to="/" label="Home" value="" icon={<HomeIcon />} />
+      <BottomNavigationAction component={Link} to="/profile" label="My Profile" value="profile" icon={<AccountCircleIcon />} />
+      <BottomNavigationAction component={Link} to="/activities" label="Add Activity" value="activities" icon={<AddCircleIcon />} />
+    </BottomNavigation>
   );
 }
