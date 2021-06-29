@@ -16,6 +16,3 @@ const profilePic = false;
 
   return <MyAvatar alt="profile picture" src={profilePic ? profilePic : "./logo192.png"}> </MyAvatar>
 }
-
-//src for myAvatar photo
-//src={profilePic ? profilePic : "./logo192.png"}
