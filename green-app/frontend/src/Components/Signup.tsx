@@ -5,7 +5,7 @@ import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Container from "@material-ui/core/Container";
 import { useState } from "react";
 import Users from "../Users.json";
@@ -14,7 +14,7 @@ import { Switch, Route } from "react-router-dom";
 import { Link as RouterLink, BrowserRouter } from "react-router-dom";
 import Link from "@material-ui/core/Link";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => createStyles({
   paper: {
     marginTop: theme.spacing(8),
     display: "flex",
