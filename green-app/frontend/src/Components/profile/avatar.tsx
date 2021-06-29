@@ -8,12 +8,13 @@ import userEvent from '@testing-library/user-event';
 
 const MyAvatar = styled(Avatar) ({
   display: 'flex',
-  backgroundImage: "./logo192.png"
 });
 
 
 export default function styledAvatar() {
-  return <MyAvatar alt="profile picture"> </MyAvatar>
+const profilePic = false;
+
+  return <MyAvatar alt="profile picture" src={profilePic ? profilePic : "./logo192.png"}> </MyAvatar>
 }
 
 //src for myAvatar photo
