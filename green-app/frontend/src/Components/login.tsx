@@ -10,7 +10,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useState } from "react";
 import users from "../Users.json";
 import { BrowserRouter as Router, Link } from "react-router-dom";
-import { Link as RouterLink } from "react-router-dom";  
+import { Link as RouterLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -18,10 +18,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-  },
-  avatar: {
-    margin: theme.spacing(),
-    backgroundColor: theme.palette.primary.main,
   },
   form: {
     width: "100%",
@@ -39,7 +35,7 @@ export default function Login() {
   return (
     <Grid container direction="row" justify="center" alignItems="center">
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
+        <Avatar>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">

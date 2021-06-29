@@ -1,26 +1,20 @@
 import React from 'react';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles, createStyles, Theme, styled } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
+import userEvent from '@testing-library/user-event';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      display: 'flex',
-      '& > *': {
-        margin: theme.spacing(1),
-      },
-    },
-  }),
-);
 
-function ImageAvatars() {
-  const classes = useStyles();
 
-  return (
-    <div className={classes.root}>
-      <Avatar alt="profile picture" src="./logo192.png" />
-    </div>
-  );
+
+const MyAvatar = styled(Avatar) ({
+  display: 'flex',
+  backgroundImage: "./logo192.png"
+});
+
+
+export default function styledAvatar() {
+  return <MyAvatar alt="profile picture"> </MyAvatar>
 }
 
-export default ImageAvatars
+//src for myAvatar photo
+//src={profilePic ? profilePic : "./logo192.png"}

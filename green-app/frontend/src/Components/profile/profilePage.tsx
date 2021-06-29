@@ -14,10 +14,6 @@ const useStyles = makeStyles((theme: Theme) =>
       flexDirection: "column",
       alignItems: "center",
     },
-    avatar: {
-      margin: theme.spacing(),
-      backgroundColor: theme.palette.primary.main,
-    },
     root: {
       '& > *': {
         margin: theme.spacing(1),
