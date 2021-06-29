@@ -11,7 +11,7 @@ import { useState } from "react";
 //import Users from "../Users.json";
 //import Login from "./login";
 import { Link as RouterLink } from "react-router-dom";
-import Paper from "../styles/StyledPaper";
+import Paper from "../styles/STpaper";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

@@ -2,7 +2,7 @@ import { styled } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 
 
-const MyAvatar = styled(Avatar) ({
+const STavatar = styled(Avatar) ({
   display: 'flex',
 });
 
@@ -10,5 +10,5 @@ const MyAvatar = styled(Avatar) ({
 export default function styledAvatar() {
 const profilePic = false;
 
-  return <MyAvatar alt="profile picture" src={profilePic ? profilePic : "./logo192.png"}> </MyAvatar>
+  return <STavatar alt="profile picture" src={profilePic ? profilePic : "./logo192.png"}> </STavatar>
 }
