@@ -1,4 +1,4 @@
-import Paper from "../styles/StPaper";
+import StPaper from "../styles/StPaper";
 import Grid from "@material-ui/core/Grid";
 
 export default function FullWidthGrid() {
@@ -6,16 +6,16 @@ export default function FullWidthGrid() {
     <div>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <StyledPaper>Heihei</StyledPaper>
+          <StPaper>Heihei</StPaper>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <StyledPaper>xs=12 sm=6</StyledPaper>
+          <StPaper>xs=12 sm=6</StPaper>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <StyledPaper>xs=12 sm=6</StyledPaper>
+          <StPaper>xs=12 sm=6</StPaper>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <StyledPaper>xs=6 sm=3</StyledPaper>
+          <StPaper>xs=6 sm=3</StPaper>
         </Grid>
       </Grid>
     </div>
