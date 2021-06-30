@@ -76,7 +76,7 @@ export default function SignUp() {
           <SubmitButton>
             Sign Up
           </SubmitButton>
-          <a/>
+          </a>
           <Grid container justify="flex-end"></Grid>
         </Form>
       </Paper>
