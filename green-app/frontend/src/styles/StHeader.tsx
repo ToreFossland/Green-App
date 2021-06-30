@@ -4,15 +4,16 @@ import GlobalTheme from "../GlobalTheme";
 
 const theme = GlobalTheme;
 
-const StPaper = styled(Paper) ({
-    marginTop: theme.spacing(8),
+const StHeader = styled(Paper) ({
+    background: 'white',
+    minHeight: theme.spacing(15),
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "row",
     alignItems: "center",
-    padding: theme.spacing(2),
     textAlign: "left",
+    justifyContent: "center",
     color: theme.palette.text.secondary,
-    //justifyContent: "center",
 });
 
-export default StPaper;
+
+export default StHeader;

@@ -4,6 +4,8 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
+import StPaper from '../../styles/StPaper';
+import StHeader from '../../styles/StHeader';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -34,8 +36,8 @@ function UpdateProfile() {
     const classes = useStyles();
 
     return (
-        <div  className='App'>
-            <div style = {{display:'flex', flexDirection: 'row'}}>
+        <StPaper>
+            <StHeader>
                 <ImageAvatars/>
                 <div>
                     <form className={classes.root} noValidate autoComplete="off">
@@ -43,7 +45,7 @@ function UpdateProfile() {
                     <TextField id="changeLastName" label={'last name'} variant="outlined" />
                     </form>
                 </div>
-            </div>
+            </StHeader>
             <div style = {{display:'flex', flexDirection: 'row'}}>
               <Button variant="contained" color='primary' onClick={(e) => {
                   e.preventDefault();
@@ -68,7 +70,7 @@ function UpdateProfile() {
             </div>
 
 
-        </div>
+        </StPaper>
     )
 }
 
