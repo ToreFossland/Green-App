@@ -5,7 +5,6 @@ import GlobalTheme from "../GlobalTheme";
 const theme = GlobalTheme;
 
 const StHeader = styled(Paper) ({
-    background: theme.palette.primary.main,
     minHeight: theme.spacing(15),
     display: "flex",
     flexDirection: "row",
