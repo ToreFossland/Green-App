@@ -6,10 +6,7 @@ const theme = GlobalTheme;
 
 const MySubmitButton = styled(Button)({
   margin: theme.spacing(3, 0, 2),
-  //color: ${theme.palette.primary}, 
-  //color: ${({ theme }) => theme.palette.primary},
- // color: ${props => props.theme.palette.primary}, 
-
+  color: theme.palette.primary.main, 
 }); 
 
 export default function styledSubmitButton(){
