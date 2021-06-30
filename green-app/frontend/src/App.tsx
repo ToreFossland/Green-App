@@ -8,6 +8,12 @@ import Profile from "./Components/profile/profilePage";
 import UpdateProfile from "./Components/profile/updateProfile";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
+import ProtectedRoute from "./ProtectedRoute";
+
+function isAuthenticated() {
+  let token = localStorage.getItem("token");
+  return token ? true : false;
+}
 
 export default function App() {
   let token = localStorage.getItem("token");
@@ -24,7 +30,7 @@ export default function App() {
         <Switch>
           <Route exact path="/" component={Login} />
           <Route exact path="/signup" component={Signup} />
-          <Route exact path="/profile" component={Profile} />
+          <ProtectedRoute exact path="/profile" component={Profile} />
           <Route exact path="/updateprofile" component={UpdateProfile} />
         </Switch>
       </div>

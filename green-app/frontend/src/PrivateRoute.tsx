@@ -1,41 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { Component } from "react";
 import { Route, Redirect } from "react-router-dom";
 
-const PrivateRoute = ({ component: any, ...rest }) => {
-  //const auth = useSelector((state) => state.auth);
-  const [isAuthenticated, setIsAuthenticated] = useState(null);
-  useEffect(() => {
-    let token = localStorage.getItem("token");
-    if (token) {
-      let tokenExpiration = jwtDecode(token).exp;
-      let dateNow = new Date();
+interface PrivateRouteProps {}
 
-      if (tokenExpiration < dateNow.getTime() / 1000) {
-        setIsAuthenticated(false);
-      } else {
-        setIsAuthenticated(true);
-      }
-    } else {
-      setIsAuthenticated(false);
-    }
-    // eslint-disable-next-line
-  }, []);
-
-  if (isAuthenticated === null) {
-    return <></>;
-  }
-
+const ProtectedRoute = (props: PrivateRouteProps) => {
+  const { ...rest } = props;
+  let token = localStorage.getItem("token");
   return (
     <Route
       {...rest}
-      render={(props) =>
-        !isAuthenticated ? <Redirect to="/" /> : <Component {...props} />
-      }
+      render={(props) => {
+        if (token && token !== undefined) {
+          return <Component {...rest} {...props} />;
+        } else {
+          return (
+            <Redirect
+              to={{
+                pathname: "/",
+                state: {
+                  from: props.location,
+                },
+              }}
+            />
+          );
+        }
+      }}
     />
   );
 };
 
-export default PrivateRoute;
-function jwtDecode(token: string) {
-  throw new Error("Function not implemented.");
-}
+export default ProtectedRoute;
