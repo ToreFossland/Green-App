@@ -8,7 +8,7 @@ import StHeader from '../../styles/StHeader';
 
 function UpdateProfile() {
     return (
-        <StPaper>
+        <StPaper elevation = {0}>
             <StHeader>
                 <ImageAvatars/>
                 <div>

@@ -10,10 +10,10 @@ import StHeader from '../../styles/StHeader';
 function ProfilePage() {
 
   return (
-    <StPaper>
+    <StPaper elevation={0}>
         <StHeader>
             <ImageAvatars/>
-            <h3> {users[3].name} </h3>
+            <h1> {users[3].name} </h1>
         </StHeader>
         <div>
           {/* <p> {users[3].company} </p> */}
