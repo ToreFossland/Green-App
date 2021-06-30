@@ -10,7 +10,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useState } from "react";
 import users from "../Users.json";
 import { BrowserRouter as Router, Link } from "react-router-dom";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useHistory } from "react-router-dom";
 import { useEffect } from "react";
 
 const useStyles = makeStyles((theme) => ({
@@ -37,7 +37,8 @@ export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [st, setSt] = useState(false);
-  const [success, setSuccess] = useState(false);
+  const [token, setToken] = useState("undefined");
+
   useEffect(() => {
     // POST request using fetch inside useEffect React hook
     let formData = new FormData();
@@ -56,7 +57,7 @@ export default function Login() {
         // enter you logic when the fetch is successful
         console.log(data.access_token);
         localStorage.setItem("token", data.access_token);
-        setSuccess(true);
+        setToken(data.acces_token);
       })
       .catch((error) => {
         // enter your logic for when there is an error (ex. error toast)
@@ -64,6 +65,16 @@ export default function Login() {
       });
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, [st]);
+
+  let history = useHistory();
+
+  async function handleClick(e: any) {
+    e.preventDefault();
+    setSt(true);
+    setTimeout(() => {
+      history.push("/profile");
+    }, 500);
+  }
 
   return (
     <Grid container direction="row" justify="center" alignItems="center">
@@ -109,11 +120,8 @@ export default function Login() {
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick={(e) => {
-              e.preventDefault();
-              setSt(true);
-              if (success) {
-              }
+            onClick={(e: any) => {
+              handleClick(e);
             }}
           >
             Login
