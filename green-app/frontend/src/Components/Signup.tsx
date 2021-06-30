@@ -72,10 +72,8 @@ export default function SignUp() {
               />
             </Grid>
           </Grid>
-          <a href = "/login" target = "-blank">
-          <SubmitButton>
-            Sign Up
-          </SubmitButton>
+          <a href="/login" target="-blank">
+            <SubmitButton>Sign Up</SubmitButton>
           </a>
           <Grid container justify="flex-end"></Grid>
         </Form>
