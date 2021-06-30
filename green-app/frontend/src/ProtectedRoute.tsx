@@ -18,11 +18,12 @@ const ProtectedRoute: React.FC<PrivateRouteProps> = ({
       render={(props) => {
         // logic for authenticated user to access /app part goes here.
         // e.g. check if user is logged-in logic.
-        return token && token !== undefined ? (
-          <Component {...props} />
-        ) : (
-          <Redirect to={"/login"} />
-        );
+        console.log(token);
+        if (token === "undefined") {
+          return <Redirect to={"/"} />;
+        } else {
+          return <Component {...props} />;
+        }
       }}
     />
   );
