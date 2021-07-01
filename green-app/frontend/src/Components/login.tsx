@@ -8,22 +8,11 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { useState } from "react";
-import users from "../Users.json";
-import { BrowserRouter as Router, Link } from "react-router-dom";
-import { Link as RouterLink, useHistory } from "react-router-dom";
+import {  useHistory } from "react-router-dom";
 import { useEffect } from "react";
+import Paper from "../styles/StPaper";
 
 const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  avatar: {
-    margin: theme.spacing(),
-    backgroundColor: theme.palette.primary.main,
-  },
   form: {
     width: "100%",
     marginTop: theme.spacing(1),
@@ -37,7 +26,6 @@ export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [st, setSt] = useState(false);
-  const [token, setToken] = useState("undefined");
 
   useEffect(() => {
     // POST request using fetch inside useEffect React hook
@@ -57,7 +45,6 @@ export default function Login() {
         // enter you logic when the fetch is successful
         console.log(data.access_token);
         localStorage.setItem("token", data.access_token);
-        setToken(data.acces_token);
       })
       .catch((error) => {
         // enter your logic for when there is an error (ex. error toast)
@@ -78,8 +65,8 @@ export default function Login() {
 
   return (
     <Grid container direction="row" justify="center" alignItems="center">
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
+      <Paper>
+        <Avatar>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
@@ -127,7 +114,7 @@ export default function Login() {
             Login
           </Button>
         </form>
-      </div>
+      </Paper>
     </Grid>
   );
 }

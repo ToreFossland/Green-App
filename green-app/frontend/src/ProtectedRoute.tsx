@@ -19,7 +19,7 @@ const ProtectedRoute: React.FC<PrivateRouteProps> = ({
         // logic for authenticated user to access /app part goes here.
         // e.g. check if user is logged-in logic.
         console.log(token);
-        if (token === "undefined") {
+        if (token && token === "undefined") {
           return <Redirect to={"/"} />;
         } else {
           return <Component {...props} />;

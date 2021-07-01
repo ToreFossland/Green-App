@@ -1,76 +1,48 @@
-import React from 'react'
-import ImageAvatars from './avatar'
-import users from "../../Users.json";
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import ImageAvatars from '../../styles/StAvatar'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    paper: {
-      marginTop: theme.spacing(8),
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-    },
-    avatar: {
-      margin: theme.spacing(),
-      backgroundColor: theme.palette.primary.main,
-    },
-    root: {
-      '& > *': {
-        margin: theme.spacing(1),
-        width: '25ch',
-      },
-    },
-    form: {
-      width: "100%",
-      marginTop: theme.spacing(1),
-    },
-    submit: {
-      margin: theme.spacing(3, 0, 2),
-    },
-  })
-);
+import StPaper from '../../styles/StPaper';
+import StHeader from '../../styles/StHeader';
 
 
 function UpdateProfile() {
-    const classes = useStyles();
-
     return (
-        <div>
-            <div className='App' style = {{display:'flex', flexDirection: 'row'}}>
+        <StPaper elevation = {0}>
+            <StHeader>
                 <ImageAvatars/>
-                <div style = {{display:'flex', flexDirection: 'column'}}>
-                    <form className={classes.root} noValidate autoComplete="off">
+                <div>
+                    <form noValidate autoComplete="off">
                     <TextField id="changeFirstName" label={'first name'} variant="outlined" />
                     <TextField id="changeLastName" label={'last name'} variant="outlined" />
                     </form>
                 </div>
-            </div>
-            <Button variant="contained" color='primary' onClick={(e) => {
-                e.preventDefault();
-                console.log('click');
-                }} >
-                Lagre
-            </Button>
+            </StHeader>
+            <StHeader>
+              <Button variant="contained" color='primary' onClick={(e) => {
+                  e.preventDefault();
+                  console.log('click');
+                  }} >
+                  Lagre
+              </Button>
 
-            <Button variant="contained" onClick={(e) => {
-                e.preventDefault();
-                console.log('click');
-                }} >
-                Endre passord
-            </Button>
+              <Button variant="contained" onClick={(e) => {
+                  e.preventDefault();
+                  console.log('click');
+                  }} >
+                  Endre passord
+              </Button>
 
-            <Button variant="contained" color="secondary" startIcon={<DeleteIcon />} onClick={(e) => {
-                e.preventDefault();
-                console.log('click');
-                }} >
-                Slett bruker
-            </Button>
+              <Button variant="contained" color="secondary" startIcon={<DeleteIcon />} onClick={(e) => {
+                  e.preventDefault();
+                  console.log('click');
+                  }} >
+                  Slett bruker
+              </Button>
+            </StHeader>
 
-        </div>
+
+        </StPaper>
     )
 }
 
