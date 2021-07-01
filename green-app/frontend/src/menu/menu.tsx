@@ -22,7 +22,7 @@ export default function LabelBottomNavigation() {
 
   return (
     <StBottomNavigation value={value} onChange={handleChange} >
-      <BottomNavigationAction component={Link} to="/" label="Home" value="home" icon={<HomeIcon />} />
+      <BottomNavigationAction component={Link} to="/home" label="Home" value="home" icon={<HomeIcon />} />
       <BottomNavigationAction component={Link} to="/profile" label="My Profile" value="profile" icon={<AccountCircleIcon />} />
       <BottomNavigationAction component={Link} to="/activities" label="Add Activity" value="activities" icon={<AddCircleIcon />} />
     </StBottomNavigation>
