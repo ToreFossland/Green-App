@@ -31,7 +31,11 @@ export default function App() {
           <Route exact path="/" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <ProtectedRoute exact path="/profile" component={Profile} />
-          <Route exact path="/updateprofile" component={UpdateProfile} />
+          <ProtectedRoute
+            exact
+            path="/updateprofile"
+            component={UpdateProfile}
+          />
         </Switch>
       </div>
     </BrowserRouter>
