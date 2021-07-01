@@ -22,7 +22,7 @@ function ProfilePage() {
         </div>
 
         <div>
-            <Button variant="contained" color="primary" component={RouterLink} to="/updateprofile" className="btn btn-primary" >
+            <Button variant="contained" color="primary" component={RouterLink} to="/updateprofile" >
               Oppdater profil
             </Button>
         </div>

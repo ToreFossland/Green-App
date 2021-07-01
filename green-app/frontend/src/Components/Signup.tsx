@@ -1,7 +1,7 @@
 import Avatar from "@material-ui/core/Avatar";
-import Form from "../styles/StForm";
+//import Form from "../styles/StForm";
 import SubmitButton from "../styles/StSubmitButton";
-// import { Button } from "@material-ui/core";
+import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
@@ -11,8 +11,8 @@ import Container from "@material-ui/core/Container";
 import { useState } from "react";
 //import Users from "../Users.json";
 //import Login from "./login";
-import { Link as RouterLink } from "react-router-dom";
-import Paper from "../styles/StPaper";
+import StPaper from "../styles/StPaper";
+import { Link as RouterLink } from 'react-router-dom';
 
 export default function SignUp() {
   const [username, setUsername] = useState("");
@@ -22,14 +22,14 @@ export default function SignUp() {
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <Paper>
+      <StPaper>
         <Avatar>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <Form>
+        <form>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
@@ -72,12 +72,12 @@ export default function SignUp() {
               />
             </Grid>
           </Grid>
-          <a href="/login" target="-blank">
-            <SubmitButton>Sign Up</SubmitButton>
-          </a>
+          <StPaper elevation={0}>
+            <Button variant="contained" color="primary" component={RouterLink} to="/"> Sign Up </Button>
+          </StPaper>
           <Grid container justify="flex-end"></Grid>
-        </Form>
-      </Paper>
+        </form>
+      </StPaper>
     </Container>
   );
 }
