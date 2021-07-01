@@ -73,7 +73,7 @@ export default function Login() {
     setSt(true);
     setTimeout(() => {
       history.push("/profile");
-    }, 500);
+    }, 1000);
   }
 
   return (
