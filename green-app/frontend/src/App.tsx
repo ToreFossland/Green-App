@@ -2,14 +2,14 @@ import ProtectedRoute from "./ProtectedRoute";
 import "./App.css";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
-import Profile from "./components/profile/profilePage";
-import UpdateProfile from "./components/profile/updateProfile";
+import Profile from "./components/profile/ProfilePage";
+import UpdateProfile from "./components/profile/UpdateProfile";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import MainPage from "./components/MainPage";
 import { ThemeProvider } from "@material-ui/styles";
 import GlobalTheme from "./GlobalTheme";
 import Activities from "./components/RegisterActivity";
-import Menu from "./menu/menu";
+import Menu from "./menu/Menu";
 
 export default function App() {
   return (
