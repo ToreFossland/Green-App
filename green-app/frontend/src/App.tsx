@@ -1,6 +1,6 @@
 import ProtectedRoute from "./ProtectedRoute";
 import "./App.css";
-import Login from "./components/login";
+import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Profile from "./components/profile/profilePage";
 import UpdateProfile from "./components/profile/updateProfile";
