@@ -4,7 +4,7 @@ import { Link as RouterLink } from "react-router-dom";
 import Paper from '@material-ui/core/Paper';
 
 
-function ProfilePage() {
+function Profile() {
   return (
     <Paper elevation={0}>
       <Paper>
@@ -30,4 +30,4 @@ function ProfilePage() {
   );
 }
 
-export default ProfilePage;
+export default Profile;

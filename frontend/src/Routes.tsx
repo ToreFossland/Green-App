@@ -2,11 +2,13 @@ import React, { FC } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { makeStyles } from '@material-ui/core/styles';
+import { ThemeProvider } from "@material-ui/styles";
 
 import { Home, Login, SignUp, Protected, PrivateRoute } from './views';
 import { Admin } from './admin';
 import { logout } from './utils/auth';
-import ProfilePage from './views/ProfilePage';
+import Profile from './views/Profile';
+import GlobalTheme from "./GlobalTheme";
 
 const useStyles = makeStyles((theme) => ({
   app: {
@@ -29,7 +31,8 @@ export const Routes: FC = () => {
   const history = useHistory();
 
   return (
-    <Switch>
+    <ThemeProvider theme={GlobalTheme}>
+      <Switch>
       <Route path="/admin">
         <Admin />
       </Route>
@@ -48,9 +51,10 @@ export const Routes: FC = () => {
           />
           <PrivateRoute path="/protected" component={Protected} />
           <Route exact path="/" component={Home} />
-          <Route exact path="/profile" component={ProfilePage} />
+          <PrivateRoute path="/profile" component={Profile} />
         </header>
       </div>
     </Switch>
+    </ThemeProvider>
   );
 };
