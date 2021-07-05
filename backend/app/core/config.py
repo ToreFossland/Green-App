@@ -1,6 +1,6 @@
 import os
 
-PROJECT_NAME = "{{cookiecutter.project_name}}"
+PROJECT_NAME = "green-app"
 
 SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL")
 
