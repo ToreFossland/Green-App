@@ -10,6 +10,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import StPaper from "../styles/StPaper";
+//import Login from "../components/Login";
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -20,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
-export default function Login() {
+export default function LoginPage() {
   const classes = useStyles();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -50,9 +51,6 @@ export default function Login() {
         // enter your logic for when there is an error (ex. error toast)
         console.log(error);
       });
-    let token = localStorage.getItem("token");
-    
-  
   }
 
   return (

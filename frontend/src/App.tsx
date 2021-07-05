@@ -1,4 +1,4 @@
-import ProtectedRoute from "./ProtectedRoute";
+import ProtectedRoute from "./components/authentication/ProtectedRoute";
 import Signup from "./pages/SignupPage";
 import Profile from "./components/profile/ProfilePage";
 import UpdateProfile from "./components/profile/UpdateProfile";
@@ -7,8 +7,8 @@ import MainPage from "./pages/MainPage";
 import { ThemeProvider } from "@material-ui/styles";
 import GlobalTheme from "./GlobalTheme";
 import Activities from "./pages/RegisterActivityPage";
-import Menu from "./menu/Menu";
-import Login from "./components/Login";
+import Menu from "./components/menu/Menu";
+import LoginPage from "./pages/LoginPage";
 
 export default function App() {
   return (
@@ -16,7 +16,7 @@ export default function App() {
     <ThemeProvider theme={GlobalTheme}>
       <div>
         <Switch>
-          <Route exact path="/" component={Login} />
+          <Route exact path="/" component={LoginPage} />
           <Route exact path="/signup" component={Signup} />
           <ProtectedRoute exact path="/profile" component={Profile} />
           <ProtectedRoute exact path="/updateprofile" component={UpdateProfile}/>
