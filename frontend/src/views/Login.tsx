@@ -8,14 +8,14 @@ import {
   Checkbox,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { Face, Fingerprint } from '@material-ui/icons';
+import {Lock, Eco } from '@material-ui/icons';
 import { Alert } from '@material-ui/lab';
 import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router';
 
 import { login, isAuthenticated } from '../utils/auth';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: any) => ({
   margin: {
     margin: theme.spacing(2),
   },
@@ -69,7 +69,7 @@ export const Login: FC = () => {
         <div className={classes.margin}>
           <Grid container spacing={8} alignItems="flex-end">
             <Grid item>
-              <Face />
+              <Eco />
             </Grid>
             <Grid item md={true} sm={true} xs={true}>
               <TextField
@@ -88,7 +88,7 @@ export const Login: FC = () => {
           </Grid>
           <Grid container spacing={8} alignItems="flex-end">
             <Grid item>
-              <Fingerprint />
+              <Lock />
             </Grid>
             <Grid item md={true} sm={true} xs={true}>
               <TextField
