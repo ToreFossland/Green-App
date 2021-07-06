@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import { getMessage } from '../utils/api';
 import { isAuthenticated } from '../utils/auth';
-import Menu from '../components/Menu';
 
 const useStyles = makeStyles((theme) => ({
   link: {
@@ -38,7 +37,6 @@ export const Home: FC = () => {
           <a className={classes.link} href="/logout">
             Logout
           </a>
-          <Menu />
         </div>
         
       ) : (

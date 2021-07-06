@@ -5,6 +5,7 @@ import { isAuthenticated } from '../utils/auth';
 
 type PrivateRouteType = {
   component: React.ComponentType<any>;
+  exact: boolean,
   path?: string | string[];
 };
 

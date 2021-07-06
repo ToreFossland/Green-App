@@ -7,6 +7,8 @@ import HomeIcon from '@material-ui/icons/Home';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 
+import { isAuthenticated } from '../utils/auth';
+
 const StBottomNavigation = styled(BottomNavigation) ({
   //stickToBottom
   width: '100%',
@@ -14,17 +16,23 @@ const StBottomNavigation = styled(BottomNavigation) ({
   bottom: 0,
 });
 
-export default function LabelBottomNavigation() {
+export default function MyBottomNavigation() {
   const [value, setValue] = React.useState('home');
   const handleChange = (event: React.ChangeEvent<{}>, newValue: string) => {
     setValue(newValue);
   };
 
   return (
-    <StBottomNavigation value={value} onChange={handleChange} >
-      <BottomNavigationAction component={Link} to="/home" label="Home" value="home" icon={<HomeIcon />} />
-      <BottomNavigationAction component={Link} to="/profile" label="My Profile" value="profile" icon={<AccountCircleIcon />} />
-      <BottomNavigationAction component={Link} to="/activities" label="Add Activity" value="activities" icon={<AddCircleIcon />} />
-    </StBottomNavigation>
+    <div>
+      {isAuthenticated() ? (
+         <StBottomNavigation value={value} onChange={handleChange} >
+         <BottomNavigationAction component={Link} to="/" label="Home" value="home" icon={<HomeIcon />} />
+         <BottomNavigationAction component={Link} to="/profile" label="My Profile" value="profile" icon={<AccountCircleIcon />} />
+         <BottomNavigationAction component={Link} to="/activities" label="Add Activity" value="activities" icon={<AddCircleIcon />} />
+        </StBottomNavigation>
+      ) : (
+        <div></div>
+      )}
+    </div>
   );
 }

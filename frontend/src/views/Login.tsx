@@ -36,6 +36,11 @@ export const Login: FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<string>('');
+  const [checked, setChecked] = React.useState(true);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(event.target.checked);
+  };
 
   const handleSubmit = async (_: React.MouseEvent) => {
     setError('');
@@ -59,93 +64,95 @@ export const Login: FC = () => {
   return isAuthenticated() ? (
     <Redirect to="/" />
   ) : (
-    <Paper className={classes.padding}>
-      <div className={classes.margin}>
-        <Grid container spacing={8} alignItems="flex-end">
-          <Grid item>
-            <Face />
-          </Grid>
-          <Grid item md={true} sm={true} xs={true}>
-            <TextField
-              id="email"
-              label="Email"
-              type="email"
-              value={email}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setEmail(e.currentTarget.value)
-              }
-              fullWidth
-              autoFocus
-              required
-            />
-          </Grid>
-        </Grid>
-        <Grid container spacing={8} alignItems="flex-end">
-          <Grid item>
-            <Fingerprint />
-          </Grid>
-          <Grid item md={true} sm={true} xs={true}>
-            <TextField
-              id="password"
-              label="Password"
-              type="password"
-              value={password}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setPassword(e.currentTarget.value)
-              }
-              fullWidth
-              required
-            />
-          </Grid>
-        </Grid>
-        <br />
-        <Grid container alignItems="center">
-          {error && (
+    <div>
+      <Paper className={classes.padding}>
+        <div className={classes.margin}>
+          <Grid container spacing={8} alignItems="flex-end">
             <Grid item>
-              <Alert severity="error">{error}</Alert>
+              <Face />
             </Grid>
-          )}
-        </Grid>
-        <Grid container alignItems="center" justify="space-between">
-          <Grid item>
-            <FormControlLabel
-              control={<Checkbox color="primary" />}
-              label="Remember me"
-            />
+            <Grid item md={true} sm={true} xs={true}>
+              <TextField
+                id="email"
+                label="Email"
+                type="email"
+                value={email}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setEmail(e.currentTarget.value)
+                }
+                fullWidth
+                autoFocus
+                required
+              />
+            </Grid>
           </Grid>
-          <Grid item>
+          <Grid container spacing={8} alignItems="flex-end">
+            <Grid item>
+              <Fingerprint />
+            </Grid>
+            <Grid item md={true} sm={true} xs={true}>
+              <TextField
+                id="password"
+                label="Password"
+                type="password"
+                value={password}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setPassword(e.currentTarget.value)
+                }
+                fullWidth
+                required
+              />
+            </Grid>
+          </Grid>
+          <br />
+          <Grid container alignItems="center">
+            {error && (
+              <Grid item>
+                <Alert severity="error">{error}</Alert>
+              </Grid>
+            )}
+          </Grid>
+          <Grid container alignItems="center" justify="space-between">
+            {/* <Grid item>
+              <FormControlLabel
+                control={<Checkbox onChange={handleChange} color="primary" />}
+                label="Remember me"
+              />
+            </Grid> */}
+            {/* <Grid item>
+              <Button
+                disableFocusRipple
+                disableRipple
+                className={classes.button}
+                variant="text"
+                color="primary"
+              >
+                Forgot password ?
+              </Button>
+            </Grid> */}
+          </Grid>
+          <Grid container justify="center" className={classes.marginTop}>
+            {' '}
             <Button
-              disableFocusRipple
-              disableRipple
-              className={classes.button}
-              variant="text"
+              variant="outlined"
               color="primary"
+              className={classes.button}
+              onClick={() => history.push('/signup')}
             >
-              Forgot password ?
+              Sign Up
+            </Button>{' '}
+            &nbsp;
+            <Button
+              variant="outlined"
+              color="primary"
+              className={classes.button}
+              onClick={handleSubmit}
+            >
+              Login
             </Button>
           </Grid>
-        </Grid>
-        <Grid container justify="center" className={classes.marginTop}>
-          {' '}
-          <Button
-            variant="outlined"
-            color="primary"
-            className={classes.button}
-            onClick={() => history.push('/signup')}
-          >
-            Sign Up
-          </Button>{' '}
-          &nbsp;
-          <Button
-            variant="outlined"
-            color="primary"
-            className={classes.button}
-            onClick={handleSubmit}
-          >
-            Login
-          </Button>
-        </Grid>
-      </div>
-    </Paper>
+        </div>
+      </Paper>
+    </div>
   );
 };
