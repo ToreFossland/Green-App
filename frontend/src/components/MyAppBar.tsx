@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import logo from '../logo.png';
 import { isAuthenticated } from '../utils/auth';
-import useReactPath from '../utils/functions';
+//import useReactPath from '../utils/functions';
 
 import { useHistory } from 'react-router-dom'
 
@@ -36,7 +36,7 @@ export default function MyAppBar() {
   const [path, setPath] = React.useState("Home");
 
   useEffect(() => {
-     return history.listen((location:any) => { 
+     return history.listen((location:any) => {
       console.log(location.pathname);
       if(location.pathname.valueOf === ("/profile").valueOf){
         console.log("true");
@@ -46,8 +46,8 @@ export default function MyAppBar() {
       }else{
         setPath("Home");
       }
-     }) 
-  },[history]) 
+     })
+  },[history])
 
   return (
     <div className={classes.root}>
@@ -57,13 +57,13 @@ export default function MyAppBar() {
           <Typography variant="h6" className={classes.title}>
             {path}
           </Typography>
-  
+
       {isAuthenticated() ? (
         <Button color="inherit">Logout</Button>
       ) : (
         <div></div>
       )}
-   
+
         </Toolbar>
       </AppBar>
     </div>
