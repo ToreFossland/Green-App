@@ -12,6 +12,7 @@ import GlobalTheme from "./GlobalTheme";
 import StBox from './styledComponents/stBox';
 import MyAppBar from './components/MyAppBar';
 import MyBottomNavigation from './components/MyBottomNavigation';
+import UpdateProfile from './views/UpdateProfile';
 
   //const useStyles = makeStyles((theme) => ({
   // app: {
@@ -55,6 +56,7 @@ export const Routes: FC = () => {
           <PrivateRoute exact path="/protected" component={Protected} />
           <PrivateRoute exact path="/" component={Home} />
           <PrivateRoute exact path="/profile" component={Profile} />
+          <PrivateRoute exact path="/updateprofile" component={UpdateProfile} />
         </StHeader>
       </StBox>
     </Switch>

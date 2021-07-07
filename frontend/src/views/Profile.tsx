@@ -1,18 +1,21 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import { Link as RouterLink } from "react-router-dom";
-import Paper from '@material-ui/core/Paper';
+import StHeader from "../styledComponents/StHeader";
+import StPaper from "../styledComponents/StPaper";
+import StAvatar from "../styledComponents/StAvatar";
 
 
 function Profile() {
   return (
-    <Paper elevation={0}>
-      <Paper>
-        <h1> hallo </h1>
-      </Paper>
+    <StPaper elevation={0}>
+      <StHeader>
+        <StAvatar />
+        <h1> Navn Navnesen </h1>
+      </StHeader>
       <div>
-        {/* <p> {users[3].company} </p> */}
-        <p> hallo </p>
+        <p> Equinor </p>
+        <p> epost </p>
         <h4> Dine poeng: hallo </h4>
       </div>
 
@@ -26,7 +29,7 @@ function Profile() {
           Oppdater profil
         </Button>
       </div>
-    </Paper>
+    </StPaper>
   );
 }
 
