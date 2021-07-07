@@ -138,8 +138,7 @@ backend
     ├── alembic
     │   └── versions # where migrations are located
     ├── api
-    │   └── api_v1
-    │       └── endpoints
+    │   └── endpoints
     ├── core    # config
     ├── db      # db models
     ├── tests   # pytest
