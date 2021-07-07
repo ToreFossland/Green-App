@@ -6,9 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import logo from '../logo.png';
 import { isAuthenticated } from '../utils/auth';
-//import useReactPath from '../utils/functions';
-
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
