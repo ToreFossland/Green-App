@@ -64,95 +64,93 @@ export const Login: FC = () => {
   return isAuthenticated() ? (
     <Redirect to="/" />
   ) : (
-    <div>
-      <Paper className={classes.padding}>
-        <div className={classes.margin}>
-          <Grid container spacing={8} alignItems="flex-end">
+    <Paper className={classes.padding}>
+      <div className={classes.margin}>
+        <Grid container spacing={8} alignItems="flex-end">
+          <Grid item>
+            <Eco />
+          </Grid>
+          <Grid item md={true} sm={true} xs={true}>
+            <TextField
+              id="email"
+              label="Email"
+              type="email"
+              value={email}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setEmail(e.currentTarget.value)
+              }
+              fullWidth
+              autoFocus
+              required
+            />
+          </Grid>
+        </Grid>
+        <Grid container spacing={8} alignItems="flex-end">
+          <Grid item>
+            <Lock />
+          </Grid>
+          <Grid item md={true} sm={true} xs={true}>
+            <TextField
+              id="password"
+              label="Password"
+              type="password"
+              value={password}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setPassword(e.currentTarget.value)
+              }
+              fullWidth
+              required
+            />
+          </Grid>
+        </Grid>
+        <br />
+        <Grid container alignItems="center">
+          {error && (
             <Grid item>
-              <Eco />
+              <Alert severity="error">{error}</Alert>
             </Grid>
-            <Grid item md={true} sm={true} xs={true}>
-              <TextField
-                id="email"
-                label="Email"
-                type="email"
-                value={email}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setEmail(e.currentTarget.value)
-                }
-                fullWidth
-                autoFocus
-                required
-              />
-            </Grid>
-          </Grid>
-          <Grid container spacing={8} alignItems="flex-end">
-            <Grid item>
-              <Lock />
-            </Grid>
-            <Grid item md={true} sm={true} xs={true}>
-              <TextField
-                id="password"
-                label="Password"
-                type="password"
-                value={password}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setPassword(e.currentTarget.value)
-                }
-                fullWidth
-                required
-              />
-            </Grid>
-          </Grid>
-          <br />
-          <Grid container alignItems="center">
-            {error && (
-              <Grid item>
-                <Alert severity="error">{error}</Alert>
-              </Grid>
-            )}
-          </Grid>
-          <Grid container alignItems="center" justify="space-between">
-            {/* <Grid item>
-              <FormControlLabel
-                control={<Checkbox onChange={handleChange} color="primary" />}
-                label="Remember me"
-              />
-            </Grid> */}
-            {/* <Grid item>
-              <Button
-                disableFocusRipple
-                disableRipple
-                className={classes.button}
-                variant="text"
-                color="primary"
-              >
-                Forgot password ?
-              </Button>
-            </Grid> */}
-          </Grid>
-          <Grid container justify="center" className={classes.marginTop}>
-            {' '}
+          )}
+        </Grid>
+        <Grid container alignItems="center" justify="space-between">
+          {/* <Grid item>
+            <FormControlLabel
+              control={<Checkbox onChange={handleChange} color="primary" />}
+              label="Remember me"
+            />
+          </Grid> */}
+          {/* <Grid item>
             <Button
-              variant="outlined"
-              color="primary"
+              disableFocusRipple
+              disableRipple
               className={classes.button}
-              onClick={() => history.push('/signup')}
-            >
-              Sign Up
-            </Button>{' '}
-            &nbsp;
-            <Button
-              variant="outlined"
+              variant="text"
               color="primary"
-              className={classes.button}
-              onClick={handleSubmit}
             >
-              Login
+              Forgot password ?
             </Button>
-          </Grid>
-        </div>
-      </Paper>
-    </div>
+          </Grid> */}
+        </Grid>
+        <Grid container justify="center" className={classes.marginTop}>
+          {' '}
+          <Button
+            variant="outlined"
+            color="primary"
+            className={classes.button}
+            onClick={() => history.push('/signup')}
+          >
+            Sign Up
+          </Button>{' '}
+          &nbsp;
+          <Button
+            variant="outlined"
+            color="primary"
+            className={classes.button}
+            onClick={handleSubmit}
+          >
+            Login
+          </Button>
+        </Grid>
+      </div>
+    </Paper>
   );
 };

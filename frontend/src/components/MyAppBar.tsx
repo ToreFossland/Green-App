@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import logo from '../logo.png';
 import { isAuthenticated } from '../utils/auth';
+import useReactPath from '../utils/functions';
+
+import { useHistory } from 'react-router-dom'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -31,6 +32,22 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function MyAppBar() {
   const classes = useStyles();
+  const history = useHistory();
+  const [path, setPath] = React.useState("Home");
+
+  useEffect(() => {
+     return history.listen((location:any) => { 
+      console.log(location.pathname);
+      if(location.pathname.valueOf === ("/profile").valueOf){
+        console.log("true");
+        setPath("Profile")
+      }else if(location.pathname.valueOf === ("/activities").valueOf){
+        setPath("Activities");
+      }else{
+        setPath("Home");
+      }
+     }) 
+  },[history]) 
 
   return (
     <div className={classes.root}>
@@ -38,7 +55,7 @@ export default function MyAppBar() {
         <Toolbar>
             <img src={logo} alt="Logo" className = {classes.image}/>
           <Typography variant="h6" className={classes.title}>
-            Home
+            {path}
           </Typography>
   
       {isAuthenticated() ? (

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { makeStyles } from '@material-ui/core/styles';
@@ -31,6 +31,7 @@ import MyBottomNavigation from './components/MyBottomNavigation';
 
 export const Routes: FC = () => {
   const history = useHistory();
+  
 
   return (
     <ThemeProvider theme={GlobalTheme}>
