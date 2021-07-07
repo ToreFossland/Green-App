@@ -1,7 +1,7 @@
-import { createMuiTheme } from "@material-ui/core/styles";
+import { createTheme } from "@material-ui/core/styles";
 import green from "@material-ui/core/colors/green";
 
-const GlobalTheme = createMuiTheme({
+const GlobalTheme = createTheme({
   palette: {
     primary: {
       main: "#CCD5AE",
