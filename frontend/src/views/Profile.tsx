@@ -1,11 +1,10 @@
-import React from "react";
-import Button from "@material-ui/core/Button";
-import { Link as RouterLink } from "react-router-dom";
-//import GaugeChart from 'react-gauge-chart';
-import StHeader from "../styledComponents/StHeader";
-import StPaper from "../styledComponents/StPaper";
-import StAvatar from "../styledComponents/StAvatar";
-
+import React from 'react';
+import Button from '@material-ui/core/Button';
+import { Link as RouterLink } from 'react-router-dom';
+import GaugeChart from 'react-gauge-chart';
+import StHeader from '../styledComponents/StHeader';
+import StPaper from '../styledComponents/StPaper';
+import StAvatar from '../styledComponents/StAvatar';
 
 function Profile() {
   return (
@@ -30,14 +29,20 @@ function Profile() {
           Oppdater profil
         </Button>
       </div>
-{/*       <h1>You are 56% successfull this week.</h1>
-      <GaugeChart id="gauge-chart6"
-        animate={false}
-        nrOfLevels={25}
-        percent={0.60}
-        needleColor="#345243"
-        textColor="black"
-      /> */}
+      {
+        <div>
+          <h2>You are 56% successful this week.</h2>
+          <GaugeChart
+            id="gauge-chart6"
+            animate={false}
+            nrOfLevels={13}
+            colors={['#ffdb83', '#8FBC8F']}
+            percent={0.6}
+            needleColor="#345243"
+            textColor="black"
+          />
+        </div>
+      }
     </StPaper>
   );
 }
