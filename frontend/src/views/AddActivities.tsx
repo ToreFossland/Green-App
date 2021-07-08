@@ -14,14 +14,30 @@ export default function AddActivities() {
     <div>
       <StCalender />
       <StHeader>
-        <h1>Activities Today</h1>
+        <h2>Activities Today</h2>
       </StHeader>
-
       <StPaper elevation={0}>
         <FormGroup>
-          <FormControlLabel control={<StSwitch />} label="Gilad Gray" />
-          <FormControlLabel control={<StSwitch />} label="Gilad Gray" />
-          <FormControlLabel control={<StSwitch />} label="Gilad Gray" />
+          <FormControlLabel
+            control={<StSwitch />}
+            label={<span style={{ fontSize: '15pt' }}>{'Activity 1'}</span>}
+          />
+          <FormControlLabel
+            control={<StSwitch />}
+            label={<span style={{ fontSize: '15pt' }}>{'Activity 2'}</span>}
+          />
+          <FormControlLabel
+            control={<StSwitch />}
+            label={<span style={{ fontSize: '15pt' }}>{'Activity 3'}</span>}
+          />
+          <FormControlLabel
+            control={<StSwitch />}
+            label={<span style={{ fontSize: '15pt' }}>{'Activity 4'}</span>}
+          />
+          <FormControlLabel
+            control={<StSwitch />}
+            label={<span style={{ fontSize: '15pt' }}>{'Activity 5'}</span>}
+          />
         </FormGroup>
       </StPaper>
     </div>
