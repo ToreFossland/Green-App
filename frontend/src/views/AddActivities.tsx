@@ -7,31 +7,23 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import StPaper from '../styledComponents/StPaper';
 import StHeader from '../styledComponents/StHeader';
-import StFavorite from '../styledComponents/StFavorite';
+import StCalender from '../styledComponents/StCalender';
 
 export default function AddActivities() {
-    return (
-        <div>
-        <StHeader>
-            <h1>Activities Today</h1>
-        </StHeader>
+  return (
+    <div>
+      <StCalender />
+      <StHeader>
+        <h1>Activities Today</h1>
+      </StHeader>
 
-        <StPaper elevation={0}>
-                <FormGroup>
-                    <FormControlLabel
-                    control={<StSwitch/>}
-                    label="Gilad Gray"
-                    />
-                    <FormControlLabel
-                    control={<StSwitch/>}
-                    label="Gilad Gray"
-                    />
-                    <FormControlLabel
-                    control={<StSwitch/>}
-                    label="Gilad Gray"
-                    />
-                </FormGroup>
-        </StPaper>
-        </div>
-    )
+      <StPaper elevation={0}>
+        <FormGroup>
+          <FormControlLabel control={<StSwitch />} label="Gilad Gray" />
+          <FormControlLabel control={<StSwitch />} label="Gilad Gray" />
+          <FormControlLabel control={<StSwitch />} label="Gilad Gray" />
+        </FormGroup>
+      </StPaper>
+    </div>
+  );
 }
