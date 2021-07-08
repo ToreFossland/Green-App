@@ -1,22 +1,22 @@
-import { createMuiTheme } from "@material-ui/core/styles";
-import green from "@material-ui/core/colors/green";
+import { createMuiTheme } from '@material-ui/core/styles';
+import green from '@material-ui/core/colors/green';
 
 const GlobalTheme = createMuiTheme({
   palette: {
     primary: {
-      main: "#CCD5AE",
+      main: '#8FBC8F',
     },
     secondary: {
-      main: "#E9EDC9",
+      main: '#AFE1AF',
     },
     info: {
-      main: "#FEFAE0",
+      main: '#FEFAE0',
     },
     warning: {
-      main: "#FAEDCD",
+      main: '#FAEDCD',
     },
     error: {
-      main: "#D4A373",
+      main: '#D4A373',
     },
     success: {
       main: green[500],
