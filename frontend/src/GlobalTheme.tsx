@@ -7,10 +7,10 @@ const GlobalTheme = createMuiTheme({
       main: '#8FBC8F',
     },
     secondary: {
-      main: '#AFE1AF',
+      main: '#009169',
     },
     info: {
-      main: '#FEFAE0',
+      main: '#0092bb',
     },
     warning: {
       main: '#FAEDCD',
