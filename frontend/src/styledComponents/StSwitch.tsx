@@ -6,6 +6,9 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch, { SwitchClassKey, SwitchProps } from '@material-ui/core/Switch';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import GlobalTheme from '../GlobalTheme';
+
+const theme = GlobalTheme;
 
 interface Styles extends Partial<Record<SwitchClassKey, string>> {
   focusVisible?: string;
@@ -15,7 +18,7 @@ interface Props extends SwitchProps {
   classes: Styles;
 }
 
-const IOSSwitch = withStyles((theme: Theme) =>
+const IOSSwitch = withStyles((theme) =>
   createStyles({
     root: {
       width: 42,
@@ -35,7 +38,6 @@ const IOSSwitch = withStyles((theme: Theme) =>
         },
       },
       '&$focusVisible $thumb': {
-        //color: '#8FBC8F',
         color: 'primary',
         border: '6px solid #fff',
       },
