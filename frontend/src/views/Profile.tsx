@@ -31,13 +31,13 @@ function Profile() {
         </Button>
       </div>
       <h1>You are 56% successfull this week.</h1>
-      <GaugeChart id="gauge-chart6" 
-  animate={false} 
-  nrOfLevels={25} 
-  percent={0.60} 
-  needleColor="#345243" 
-  textColor="black"
-/>
+      <GaugeChart id="gauge-chart6"
+        animate={false}
+        nrOfLevels={25}
+        percent={0.60}
+        needleColor="#345243"
+        textColor="black"
+      />
     </StPaper>
   );
 }
