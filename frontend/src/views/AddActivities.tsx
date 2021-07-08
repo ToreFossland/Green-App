@@ -6,17 +6,21 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import StPaper from '../styledComponents/StPaper';
+import StHeader from '../styledComponents/StHeader';
+import StFavorite from '../styledComponents/StFavorite';
 
 export default function AddActivities() {
     return (
-    <StPaper elevation={0}>
-        <FormControl component="fieldset">
-        <FormLabel component="legend" >Activities today</FormLabel>
+        <div>
+        <StHeader>
+            <h1>Activities Today</h1>
+        </StHeader>
+
+        <StPaper elevation={0}>
                 <FormGroup>
                     <FormControlLabel
                     control={<StSwitch/>}
                     label="Gilad Gray"
-
                     />
                     <FormControlLabel
                     control={<StSwitch/>}
@@ -25,9 +29,9 @@ export default function AddActivities() {
                     <FormControlLabel
                     control={<StSwitch/>}
                     label="Gilad Gray"
-                />
+                    />
                 </FormGroup>
-        </FormControl>
-    </StPaper>
+        </StPaper>
+        </div>
     )
 }

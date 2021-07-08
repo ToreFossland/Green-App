@@ -6,7 +6,7 @@ const theme = GlobalTheme;
 
 const StPaper = styled(Paper) ({
     //boxShadow: '0px 0px 0px 0px',
-    marginTop: theme.spacing(8),
+    //marginTop: theme.spacing(8),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
