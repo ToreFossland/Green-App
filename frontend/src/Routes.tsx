@@ -13,6 +13,7 @@ import StBox from './styledComponents/stBox';
 import MyAppBar from './components/MyAppBar';
 import MyBottomNavigation from './components/MyBottomNavigation';
 import UpdateProfile from './views/UpdateProfile';
+import AddActivities from './views/AddActivities';
 
   //const useStyles = makeStyles((theme) => ({
   // app: {
@@ -32,7 +33,7 @@ import UpdateProfile from './views/UpdateProfile';
 
 export const Routes: FC = () => {
   const history = useHistory();
-  
+
 
   return (
     <ThemeProvider theme={GlobalTheme}>
@@ -57,6 +58,7 @@ export const Routes: FC = () => {
           <PrivateRoute exact path="/" component={Home} />
           <PrivateRoute exact path="/profile" component={Profile} />
           <PrivateRoute exact path="/updateprofile" component={UpdateProfile} />
+          <PrivateRoute exact path="/add" component={AddActivities} />
         </StHeader>
       </StBox>
     </Switch>

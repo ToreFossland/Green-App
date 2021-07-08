@@ -15,6 +15,7 @@ export default function StSwitch() {
       <Switch
         checked={state.checked}
         onChange={handleChange}
+        name="checked"
         color="primary"
         inputProps={{ 'aria-label': 'primary checkbox' }}
       />

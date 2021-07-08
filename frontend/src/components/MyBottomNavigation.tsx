@@ -32,7 +32,7 @@ export default function MyBottomNavigation() {
          <StBottomNavigation value={value} onChange={handleChange} >
          <BottomNavigationAction component={Link} to="/" label="Home" value="home" icon={<Home />} />
          <BottomNavigationAction component={Link} to="/profile" label="My Profile" value="profile" icon={<AccountCircle />} />
-         <BottomNavigationAction component={Link} to="/activities" label="Add Activity" value="activities" icon={<AddCircle />} />
+         <BottomNavigationAction component={Link} to="/add" label="Add Activity" value="activities" icon={<AddCircle />} />
          <BottomNavigationAction component={Link} to="/" label="Groups" value="Groups" icon={<Group />} />
          <BottomNavigationAction component={Link} to="/" label="Map" value="Map" icon={<Map />} />
         </StBottomNavigation>
