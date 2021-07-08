@@ -22,10 +22,12 @@ export default function MaterialUIPickers() {
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Grid container justifyContent="space-around">
         <KeyboardDatePicker
-          margin="normal"
-          id="date-picker-dialog"
-          label="Date picker dialog"
+          disableToolbar
+          variant="inline"
           format="dd/MM/yyyy"
+          margin="normal"
+          id="date-picker-inline"
+          label="Choose activity date"
           value={selectedDate}
           onChange={handleDateChange}
           KeyboardButtonProps={{
