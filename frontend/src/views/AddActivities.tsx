@@ -13,10 +13,10 @@ export default function AddActivities() {
   return (
     <div>
       <StCalender />
-      <StHeader>
-        <h2>Activities Today</h2>
-      </StHeader>
       <StPaper elevation={0}>
+        <StHeader>
+          <h2>Activities Today</h2>
+        </StHeader>
         <FormGroup>
           <FormControlLabel
             control={<StSwitch />}
