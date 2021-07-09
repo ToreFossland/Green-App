@@ -11,12 +11,12 @@ import { user } from 'state/user/userActions';
 import { useHistory } from 'react-router-dom';
 import getUser from 'utils/user';
 
-function UpdateProfile() {
+function UpdateProfilePage() {
     const history = useHistory();
     const [name, setName] = useState<string>('');
     const { state, dispatch } = useContext(GlobalContext);
     const [error, setError] = useState<string>('');
-    
+
     return (
         <StPaper elevation = {0}>
             <StHeader>
@@ -75,4 +75,4 @@ function UpdateProfile() {
   );
 }
 
-export default UpdateProfile;
+export default UpdateProfilePage;

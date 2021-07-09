@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme: any) => ({
   },
 }));
 
-export const Login: FC = () => {
+const LoginPage: FC = () => {
   const classes = useStyles();
   const history = useHistory();
   const [email, setEmail] = useState<string>('');
@@ -159,3 +159,5 @@ export const Login: FC = () => {
     </Paper>
   );
 };
+
+export default LoginPage;

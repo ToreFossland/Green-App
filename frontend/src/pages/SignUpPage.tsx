@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const SignUp: FC = () => {
+const SignUpPage: FC = () => {
   const classes = useStyles();
   const history = useHistory();
   const [email, setEmail] = useState<string>('');
@@ -137,3 +137,5 @@ export const SignUp: FC = () => {
     </StSignUpPaper>
   );
 };
+
+export default SignUpPage;

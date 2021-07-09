@@ -1,9 +1,7 @@
 import React, { FC, useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { getMessage } from '../utils/api';
 import { isAuthenticated } from '../utils/auth';
 
-export const Home: FC = () => {
+const HomePage: FC = () => {
   const [message, setMessage] = useState<string>('');
   const [error, setError] = useState<string>('');
 
@@ -30,7 +28,7 @@ export const Home: FC = () => {
             Log out
           </a>
         </div>
-        
+
       ) : (
         <>
           <a href="/login">
@@ -59,3 +57,5 @@ export const Home: FC = () => {
     //   )}
   );
 };
+
+export default HomePage;

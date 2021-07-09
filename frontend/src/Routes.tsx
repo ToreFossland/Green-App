@@ -1,16 +1,16 @@
 import React, { FC, useContext, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { useHistory } from 'react-router';
 import { ThemeProvider } from "@material-ui/styles";
-import StHeader from './styledComponents/StHeader';
-import { Home, Login, SignUp, PrivateRoute } from './pages';
+import { PrivateRoute } from './components/PrivateRoute';
 import { Admin } from './admin';
-import { login, logout } from './utils/auth';
 import Profile from './pages/ProfilePage';
+import HomePage from 'pages/HomePage';
+import LoginPage from 'pages/LoginPage';
+import SignUpPage from 'pages/SignUpPage';
 import GlobalTheme from "./GlobalTheme";
 import MyAppBar from './components/MyAppBar';
 import MyBottomNavigation from './components/MyBottomNavigation';
-import UpdateProfile from './pages/UpdateProfilePage';
+import UpdateProfilePage from './pages/UpdateProfilePage';
 import AddActivities from './pages/AddActivitiesPage';
 import { GlobalContext } from 'state/context';
 
@@ -26,18 +26,18 @@ export const Routes: FC = () => {
           <Route path="/admin">
             <Admin />
           </Route>
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/signup" component={SignUpPage} />
           <Route
-            exact path="/logout" component={Login}
+            exact path="/logout" component={LoginPage}
             // render={() => {
             //   logout();
             //   return null;
             // }}
           />
-          <PrivateRoute exact path="/" component={Home} />
+          <PrivateRoute exact path="/" component={HomePage} />
           <PrivateRoute exact path="/profile" component={Profile} />
-          <PrivateRoute exact path="/updateprofile" component={UpdateProfile} />
+          <PrivateRoute exact path="/updateprofile" component={UpdateProfilePage} />
           <PrivateRoute exact path="/add" component={AddActivities} />
     </Switch>
     <MyBottomNavigation/>
