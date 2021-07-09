@@ -7,7 +7,7 @@ const GlobalTheme = createTheme({
       main: '#8FBC8F',
     },
     secondary: {
-      main: '#009169',
+      main: '#d56c6f',
     },
     info: {
       main: '#0092bb',
