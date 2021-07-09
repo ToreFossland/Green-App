@@ -5,7 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { isAuthenticated, logout } from '../utils/auth';
 import { useHistory } from 'react-router-dom';
-import Hamburger from 'components/Hamburger';
+import Hamburger from 'components/HamburgerMenu';
 import GlobalTheme from 'GlobalTheme';
 
 const theme = GlobalTheme;

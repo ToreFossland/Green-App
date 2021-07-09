@@ -1,31 +1,13 @@
 import React from 'react';
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import MenuIcon from '@material-ui/icons/Menu';
-import SettingsIcon from '@material-ui/icons/Settings';
-import LockIcon from '@material-ui/icons/Lock';
-import ReportIcon from '@material-ui/icons/Report';
-import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
+import { Drawer, Button, Paper, Divider, List, ListItem, ListItemText, ListItemIcon } from '@material-ui/core';
+import { Menu, Settings, Lock, Report, EmojiEvents } from '@material-ui/icons';
 import { useHistory } from 'react-router-dom';
 import { logout } from '../utils/auth';
 
-const useStyles = makeStyles({
-  list: {
-    width: 250,
-  },
-});
 
 type Anchor = 'left';
 
-export default function TemporaryDrawer() {
-  const classes = useStyles();
+export default function HamburgerMenu() {
   const [state, setState] = React.useState({
     left: false,
   });
@@ -55,7 +37,6 @@ export default function TemporaryDrawer() {
 
   const list = (anchor: Anchor) => (
     <div
-      className={clsx(classes.list)}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
@@ -65,7 +46,7 @@ export default function TemporaryDrawer() {
           <ListItem button key={text}>
             <ListItemIcon>
               {' '}
-              {index % 2 === 0 ? <SettingsIcon /> : <EmojiEventsIcon />}{' '}
+              {index % 2 === 0 ? <Settings /> : <EmojiEvents />}{' '}
             </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
@@ -76,7 +57,7 @@ export default function TemporaryDrawer() {
         {['Report problem', 'Logout'].map((text, index) => (
           <ListItem button key={index} onClick={(e) => handleClick(index)}>
             <ListItemIcon>
-              {index % 2 === 0 ? <ReportIcon /> : <LockIcon />}
+              {index % 2 === 0 ? <Report /> : <Lock />}
             </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
@@ -90,7 +71,7 @@ export default function TemporaryDrawer() {
       {(['left'] as Anchor[]).map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>
-            <MenuIcon />
+            <Menu />
           </Button>
           <Drawer
             anchor={anchor}
