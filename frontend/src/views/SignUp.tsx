@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import StSignUpPaper from "styledComponents/StSignUpPaper";
+import StSignUpPaper from 'styledComponents/StSignUpPaper';
 import StBox from 'styledComponents/stBox';
 import { Grid, TextField, Button } from '@material-ui/core';
 import { Face, Fingerprint } from '@material-ui/icons';
@@ -107,9 +107,13 @@ export const SignUp: FC = () => {
             </Grid>
           )}
         </Grid>
-        <Grid container justifyContent="center" >
+        <Grid container justifyContent="center">
           <StSubmitButton
-            onClick={handleSubmit}
+            onClick={() => {
+              {
+                handleSubmit;
+              }
+            }}
           >
             Sign Up
           </StSubmitButton>
