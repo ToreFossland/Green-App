@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@types/react": "^17.0.13",
-    "react-gauge-chart": "^0.3.0"
-  }
-}
