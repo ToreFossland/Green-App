@@ -8,16 +8,33 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import StPaper from '../styledComponents/StPaper';
 import StHeader from '../styledComponents/StHeader';
 import StCalender from '../styledComponents/StCalender';
+import StFavorite from '../styledComponents/StFavorite';
 
 export default function AddActivities() {
   return (
     <div>
       <StCalender />
       <StPaper elevation={0}>
-        <StHeader>
-          <h2>Activities Today</h2>
-        </StHeader>
-        <FormGroup>
+        {
+          <div>
+            <h2>Activities Today</h2>
+            <StHeader>
+              <StFavorite />
+              <h3>Activity name</h3>
+              <StSwitch />
+            </StHeader>
+            <StHeader>
+              <StFavorite />
+              <h3>Activity name</h3>
+              <StSwitch />
+            </StHeader>
+            <StHeader>
+              <StFavorite />
+              <h3>Activity name</h3>
+              <StSwitch />
+            </StHeader>
+          </div>
+          /* <FormGroup>
           <FormControlLabel
             control={<StSwitch />}
             label={<span style={{ fontSize: '15pt' }}>{'Activity 1'}</span>}
@@ -38,7 +55,8 @@ export default function AddActivities() {
             control={<StSwitch />}
             label={<span style={{ fontSize: '15pt' }}>{'Activity 5'}</span>}
           />
-        </FormGroup>
+        </FormGroup> */
+        }
       </StPaper>
     </div>
   );
