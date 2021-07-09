@@ -3,6 +3,7 @@ import { Drawer, Button, Divider, List, ListItem, ListItemText, ListItemIcon } f
 import { Menu, Settings, Lock, Report, EmojiEvents } from '@material-ui/icons';
 import { useHistory } from 'react-router-dom';
 import { logout } from '../utils/auth';
+import { Link as RouterLink } from 'react-router-dom';
 
 
 type Anchor = 'left';
@@ -27,12 +28,10 @@ export default function HamburgerMenu() {
     };
   const history = useHistory();
 
-  const handleClick = (item: number) => {
-    if (item === 1) {
+  const handleClick = () => {
       logout();
       history.push('/logout');
       window.location.reload();
-    }
   };
 
   const list = (anchor: Anchor) => (
@@ -42,26 +41,25 @@ export default function HamburgerMenu() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['Settings', 'Scoreboard'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {' '}
-              {index % 2 === 0 ? <Settings /> : <EmojiEvents />}{' '}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <ListItem button key='Settings' component={RouterLink} to="/settings">
+          <ListItemIcon> <Settings/> </ListItemIcon>
+          <ListItemText> Settings </ListItemText>
+        </ListItem>
+        <ListItem button key='Scoreboard' component={RouterLink} to="/">
+          <ListItemIcon> <EmojiEvents/> </ListItemIcon>
+          <ListItemText> Scoreboard </ListItemText>
+        </ListItem>
       </List>
       <Divider />
       <List>
-        {['Report problem', 'Log out'].map((text, index) => (
-          <ListItem button key={index} onClick={(e) => handleClick(index)}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <Report /> : <Lock />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <ListItem button key='Report problem' component={RouterLink} to="/">
+          <ListItemIcon> <Report/> </ListItemIcon>
+          <ListItemText> Report problem </ListItemText>
+        </ListItem>
+        <ListItem button key='Log out' component={RouterLink} to="/logout" onClick={() => handleClick()}>
+          <ListItemIcon> <Lock/> </ListItemIcon>
+          <ListItemText> Log out </ListItemText>
+        </ListItem>
       </List>
     </div>
   );
