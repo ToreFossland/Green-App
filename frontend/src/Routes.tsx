@@ -3,15 +3,15 @@ import { Switch, Route } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { ThemeProvider } from "@material-ui/styles";
 import StHeader from './styledComponents/StHeader';
-import { Home, Login, SignUp, PrivateRoute } from './views';
+import { Home, Login, SignUp, PrivateRoute } from './pages';
 import { Admin } from './admin';
 import { login, logout } from './utils/auth';
-import Profile from './views/Profile';
+import Profile from './pages/ProfilePage';
 import GlobalTheme from "./GlobalTheme";
 import MyAppBar from './components/MyAppBar';
 import MyBottomNavigation from './components/MyBottomNavigation';
-import UpdateProfile from './views/UpdateProfile';
-import AddActivities from './views/AddActivities';
+import UpdateProfile from './pages/UpdateProfilePage';
+import AddActivities from './pages/AddActivitiesPage';
 import { GlobalContext } from 'state/context';
 
 
