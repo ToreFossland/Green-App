@@ -103,11 +103,11 @@ export const Login: FC = () => {
       <Grid container alignItems="center" justifyContent="space-between"></Grid>
       <Grid container justifyContent="center">
         {' '}
+        <StSubmitButton onClick={handleSubmit}>Login</StSubmitButton>
         <StSubmitButton onClick={() => history.push('/signup')}>
           Sign Up
         </StSubmitButton>{' '}
         &nbsp;
-        <StSubmitButton onClick={handleSubmit}>Login</StSubmitButton>
       </Grid>
     </StPaper>
   );

@@ -54,7 +54,7 @@ export default function HamburgerMenu() {
       </List>
       <Divider />
       <List>
-        {['Report problem', 'Logout'].map((text, index) => (
+        {['Report problem', 'Log out'].map((text, index) => (
           <ListItem button key={index} onClick={(e) => handleClick(index)}>
             <ListItemIcon>
               {index % 2 === 0 ? <Report /> : <Lock />}
