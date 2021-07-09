@@ -1,6 +1,7 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 import DeleteIcon from '@material-ui/icons/Delete';
 import StAvatar from '../styledComponents/StAvatar';
 import StHeader from '../styledComponents/StHeader';
@@ -25,7 +26,7 @@ function UpdateProfilePage() {
                     </form>
                 </div>
             </StHeader>
-            <StHeader>
+
               <Button variant="contained" color='primary' onClick={(e) => {
                   e.preventDefault();
                   console.log('click');
@@ -33,42 +34,23 @@ function UpdateProfilePage() {
                   Save
               </Button>
 
-              <Button variant="contained" onClick={(e) => {
+            <StHeader>
+              <ButtonGroup variant="contained">
+              <Button onClick={(e) => {
                   e.preventDefault();
                   console.log('click');
                   }} >
                   Change password
               </Button>
 
-              <Button variant="contained" color="secondary" startIcon={<DeleteIcon />} onClick={(e) => {
+              <Button color="secondary" startIcon={<DeleteIcon />} onClick={(e) => {
                   e.preventDefault();
                   console.log('click');
                   }} >
                   Delete user
               </Button>
+              </ButtonGroup>
             </StHeader>
-
-        <Button
-          variant="contained"
-          onClick={(e) => {
-            e.preventDefault();
-            console.log('click');
-          }}
-        >
-          Endre passord
-        </Button>
-
-        <Button
-          variant="contained"
-          color="secondary"
-          startIcon={<DeleteIcon />}
-          onClick={(e) => {
-            e.preventDefault();
-            console.log('click');
-          }}
-        >
-          Slett bruker
-        </Button>
     </StPaper>
   );
 }
