@@ -5,7 +5,7 @@ import { ThemeProvider } from "@material-ui/styles";
 import StHeader from './styledComponents/StHeader';
 import { Home, Login, SignUp, PrivateRoute } from './views';
 import { Admin } from './admin';
-import { logout } from './utils/auth';
+import { login, logout } from './utils/auth';
 import Profile from './views/Profile';
 import GlobalTheme from "./GlobalTheme";
 import MyAppBar from './components/MyAppBar';
@@ -16,8 +16,6 @@ import { GlobalContext } from 'state/context';
 
 
 export const Routes: FC = () => {
-  const history = useHistory();
-  
   const { state } = useContext(GlobalContext);
   console.log(state.user);
 
@@ -31,12 +29,11 @@ export const Routes: FC = () => {
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
           <Route
-            exact path="/logout"
-            render={() => {
-              logout();
-              history.push('/');
-              return null;
-            }}
+            exact path="/logout" component={Login}
+            // render={() => {
+            //   logout();
+            //   return null;
+            // }}
           />
           <PrivateRoute exact path="/" component={Home} />
           <PrivateRoute exact path="/profile" component={Profile} />

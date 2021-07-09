@@ -5,7 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import logo from '../logo.png';
-import { isAuthenticated } from '../utils/auth';
+import { isAuthenticated, logout } from '../utils/auth';
 import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -38,15 +38,16 @@ export default function MyAppBar() {
      return history.listen((location) => {
       if(location.pathname === ("/profile")){
         setPath("Profile")
-      }else if(location.pathname === ("/activities")){
-        setPath("Activities");
+      }else if(location.pathname === ("/add")){
+        setPath("Add activities");
       }else{
         setPath("Home");
       }
      })
   },[history])
 
-  const handleClick = () => {
+  const handleLogoutClick = () => {
+    logout();
     history.push("/logout");
   }
 
@@ -60,7 +61,7 @@ export default function MyAppBar() {
           </Typography>
 
       {isAuthenticated() ? (
-        <Button color="inherit" onClick={handleClick}>Log out</Button>
+        <Button color="inherit" onClick={handleLogoutClick}>Log out</Button>
       ) : (
         <div></div>
       )}
