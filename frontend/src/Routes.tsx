@@ -1,35 +1,17 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { useHistory } from 'react-router';
-import { makeStyles } from '@material-ui/core/styles';
 import { ThemeProvider } from "@material-ui/styles";
-import StHeader from './styledComponents/StHeader';
 import { Home, Login, SignUp, Protected, PrivateRoute } from './views';
 import { Admin } from './admin';
 import { logout } from './utils/auth';
 import Profile from './views/Profile';
 import GlobalTheme from "./GlobalTheme";
-import StBox from './styledComponents/stBox';
 import MyAppBar from './components/MyAppBar';
 import MyBottomNavigation from './components/MyBottomNavigation';
 import UpdateProfile from './views/UpdateProfile';
 import AddActivities from './views/AddActivities';
 
-  //const useStyles = makeStyles((theme) => ({
-  // app: {
-  //   textAlign: 'center',
-  // },
-  // header: {
-  //   backgroundColor: 'primary',
-  //   minHeight: '100vh',
-  //   display: 'flex',
-  //   flexDirection: 'column',
-  //   alignItems: 'center',
-  //   justifyContent: 'center',
-  //   fontSize: 'calc(10px + 2vmin)',
-  //   color: 'white',
-  // },
-  //}));
 
 export const Routes: FC = () => {
   const history = useHistory();
@@ -42,8 +24,6 @@ export const Routes: FC = () => {
       <Route path="/admin">
         <Admin />
       </Route>
-      <StBox>
-        <StHeader>
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
           <Route
@@ -59,8 +39,6 @@ export const Routes: FC = () => {
           <PrivateRoute exact path="/profile" component={Profile} />
           <PrivateRoute exact path="/updateprofile" component={UpdateProfile} />
           <PrivateRoute exact path="/add" component={AddActivities} />
-        </StHeader>
-      </StBox>
     </Switch>
     <MyBottomNavigation/>
     </ThemeProvider>
