@@ -7,9 +7,9 @@ import ListItem from '@material-ui/core/ListItem';
 export const ActivityListItem = () => {
   return (
     <div>
-      <ListItem style={{justifyContent:"center", width:"100%"}}>
+      <ListItem style={{ justifyContent: 'center', width: '100%' }}>
         <StFavorite />
-        <h3>Activity name</h3>
+        <label style={{ fontSize: '14pt' }}>Activity name</label>
         <StSwitch />
       </ListItem>
       <Divider component="li" />
