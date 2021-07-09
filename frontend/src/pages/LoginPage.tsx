@@ -20,7 +20,6 @@ import { user } from 'state/user/userActions';
 import getUser from 'utils/user';
 
 export const Login: FC = () => {
-  //const classes = useStyles();
   const history = useHistory();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');

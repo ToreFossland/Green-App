@@ -1,5 +1,5 @@
 import React from 'react';
-import { Drawer, Button, Paper, Divider, List, ListItem, ListItemText, ListItemIcon } from '@material-ui/core';
+import { Drawer, Button, Divider, List, ListItem, ListItemText, ListItemIcon } from '@material-ui/core';
 import { Menu, Settings, Lock, Report, EmojiEvents } from '@material-ui/icons';
 import { useHistory } from 'react-router-dom';
 import { logout } from '../utils/auth';
