@@ -13,7 +13,7 @@ const StPaper = styled(Paper)({
   padding: theme.spacing(2),
   textAlign: 'left',
   color: theme.palette.text.secondary,
-  width: '70%',
+  //width: '70%',
   //justifyContent: "center",
 });
 
