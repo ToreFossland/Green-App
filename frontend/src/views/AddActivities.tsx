@@ -9,8 +9,7 @@ export default function AddActivities() {
     <div>
       <StPaper elevation={0}>
         <StCalender />
-        <List>
-          <h2>Activities Today</h2>
+        <List style={{width:"100%"}}>
           <ActivityListItem />
           <ActivityListItem />
           <ActivityListItem />

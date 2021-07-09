@@ -7,7 +7,7 @@ import ListItem from '@material-ui/core/ListItem';
 export const ActivityListItem = () => {
   return (
     <div>
-      <ListItem>
+      <ListItem style={{justifyContent:"center", width:"100%"}}>
         <StFavorite />
         <h3>Activity name</h3>
         <StSwitch />
