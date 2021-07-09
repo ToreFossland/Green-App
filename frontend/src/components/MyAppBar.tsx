@@ -3,8 +3,6 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import logo from '../logo.png';
 import { isAuthenticated, logout } from '../utils/auth';
 import { useHistory } from 'react-router-dom';
 import StHamburger from 'styledComponents/StHamburger';
