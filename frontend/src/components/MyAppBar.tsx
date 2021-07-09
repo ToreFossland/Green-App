@@ -5,7 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { isAuthenticated, logout } from '../utils/auth';
 import { useHistory } from 'react-router-dom';
-import StHamburger from 'styledComponents/StHamburger';
+import Hamburger from 'components/Hamburger';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -56,7 +56,7 @@ export default function MyAppBar() {
         <Toolbar>
           {isAuthenticated() ? (
             <>
-              <StHamburger />
+              <Hamburger />
               <Typography variant="h6" className={classes.title}>
                 {path}
               </Typography>

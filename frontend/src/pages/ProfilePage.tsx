@@ -4,7 +4,7 @@ import StAvatar from '../styledComponents/StAvatar';
 import { useHistory } from 'react-router-dom';
 import React, { useContext, useState } from 'react';
 import { GlobalContext } from 'state/context';
-import { StGaugeChart } from 'styledComponents/StGaugeChart';
+import { StGaugeChart } from 'components/GaugeChart';
 import { EditButton } from 'components/EditButton';
 
 function Profile() {
