@@ -6,7 +6,7 @@ import { Admin } from 'admin/Admin';
 import Profile from './pages/ProfilePage';
 import HomePage from 'pages/HomePage';
 import LoginPage from 'pages/LoginPage';
-import SignUpPage from 'pages/SignUpPage';
+import { SignUpPage } from 'pages/SignUpPage';
 import GlobalTheme from "./GlobalTheme";
 import MyAppBar from './components/MyAppBar';
 import MyBottomNavigation from './components/MyBottomNavigation';

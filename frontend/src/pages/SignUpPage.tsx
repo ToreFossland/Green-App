@@ -1,7 +1,6 @@
 import React, { FC, useState } from 'react';
 import StSignUpPaper from 'styledComponents/StSignUpPaper';
 import { Grid, TextField, Button } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 import { Face, Fingerprint } from '@material-ui/icons';
 import { Alert } from '@material-ui/lab';
 import { Redirect } from 'react-router-dom';
@@ -10,7 +9,7 @@ import StBox from 'styledComponents/stBox';
 import { signUp, isAuthenticated } from '../utils/auth';
 import StSubmitButton from 'styledComponents/StSubmitButton';
 
-export const SignUp: FC = () => {
+export const SignUpPage: FC = () => {
   const history = useHistory();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
