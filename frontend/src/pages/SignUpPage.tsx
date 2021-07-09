@@ -1,31 +1,16 @@
 import React, { FC, useState } from 'react';
-import StSignUpPaper from "styledComponents/StSignUpPaper";
+import StSignUpPaper from 'styledComponents/StSignUpPaper';
 import { Grid, TextField, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Face, Fingerprint } from '@material-ui/icons';
 import { Alert } from '@material-ui/lab';
 import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router';
-
+import StBox from 'styledComponents/stBox';
 import { signUp, isAuthenticated } from '../utils/auth';
+import StSubmitButton from 'styledComponents/StSubmitButton';
 
-const useStyles = makeStyles((theme) => ({
-  margin: {
-    margin: theme.spacing(2),
-  },
-  padding: {
-    padding: theme.spacing(1),
-  },
-  button: {
-    textTransform: 'none',
-  },
-  marginTop: {
-    marginTop: 10,
-  },
-}));
-
-const SignUpPage: FC = () => {
-  const classes = useStyles();
+export const SignUp: FC = () => {
   const history = useHistory();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -59,7 +44,7 @@ const SignUpPage: FC = () => {
     <Redirect to="/" />
   ) : (
     <StSignUpPaper>
-      <div className={classes.margin}>
+      <StBox>
         <Grid container spacing={8} alignItems="flex-end">
           <Grid item>
             <Face />
@@ -123,19 +108,18 @@ const SignUpPage: FC = () => {
             </Grid>
           )}
         </Grid>
-        <Grid container justifyContent="center" className={classes.marginTop}>
-          <Button
-            variant="outlined"
-            color="primary"
-            className={classes.button}
-            onClick={handleSubmit}
+        <Grid container justifyContent="center">
+          <StSubmitButton
+            onClick={() => {
+              {
+                handleSubmit;
+              }
+            }}
           >
             Sign Up
-          </Button>
+          </StSubmitButton>
         </Grid>
-      </div>
+      </StBox>
     </StSignUpPaper>
   );
 };
-
-export default SignUpPage;
