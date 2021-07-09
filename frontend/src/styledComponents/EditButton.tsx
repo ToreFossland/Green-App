@@ -10,9 +10,7 @@ export const EditButton=()=>{
         component={RouterLink}
         to="/updateprofile"
         >
-        <EditIcon
-    style={{ fontSize: 35 }}
-        />
+        <EditIcon style={{ fontSize: 35 }} />
         </IconButton>
         )
     }

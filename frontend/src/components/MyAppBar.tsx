@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import logo from '../logo.png';
 import { isAuthenticated, logout } from '../utils/auth';
 import { useHistory } from 'react-router-dom';
+import StHamburger from 'styledComponents/StHamburger';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -55,17 +56,10 @@ export default function MyAppBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-            <img src={logo} alt="Logo" className = {classes.image}/>
+          <StHamburger/>
           <Typography variant="h6" className={classes.title}>
             {path}
           </Typography>
-
-      {isAuthenticated() ? (
-        <Button color="inherit" onClick={handleLogoutClick}>Log out</Button>
-      ) : (
-        <div></div>
-      )}
-
         </Toolbar>
       </AppBar>
     </div>
