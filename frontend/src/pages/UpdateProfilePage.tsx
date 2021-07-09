@@ -7,9 +7,7 @@ import StHeader from '../styledComponents/StHeader';
 import StPaper from '../styledComponents/StPaper';
 import { useContext, useState } from "react";
 import { GlobalContext } from 'state/context';
-import { user } from 'state/user/userActions';
 import { useHistory } from 'react-router-dom';
-import getUser from 'utils/user';
 
 function UpdateProfilePage() {
     const history = useHistory();

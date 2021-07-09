@@ -1,8 +1,8 @@
-import React, { FC, useContext, useEffect } from 'react';
+import React, { FC, useContext } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from "@material-ui/styles";
 import { PrivateRoute } from './components/PrivateRoute';
-import { Admin } from './admin';
+import { Admin } from 'admin/Admin';
 import Profile from './pages/ProfilePage';
 import HomePage from 'pages/HomePage';
 import LoginPage from 'pages/LoginPage';
