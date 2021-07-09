@@ -7,7 +7,7 @@ import { Alert } from '@material-ui/lab';
 import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { signUp, isAuthenticated } from '../utils/auth';
-
+import StSubmitButton from 'styledComponents/StSubmitButton';
 
 export const SignUp: FC = () => {
   const history = useHistory();
@@ -108,13 +108,11 @@ export const SignUp: FC = () => {
           )}
         </Grid>
         <Grid container justifyContent="center" >
-          <Button
-            variant="outlined"
-            color="primary"
+          <StSubmitButton
             onClick={handleSubmit}
           >
             Sign Up
-          </Button>
+          </StSubmitButton>
         </Grid>
       </StBox>
     </StSignUpPaper>
