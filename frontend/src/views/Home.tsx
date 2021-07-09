@@ -1,50 +1,42 @@
 import React, { FC, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-
 import { getMessage } from '../utils/api';
 import { isAuthenticated } from '../utils/auth';
-
-const useStyles = makeStyles((theme) => ({
-  link: {
-    color: '#61dafb',
-  },
-}));
 
 export const Home: FC = () => {
   const [message, setMessage] = useState<string>('');
   const [error, setError] = useState<string>('');
-  const classes = useStyles();
 
-  const queryBackend = async () => {
-    try {
-      const message = await getMessage();
-      setMessage(message);
-    } catch (err) {
-      setError(err);
-    }
-  };
+  // const queryBackend = async () => {
+  //   try {
+  //     const message = await getMessage();
+  //     setMessage(message);
+  //   } catch (err) {
+  //     setError(err);
+  //   }
+  // };
 
   return (
     <>
-      <a className={classes.link} href="/admin">
+      <a  href="/admin">
         Admin Dashboard
       </a>
-      <a className={classes.link} href="/profile">
+      <a  href="/profile">
         Profile
       </a>
       {isAuthenticated() ? (
         <div>
-          <a className={classes.link} href="/logout">
-            Logout
+          <a  href="/logout">
+            Log out
           </a>
         </div>
         
       ) : (
         <>
-          <a className={classes.link} href="/login">
+          <a href="/login">
             Login
           </a>
-          <a className={classes.link} href="/signup">
+          <a  href="/signup">
             Sign Up
           </a>
         </>

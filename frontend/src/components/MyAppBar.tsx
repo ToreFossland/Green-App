@@ -34,18 +34,21 @@ export default function MyAppBar() {
   const [path, setPath] = React.useState("Home");
 
   useEffect(() => {
-     return history.listen((location:any) => {
-      console.log(location.pathname);
-      if(location.pathname.valueOf === ("/profile").valueOf){
-        console.log("true");
+    //Add more routes here as they are implemented
+     return history.listen((location) => {
+      if(location.pathname === ("/profile")){
         setPath("Profile")
-      }else if(location.pathname.valueOf === ("/activities").valueOf){
+      }else if(location.pathname === ("/activities")){
         setPath("Activities");
       }else{
         setPath("Home");
       }
      })
   },[history])
+
+  const handleClick = () => {
+    history.push("/logout");
+  }
 
   return (
     <div className={classes.root}>
@@ -57,7 +60,7 @@ export default function MyAppBar() {
           </Typography>
 
       {isAuthenticated() ? (
-        <Button color="inherit">Logout</Button>
+        <Button color="inherit" onClick={handleClick}>Log out</Button>
       ) : (
         <div></div>
       )}

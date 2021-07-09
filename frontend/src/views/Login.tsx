@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useContext, useState } from 'react';
 import {
   Paper,
   Grid,
@@ -14,6 +14,9 @@ import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router';
 
 import { login, isAuthenticated } from '../utils/auth';
+import { GlobalContext } from 'state/context';
+import { user } from 'state/user/userActions';
+import getUser from 'utils/user';
 
 const useStyles = makeStyles((theme: any) => ({
   margin: {
@@ -37,17 +40,19 @@ export const Login: FC = () => {
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<string>('');
   const [checked, setChecked] = React.useState(true);
+  const { dispatch } = useContext(GlobalContext);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(event.target.checked);
-  };
+  // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   setChecked(event.target.checked);
+  // };
 
   const handleSubmit = async (_: React.MouseEvent) => {
     setError('');
     try {
       const data = await login(email, password);
-
       if (data) {
+        const myUser = await getUser();
+        dispatch(user(myUser));
         history.push('/');
       }
     } catch (err) {
@@ -111,7 +116,7 @@ export const Login: FC = () => {
             </Grid>
           )}
         </Grid>
-        <Grid container alignItems="center" justify="space-between">
+        <Grid container alignItems="center" justifyContent="space-between">
           {/* <Grid item>
             <FormControlLabel
               control={<Checkbox onChange={handleChange} color="primary" />}
@@ -130,7 +135,7 @@ export const Login: FC = () => {
             </Button>
           </Grid> */}
         </Grid>
-        <Grid container justify="center" className={classes.marginTop}>
+        <Grid container justifyContent="center" className={classes.marginTop}>
           {' '}
           <Button
             variant="outlined"

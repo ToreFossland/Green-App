@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react';
-import { Paper, Grid, TextField, Button } from '@material-ui/core';
+import StSignUpPaper from "styledComponents/StSignUpPaper";
+import { Grid, TextField, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Face, Fingerprint } from '@material-ui/icons';
 import { Alert } from '@material-ui/lab';
@@ -57,7 +58,7 @@ export const SignUp: FC = () => {
   return isAuthenticated() ? (
     <Redirect to="/" />
   ) : (
-    <Paper className={classes.padding}>
+    <StSignUpPaper>
       <div className={classes.margin}>
         <Grid container spacing={8} alignItems="flex-end">
           <Grid item>
@@ -122,7 +123,7 @@ export const SignUp: FC = () => {
             </Grid>
           )}
         </Grid>
-        <Grid container justify="center" className={classes.marginTop}>
+        <Grid container justifyContent="center" className={classes.marginTop}>
           <Button
             variant="outlined"
             color="primary"
@@ -133,6 +134,6 @@ export const SignUp: FC = () => {
           </Button>
         </Grid>
       </div>
-    </Paper>
+    </StSignUpPaper>
   );
 };
