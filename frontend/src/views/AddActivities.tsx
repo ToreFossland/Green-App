@@ -7,7 +7,7 @@ import List from '@material-ui/core/List';
 export default function AddActivities() {
   return (
     <div>
-      <StPaper>
+      <StPaper elevation={0}>
         <StCalender />
         <List>
           <h2>Activities Today</h2>
