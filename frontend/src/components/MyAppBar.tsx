@@ -6,8 +6,11 @@ import Typography from '@material-ui/core/Typography';
 import { isAuthenticated, logout } from '../utils/auth';
 import { useHistory } from 'react-router-dom';
 import Hamburger from 'components/Hamburger';
+import GlobalTheme from 'GlobalTheme';
 
-const useStyles = makeStyles((theme: Theme) =>
+const theme = GlobalTheme;
+
+const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
       flexGrow: 1,
@@ -17,12 +20,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     title: {
       flexGrow: 1,
-    },
-    image: {
-      marginRight: theme.spacing(2),
-      width: 50,
-      height: 50,
-      resizeMode: 'contain',
     },
   })
 );
