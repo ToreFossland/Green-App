@@ -13,7 +13,7 @@ import MyBottomNavigation from './components/MyBottomNavigation';
 import UpdateProfilePage from './pages/UpdateProfilePage';
 import AddActivities from './pages/AddActivitiesPage';
 import { GlobalContext } from 'state/context';
-import  SettingsPage from 'pages/SettingsPage';
+import SettingsPage from 'pages/SettingsPage';
 
 
 export const Routes: FC = () => {
@@ -40,7 +40,7 @@ export const Routes: FC = () => {
           <PrivateRoute exact path="/profile" component={Profile} />
           <PrivateRoute exact path="/updateprofile" component={UpdateProfilePage} />
           <PrivateRoute exact path="/add" component={AddActivities} />
-          {/* <PrivateRoute exact path="/settings" component={SettingsPage} /> */}
+          <PrivateRoute exact path="/settings" component={SettingsPage} />
     </Switch>
     <MyBottomNavigation/>
     </ThemeProvider>
