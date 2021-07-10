@@ -4,12 +4,14 @@ import StSubmitButton from "styledComponents/StSubmitButton";
 import { Grid, TextField } from "@material-ui/core";
 import { Face, Fingerprint } from "@material-ui/icons";
 import { Alert } from '@material-ui/lab';
+import { FormControl } from '@material-ui/core';
 
-const SignupForm = ({ email, onEmailChange, password, onPasswordChange, passwordConfirmation, onPasswordConfirmationChange, error, onButtonClick }
-    : { email: string, onEmailChange: any, password: string, onPasswordChange: any, passwordConfirmation: string, onPasswordConfirmationChange: any, error: string, onButtonClick: any }
+
+  const SignupForm = ({ email, onEmailChange, firstname, onFnameChange, lastname, onLnameChange, password, onPasswordChange, passwordConfirmation, onPasswordConfirmationChange, error, onButtonClick }
+    : { email: string, onEmailChange: any, firstname: string, onFnameChange: any, lastname: string, onLnameChange: any, password: string, onPasswordChange: any, passwordConfirmation: string, onPasswordConfirmationChange: any, error: string, onButtonClick: any }
     ) => {
-
     return (
+
         <StSignUpPaper>
             <Grid container spacing={8} justifyContent="center" alignItems="flex-end">
                 <Grid item>
@@ -22,6 +24,40 @@ const SignupForm = ({ email, onEmailChange, password, onPasswordChange, password
                         type="email"
                         value={email}
                         onChange={onEmailChange}
+                        fullWidth
+                        autoFocus
+                        required
+                    />
+                </Grid>
+            </Grid>
+            <Grid container spacing={8} justifyContent="center" alignItems="flex-end">
+                <Grid item>
+                    <Face />
+                </Grid>
+                <Grid item md={true} sm={true} xs={true}>
+                    <TextField
+                        id="firstname"
+                        label="First Name"
+                        type="firstname"
+                        value={firstname}
+                        onChange={onFnameChange}
+                        fullWidth
+                        autoFocus
+                        required
+                    />
+                </Grid>
+            </Grid>
+            <Grid container spacing={8} justifyContent="center" alignItems="flex-end">
+                <Grid item>
+                    <Face />
+                </Grid>
+                <Grid item md={true} sm={true} xs={true}>
+                    <TextField
+                        id="lastname"
+                        label="Last Name"
+                        type="lastname"
+                        value={lastname}
+                        onChange={onLnameChange}
                         fullWidth
                         autoFocus
                         required
