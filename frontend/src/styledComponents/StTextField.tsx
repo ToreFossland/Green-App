@@ -1,10 +1,13 @@
 import React from 'react';
 import { TextField } from '@material-ui/core';
 import { styled } from '@material-ui/core';
+import GlobalTheme from 'GlobalTheme';
+
+const theme = GlobalTheme;
 
 const StTextField = styled(TextField) ({
     variant: "outlined",
-    padding: "spacing(1)"
+    padding: theme.spacing(2),
 });
 
 export default StTextField;
