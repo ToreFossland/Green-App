@@ -16,7 +16,7 @@ function Profile() {
   const [error, setError] = useState<string>('');
 
   return (
-    <StPaper elevation={0}>
+    <div>
       <StPaper>
         <StHeader>
           <StAvatar />
@@ -33,7 +33,7 @@ function Profile() {
       <StPaper>
         <StGaugeChart />
       </StPaper>
-    </StPaper>
+    </div>
   );
 }
 

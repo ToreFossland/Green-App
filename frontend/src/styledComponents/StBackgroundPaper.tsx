@@ -9,7 +9,7 @@ const StBackgroundPaper = styled(Paper)({
     paddingTop: theme.spacing(7),
     paddingBottom: theme.spacing(8),
     width: '100%',
-    //backgroundColor: 'gray',
+    //backgroundColor: '#d3d3d3',
 });
 
 export default StBackgroundPaper;
