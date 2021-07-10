@@ -57,12 +57,13 @@ function UpdateProfilePage() {
         <StPaper elevation={0}>
             {/* <form noValidate autoComplete="off"> */}
             <StTextField
+                required
                 id="changeFirstName"
                 label={"First Name"}
                 defaultValue={state.user?.first_name}
                 variant="outlined"
             />
-            <StTextField id="changeLastName" label={"Last Name"} defaultValue={state.user?.last_name} variant="outlined" />
+            <StTextField required id="changeLastName" label={"Last Name"} defaultValue={state.user?.last_name} variant="outlined" />
             {/* </form> */}
         </StPaper>
         <StSubmitButton onClick={() => {console.log('click')}} >
