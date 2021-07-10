@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import { isAuthenticated, logout } from '../utils/auth';
 import { useHistory, useLocation } from 'react-router-dom';
 import HamburgerMenu from 'components/HamburgerMenu';
-
+import StAppBar from 'styledComponents/StAppBar';
 
 export default function MyAppBar() {
   const history = useHistory();
@@ -29,7 +29,7 @@ export default function MyAppBar() {
 
   return (
     <div>
-      <AppBar position="static">
+      <StAppBar>
         <Toolbar>
           {isAuthenticated() ? (
             <>
@@ -44,7 +44,7 @@ export default function MyAppBar() {
             </Typography>
           )}
         </Toolbar>
-      </AppBar>
+      </StAppBar>
     </div>
   );
 }

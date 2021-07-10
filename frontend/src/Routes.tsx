@@ -14,6 +14,7 @@ import UpdateProfilePage from './pages/UpdateProfilePage';
 import AddActivities from './pages/AddActivitiesPage';
 import { GlobalContext } from 'state/context';
 import SettingsPage from 'pages/SettingsPage';
+import StBackgroundPaper from 'styledComponents/StBackgroundPaper';
 
 
 export const Routes: FC = () => {
@@ -23,26 +24,28 @@ export const Routes: FC = () => {
   return (
     <ThemeProvider theme={GlobalTheme}>
       <MyAppBar/>
-      <Switch>
-          <Route path="/admin">
-            <Admin />
-          </Route>
-          <Route exact path="/login" component={LoginPage} />
-          <Route exact path="/signup" component={SignUpPage} />
-          <Route
-            exact path="/logout" component={LoginPage}
-            // render={() => {
-            //   logout();
-            //   return null;
-            // }}
-          />
-          <PrivateRoute exact path="/" component={HomePage} />
-          <PrivateRoute exact path="/profile" component={Profile} />
-          <PrivateRoute exact path="/updateprofile" component={UpdateProfilePage} />
-          <PrivateRoute exact path="/add" component={AddActivities} />
-          <PrivateRoute exact path="/settings" component={SettingsPage} />
-    </Switch>
-    <MyBottomNavigation/>
+      <StBackgroundPaper>
+        <Switch>
+            <Route path="/admin">
+              <Admin />
+            </Route>
+            <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/signup" component={SignUpPage} />
+            <Route
+              exact path="/logout" component={LoginPage}
+              // render={() => {
+              //   logout();
+              //   return null;
+              // }}
+            />
+            <PrivateRoute exact path="/" component={HomePage} />
+            <PrivateRoute exact path="/profile" component={Profile} />
+            <PrivateRoute exact path="/updateprofile" component={UpdateProfilePage} />
+            <PrivateRoute exact path="/add" component={AddActivities} />
+            <PrivateRoute exact path="/settings" component={SettingsPage} />
+        </Switch>
+      </StBackgroundPaper>
+      <MyBottomNavigation/>
     </ThemeProvider>
   );
 };
