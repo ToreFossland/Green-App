@@ -7,7 +7,6 @@ import {
   FormControlLabel,
   Checkbox,
 } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 import { Lock, Eco } from '@material-ui/icons';
 import { Alert } from '@material-ui/lab';
 import { Redirect } from 'react-router-dom';
