@@ -6,8 +6,8 @@ import GlobalTheme from 'GlobalTheme';
 const theme = GlobalTheme;
 
 const StTextField = styled(TextField) ({
-    variant: "outlined",
-    padding: theme.spacing(2),
+    marginTop: theme.spacing(2),
+    width: '80%',
 });
 
 export default StTextField;
