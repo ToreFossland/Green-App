@@ -1,5 +1,4 @@
 import React from 'react';
-import Card from '@material-ui/core/Card';
 import { CardActionArea } from '@material-ui/core';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -12,10 +11,11 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import CommentIcon from '@material-ui/icons/Comment';
 import ShareIcon from '@material-ui/icons/Share';
 import PostImage from 'testImages/sykkel.jpg';
+import StCard from 'styledComponents/StCard';
 
 export default function Post() {
     return (
-        <Card>
+        <StCard>
             <CardActionArea>
                 <CardHeader
                     avatar={<Avatar style={{backgroundColor: 'purple'}}> EM </Avatar>}
@@ -47,6 +47,6 @@ export default function Post() {
                     <ShareIcon />
                 </IconButton>
             </CardActions>
-        </Card>
+        </StCard>
     )
 }
