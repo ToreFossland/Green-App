@@ -7,4 +7,4 @@ const StTextField = styled(TextField) ({
     padding: "spacing(1)"
 });
 
-export default StTextfield;
+export default StTextField;
