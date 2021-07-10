@@ -11,7 +11,7 @@ const SignupForm = ({ email, onEmailChange, password, onPasswordChange, password
 
     return (
         <StSignUpPaper>
-            <Grid container spacing={8} alignItems="flex-end">
+            <Grid container spacing={8} justifyContent="center" alignItems="flex-end">
                 <Grid item>
                     <Face />
                 </Grid>
