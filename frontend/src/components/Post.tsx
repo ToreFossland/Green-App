@@ -20,14 +20,14 @@ export default function Post() {
                 <CardHeader
                     avatar={<Avatar style={{backgroundColor: 'purple'}}> EM </Avatar>}
                     title="Elise Müller"
-                    subheader="September 14, 2016"
+                    subheader="13 July, 2021"
                 />
                 <CardContent>
                     <Typography variant="body1" color="textSecondary" component="p">
                         Elise sykla til jobb i dag
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        Varmt i dag! Sjekk bildene
+                        Varmt i dag! Fin tur med gjengen. Sjekk bildene
                     </Typography>
                 </CardContent>
                 <CardMedia
@@ -36,7 +36,7 @@ export default function Post() {
                     title="Sykkel"
                 />
             </CardActionArea>
-            <CardActions>
+            <CardActions style={{alignItems: 'center', justifyContent: 'space-between'}} >
                 <IconButton aria-label="add to favorites">
                     <FavoriteIcon />
                 </IconButton>
