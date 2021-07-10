@@ -2,7 +2,7 @@ import React from 'react';
 import StPaper from 'styledComponents/StPaper';
 import StHeader from 'styledComponents/StHeader';
 import StAvatar from 'styledComponents/StAvatar';
-import StTextField from 'styledComponents/StTextfFelds';
+import StTextField from 'styledComponents/StTextField';
 import StSubmitButton from 'styledComponents/StSubmitButton';
 import { Container, TextField } from '@material-ui/core';
 import { useContext, useState } from 'react';
