@@ -1,18 +1,16 @@
 import React from 'react';
-import { Grid, Button, TextField, Container } from '@material-ui/core';
+import StPaper from 'styledComponents/StPaper';
+import StHeader from 'styledComponents/StHeader';
+import StAvatar from 'styledComponents/StAvatar';
+import StTextField from 'styledComponents/StTextfFelds';
 import StSubmitButton from 'styledComponents/StSubmitButton';
-import StAvatar from '../styledComponents/StAvatar';
-import StHeader from '../styledComponents/StHeader';
-import StPaper from '../styledComponents/StPaper';
+import { Container, TextField } from '@material-ui/core';
 import { useContext, useState } from 'react';
 import { GlobalContext } from 'state/context';
-import { useHistory } from 'react-router-dom';
 
 function UpdateProfilePage() {
   const { state, dispatch } = useContext(GlobalContext);
-  const [error, setError] = useState<string>('');
-  const [firstName, setFirstName] = useState<string>('');
-  const [lastName, setLastName] = useState<string>('');
+
   // const [picture, setPicture] =
   const uploadedImage = React.useRef<HTMLImageElement>(null);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -35,51 +33,41 @@ function UpdateProfilePage() {
 
   return (
     <StPaper elevation={0}>
-      <StAvatar />
-      <div>
-        <Container maxWidth="sm">
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageUpload}
-            multiple={false}
-          />
-          <img
-            ref={uploadedImage}
-            style={{
-              width: '75%',
-              height: '100%',
-              // position: 'absolute',
-            }}
-          />
-        </Container>
-      </div>
-      <StHeader>
+        <StHeader>
+            <StAvatar />
+        </StHeader>
         <div>
-          <h3> New first name: </h3>
-          {/* // <form noValidate autoComplete="off"> */}
-          <TextField
-            id="changeFirstName"
-            label={firstName}
-            variant="outlined"
-          />
-          {/* // </form> */}
+            <Container maxWidth="sm">
+            <input
+                type="file"
+                accept="image/*"
+                onChange={handleImageUpload}
+                multiple={false}
+            />
+            <img
+                ref={uploadedImage}
+                style={{
+                width: '75%',
+                height: '100%',
+                // position: 'absolute',
+                }}
+            />
+            </Container>
         </div>
-        <div>
-          <h3> New last name: </h3>
-          {/* // <form noValidate autoComplete="off"> */}
-          <TextField id="changeLastName" label={lastName} variant="outlined" />
-          {/* // </form> */}
-        </div>
-      </StHeader>
-      <StSubmitButton
-        onClick={(e) => {
-          e.preventDefault();
-          console.log('click');
-        }}
-      >
-        Save changes
-      </StSubmitButton>
+        <StPaper elevation={0}>
+            {/* <form noValidate autoComplete="off"> */}
+            <TextField
+                id="changeFirstName"
+                label={"First Name"}
+                defaultValue={state.user?.first_name}
+                variant="outlined"
+            />
+            <StTextField id="changeLastName" label={"Last Name"} defaultValue={state.user?.last_name} />
+            {/* </form> */}
+        </StPaper>
+        <StSubmitButton onClick={() => {console.log('click')}} >
+            Save changes
+        </StSubmitButton>
     </StPaper>
   );
 }
