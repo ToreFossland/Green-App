@@ -45,7 +45,7 @@ export default function HamburgerMenu() {
           <ListItemIcon> <Settings/> </ListItemIcon>
           <ListItemText> Settings </ListItemText>
         </ListItem>
-        <ListItem button key='Scoreboard' component={RouterLink} to="/">
+        <ListItem button key='Scoreboard' component={RouterLink} to="/scoreboard">
           <ListItemIcon> <EmojiEvents/> </ListItemIcon>
           <ListItemText> Scoreboard </ListItemText>
         </ListItem>
