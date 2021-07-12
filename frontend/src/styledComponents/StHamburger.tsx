@@ -57,6 +57,7 @@ export default function TemporaryDrawer() {
     if (item === 1) {
       logout();
       history.push('/logout');
+      window.location.reload();
     }
   };
 
