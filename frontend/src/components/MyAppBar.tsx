@@ -21,45 +21,53 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
     },
     image: {
-        marginRight: theme.spacing(2),
-        width: 50,
-        height: 50,
-        resizeMode: 'contain'
-    }
-  }),
+      marginRight: theme.spacing(2),
+      width: 50,
+      height: 50,
+      resizeMode: 'contain',
+    },
+  })
 );
 
 export default function MyAppBar() {
   const classes = useStyles();
   const history = useHistory();
-  const [path, setPath] = React.useState("Home");
+  const [path, setPath] = React.useState('Home');
 
   useEffect(() => {
     //Add more routes here as they are implemented
-     return history.listen((location) => {
-      if(location.pathname === ("/profile")){
-        setPath("Profile")
-      }else if(location.pathname === ("/add")){
-        setPath("Add activities");
-      }else{
-        setPath("Home");
+    return history.listen((location) => {
+      if (location.pathname === '/profile') {
+        setPath('Profile');
+      } else if (location.pathname === '/add') {
+        setPath('Add activities');
+      } else {
+        setPath('Home');
       }
-     })
-  },[history])
+    });
+  }, [history]);
 
   const handleLogoutClick = () => {
     logout();
-    history.push("/logout");
-  }
+    history.push('/logout');
+  };
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <StHamburger/>
-          <Typography variant="h6" className={classes.title}>
-            {path}
-          </Typography>
+          {isAuthenticated() ? (
+            <>
+              <StHamburger />
+              <Typography variant="h6" className={classes.title}>
+                {path}
+              </Typography>
+            </>
+          ) : (
+            <Typography variant="h6" className={classes.title}>
+              Login
+            </Typography>
+          )}
         </Toolbar>
       </AppBar>
     </div>
