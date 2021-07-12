@@ -8,33 +8,19 @@ import {
   Checkbox,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import {Lock, Eco } from '@material-ui/icons';
+import { Lock, Eco } from '@material-ui/icons';
 import { Alert } from '@material-ui/lab';
 import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router';
-
+import StSubmitButton from 'styledComponents/StSubmitButton';
+import StPaper from 'styledComponents/StPaper';
 import { login, isAuthenticated } from '../utils/auth';
 import { GlobalContext } from 'state/context';
 import { user } from 'state/user/userActions';
 import getUser from 'utils/user';
 
-const useStyles = makeStyles((theme: any) => ({
-  margin: {
-    margin: theme.spacing(2),
-  },
-  padding: {
-    padding: theme.spacing(1),
-  },
-  button: {
-    textTransform: 'none',
-  },
-  marginTop: {
-    marginTop: 10,
-  },
-}));
-
 export const Login: FC = () => {
-  const classes = useStyles();
+  //const classes = useStyles();
   const history = useHistory();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -69,93 +55,61 @@ export const Login: FC = () => {
   return isAuthenticated() ? (
     <Redirect to="/" />
   ) : (
-    <Paper className={classes.padding}>
-      <div className={classes.margin}>
-        <Grid container spacing={8} alignItems="flex-end">
+    <StPaper>
+      <Grid container spacing={8} alignItems="flex-end">
+        <Grid item>
+          <Eco />
+        </Grid>
+        <Grid item md={true} sm={true} xs={true}>
+          <TextField
+            id="email"
+            label="Email"
+            type="email"
+            value={email}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setEmail(e.currentTarget.value)
+            }
+            fullWidth
+            autoFocus
+            required
+          />
+        </Grid>
+      </Grid>
+      <Grid container spacing={8} alignItems="flex-end">
+        <Grid item>
+          <Lock />
+        </Grid>
+        <Grid item md={true} sm={true} xs={true}>
+          <TextField
+            id="password"
+            label="Password"
+            type="password"
+            value={password}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setPassword(e.currentTarget.value)
+            }
+            fullWidth
+            required
+          />
+        </Grid>
+      </Grid>
+      <br />
+      <Grid container alignItems="center">
+        {error && (
           <Grid item>
-            <Eco />
+            <Alert severity="error">{error}</Alert>
           </Grid>
-          <Grid item md={true} sm={true} xs={true}>
-            <TextField
-              id="email"
-              label="Email"
-              type="email"
-              value={email}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setEmail(e.currentTarget.value)
-              }
-              fullWidth
-              autoFocus
-              required
-            />
-          </Grid>
-        </Grid>
-        <Grid container spacing={8} alignItems="flex-end">
-          <Grid item>
-            <Lock />
-          </Grid>
-          <Grid item md={true} sm={true} xs={true}>
-            <TextField
-              id="password"
-              label="Password"
-              type="password"
-              value={password}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setPassword(e.currentTarget.value)
-              }
-              fullWidth
-              required
-            />
-          </Grid>
-        </Grid>
-        <br />
-        <Grid container alignItems="center">
-          {error && (
-            <Grid item>
-              <Alert severity="error">{error}</Alert>
-            </Grid>
-          )}
-        </Grid>
-        <Grid container alignItems="center" justifyContent="space-between">
-          {/* <Grid item>
-            <FormControlLabel
-              control={<Checkbox onChange={handleChange} color="primary" />}
-              label="Remember me"
-            />
-          </Grid> */}
-          {/* <Grid item>
-            <Button
-              disableFocusRipple
-              disableRipple
-              className={classes.button}
-              variant="text"
-              color="primary"
-            >
-              Forgot password ?
-            </Button>
-          </Grid> */}
-        </Grid>
-        <Grid container justifyContent="center" className={classes.marginTop}>
-          {' '}
-          <Button
-            variant="outlined"
-            color="primary"
-            className={classes.button}
-            onClick={() => history.push('/signup')}
-          >
-            Sign Up
-          </Button>{' '}
-          &nbsp;
-          <Button
-            variant="outlined"
-            color="primary"
-            className={classes.button}
-            onClick={handleSubmit}
-          >
-            Login
-          </Button>
-        </Grid>
-      </div>
-    </Paper>
+        )}
+      </Grid>
+      <Grid container alignItems="center" justifyContent="space-between"></Grid>
+      <Grid container justifyContent="center">
+        {' '}
+        <StSubmitButton onClick={() => history.push('/signup')}>
+          Sign Up
+        </StSubmitButton>{' '}
+        &nbsp;
+        <StSubmitButton onClick={handleSubmit}>Login</StSubmitButton>
+      </Grid>
+    </StPaper>
   );
 };
