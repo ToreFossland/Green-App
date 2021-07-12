@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react';
 import { isAuthenticated } from '../utils/auth';
+import StPaper from 'styledComponents/StPaper';
 
 const HomePage: FC = () => {
   const [message, setMessage] = useState<string>('');
@@ -15,31 +16,41 @@ const HomePage: FC = () => {
   // };
 
   return (
-    <>
-      <a  href="/admin">
+    <div>
+      <StPaper>
+        <a  href="/admin">
         Admin Dashboard
       </a>
-      <a  href="/profile">
+      </StPaper>
+
+      <StPaper>
+        <a  href="/profile">
         Profile
       </a>
-      {isAuthenticated() ? (
-        <div>
-          <a  href="/logout">
-            Log out
-          </a>
-        </div>
+      </StPaper>
 
-      ) : (
-        <>
-          <a href="/login">
-            Login
-          </a>
-          <a  href="/signup">
-            Sign Up
-          </a>
-        </>
-      )}
-    </>
+      <StPaper>
+        {isAuthenticated() ? (
+          <div>
+            <a  href="/logout">
+              Log out
+            </a>
+          </div>
+
+        ) : (
+          <>
+            <a href="/login">
+              Login
+            </a>
+            <a  href="/signup">
+              Sign Up
+            </a>
+          </>
+        )}
+      </StPaper>
+
+
+    </div>
   //   {!message && !error && (
     //     <a className={classes.link} href="#" onClick={() => queryBackend()}>
     //       Click to make request to backend

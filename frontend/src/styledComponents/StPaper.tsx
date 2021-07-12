@@ -12,7 +12,6 @@ const StPaper = styled(Paper)({
   paddingBottom: theme.spacing(2),
   marginTop: theme.spacing(1),
   marginBottom: theme.spacing(1),
-
   textAlign: 'left',
   color: theme.palette.text.secondary,
   width: '100%',
