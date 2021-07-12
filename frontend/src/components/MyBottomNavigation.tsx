@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { styled } from '@material-ui/core/styles';
 import { Home, AccountCircle, AddCircle, Group, Map } from '@material-ui/icons';
 import { isAuthenticated } from '../utils/auth';
-
-
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import StBottomNavigation from 'styledComponents/StBottomNavigation';
 
 function MyBottomNavigation() {
   const pathname = window.location.pathname; // in case user visits the path directly. The BottomNavBar is able to follow suit.

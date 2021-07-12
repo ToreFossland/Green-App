@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { styled } from '@material-ui/core/styles';
@@ -18,12 +17,11 @@ const StBottomNavigation = styled(BottomNavigation)({
   },
 });
 
+// function MyBottomNavigation() {
+//   const pathname = window.location.pathname; // in case user visits the path directly. The BottomNavBar is able to follow suit.
+//   const [value, setValue] = React.useState(pathname);
+//   const handleChange = (event: React.ChangeEvent<{}>, newValue: string) => {
+//     setValue(newValue);
+//   };
 
-function MyBottomNavigation() {
-  const pathname = window.location.pathname; // in case user visits the path directly. The BottomNavBar is able to follow suit.
-  const [value, setValue] = React.useState(pathname);
-  const handleChange = (event: React.ChangeEvent<{}>, newValue: string) => {
-    setValue(newValue);
-  };
-
-  export default StBottomNavigation;
+export default StBottomNavigation;
