@@ -8,8 +8,11 @@ const StPaper = styled(Paper)({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  paddingTop: theme.spacing(8),
+  paddingTop: theme.spacing(2),
   paddingBottom: theme.spacing(2),
+  marginTop: theme.spacing(1),
+  marginBottom: theme.spacing(1),
+
   textAlign: 'left',
   color: theme.palette.text.secondary,
   width: '100%',
