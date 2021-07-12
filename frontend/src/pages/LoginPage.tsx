@@ -114,4 +114,4 @@ export const Login: FC = () => {
   );
 };
 
-export default LoginPage;
+export default Login;
