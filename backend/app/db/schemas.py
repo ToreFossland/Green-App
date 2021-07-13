@@ -8,8 +8,9 @@ class UserBase(BaseModel):
     is_superuser: bool = False
     first_name: str = None
     last_name: str = None
-    company: str = "Equinor"
-    points: int = 5
+    company: t.Optional[str] = "Equinor"
+    points: t.Optional[int] = 5
+
 
 class UserOut(UserBase):
     pass

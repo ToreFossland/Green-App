@@ -12,7 +12,6 @@ class User(Base):
     is_superuser = Column(Boolean, default=False)
     first_name = Column(String)
     last_name = Column(String)
-    points = Column(Integer)
     company = Column(String)
+    points = Column(Integer)
     hashed_password = Column(String, nullable=False)
-
