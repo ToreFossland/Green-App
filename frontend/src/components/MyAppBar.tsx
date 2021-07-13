@@ -33,7 +33,7 @@ export default function MyAppBar() {
         <Toolbar>
           {isAuthenticated() ? (
             <>
-              <Hamburger />
+              <HamburgerMenu />
               <Typography variant="h6">
                 {path}
               </Typography>

@@ -8,8 +8,8 @@ class UserBase(BaseModel):
     is_superuser: bool = False
     first_name: str = None
     last_name: str = None
-    company: str = None
-    points: int = 0
+    company: str = "Equinor"
+    points: int = 5
 
 class UserOut(UserBase):
     pass
