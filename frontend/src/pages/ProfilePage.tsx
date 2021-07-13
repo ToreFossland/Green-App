@@ -1,13 +1,11 @@
-
 import StHeader from '../styledComponents/StHeader';
 import StPaper from '../styledComponents/StPaper';
 import StAvatar from '../styledComponents/StAvatar';
-import { useHistory } from "react-router-dom";
-import React, { useContext, useState } from "react";
+import { useHistory } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
 import { GlobalContext } from 'state/context';
-import { StGaugeChart } from 'styledComponents/StGaugeChart';
-import { EditButton } from 'styledComponents/EditButton';
-
+import { StGaugeChart } from 'components/GaugeChart';
+import { EditButton } from 'components/EditButton';
 
 function Profile() {
   const history = useHistory();
@@ -24,7 +22,7 @@ function Profile() {
           <StAvatar />
           <h1> Kari Nordman </h1>
           {/* <h1> {state.user?.name} </h1> */}
-          <EditButton/>
+          <EditButton />
         </StHeader>
         <div>
           <p> {state.user?.name} </p>
@@ -33,11 +31,10 @@ function Profile() {
         </div>
       </StPaper>
       <StPaper>
-        <StGaugeChart/>
+        <StGaugeChart />
       </StPaper>
     </StPaper>
   );
 }
 
 export default Profile;
-

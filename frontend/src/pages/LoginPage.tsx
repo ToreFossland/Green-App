@@ -20,7 +20,6 @@ import { user } from 'state/user/userActions';
 import getUser from 'utils/user';
 
 export const Login: FC = () => {
-  //const classes = useStyles();
   const history = useHistory();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -104,11 +103,11 @@ export const Login: FC = () => {
       <Grid container alignItems="center" justifyContent="space-between"></Grid>
       <Grid container justifyContent="center">
         {' '}
+        <StSubmitButton onClick={handleSubmit}>Login</StSubmitButton>
         <StSubmitButton onClick={() => history.push('/signup')}>
           Sign Up
         </StSubmitButton>{' '}
         &nbsp;
-        <StSubmitButton onClick={handleSubmit}>Login</StSubmitButton>
       </Grid>
     </StPaper>
   );
