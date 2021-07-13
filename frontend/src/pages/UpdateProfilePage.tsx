@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Button, TextField, Container } from '@material-ui/core';
+import { TextField, Container } from '@material-ui/core';
 import StSubmitButton from 'styledComponents/StSubmitButton';
 import StAvatar from '../styledComponents/StAvatar';
 import StHeader from '../styledComponents/StHeader';
