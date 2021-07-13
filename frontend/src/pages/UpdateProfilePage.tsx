@@ -12,7 +12,7 @@ function UpdateProfilePage() {
   const [name, setName] = useState<string>('');
   const { state, dispatch } = useContext(GlobalContext);
   const [error, setError] = useState<string>('');
-  const uploadedImage = React.useRef<File>(null);
+  const uploadedImage = React.useRef<HTMLImageElement>(null);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const handleImageUpload: any = (e) => {
