@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import logo from '../logo.png';
 import { isAuthenticated, logout } from '../utils/auth';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import StHamburger from 'styledComponents/StHamburger';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -33,19 +33,17 @@ export default function MyAppBar() {
   const classes = useStyles();
   const history = useHistory();
   const [path, setPath] = React.useState('Home');
+  let location = useLocation();
 
   useEffect(() => {
-    //Add more routes here as they are implemented
-    return history.listen((location) => {
-      if (location.pathname === '/profile') {
-        setPath('Profile');
-      } else if (location.pathname === '/add') {
-        setPath('Add activities');
-      } else {
-        setPath('Home');
-      }
-    });
-  }, [history]);
+    if (location.pathname === '/profile') {
+      setPath('Profile');
+    } else if (location.pathname === '/add') {
+      setPath('Add activities');
+    } else {
+      setPath('Home');
+    }
+  })
 
   const handleLogoutClick = () => {
     logout();
