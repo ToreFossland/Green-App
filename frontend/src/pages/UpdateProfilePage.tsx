@@ -10,6 +10,7 @@ import { useHistory } from 'react-router-dom';
 
 function UpdateProfilePage() {
   const [name, setName] = useState<string>('');
+  // const [picture, setPicture] =
   const { state, dispatch } = useContext(GlobalContext);
   const [error, setError] = useState<string>('');
   const uploadedImage = React.useRef<HTMLImageElement>(null);
