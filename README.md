@@ -18,6 +18,12 @@ The only dependencies for this project should be docker and docker-compose.
 
 ### Quick Start
 
+
+Change into your project directory and run:
+
+chmod +x scripts/build.sh
+./scripts/build.sh
+
 Starting the project with hot-reloading enabled
 (the first time it will take a while):
 
