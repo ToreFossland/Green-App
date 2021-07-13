@@ -16,9 +16,15 @@ function UpdateProfilePage() {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const handleImageUpload: any = (e) => {
-    const [file] = e.target.files;
+    const [file] = e!.target.files;
     if (file) {
-      console.log(file);
+      const reader = new FileReader();
+      const { current } = uploadedImage;
+      current.file = file;
+      reader.onload = (e) => {
+        current.src = e['target'].result;
+      };
+      reader.readAsDataURL(file);
     }
   };
 
