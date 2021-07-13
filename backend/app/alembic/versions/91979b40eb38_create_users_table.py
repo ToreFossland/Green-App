@@ -23,8 +23,6 @@ def upgrade():
         sa.Column("email", sa.String(50), nullable=False),
         sa.Column("first_name", sa.String(100)),
         sa.Column("last_name", sa.String(100)),
-        sa.Column("company", sa.String(100)),
-        sa.Column("points", sa.Integer),
         sa.Column("address", sa.String(100)),
         sa.Column("hashed_password", sa.String(100), nullable=False),
         sa.Column("is_active", sa.Boolean, nullable=False),
