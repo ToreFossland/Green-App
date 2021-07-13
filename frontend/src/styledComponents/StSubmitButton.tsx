@@ -6,12 +6,13 @@ const theme = GlobalTheme;
 
 const StSubmitButton = styled(Button)({
   textTransform: 'none',
-  variant: 'outlined',
-  color: 'primary',
+  variant: 'outline-secondary',
+  color: '#8FBC8F',
   margin: theme.spacing(2),
   padding: theme.spacing(1),
   marginTop: 10,
-  borderColor: 'secondary',
+  borderColor: '#8FBC8F',
+  backgroundClip: '#8FBC8F',
 });
 
 export default StSubmitButton;
