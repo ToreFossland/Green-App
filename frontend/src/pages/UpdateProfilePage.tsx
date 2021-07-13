@@ -19,10 +19,13 @@ function UpdateProfilePage() {
     const [file] = e!.target.files;
     if (file) {
       const reader = new FileReader();
-      const { current } = uploadedImage;
+      const { current }: any = uploadedImage;
       current.file = file;
-      reader.onload = (e) => {
-        current.src = e['target'].result;
+      reader.onload = (e: any) => {
+        const target: any = e?.target;
+        if (target) {
+          current.src = target?.result as any;
+        }
       };
       reader.readAsDataURL(file);
     }
