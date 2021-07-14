@@ -8,7 +8,7 @@ const getActivities = async() : Promise<IActivity> =>{
       'Accept' : 'application/json',
       'Authorization' : `Bearer ${token}`
     };
-    const request = new Request('/api/v1/activities', {
+    const request = new Request('/api/activities', {
       method: 'GET',
       headers: new Headers(httpHeaders)
       },
