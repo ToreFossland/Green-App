@@ -69,7 +69,7 @@ def edit_user(
     return db_user
 
 
-def seed_activities(db: Session, activity: schemas.Activity):
+def seed_activities(db: Session, activity: schemas.ActivityCreate):
     db_activity = models.Activity(
         name=activity.name,
         points=activity.points
@@ -88,7 +88,6 @@ def get_activities(
     return db.query(models.Activity).offset(skip).limit(limit).all()
 
 
-""" 
 def seed_challenges(db: Session, challenge: schemas.Challenge):
 
     db_challenge = models.Challenge(
@@ -105,4 +104,3 @@ def get_challenges(
     db: Session, skip: int = 0, limit: int = 100
 ) -> t.List[schemas.ChallengeOut]:
     return db.query(models.Challenge).offset(skip).limit(limit).all()
- """
