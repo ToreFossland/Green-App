@@ -1,7 +1,6 @@
 import IUser from "interfaces/IUser";
 import { useState } from "react";
 
-//:IUser instead of any
 const getUser = async() : Promise<IUser> =>{
     let token:string = localStorage.getItem('token')||'{}';
     let httpHeaders = { 
