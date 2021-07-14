@@ -15,3 +15,4 @@ class User(Base):
     company = Column(String)
     points = Column(Integer)
     hashed_password = Column(String, nullable=False)
+    
