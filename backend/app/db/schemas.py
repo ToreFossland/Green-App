@@ -1,3 +1,4 @@
+from sqlalchemy.sql.sqltypes import Date
 from pydantic import BaseModel
 import typing as t
 
@@ -9,7 +10,7 @@ class UserBase(BaseModel):
     first_name: str = None
     last_name: str = None
     company: t.Optional[str] = "Equinor"
-    points: t.Optional[int] = 5
+    points: t.Optional[int] = 0
 
 
 class UserOut(UserBase):
@@ -45,3 +46,27 @@ class Token(BaseModel):
 class TokenData(BaseModel):
     email: str = None
     permissions: str = "user"
+
+
+class ActivityBase(BaseModel):
+    name: str
+    points: int = 0
+
+
+class Activity(ActivityBase):
+    id: int
+
+    class Config:
+        orm_mode = True
+
+
+class ChallengeBase(BaseModel):
+    name: str
+    points: int = 0
+
+
+class Challenge(ChallengeBase):
+    id: int
+
+    class Config:
+        orm_mode = True
