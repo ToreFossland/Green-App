@@ -46,7 +46,7 @@ function UpdateProfilePage() {
           <img
             ref={uploadedImage}
             style={{
-              width: '100%',
+              width: '75%',
               height: '100%',
               // position: 'absolute',
             }}
@@ -55,9 +55,15 @@ function UpdateProfilePage() {
       </div>
       <StHeader>
         <div>
-          <h3> New name: </h3>
+          <h3> New first name: </h3>
           {/* // <form noValidate autoComplete="off"> */}
-          <TextField id="changeName" label={name} variant="outlined" />
+          <TextField id="changeFirstName" label={name} variant="outlined" />
+          {/* // </form> */}
+        </div>
+        <div>
+          <h3> New last name: </h3>
+          {/* // <form noValidate autoComplete="off"> */}
+          <TextField id="changeLastName" label={name} variant="outlined" />
           {/* // </form> */}
         </div>
       </StHeader>
