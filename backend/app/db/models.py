@@ -5,24 +5,29 @@ from sqlalchemy.sql.sqltypes import Date
 
 from .session import Base
 
-performsActivity = Table('association', Base.metadata,
+PerformsActivity = Table('performsActivity', Base.metadata,
                          Column('user_id', Integer, ForeignKey('user.id')),
                          Column('activity_id', Integer,
                                 ForeignKey('activity.id')),
                          Column('date', Date)
                          )
-participatesChallenge = Table('association', Base.metadata,
+FollowsUser = Table('followsUser', Base.metadata,
+                    Column('user1_id', Integer, ForeignKey('user.id')),
+                    Column('user2_id', Integer,
+                           ForeignKey('user.id'))
+                    )
+""" ParticipatesChallenge = Table('participatesChallenge', Base.metadata,
                               Column('user_id', Integer,
                                      ForeignKey('user.id')),
                               Column('challenge_id', Integer,
                                      ForeignKey('challenge.id'))
                               )
-containsActivity = Table('association', Base.metadata,
+ContainsActivity = Table('containsActivity', Base.metadata,
                          Column('activity_id', Integer,
                                 ForeignKey('activity.id')),
                          Column('challenge_id', Integer,
-                                ForeignKey('activity.id'))
-                         )
+                                ForeignKey('activity.id')) 
+                         )"""
 
 
 class User(Base):
@@ -38,35 +43,40 @@ class User(Base):
     points = Column(Integer)
     hashed_password = Column(String, nullable=False)
     activities = relationship("activity",
-                              secondary=performsActivity,
+                              secondary=PerformsActivity,
                               back_populates="users")
-    challenges = relationship("challenge",
-                              secondary=participatesChallenge,
-                              back_populates="users")
+    """ challenges = relationship("challenge",
+                              secondary=ParticipatesChallenge,
+                              back_populates="users") """
+    follower = relationship("User",
+                            secondary=FollowsUser,
+                            back_populates="follower")
 
 
-class activity(Base):
+class Activity(Base):
     __tablename__ = "activity"
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String)
     points = Column(Integer)
     users = relationship("user",
-                         secondary=performsActivity,
+                         secondary=PerformsActivity,
                          back_populates="activities")
-    challenges = relationship("challenge",
-                              secondary=containsActivity,
-                              back_populates="activities")
+    """ challenges = relationship("challenge",
+                              secondary=ContainsActivity,
+                              back_populates="activities") """
 
 
-class challenge(Base):
+""" 
+class Challenge(Base):
     __tablename__ = "challenge"
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String)
     points = Column(Integer)
     users = relationship("user",
-                         secondary=participatesChallenge,
+                         secondary=ParticipatesChallenge,
                          back_populates="challenges")
     activities = relationship("activity",
-                              secondary=containsActivity,
+                              secondary=ContainsActivity,
                               back_populates="challenges")
+ """
