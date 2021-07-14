@@ -9,7 +9,7 @@ class UserBase(BaseModel):
     is_superuser: bool = False
     first_name: str = None
     last_name: str = None
-    company: t.Optional[str] = "Equinor"
+    company: t.Optional[str]
     points: t.Optional[int] = 0
 
 
@@ -50,7 +50,7 @@ class TokenData(BaseModel):
 
 class ActivityBase(BaseModel):
     name: str
-    points: int = 0
+    points: int
 
 
 class Activity(ActivityBase):
@@ -60,9 +60,14 @@ class Activity(ActivityBase):
         orm_mode = True
 
 
+class ActivityOut(ActivityBase):
+    pass
+
+
+""" 
 class ChallengeBase(BaseModel):
     name: str
-    points: int = 0
+    points: int
 
 
 class Challenge(ChallengeBase):
@@ -70,3 +75,7 @@ class Challenge(ChallengeBase):
 
     class Config:
         orm_mode = True
+ """
+""" 
+class ChallengeOut(ChallengeBase):
+    pass """
