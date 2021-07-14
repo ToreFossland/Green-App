@@ -11,12 +11,13 @@ PerformsActivity = Table('performsActivity', Base.metadata,
                                 ForeignKey('activity.id')),
                          Column('date', Date)
                          )
-FollowsUser = Table('followsUser', Base.metadata,
-                    Column('user1_id', Integer, ForeignKey('user.id')),
+""" FollowsUser = Table('followsUser', Base.metadata,
+                    Column('user1_id', Integer,
+                           ForeignKey('user.id')),
                     Column('user2_id', Integer,
                            ForeignKey('user.id'))
-                    )
-""" ParticipatesChallenge = Table('participatesChallenge', Base.metadata,
+                    ) """
+ParticipatesChallenge = Table('participatesChallenge', Base.metadata,
                               Column('user_id', Integer,
                                      ForeignKey('user.id')),
                               Column('challenge_id', Integer,
@@ -26,8 +27,8 @@ ContainsActivity = Table('containsActivity', Base.metadata,
                          Column('activity_id', Integer,
                                 ForeignKey('activity.id')),
                          Column('challenge_id', Integer,
-                                ForeignKey('activity.id')) 
-                         )"""
+                                ForeignKey('activity.id'))
+                         )
 
 
 class User(Base):
@@ -42,15 +43,15 @@ class User(Base):
     company = Column(String)
     points = Column(Integer)
     hashed_password = Column(String, nullable=False)
-    activities = relationship("activity",
+    activities = relationship("Activity",
                               secondary=PerformsActivity,
                               back_populates="users")
-    """ challenges = relationship("challenge",
+    challenges = relationship("challenge",
                               secondary=ParticipatesChallenge,
-                              back_populates="users") """
-    follower = relationship("User",
+                              back_populates="users")
+    """ follower = relationship("User",
                             secondary=FollowsUser,
-                            back_populates="follower")
+                            back_populates="follower") """
 
 
 class Activity(Base):
@@ -59,15 +60,15 @@ class Activity(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String)
     points = Column(Integer)
-    users = relationship("user",
+    users = relationship("User",
                          secondary=PerformsActivity,
                          back_populates="activities")
-    """ challenges = relationship("challenge",
+
+    challenges = relationship("challenge",
                               secondary=ContainsActivity,
-                              back_populates="activities") """
+                              back_populates="activities")
 
 
-""" 
 class Challenge(Base):
     __tablename__ = "challenge"
     id = Column(Integer, primary_key=True, index=True)
@@ -79,4 +80,3 @@ class Challenge(Base):
     activities = relationship("activity",
                               secondary=ContainsActivity,
                               back_populates="challenges")
- """
