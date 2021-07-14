@@ -69,16 +69,40 @@ def edit_user(
     return db_user
 
 
-def seed_database(db: Session, activity, schemas. user: schemas.UserCreate):
+def seed_activities(db: Session, activity: schemas.Activity):
     db_activity = models.Activity(
         name=activity.name,
-        last_name=user.last_name,
-        email=user.email,
-        is_active=user.is_active,
-        is_superuser=user.is_superuser,
-        hashed_password=hashed_password,
+        points=activity.points
     )
-    db.add(db_user)
+
+    db.add(db_activity)
     db.commit()
-    db.refresh(db_user)
-    return db_user
+    db.refresh(db_activity)
+
+    return db_activity
+
+
+def get_activities(
+    db: Session, skip: int = 0, limit: int = 100
+) -> t.List[schemas.ActivityOut]:
+    return db.query(models.Activity).offset(skip).limit(limit).all()
+
+
+""" 
+def seed_challenges(db: Session, challenge: schemas.Challenge):
+
+    db_challenge = models.Challenge(
+        name=challenge.name,
+        points=challenge.points
+    )
+    db.add(db_challenge)
+    db.commit()
+    db.refresh(db_challenge)
+    return db_challenge
+
+
+def get_challenges(
+    db: Session, skip: int = 0, limit: int = 100
+) -> t.List[schemas.ChallengeOut]:
+    return db.query(models.Challenge).offset(skip).limit(limit).all()
+ """
