@@ -25,8 +25,8 @@ function Profile() {
           <EditButton />
         </StHeader>
         <div>
-          <p> {state.user?.name} </p>
-          <p> Mail : {state.user?.name} </p>
+          <p> {state.user?.email} </p>
+          <p> Mail : {state.user?.email} </p>
           <h4> Your points: {state.user?.points}</h4>
         </div>
       </StPaper>
