@@ -60,11 +60,16 @@ class Activity(ActivityBase):
         orm_mode = True
 
 
+class ActivityCreate(ActivityBase):
+
+    class Config:
+        orm_mode = True
+
+
 class ActivityOut(ActivityBase):
     pass
 
 
-""" 
 class ChallengeBase(BaseModel):
     name: str
     points: int
@@ -75,7 +80,13 @@ class Challenge(ChallengeBase):
 
     class Config:
         orm_mode = True
- """
-""" 
+
+
+class ChallengeCreate(ChallengeBase):
+
+    class Config:
+        orm_mode = True
+
+
 class ChallengeOut(ChallengeBase):
-    pass """
+    pass
