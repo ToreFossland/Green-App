@@ -8,7 +8,7 @@ const getUser = async() : Promise<IUser> =>{
       'Accept' : 'application/json',
       'Authorization' : `Bearer ${token}`
     };
-    const request = new Request('/api/v1/users/me', {
+    const request = new Request('/api/users/me', {
       method: 'GET',
       headers: new Headers(httpHeaders)
       },
