@@ -9,24 +9,26 @@ import { EditButton } from 'components/EditButton';
 
 function Profile() {
   const history = useHistory();
-  const [points, setPoints] = useState<bigint>();
-  const [name, setName] = useState<string>('');
-  const [epost, setEpost] = useState<string>('');
   const { state, dispatch } = useContext(GlobalContext);
-  const [error, setError] = useState<string>('');
+  // const [points, setPoints] = useState<bigint>();
+  // const [name, setName] = useState<string>('');
+  // const [epost, setEpost] = useState<string>('');
+  // const [error, setError] = useState<string>('');
 
   return (
     <div>
       <StPaper>
         <StHeader>
           <StAvatar />
-          <h1> Kari Nordman </h1>
-          {/* <h1> {state.user?.name} </h1> */}
+          <h1>
+            {' '}
+            {state.user?.first_name} {state.user?.last_name}{' '}
+          </h1>
           <EditButton />
         </StHeader>
         <div>
-          <p> {state.user?.name} </p>
-          <p> Mail : {state.user?.name} </p>
+          <p> Mail : {state.user?.email} </p>
+          <p> Comapny: {state.user?.company} </p>
           <h4> Your points: {state.user?.points}</h4>
         </div>
       </StPaper>
