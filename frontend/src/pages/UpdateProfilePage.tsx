@@ -11,7 +11,8 @@ import { useHistory } from 'react-router-dom';
 function UpdateProfilePage() {
   const { state, dispatch } = useContext(GlobalContext);
   const [error, setError] = useState<string>('');
-  const [name, setName] = useState<string>('');
+  const [firstName, setFirstName] = useState<string>('');
+  const [lastName, setLastName] = useState<string>('');
   // const [picture, setPicture] =
   const uploadedImage = React.useRef<HTMLImageElement>(null);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -57,13 +58,17 @@ function UpdateProfilePage() {
         <div>
           <h3> New first name: </h3>
           {/* // <form noValidate autoComplete="off"> */}
-          <TextField id="changeFirstName" label={name} variant="outlined" />
+          <TextField
+            id="changeFirstName"
+            label={firstName}
+            variant="outlined"
+          />
           {/* // </form> */}
         </div>
         <div>
           <h3> New last name: </h3>
           {/* // <form noValidate autoComplete="off"> */}
-          <TextField id="changeLastName" label={name} variant="outlined" />
+          <TextField id="changeLastName" label={lastName} variant="outlined" />
           {/* // </form> */}
         </div>
       </StHeader>
