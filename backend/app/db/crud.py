@@ -67,3 +67,18 @@ def edit_user(
     db.commit()
     db.refresh(db_user)
     return db_user
+
+
+def seed_database(db: Session, activity, schemas. user: schemas.UserCreate):
+    db_activity = models.Activity(
+        name=activity.name,
+        last_name=user.last_name,
+        email=user.email,
+        is_active=user.is_active,
+        is_superuser=user.is_superuser,
+        hashed_password=hashed_password,
+    )
+    db.add(db_user)
+    db.commit()
+    db.refresh(db_user)
+    return db_user
