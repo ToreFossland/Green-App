@@ -55,6 +55,7 @@ class ActivityBase(BaseModel):
 
 class Activity(ActivityBase):
     id: int
+    owner_id: int
 
     class Config:
         orm_mode = True
