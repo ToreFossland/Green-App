@@ -9,10 +9,10 @@ import { GlobalContext } from 'state/context';
 import { useHistory } from 'react-router-dom';
 
 function UpdateProfilePage() {
-  const [name, setName] = useState<string>('');
-  // const [picture, setPicture] =
   const { state, dispatch } = useContext(GlobalContext);
   const [error, setError] = useState<string>('');
+  const [name, setName] = useState<string>('');
+  // const [picture, setPicture] =
   const uploadedImage = React.useRef<HTMLImageElement>(null);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
@@ -35,28 +35,30 @@ function UpdateProfilePage() {
   return (
     <StPaper elevation={0}>
       <StAvatar />
-      <Container>
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleImageUpload}
-          multiple={false}
-        />
-        <img
-          ref={uploadedImage}
-          style={{
-            width: '100%',
-            height: '100%',
-            // position: 'absolute',
-          }}
-        />
-      </Container>
+      <div>
+        <Container maxWidth="sm">
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageUpload}
+            multiple={false}
+          />
+          <img
+            ref={uploadedImage}
+            style={{
+              width: '100%',
+              height: '100%',
+              // position: 'absolute',
+            }}
+          />
+        </Container>
+      </div>
       <StHeader>
         <div>
           <h3> New name: </h3>
-          <form noValidate autoComplete="off">
-            <TextField id="changeName" label={name} variant="outlined" />
-          </form>
+          {/* // <form noValidate autoComplete="off"> */}
+          <TextField id="changeName" label={name} variant="outlined" />
+          {/* // </form> */}
         </div>
       </StHeader>
       <StSubmitButton
