@@ -1,18 +1,15 @@
 import React from 'react';
-import StPaper from 'styledComponents/StPaper';
-import StHeader from 'styledComponents/StHeader';
-import StAvatar from 'styledComponents/StAvatar';
-import StTextField from 'styledComponents/StTextField';
-import StSubmitButton from 'styledComponents/StSubmitButton';
-import { Container } from '@material-ui/core';
 import { useContext, useState } from 'react';
+import { useHistory } from 'react-router';
 import { GlobalContext } from 'state/context';
 import UpdateProfileForm from 'components/UpdateProfileForm';
 
 function UpdateProfilePage() {
+  const history = useHistory();
   const { state, dispatch } = useContext(GlobalContext);
   const [firstname, setFirstname] = useState<string>('');
   const [lastname, setLastname] = useState<string>('');
+  const [error, setError] = useState<string>('');
 
   // const [picture, setPicture] =
   const uploadedImage = React.useRef<HTMLImageElement>(null);
@@ -34,6 +31,27 @@ function UpdateProfilePage() {
     }
   };
 
+  const handleSubmit = async (_: React.MouseEvent) => {
+    console.log('click', firstname, lastname)
+    setError('');
+
+    try {
+      const data = await ;
+
+      if (data) {
+        history.push('/profile');
+      }
+    } catch (err) {
+      if (err instanceof Error) {
+        // handle errors thrown from frontend
+        setError(err.message);
+      } else {
+        // handle errors thrown from backend
+        setError(err);
+      }
+    }
+  }
+
   return (
     <UpdateProfileForm
       firstname={state.user?.first_name}
@@ -42,7 +60,7 @@ function UpdateProfilePage() {
       uploadedImage={uploadedImage}
       onFirstnameChange={(e: React.ChangeEvent<HTMLInputElement>) => setFirstname(e.currentTarget.value)}
       onLastnameChange={(e: React.ChangeEvent<HTMLInputElement>) => setLastname(e.currentTarget.value)}
-      onSubmitButtonClick={() => {console.log('click')}}
+      onSubmitButtonClick={handleSubmit}
     />
   );
 }
