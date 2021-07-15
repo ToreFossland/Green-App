@@ -3,7 +3,6 @@ import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { signUp, isAuthenticated } from '../utils/auth';
 import SignupForm from 'components/SignupForm';
-import { Create } from 'react-admin';
 
 export const SignUpPage: FC = () => {
   const history = useHistory();

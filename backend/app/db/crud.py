@@ -51,6 +51,7 @@ def delete_user(db: Session, user_id: int):
 def edit_user(
     db: Session, user_id: int, user: schemas.UserEdit
 ) -> schemas.User:
+    print('get_user:', get_user)
     db_user = get_user(db, user_id)
     if not db_user:
         raise HTTPException(status.HTTP_404_NOT_FOUND, detail="User not found")

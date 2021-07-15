@@ -3,6 +3,7 @@ import { useContext, useState } from 'react';
 import { useHistory } from 'react-router';
 import { GlobalContext } from 'state/context';
 import UpdateProfileForm from 'components/UpdateProfileForm';
+import { updateUser } from 'utils/auth';
 
 function UpdateProfilePage() {
   const history = useHistory();
@@ -10,6 +11,7 @@ function UpdateProfilePage() {
   const [firstname, setFirstname] = useState<string>('');
   const [lastname, setLastname] = useState<string>('');
   const [error, setError] = useState<string>('');
+  const userID = state.user?.id;
 
   // const [picture, setPicture] =
   const uploadedImage = React.useRef<HTMLImageElement>(null);
@@ -36,7 +38,7 @@ function UpdateProfilePage() {
     setError('');
 
     try {
-      const data = await ;
+      const data = await updateUser(userID, firstname, lastname);
 
       if (data) {
         history.push('/profile');
