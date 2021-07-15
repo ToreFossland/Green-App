@@ -75,10 +75,10 @@ export const signUp = async (
     throw new Error('Email was not provided');
   }
   if (!(firstname.length > 0)) {
-    throw new Error('Email was not provided');
+    throw new Error('First Name was not provided');
   }
   if (!(lastname.length > 0)) {
-    throw new Error('Email was not provided');
+    throw new Error('Last Name was not provided');
   }
   if (!(password.length > 0)) {
     throw new Error('Password was not provided');
