@@ -94,7 +94,7 @@ class ChallengeOut(ChallengeBase):
 class performsActivitiesBase(BaseModel):
     activities_id: int
     user_id: int
-    date: str
+    date: t.Optional[str]
 
 
 class performsActivities(performsActivitiesBase):

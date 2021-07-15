@@ -1,10 +1,12 @@
 
+from app.core.security import get_password_hash
+from . import models, schemas
 from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
 import typing as t
 
-from . import models, schemas
-from app.core.security import get_password_hash
+
+from pydantic import ValidationError
 
 
 def get_user(db: Session, user_id: int):
@@ -121,17 +123,21 @@ def seed_performsActivities(db: Session, performsActivities: schemas.performsAct
 
 
 def get_performsActivities(
-    db: Session, performsActivities: schemas.performsActivities, user: schemas.User, activities: schemas.Activity,
+    db: Session, skip: int = 0, limit: int = 100
 ) -> t.List[schemas.performsActivitiesOut]:
-    query = Session.query(user, performsActivities, activities).filter(
-        user.id == performsActivities.user_id
-    ).filter(
-        activities.id == performsActivities.activity_id
-    ).all()
-    return query
+    try:
+        return db.query(models.User, models.performsActivities, models.Activity).filter(
+            models.User.id == models.performsActivities.user_id
+        ).filter(
+            models.Activity.id == models.performsActivities.activities_id
+        ).filter(
+            models.User.id == 1
+        ).all()
+    except ValidationError as e:
+        print(e.json())
 
-    """ query = session.query(user, activities, performsActivities).join(
-        activities).join(performsActivities) """
+    # return db.query(models.User, models.Activity, models.performsActivities).join(
+    #     models.performsActivities, models.User.id == models.performsActivities.user_id).join(models.Activity, models.Activity.id == models.performsActivities.activities_id)
 
     """ join(
         performsActivities, user.id == performsActivities.user_id).join(activities, performsActivities.activity_id == activities.id)
