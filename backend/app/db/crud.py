@@ -1,3 +1,4 @@
+
 from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
 import typing as t
@@ -104,3 +105,34 @@ def get_challenges(
     db: Session, skip: int = 0, limit: int = 100
 ) -> t.List[schemas.ChallengeOut]:
     return db.query(models.Challenge).offset(skip).limit(limit).all()
+
+
+def seed_performsActivities(db: Session, performsActivities: schemas.performsActivities):
+
+    db_performsActivities = models.performsActivities(
+        user_id=performsActivities.user_id,
+        activities_id=performsActivities.activities_id,
+        date=performsActivities.date
+    )
+    db.add(db_performsActivities)
+    db.commit()
+    db.refresh(db_performsActivities)
+    return db_performsActivities
+
+
+def get_performsActivities(
+    db: Session, performsActivities: schemas.performsActivities, user: schemas.User, activities: schemas.Activity,
+) -> t.List[schemas.performsActivitiesOut]:
+    query = Session.query(user, performsActivities, activities).filter(
+        user.id == performsActivities.user_id
+    ).filter(
+        activities.id == performsActivities.activity_id
+    ).all()
+    return query
+
+    """ query = session.query(user, activities, performsActivities).join(
+        activities).join(performsActivities) """
+
+    """ join(
+        performsActivities, user.id == performsActivities.user_id).join(activities, performsActivities.activity_id == activities.id)
+ """
