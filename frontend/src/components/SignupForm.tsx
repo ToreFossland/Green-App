@@ -19,23 +19,6 @@ import { FormControl } from '@material-ui/core';
                 </Grid>
                 <Grid item md={true} sm={true} xs={true}>
                     <TextField
-                        id="email"
-                        label="Email"
-                        type="email"
-                        value={email}
-                        onChange={onEmailChange}
-                        fullWidth
-                        autoFocus
-                        required
-                    />
-                </Grid>
-            </Grid>
-            <Grid container spacing={8} justifyContent="center" alignItems="flex-end">
-                <Grid item>
-                    <Face />
-                </Grid>
-                <Grid item md={true} sm={true} xs={true}>
-                    <TextField
                         id="firstname"
                         label="First Name"
                         type="firstname"
@@ -58,6 +41,23 @@ import { FormControl } from '@material-ui/core';
                         type="lastname"
                         value={lastname}
                         onChange={onLnameChange}
+                        fullWidth
+                        autoFocus
+                        required
+                    />
+                </Grid>
+            </Grid>
+            <Grid container spacing={8} justifyContent="center" alignItems="flex-end">
+                <Grid item>
+                    <Face />
+                </Grid>
+                <Grid item md={true} sm={true} xs={true}>
+                    <TextField
+                        id="email"
+                        label="Email"
+                        type="email"
+                        value={email}
+                        onChange={onEmailChange}
                         fullWidth
                         autoFocus
                         required
