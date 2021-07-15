@@ -1,7 +1,8 @@
+
+import datetime
 from sqlalchemy import Boolean, Column, Integer, String
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql.schema import ForeignKey, Table
-from sqlalchemy.sql.sqltypes import Date
 
 from .session import Base
 
@@ -18,8 +19,8 @@ class User(Base):
     company = Column(String)
     points = Column(Integer)
     hashed_password = Column(String, nullable=False)
-    activities = relationship("Activity", back_populates="owner")
-    challenges = relationship("Challenge", back_populates="owner")
+    activity = relationship("performsActivities",
+                            uselist=False, backref="user")
 
 
 class Activity(Base):
@@ -28,9 +29,8 @@ class Activity(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String)
     points = Column(Integer)
-    date = Column(Date)
-    owner = relationship("User", back_populates="activities")
-    challenges = relationship("challenge", back_populates="activities")
+    user = relationship("performsActivities",
+                        uselist=False, backref="activity")
 
 
 class Challenge(Base):
@@ -38,9 +38,11 @@ class Challenge(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String)
     points = Column(Integer)
-    users = relationship("user",
-                         secondary=ParticipatesChallenge,
-                         back_populates="challenges")
-    activities = relationship("activity",
-                              secondary=ContainsActivity,
-                              back_populates="challenges")
+
+
+class performsActivities(Base):
+    __tablename__ = "performsActivities"
+    id = Column(Integer, primary_key=True, index=True)
+    activities_id = Column(Integer, ForeignKey('activity.id'))
+    user_id = Column(Integer, ForeignKey('user.id'))
+    date = Column(String, default="15/07/2021")
