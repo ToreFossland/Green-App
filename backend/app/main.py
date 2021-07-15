@@ -5,6 +5,7 @@ import uvicorn
 from app.api.routers.users import users_router
 from app.api.routers.auth import auth_router
 from app.api.routers.activities import activities_router
+from app.api.routers.performsActivities import performsActivities_router
 from app.api.routers.challenges import challenges_router
 from app.core import config
 from app.db.session import SessionLocal
@@ -38,7 +39,10 @@ app.include_router(
 )
 app.include_router(auth_router, prefix="/api", tags=["auth"]),
 app.include_router(activities_router, prefix="/api", tags=["activities"]),
-app.include_router(challenges_router, prefix="/api", tags=["challenges"])
+app.include_router(challenges_router, prefix="/api", tags=["challenges"]),
+app.include_router(performsActivities_router, prefix="/api",
+                   tags=["performsActivities"])
+
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", reload=True, port=8888)
