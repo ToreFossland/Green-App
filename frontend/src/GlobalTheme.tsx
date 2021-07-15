@@ -1,5 +1,5 @@
-import { createTheme } from "@material-ui/core/styles";
-import green from "@material-ui/core/colors/green";
+import { createTheme } from '@material-ui/core/styles';
+import green from '@material-ui/core/colors/green';
 
 const GlobalTheme = createTheme({
   palette: {
@@ -22,6 +22,7 @@ const GlobalTheme = createTheme({
       main: green[500],
     },
   },
+  spacing: 1,
 });
 
 export default GlobalTheme;
