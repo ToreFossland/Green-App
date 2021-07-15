@@ -1,4 +1,3 @@
-from sqlalchemy.sql.sqltypes import Date
 from pydantic import BaseModel
 import typing as t
 
@@ -55,7 +54,6 @@ class ActivityBase(BaseModel):
 
 class Activity(ActivityBase):
     id: int
-    owner_id: int
 
     class Config:
         orm_mode = True
@@ -90,4 +88,27 @@ class ChallengeCreate(ChallengeBase):
 
 
 class ChallengeOut(ChallengeBase):
+    pass
+
+
+class performsActivitiesBase(BaseModel):
+    activities_id: int
+    user_id: int
+    date: str
+
+
+class performsActivities(performsActivitiesBase):
+    id: int
+
+    class Config:
+        orm_mode = True
+
+
+class performsActivitiesCreate(performsActivitiesBase):
+
+    class Config:
+        orm_mode = True
+
+
+class performsActivitiesOut(performsActivitiesBase):
     pass
