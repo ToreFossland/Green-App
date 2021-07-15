@@ -47,6 +47,7 @@ export const SignUpPage: FC = () => {
   return isAuthenticated() ? (
     <Redirect to="/" />
   ) : (
+<<<<<<< HEAD
     <SignupForm
       email={email}
       firstname={firstname}
@@ -61,5 +62,75 @@ export const SignUpPage: FC = () => {
       onPasswordConfirmationChange={(e: React.ChangeEvent<HTMLInputElement>) => setPasswordConfirmation(e.currentTarget.value)}
       onButtonClick={handleSubmit}
     />
+=======
+    <StSignUpPaper>
+      <Grid container spacing={8} alignItems="flex-end">
+        <Grid item>
+          <Face />
+        </Grid>
+        <Grid item md={true} sm={true} xs={true}>
+          <TextField
+            id="email"
+            label="Email"
+            type="email"
+            value={email}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setEmail(e.currentTarget.value)
+            }
+            fullWidth
+            autoFocus
+            required
+          />
+        </Grid>
+      </Grid>
+      <Grid container spacing={8} alignItems="flex-end">
+        <Grid item>
+          <Fingerprint />
+        </Grid>
+        <Grid item md={true} sm={true} xs={true}>
+          <TextField
+            id="password"
+            label="Password"
+            type="password"
+            value={password}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setPassword(e.currentTarget.value)
+            }
+            fullWidth
+            required
+          />
+        </Grid>
+      </Grid>
+      <Grid container spacing={8} alignItems="flex-end">
+        <Grid item>
+          <Fingerprint />
+        </Grid>
+        <Grid item md={true} sm={true} xs={true}>
+          <TextField
+            id="passwordConfirmation"
+            label="Confirm password"
+            type="password"
+            value={passwordConfirmation}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setPasswordConfirmation(e.currentTarget.value)
+            }
+            fullWidth
+            required
+          />
+        </Grid>
+      </Grid>
+      <br />
+      <Grid container alignItems="center">
+        {error && (
+          <Grid item>
+            <Alert severity="error">{error}</Alert>
+          </Grid>
+        )}
+      </Grid>
+      <Grid container justifyContent="center">
+        <StSubmitButton onClick={handleSubmit}>Sign Up 1</StSubmitButton>
+      </Grid>
+    </StSignUpPaper>
+>>>>>>> menu
   );
 };
