@@ -1,5 +1,4 @@
 import decodeJwt from 'jwt-decode';
-import { useHistory } from 'react-router-dom';
 
 export const isAuthenticated = () => {
   const permissions = localStorage.getItem('permissions');
@@ -95,9 +94,11 @@ export const signUp = async (
   formData.append('last_name', lastname);
   formData.append('password', password);
 
-  const request = new Request('/api/signup', {
+  console.log('Signup:', firstname, lastname);
+
+  const request = new Request('/api/signup/' + firstname + '/' + lastname, {
     method: 'POST',
-    body: formData
+    body: formData,
   });
 
   const response = await fetch(request);
