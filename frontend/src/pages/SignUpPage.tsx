@@ -107,7 +107,7 @@ export const SignUpPage: FC = () => {
         )}
       </Grid>
       <Grid container justifyContent="center">
-        <StSubmitButton onClick={handleSubmit}>Sign Up</StSubmitButton>
+        <StSubmitButton onClick={handleSubmit}>Sign Up 1</StSubmitButton>
       </Grid>
     </StSignUpPaper>
   );
