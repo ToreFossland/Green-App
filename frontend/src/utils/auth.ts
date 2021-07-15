@@ -1,5 +1,4 @@
 import decodeJwt from 'jwt-decode';
-import { useHistory } from 'react-router-dom';
 
 export const isAuthenticated = () => {
   const permissions = localStorage.getItem('permissions');
@@ -66,11 +65,19 @@ export const login = async (email: string, password: string) => {
  */
 export const signUp = async (
   email: string,
+  firstname: string,
+  lastname: string,
   password: string,
   passwordConfirmation: string
 ) => {
   // Assert email or password or password confirmation is not empty
   if (!(email.length > 0)) {
+    throw new Error('Email was not provided');
+  }
+  if (!(firstname.length > 0)) {
+    throw new Error('Email was not provided');
+  }
+  if (!(lastname.length > 0)) {
     throw new Error('Email was not provided');
   }
   if (!(password.length > 0)) {
@@ -83,9 +90,13 @@ export const signUp = async (
   const formData = new FormData();
   // OAuth2 expects form data, not JSON data
   formData.append('username', email);
+  formData.append('first_name', firstname);
+  formData.append('last_name', lastname);
   formData.append('password', password);
 
-  const request = new Request('/api/signup', {
+  console.log('Signup:', firstname, lastname);
+
+  const request = new Request('/api/signup/' + firstname + '/' + lastname, {
     method: 'POST',
     body: formData,
   });
