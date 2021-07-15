@@ -3,9 +3,13 @@ import StPaper from 'styledComponents/StPaper';
 import StHeader from 'styledComponents/StHeader';
 import StAvatar from 'styledComponents/StAvatar';
 import StSubmitButton from 'styledComponents/StSubmitButton';
-import { Container, TextField } from '@material-ui/core';
+import { Container } from '@material-ui/core';
+import StTextField from 'styledComponents/StTextField';
 
-const UpdateProfileForm = (firstName: any, lastName: any, handleImageUpload: any, uploadedImage: any, onButtonClick: any) => {
+const UpdateProfileForm = ({firstname, lastname, handleImageUpload, uploadedImage,
+                            onFirstnameChange, onLastnameChange, onSubmitButtonClick} : {firstname: any,
+                            lastname: any, handleImageUpload: any, uploadedImage: any,onFirstnameChange: any,
+                            onLastnameChange: any, onSubmitButtonClick: any}) => {
     return (
         <StPaper elevation={0}>
             <StHeader>
@@ -30,24 +34,25 @@ const UpdateProfileForm = (firstName: any, lastName: any, handleImageUpload: any
                 </Container>
             </div>
             <StPaper elevation={0}>
-                <div>
-                <h3> New first name: </h3>
-                {/* // <form noValidate autoComplete="off"> */}
-                <TextField
+                {/* <form noValidate autoComplete="off"> */}
+                <StTextField
+                    required
                     id="changeFirstName"
-                    label={firstName}
+                    label={"First Name"}
+                    defaultValue={firstname}
                     variant="outlined"
+                    onChange={onFirstnameChange}
                 />
-                {/* // </form> */}
-                </div>
-                <div>
-                <h3> New last name: </h3>
-                {/* // <form noValidate autoComplete="off"> */}
-                <TextField id="changeLastName" label={lastName} variant="outlined" />
-                {/* // </form> */}
-                </div>
+                <StTextField
+                    required id="changeLastName"
+                    label={"Last Name"}
+                    defaultValue={lastname}
+                    variant="outlined"
+                    onChange={onLastnameChange}
+                />
+                {/* </form> */}
             </StPaper>
-            <StSubmitButton onClick={onButtonClick} >
+            <StSubmitButton onClick={onSubmitButtonClick} >
                 Save changes
             </StSubmitButton>
         </StPaper>

@@ -4,12 +4,15 @@ import StHeader from 'styledComponents/StHeader';
 import StAvatar from 'styledComponents/StAvatar';
 import StTextField from 'styledComponents/StTextField';
 import StSubmitButton from 'styledComponents/StSubmitButton';
-import { Container, TextField } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 import { useContext, useState } from 'react';
 import { GlobalContext } from 'state/context';
+import UpdateProfileForm from 'components/UpdateProfileForm';
 
 function UpdateProfilePage() {
   const { state, dispatch } = useContext(GlobalContext);
+  const [firstname, setFirstname] = useState<string>('');
+  const [lastname, setLastname] = useState<string>('');
 
   // const [picture, setPicture] =
   const uploadedImage = React.useRef<HTMLImageElement>(null);
@@ -32,44 +35,15 @@ function UpdateProfilePage() {
   };
 
   return (
-    <StPaper elevation={0}>
-        <StHeader>
-            <StAvatar />
-        </StHeader>
-        <div>
-            <Container maxWidth="sm">
-            <input
-                type="file"
-                accept="image/*"
-                onChange={handleImageUpload}
-                multiple={false}
-            />
-            <img
-                ref={uploadedImage}
-                style={{
-                width: '75%',
-                height: '100%',
-                // position: 'absolute',
-                }}
-            />
-            </Container>
-        </div>
-        <StPaper elevation={0}>
-            {/* <form noValidate autoComplete="off"> */}
-            <StTextField
-                required
-                id="changeFirstName"
-                label={"First Name"}
-                defaultValue={state.user?.first_name}
-                variant="outlined"
-            />
-            <StTextField required id="changeLastName" label={"Last Name"} defaultValue={state.user?.last_name} variant="outlined" />
-            {/* </form> */}
-        </StPaper>
-        <StSubmitButton onClick={() => {console.log('click')}} >
-            Save changes
-        </StSubmitButton>
-    </StPaper>
+    <UpdateProfileForm
+      firstname={state.user?.first_name}
+      lastname={state.user?.last_name}
+      handleImageUpload={handleImageUpload}
+      uploadedImage={uploadedImage}
+      onFirstnameChange={(e: React.ChangeEvent<HTMLInputElement>) => setFirstname(e.currentTarget.value)}
+      onLastnameChange={(e: React.ChangeEvent<HTMLInputElement>) => setLastname(e.currentTarget.value)}
+      onSubmitButtonClick={() => {console.log('click')}}
+    />
   );
 }
 
