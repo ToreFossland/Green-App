@@ -1,17 +1,13 @@
 import React from 'react';
 import { useContext, useState } from 'react';
-import { useHistory } from 'react-router';
 import { GlobalContext } from 'state/context';
 import UpdateProfileForm from 'components/UpdateProfileForm';
 //import { updateUser } from 'utils/auth';
 
 function UpdateProfilePage() {
-  const history = useHistory();
-  const { state, dispatch } = useContext(GlobalContext);
+  const { state } = useContext(GlobalContext);
   const [firstname, setFirstname] = useState<string>('');
   const [lastname, setLastname] = useState<string>('');
-  const [error, setError] = useState<string>('');
-  const userID = state.user?.id;
 
   // const [picture, setPicture] =
   const uploadedImage = React.useRef<HTMLImageElement>(null);
@@ -35,7 +31,7 @@ function UpdateProfilePage() {
 
   const handleSubmit = async (_: React.MouseEvent) => {
     console.log('click', firstname, lastname)
-    setError('');
+    //setError('');
 
     /* try {
       const data = await updateUser(userID, firstname, lastname);

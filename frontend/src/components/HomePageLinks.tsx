@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { isAuthenticated } from '../utils/auth';
 import StPaper from 'styledComponents/StPaper';
 
