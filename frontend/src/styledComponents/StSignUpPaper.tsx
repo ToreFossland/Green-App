@@ -1,18 +1,14 @@
-import { styled } from '@material-ui/core/styles';
+import { styled, withTheme } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import GlobalTheme from '../GlobalTheme';
 
-const theme = GlobalTheme;
-
-const StSignUpPaper = styled(Paper)({
+const StSignUpPaper = styled(withTheme(Paper))(props => ({
   //boxShadow: '0px 0px 0px 0px',
-  marginTop: theme.spacing(1),
+  marginTop: props.theme.spacing(1),
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  padding: theme.spacing(2),
-  color: theme.palette.secondary.main,
+  padding: props.theme.spacing(2),
+  color: props.theme.palette.secondary.main,
   justifyContent: 'center',
-});
-
+}));
 export default StSignUpPaper;

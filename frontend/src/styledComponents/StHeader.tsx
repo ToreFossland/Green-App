@@ -1,19 +1,17 @@
-import { styled } from '@material-ui/core/styles';
+import { styled,withTheme } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import GlobalTheme from '../GlobalTheme';
 
-const theme = GlobalTheme;
-
-const StHeader = styled(Paper)({
+const StHeader = styled(withTheme(Paper))(props => ({
   boxShadow: '0px 0px 0px 0px',
   //backgroundColor: theme.palette.primary.main,
-  minHeight: theme.spacing(15),
+  minHeight: props.theme.spacing(15),
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
   textAlign: 'left',
   justifyContent: 'center',
-  color: theme.palette.text.secondary,
-});
+  color: props.theme.palette.text.secondary,
+}));
 
 export default StHeader;
