@@ -17,7 +17,7 @@ export const Login: FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<string>('');
-  const [checked, setChecked] = React.useState(true);
+  //const [checked, setChecked] = React.useState(true); 
   const { dispatch } = useContext(GlobalContext);
 
   // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

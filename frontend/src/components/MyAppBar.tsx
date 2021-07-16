@@ -18,7 +18,7 @@ export default function MyAppBar() {
     } else {
       setPath('Home');
     }
-  });
+  }, [location.pathname]);
 
   return (
     <div>
