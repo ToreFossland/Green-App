@@ -3,7 +3,7 @@ import { useContext, useState } from 'react';
 import { useHistory } from 'react-router';
 import { GlobalContext } from 'state/context';
 import UpdateProfileForm from 'components/UpdateProfileForm';
-//import { updateUser } from 'utils/auth';
+import { updateUser } from 'utils/auth';
 
 function UpdateProfilePage() {
   const history = useHistory();
@@ -37,7 +37,7 @@ function UpdateProfilePage() {
     console.log('click', firstname, lastname)
     setError('');
 
-    /* try {
+    try {
       const data = await updateUser(userID, firstname, lastname);
 
       if (data) {
@@ -51,7 +51,7 @@ function UpdateProfilePage() {
         // handle errors thrown from backend
         setError(err);
       }
-    } */
+    }
   }
 
   return (

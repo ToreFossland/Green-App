@@ -1,4 +1,5 @@
 import decodeJwt from 'jwt-decode';
+import internal from 'stream';
 
 export const isAuthenticated = () => {
   const permissions = localStorage.getItem('permissions');
@@ -75,10 +76,10 @@ export const signUp = async (
     throw new Error('Email was not provided');
   }
   if (!(firstname.length > 0)) {
-    throw new Error('Email was not provided');
+    throw new Error('First Name was not provided');
   }
   if (!(lastname.length > 0)) {
-    throw new Error('Email was not provided');
+    throw new Error('Last Name was not provided');
   }
   if (!(password.length > 0)) {
     throw new Error('Password was not provided');
@@ -127,4 +128,57 @@ export const signUp = async (
 export const logout = () => {
   localStorage.removeItem('token');
   localStorage.removeItem('permissions');
+};
+
+
+/**
+ * Sign up via backend and store JSON web token on success
+ *
+ * @param email
+ * @param password
+ * @returns JSON data containing access token on success
+ * @throws Error on http errors or failed attempts
+ */
+ export const updateUser = async (
+  userID: any,
+  firstname: string,
+  lastname: string
+) => {
+  const formData = new FormData();
+
+  if (firstname.length > 0) {
+    formData.append('first_name', firstname);
+  }
+  if (lastname.length > 0) {
+    formData.append('last_name', lastname);
+  }
+
+  console.log('update profile:', userID, firstname, lastname);
+
+  const request = new Request('/api/users/{userID}/', {
+    method: 'PUT',
+    body: formData,
+  });
+
+  const response = await fetch(request);
+
+  if (response.status === 500) {
+    throw new Error('Internal server error');
+  }
+
+  const data = await response.json();
+  if (response.status > 400 && response.status < 500) {
+    if (data.detail) {
+      throw data.detail;
+    }
+    throw data;
+  }
+
+  if ('access_token' in data) {
+    const decodedToken: any = decodeJwt(data['access_token']);
+    localStorage.setItem('token', data['access_token']);
+    localStorage.setItem('permissions', decodedToken.permissions);
+  }
+
+  return data;
 };
