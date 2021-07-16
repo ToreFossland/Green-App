@@ -37,7 +37,7 @@ function UpdateProfilePage() {
     console.log('click', firstname, lastname)
     setError('');
 
-    try {
+    /* try {
       const data = await updateUser(userID, firstname, lastname);
 
       if (data) {
@@ -51,7 +51,7 @@ function UpdateProfilePage() {
         // handle errors thrown from backend
         setError(err);
       }
-    }
+    } */
   }
 
   return (
