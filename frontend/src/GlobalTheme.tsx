@@ -22,7 +22,6 @@ const GlobalTheme = createTheme({
       main: green[500],
     },
   },
-  spacing: 1,
 });
 
 export default GlobalTheme;
