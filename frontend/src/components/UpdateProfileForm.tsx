@@ -15,8 +15,8 @@ const UpdateProfileForm = ({
   onLastnameChange,
   onSubmitButtonClick,
 }: {
-  firstname: any;
-  lastname: any;
+  firstname?: string;
+  lastname?: string;
   handleImageUpload: any;
   uploadedImage: any;
   onFirstnameChange: any;
