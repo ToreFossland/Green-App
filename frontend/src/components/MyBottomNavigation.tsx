@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { styled } from '@material-ui/core/styles';
 import { Home, AccountCircle, AddCircle, Group, Map } from '@material-ui/icons';
 import { isAuthenticated } from '../utils/auth';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';

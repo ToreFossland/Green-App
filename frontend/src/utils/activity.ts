@@ -1,10 +1,9 @@
 import IActivity from "interfaces/IActivity";
-import { useState } from "react";
 
 const getActivities = async() : Promise<IActivity> =>{
     let token:string = localStorage.getItem('token')||'{}';
-    let httpHeaders = { 
-      'Content-Type' : 'application/x-www-form-urlencoded', 
+    let httpHeaders = {
+      'Content-Type' : 'application/x-www-form-urlencoded',
       'Accept' : 'application/json',
       'Authorization' : `Bearer ${token}`
     };
@@ -14,13 +13,13 @@ const getActivities = async() : Promise<IActivity> =>{
       },
     );
 
-  
+
     const response = await fetch(request);
-  
+
     if (response.status === 500) {
       throw new Error('Internal server error');
     }
-  
+
     const data = await response.json();
     if (response.status > 400 && response.status < 500) {
       if (data.detail) {

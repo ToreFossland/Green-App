@@ -1,15 +1,13 @@
 import StHeader from '../styledComponents/StHeader';
 import StPaper from '../styledComponents/StPaper';
 import StAvatar from '../styledComponents/StAvatar';
-import { useHistory } from 'react-router-dom';
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { GlobalContext } from 'state/context';
 import { StGaugeChart } from 'components/GaugeChart';
 import { EditButton } from 'components/EditButton';
 
 function Profile() {
-  const history = useHistory();
-  const { state, dispatch } = useContext(GlobalContext);
+  const { state } = useContext(GlobalContext);
 
   return (
     <div>

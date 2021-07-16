@@ -38,6 +38,7 @@ const UpdateProfileForm = ({
           />
           <img
             ref={uploadedImage}
+            alt="uploaded"
             style={{
               width: '75%',
               height: '100%',
