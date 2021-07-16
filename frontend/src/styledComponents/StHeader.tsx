@@ -1,6 +1,5 @@
 import { styled,withTheme } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import GlobalTheme from '../GlobalTheme';
 
 const StHeader = styled(withTheme(Paper))(props => ({
   boxShadow: '0px 0px 0px 0px',
