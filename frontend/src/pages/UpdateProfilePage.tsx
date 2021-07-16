@@ -3,7 +3,7 @@ import { useContext, useState } from 'react';
 import { useHistory } from 'react-router';
 import { GlobalContext } from 'state/context';
 import UpdateProfileForm from 'components/UpdateProfileForm';
-import { updateUser } from 'utils/auth';
+//import { updateUser } from 'utils/auth';
 
 function UpdateProfilePage() {
   const history = useHistory();
