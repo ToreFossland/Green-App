@@ -155,7 +155,7 @@ export const logout = () => {
 
   console.log('update profile:', userID, firstname, lastname);
 
-  const request = new Request('/api/users/{userID}/', {
+  const request = new Request('/api/users/{userID}', {
     method: 'PUT',
     body: formData,
   });
