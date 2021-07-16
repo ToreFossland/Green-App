@@ -7,7 +7,7 @@ import { UserCreate } from './Users/UserCreate';
 import { UserList } from './Users/UserList';
 import { UserEdit } from './Users/UserEdit';
 
-const httpClient = (url: any, options: any) => {
+const httpClient = (url: string, options: any) => {
   if (!options) {
     options = {};
   }
