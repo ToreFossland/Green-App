@@ -1,17 +1,18 @@
 import React from 'react';
-import { TextField, Container } from '@material-ui/core';
-import StSubmitButton from 'styledComponents/StSubmitButton';
-import StAvatar from '../styledComponents/StAvatar';
-import StHeader from '../styledComponents/StHeader';
-import StPaper from '../styledComponents/StPaper';
 import { useContext, useState } from 'react';
+import { useHistory } from 'react-router';
 import { GlobalContext } from 'state/context';
+import UpdateProfileForm from 'components/UpdateProfileForm';
+import { updateUser } from 'utils/auth';
 
 function UpdateProfilePage() {
+  const history = useHistory();
   const { state, dispatch } = useContext(GlobalContext);
+  const [firstname, setFirstname] = useState<string>('');
+  const [lastname, setLastname] = useState<string>('');
   const [error, setError] = useState<string>('');
-  const [firstName, setFirstName] = useState<string>('');
-  const [lastName, setLastName] = useState<string>('');
+  const userID = state.user?.id;
+
   // const [picture, setPicture] =
   const uploadedImage = React.useRef<HTMLImageElement>(null);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -32,54 +33,37 @@ function UpdateProfilePage() {
     }
   };
 
+  const handleSubmit = async (_: React.MouseEvent) => {
+    console.log('click', firstname, lastname)
+    setError('');
+
+    try {
+      const data = await updateUser(userID, firstname, lastname);
+
+      if (data) {
+        history.push('/profile');
+      }
+    } catch (err) {
+      if (err instanceof Error) {
+        // handle errors thrown from frontend
+        setError(err.message);
+      } else {
+        // handle errors thrown from backend
+        setError(err);
+      }
+    }
+  }
+
   return (
-    <StPaper elevation={0}>
-      <StAvatar />
-      <div>
-        <Container maxWidth="sm">
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageUpload}
-            multiple={false}
-          />
-          <img
-            ref={uploadedImage}
-            style={{
-              width: '75%',
-              height: '100%',
-              // position: 'absolute',
-            }}
-          />
-        </Container>
-      </div>
-      <StHeader>
-        <div>
-          <h3> New first name: </h3>
-          {/* // <form noValidate autoComplete="off"> */}
-          <TextField
-            id="changeFirstName"
-            label={firstName}
-            variant="outlined"
-          />
-          {/* // </form> */}
-        </div>
-        <div>
-          <h3> New last name: </h3>
-          {/* // <form noValidate autoComplete="off"> */}
-          <TextField id="changeLastName" label={lastName} variant="outlined" />
-          {/* // </form> */}
-        </div>
-      </StHeader>
-      <StSubmitButton
-        onClick={(e) => {
-          e.preventDefault();
-          console.log('click');
-        }}
-      >
-        Save changes
-      </StSubmitButton>
-    </StPaper>
+    <UpdateProfileForm
+      firstname={state.user?.first_name}
+      lastname={state.user?.last_name}
+      handleImageUpload={handleImageUpload}
+      uploadedImage={uploadedImage}
+      onFirstnameChange={(e: React.ChangeEvent<HTMLInputElement>) => setFirstname(e.currentTarget.value)}
+      onLastnameChange={(e: React.ChangeEvent<HTMLInputElement>) => setLastname(e.currentTarget.value)}
+      onSubmitButtonClick={handleSubmit}
+    />
   );
 }
 

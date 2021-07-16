@@ -10,10 +10,6 @@ import { EditButton } from 'components/EditButton';
 function Profile() {
   const history = useHistory();
   const { state, dispatch } = useContext(GlobalContext);
-  // const [points, setPoints] = useState<bigint>();
-  // const [name, setName] = useState<string>('');
-  // const [epost, setEpost] = useState<string>('');
-  // const [error, setError] = useState<string>('');
 
   return (
     <div>
