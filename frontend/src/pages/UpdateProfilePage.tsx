@@ -34,7 +34,7 @@ function UpdateProfilePage() {
   };
 
   const handleSubmit = async (_: React.MouseEvent) => {
-    console.log('click', firstname, lastname)
+    console.log('click', firstname, lastname);
     setError('');
 
     /* try {
@@ -52,7 +52,7 @@ function UpdateProfilePage() {
         setError(err);
       }
     } */
-  }
+  };
 
   return (
     <UpdateProfileForm
@@ -60,8 +60,12 @@ function UpdateProfilePage() {
       lastname={state.user?.last_name}
       handleImageUpload={handleImageUpload}
       uploadedImage={uploadedImage}
-      onFirstnameChange={(e: React.ChangeEvent<HTMLInputElement>) => setFirstname(e.currentTarget.value)}
-      onLastnameChange={(e: React.ChangeEvent<HTMLInputElement>) => setLastname(e.currentTarget.value)}
+      onFirstnameChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+        setFirstname(e.currentTarget.value)
+      }
+      onLastnameChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+        setLastname(e.currentTarget.value)
+      }
       onSubmitButtonClick={handleSubmit}
     />
   );

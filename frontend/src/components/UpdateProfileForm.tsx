@@ -17,10 +17,10 @@ const UpdateProfileForm = ({
 }: {
   firstname?: string;
   lastname?: string;
-  handleImageUpload: any;
-  uploadedImage: any;
-  onFirstnameChange: any;
-  onLastnameChange: any;
+  handleImageUpload: (e: any) => void;
+  uploadedImage: any; // HTMLImageElement
+  onFirstnameChange: (e: any) => void;
+  onLastnameChange: (e: any) => void;
   onSubmitButtonClick: any;
 }) => {
   return (
