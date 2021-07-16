@@ -17,6 +17,7 @@ import { login, isAuthenticated } from '../utils/auth';
 import { GlobalContext } from 'state/context';
 import { user } from 'state/user/userActions';
 import getUser from 'utils/user';
+import getActivities from 'utils/activity';
 
 export const Login: FC = () => {
   const history = useHistory();
@@ -36,6 +37,8 @@ export const Login: FC = () => {
       const data = await login(email, password);
       if (data) {
         const myUser = await getUser();
+        const myActivities = await getActivities();
+        console.log(myActivities);
         dispatch(user(myUser));
         history.push('/');
       }

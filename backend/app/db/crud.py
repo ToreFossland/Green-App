@@ -1,9 +1,12 @@
+
+from app.core.security import get_password_hash
+from . import models, schemas
 from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
 import typing as t
 
-from . import models, schemas
-from app.core.security import get_password_hash
+
+from pydantic import ValidationError
 
 
 def get_user(db: Session, user_id: int):
@@ -67,3 +70,75 @@ def edit_user(
     db.commit()
     db.refresh(db_user)
     return db_user
+
+
+def seed_activities(db: Session, activity: schemas.ActivityCreate):
+    db_activity = models.Activity(
+        name=activity.name,
+        points=activity.points
+    )
+
+    db.add(db_activity)
+    db.commit()
+    db.refresh(db_activity)
+
+    return db_activity
+
+
+def get_activities(
+    db: Session, skip: int = 0, limit: int = 100
+) -> t.List[schemas.ActivityOut]:
+    return db.query(models.Activity).offset(skip).limit(limit).all()
+
+
+def seed_challenges(db: Session, challenge: schemas.Challenge):
+
+    db_challenge = models.Challenge(
+        name=challenge.name,
+        points=challenge.points
+    )
+    db.add(db_challenge)
+    db.commit()
+    db.refresh(db_challenge)
+    return db_challenge
+
+
+def get_challenges(
+    db: Session, skip: int = 0, limit: int = 100
+) -> t.List[schemas.ChallengeOut]:
+    return db.query(models.Challenge).offset(skip).limit(limit).all()
+
+
+def seed_performsActivities(db: Session, performsActivities: schemas.performsActivities):
+
+    db_performsActivities = models.performsActivities(
+        user_id=performsActivities.user_id,
+        activities_id=performsActivities.activities_id,
+        date=performsActivities.date
+    )
+    db.add(db_performsActivities)
+    db.commit()
+    db.refresh(db_performsActivities)
+    return db_performsActivities
+
+
+def get_performsActivities(
+    db: Session, skip: int = 0, limit: int = 100
+) -> t.List[schemas.performsActivitiesOut]:
+    try:
+        return db.query(models.User, models.performsActivities, models.Activity).filter(
+            models.User.id == models.performsActivities.user_id
+        ).filter(
+            models.Activity.id == models.performsActivities.activities_id
+        ).filter(
+            models.User.id == 1
+        ).all()
+    except ValidationError as e:
+        print(e.json())
+
+    # return db.query(models.User, models.Activity, models.performsActivities).join(
+    #     models.performsActivities, models.User.id == models.performsActivities.user_id).join(models.Activity, models.Activity.id == models.performsActivities.activities_id)
+
+    """ join(
+        performsActivities, user.id == performsActivities.user_id).join(activities, performsActivities.activity_id == activities.id)
+ """

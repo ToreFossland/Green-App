@@ -8,8 +8,9 @@ class UserBase(BaseModel):
     is_superuser: bool = False
     first_name: str = None
     last_name: str = None
-    company: str = None
-    points: int = 0
+    company: t.Optional[str]
+    points: t.Optional[int] = 0
+
 
 class UserOut(UserBase):
     pass
@@ -44,3 +45,70 @@ class Token(BaseModel):
 class TokenData(BaseModel):
     email: str = None
     permissions: str = "user"
+
+
+class ActivityBase(BaseModel):
+    name: str
+    points: int
+
+
+class Activity(ActivityBase):
+    id: int
+
+    class Config:
+        orm_mode = True
+
+
+class ActivityCreate(ActivityBase):
+
+    class Config:
+        orm_mode = True
+
+
+class ActivityOut(ActivityBase):
+    pass
+
+
+class ChallengeBase(BaseModel):
+    name: str
+    points: int
+
+
+class Challenge(ChallengeBase):
+    id: int
+
+    class Config:
+        orm_mode = True
+
+
+class ChallengeCreate(ChallengeBase):
+
+    class Config:
+        orm_mode = True
+
+
+class ChallengeOut(ChallengeBase):
+    pass
+
+
+class performsActivitiesBase(BaseModel):
+    activities_id: int
+    user_id: int
+    date: t.Optional[str]
+
+
+class performsActivities(performsActivitiesBase):
+    id: int
+
+    class Config:
+        orm_mode = True
+
+
+class performsActivitiesCreate(performsActivitiesBase):
+
+    class Config:
+        orm_mode = True
+
+
+class performsActivitiesOut(performsActivitiesBase):
+    pass

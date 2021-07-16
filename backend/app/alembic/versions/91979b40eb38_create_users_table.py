@@ -28,7 +28,9 @@ def upgrade():
         sa.Column("is_active", sa.Boolean, nullable=False),
         sa.Column("is_superuser", sa.Boolean, nullable=False),
     )
+    pass
 
 
 def downgrade():
     op.drop_table("user")
+    pass
