@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { isAuthenticated, logout } from '../utils/auth';
-import { useHistory, useLocation } from 'react-router-dom';
+import { isAuthenticated } from '../utils/auth';
+import { useLocation } from 'react-router-dom';
 import HamburgerMenu from 'components/HamburgerMenu';
 import StAppBar from 'styledComponents/StAppBar';
 
 export default function MyAppBar() {
-  const history = useHistory();
   const [path, setPath] = React.useState('Home');
   let location = useLocation();
 
@@ -19,12 +18,7 @@ export default function MyAppBar() {
     } else {
       setPath('Home');
     }
-  })
-
-  const handleLogoutClick = () => {
-    logout();
-    history.push('/logout');
-  };
+  });
 
   return (
     <div>
@@ -33,14 +27,10 @@ export default function MyAppBar() {
           {isAuthenticated() ? (
             <>
               <HamburgerMenu />
-              <Typography variant="h6">
-                {path}
-              </Typography>
+              <Typography variant="h6">{path}</Typography>
             </>
           ) : (
-            <Typography variant="h6">
-              Login
-            </Typography>
+            <Typography variant="h6">Login</Typography>
           )}
         </Toolbar>
       </StAppBar>
