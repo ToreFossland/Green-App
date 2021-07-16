@@ -5,6 +5,9 @@ import GlobalTheme from 'GlobalTheme';
 const theme = GlobalTheme;
 
 const StSubmitButton = styled(Button)({
+  '&:hover': {
+    background: theme.palette.primary.main,
+  },
   textTransform: 'none',
   variant: 'outline-secondary',
   // color: theme.palette.primary.main,

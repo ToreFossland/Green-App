@@ -11,15 +11,15 @@ from pydantic import ValidationError
 def init() -> None:
     db = SessionLocal()
 
-    # create_user(
-    #     db,
-    #     UserCreate(
-    #         email="admin@green-app.com",
-    #         password="password",
-    #         is_active=True,
-    #         is_superuser=True,
-    #     ),
-    # )
+    create_user(
+        db,
+        UserCreate(
+            email="admin@green-app.com",
+            password="password",
+            is_active=True,
+            is_superuser=True,
+        ),
+    )
     try:
         seed_activities(
             db,
