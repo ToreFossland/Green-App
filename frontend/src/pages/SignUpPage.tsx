@@ -1,14 +1,8 @@
 import React, { FC, useState } from 'react';
-import StSignUpPaper from 'styledComponents/StSignUpPaper';
-import StSubmitButton from 'styledComponents/StSubmitButton';
-import { Grid, TextField } from '@material-ui/core';
-import { Face, Fingerprint } from '@material-ui/icons';
-import { Alert } from '@material-ui/lab';
 import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { signUp, isAuthenticated } from '../utils/auth';
 import SignupForm from 'components/SignupForm';
-import { Create } from 'react-admin';
 
 export const SignUpPage: FC = () => {
   const history = useHistory();

@@ -4,7 +4,6 @@ import StSubmitButton from "styledComponents/StSubmitButton";
 import { Grid, TextField } from "@material-ui/core";
 import { Face, Fingerprint } from "@material-ui/icons";
 import { Alert } from '@material-ui/lab';
-import { FormControl } from '@material-ui/core';
 
 
   const SignupForm = ({ email, onEmailChange, firstname, onFnameChange, lastname, onLnameChange, password, onPasswordChange, passwordConfirmation, onPasswordConfirmationChange, error, onButtonClick }

@@ -1,12 +1,5 @@
 import React, { FC, useContext, useState } from 'react';
-import {
-  Paper,
-  Grid,
-  TextField,
-  Button,
-  FormControlLabel,
-  Checkbox,
-} from '@material-ui/core';
+import {  Grid, TextField } from '@material-ui/core';
 import { Lock, Eco } from '@material-ui/icons';
 import { Alert } from '@material-ui/lab';
 import { Redirect } from 'react-router-dom';
