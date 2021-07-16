@@ -1,7 +1,5 @@
 import React from 'react';
 import GaugeChart from 'react-gauge-chart';
-import StHeader from '../styledComponents/StHeader';
-import StPaper from '../styledComponents/StPaper';
 
 export const StGaugeChart = () => {
   return (

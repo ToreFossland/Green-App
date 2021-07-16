@@ -6,7 +6,6 @@ import StHeader from '../styledComponents/StHeader';
 import StPaper from '../styledComponents/StPaper';
 import { useContext, useState } from 'react';
 import { GlobalContext } from 'state/context';
-import { useHistory } from 'react-router-dom';
 
 function UpdateProfilePage() {
   const { state, dispatch } = useContext(GlobalContext);
