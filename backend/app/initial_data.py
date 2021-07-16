@@ -31,17 +31,6 @@ def init() -> None:
     except ValidationError as e:
         print(e.json())
 
-    try:
-        seed_challenges(
-            db,
-            ChallengeCreate(
-                name="Play among us every day for a week",
-                points=500,
-            ),
-        )
-    except ValidationError as e:
-        print(e.json())
-
 
 if __name__ == "__main__":
     print("Creating superuser admin@green-app.com")
