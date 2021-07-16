@@ -4,7 +4,6 @@ import { GlobalContext } from './state/context';
 import { stateReducer } from './state/reducer';
 import { globalState } from './state/state';
 import GlobalTheme from 'GlobalTheme';
-import { ThemeProvider } from '@material-ui/styles';
 
 const App: FC = () => {
   const [state, dispatch] = useReducer(stateReducer, globalState);
