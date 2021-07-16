@@ -30,13 +30,8 @@ function UpdateProfilePage() {
   };
 
   const handleSubmit = async (_: React.MouseEvent) => {
-<<<<<<< HEAD
     console.log('click', firstname, lastname)
     //setError('');
-=======
-    console.log('click', firstname, lastname);
-    setError('');
->>>>>>> AnyFix
 
     /* try {
       const data = await updateUser(userID, firstname, lastname);
