@@ -1,5 +1,4 @@
 import decodeJwt from 'jwt-decode';
-import internal from 'stream';
 
 export const isAuthenticated = () => {
   const permissions = localStorage.getItem('permissions');
@@ -162,6 +161,7 @@ export const logout = () => {
 
   const response = await fetch(request);
 
+
   if (response.status === 500) {
     throw new Error('Internal server error');
   }
@@ -172,12 +172,6 @@ export const logout = () => {
       throw data.detail;
     }
     throw data;
-  }
-
-  if ('access_token' in data) {
-    const decodedToken: any = decodeJwt(data['access_token']);
-    localStorage.setItem('token', data['access_token']);
-    localStorage.setItem('permissions', decodedToken.permissions);
   }
 
   return data;

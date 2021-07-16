@@ -13,12 +13,6 @@ const HomePage: FC = () => {
       </StPaper>
 
       <StPaper>
-        <a  href="/profile">
-        Profile
-      </a>
-      </StPaper>
-
-      <StPaper>
         {isAuthenticated() ? (
           <div>
             <a  href="/logout">

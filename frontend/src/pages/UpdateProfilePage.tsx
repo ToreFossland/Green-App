@@ -7,11 +7,14 @@ import { updateUser } from 'utils/auth';
 
 function UpdateProfilePage() {
   const history = useHistory();
-  const { state, dispatch } = useContext(GlobalContext);
+  const { state } = useContext(GlobalContext);
   const [firstname, setFirstname] = useState<string>('');
   const [lastname, setLastname] = useState<string>('');
   const [error, setError] = useState<string>('');
   const userID = state.user?.id;
+
+
+  console.log(typeof userID);
 
   // const [picture, setPicture] =
   const uploadedImage = React.useRef<HTMLImageElement>(null);
@@ -47,9 +50,11 @@ function UpdateProfilePage() {
       if (err instanceof Error) {
         // handle errors thrown from frontend
         setError(err.message);
+        console.log(error);
       } else {
         // handle errors thrown from backend
         setError(err);
+        console.log(error);
       }
     }
   }
