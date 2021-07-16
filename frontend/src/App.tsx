@@ -10,11 +10,9 @@ const App: FC = () => {
   const [state, dispatch] = useReducer(stateReducer, globalState);
   const theme = GlobalTheme;
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalContext.Provider value={{ state, dispatch }}>
-        <Routes />
-      </GlobalContext.Provider>
-    </ThemeProvider>
+    <GlobalContext.Provider value={{ state, dispatch }}>
+      <Routes />
+    </GlobalContext.Provider>
   );
 };
 
