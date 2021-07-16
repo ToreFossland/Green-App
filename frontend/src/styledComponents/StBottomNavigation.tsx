@@ -1,8 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 import { styled } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 
 const StBottomNavigation = styled(BottomNavigation)({
   //stickToBottom

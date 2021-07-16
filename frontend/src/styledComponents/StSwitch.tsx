@@ -1,14 +1,6 @@
 import React from 'react';
-import { withStyles, Theme, createStyles } from '@material-ui/core/styles';
-import { purple } from '@material-ui/core/colors';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+import { withStyles, createStyles } from '@material-ui/core/styles';
 import Switch, { SwitchClassKey, SwitchProps } from '@material-ui/core/Switch';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import GlobalTheme from '../GlobalTheme';
-
-const theme = GlobalTheme;
 
 interface Styles extends Partial<Record<SwitchClassKey, string>> {
   focusVisible?: string;
