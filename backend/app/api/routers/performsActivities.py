@@ -27,7 +27,8 @@ async def user_create(
 
 @r.get(
     "/performsActivities",
-    response_model=t.List[performsActivities],
+    response_model=t.Any,
+    # t.List[performsActivities],
     response_model_exclude_none=True,
 )
 async def performsActivities_list(
