@@ -3,17 +3,6 @@ import { isAuthenticated } from '../utils/auth';
 import StPaper from 'styledComponents/StPaper';
 
 const HomePage: FC = () => {
-  const [message, setMessage] = useState<string>('');
-  const [error, setError] = useState<string>('');
-
-  // const queryBackend = async () => {
-  //   try {
-  //     const message = await getMessage();
-  //     setMessage(message);
-  //   } catch (err) {
-  //     setError(err);
-  //   }
-  // };
 
   return (
     <div>
@@ -51,21 +40,6 @@ const HomePage: FC = () => {
 
 
     </div>
-  //   {!message && !error && (
-    //     <a className={classes.link} href="#" onClick={() => queryBackend()}>
-    //       Click to make request to backend
-    //     </a>
-    //   )}
-    //   {message && (
-    //     <p>
-    //       <code>{message}</code>
-    //     </p>
-    //   )}
-    //   {error && (
-    //     <p>
-    //       Error: <code>{error}</code>
-    //     </p>
-    //   )}
   );
 };
 
