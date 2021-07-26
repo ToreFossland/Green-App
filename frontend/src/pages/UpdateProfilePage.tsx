@@ -12,6 +12,7 @@ function UpdateProfilePage() {
   const [lastname, setLastname] = useState<string>('');
   const [error, setError] = useState<string>('');
   const userID = state.user?.id;
+  const email = state.user?.email;
 
 
   console.log(typeof userID);
@@ -41,7 +42,7 @@ function UpdateProfilePage() {
     setError('');
 
     try {
-      const data = await updateUser(userID, firstname, lastname);
+      const data = await updateUser(userID, email, firstname, lastname);
 
       if (data) {
         history.push('/profile');

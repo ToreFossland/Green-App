@@ -139,6 +139,7 @@ export const logout = () => {
  */
  export const updateUser = async (
   userID: any,
+  email: any,
   firstname: string,
   lastname: string
 ) => {
@@ -150,6 +151,7 @@ export const logout = () => {
   if (lastname.length > 0) {
     formData.append('last_name', lastname);
   }
+  formData.append('email', email);
 
   console.log('update profile:', userID, firstname, lastname);
 
@@ -168,6 +170,7 @@ export const logout = () => {
   const data = await response.json();
   if (response.status > 400 && response.status < 500) {
     if (data.detail) {
+      console.log(data.detail);
       throw data.detail;
     }
     throw data;
