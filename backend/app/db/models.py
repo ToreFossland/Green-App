@@ -17,7 +17,7 @@ class User(Base):
     first_name = Column(String)
     last_name = Column(String)
     company = Column(String)
-    points = Column(Integer)
+    points = Column(Integer, default=10)
     hashed_password = Column(String, nullable=False)
     activity = relationship("performsActivities",
                             uselist=False, backref="user")

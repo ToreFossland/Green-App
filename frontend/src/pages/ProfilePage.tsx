@@ -22,7 +22,6 @@ function Profile() {
         </StHeader>
         <div>
           <p> Mail : {state.user?.email} </p>
-          <p> Comapny: {state.user?.company} </p>
           <h4> Your points: {state.user?.points}</h4>
         </div>
       </StPaper>
