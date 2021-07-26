@@ -15,7 +15,7 @@ const marks = [
     label: 'None',
   },
   {
-    value: 20,
+    value: 25,
     label: 'Low',
   },
   {
@@ -23,7 +23,7 @@ const marks = [
     label: 'Average',
   },
   {
-    value: 80,
+    value: 75,
     label: 'High',
   },
   {
