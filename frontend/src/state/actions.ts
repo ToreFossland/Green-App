@@ -1,9 +1,11 @@
 
 import { User } from './user/userActions';
+import { Activities } from './activities/activitiesActions';
 
 export enum ActionType {
-    User,
+    User, Activities
 }
 
 export type StateActions =
-    | User;
+    | User
+    | Activities;

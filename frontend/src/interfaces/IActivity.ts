@@ -1,6 +1,6 @@
 
 export default interface IActivity {
+    id: number,
     name: string,
-    id: BigInteger,
-    points: BigInteger
+    points: number
    }
