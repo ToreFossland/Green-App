@@ -5,7 +5,7 @@ import typing as t
 class UserBase(BaseModel):
     email: str
     is_active: bool = True
-    is_superuser: bool = False
+    is_superuser: bool = True
     first_name: str = None
     last_name: str = None
     company: t.Optional[str]

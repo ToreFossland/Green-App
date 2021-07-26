@@ -1,7 +1,7 @@
 import React from 'react';
 import { useContext, useState } from 'react';
 import { GlobalContext } from 'state/context';
-import UpdateProfileForm from 'components/UpdateProfileForm';
+import UpdateProfileForm from 'forms/UpdateProfileForm';
 //import { updateUser } from 'utils/auth';
 
 function UpdateProfilePage() {
