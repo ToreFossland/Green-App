@@ -49,7 +49,7 @@ export default function SliderEffort() {
         Activity Effort
       </Typography>
       <Slider
-        defaultValue={20}
+        defaultValue={0}
         valueLabelFormat={valueLabelFormat}
         getAriaValueText={valuetext}
         aria-labelledby="discrete-slider-restrict"
