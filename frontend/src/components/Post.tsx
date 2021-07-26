@@ -15,14 +15,14 @@ import StCard from 'styledComponents/StCard';
 
 export default function Post() {
     const [liked, setLiked] = useState<boolean>(false);
-    const [likeButtonColor, setLikeButtonColor] = useState<string>('default');
+    const [likeButtonColor, setLikeButtonColor] = useState<"default" | "secondary" | "inherit" | "primary" | undefined >("default");
 
     console.log('liked:', liked, likeButtonColor );
 
     //trenger ID på hver post
 
     const likeButtonColorChange = () => {
-        if (liked) {
+        if (!liked) {
             setLikeButtonColor('secondary');
         } else {
             setLikeButtonColor('default');
@@ -57,7 +57,7 @@ export default function Post() {
                 />
             </CardActionArea>
             <CardActions style={{alignItems: 'center', justifyContent: 'space-between'}} >
-                <IconButton aria-label="add to favorites" color="default" onClick={onLikeButtonClick} >
+                <IconButton aria-label="add to favorites" color={likeButtonColor} onClick={onLikeButtonClick} >
                     <FavoriteIcon />
                 </IconButton>
                 <IconButton aria-label="add a comment">
