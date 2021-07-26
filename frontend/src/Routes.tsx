@@ -21,6 +21,8 @@ import ScoreboardPage from 'pages/ScoreboardPage';
 export const Routes: FC = () => {
   const { state } = useContext(GlobalContext);
   console.log(state?.user);
+  console.log(state?.activities);
+  
 
   return (
     <ThemeProvider theme={GlobalTheme}>

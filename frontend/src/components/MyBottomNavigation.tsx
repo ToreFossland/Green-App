@@ -8,7 +8,7 @@ import StBottomNavigation from 'styledComponents/StBottomNavigation';
 function MyBottomNavigation() {
   const pathname = window.location.pathname; // in case user visits the path directly. The BottomNavBar is able to follow suit.
   const [value, setValue] = React.useState(pathname);
-  const handleChange = (event: React.ChangeEvent<{}>, newValue: string) => {
+  const handleChange = async (event: React.ChangeEvent<{}>, newValue: string) => {
     setValue(newValue);
   };
 

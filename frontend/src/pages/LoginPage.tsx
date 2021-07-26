@@ -9,8 +9,10 @@ import StPaper from 'styledComponents/StPaper';
 import { login, isAuthenticated } from '../utils/auth';
 import { GlobalContext } from 'state/context';
 import { user } from 'state/user/userActions';
+import { activities } from 'state/activities/activitiesActions';
 import getUser from 'utils/user';
 import getActivities from 'utils/activity';
+import { SelectInput } from 'react-admin';
 
 export const Login: FC = () => {
   const history = useHistory();
@@ -33,6 +35,7 @@ export const Login: FC = () => {
         const myActivities = await getActivities();
         console.log(myActivities);
         dispatch(user(myUser));
+        dispatch(activities(myActivities));
         history.push('/');
       }
     } catch (err) {
