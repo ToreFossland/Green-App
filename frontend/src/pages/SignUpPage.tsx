@@ -29,7 +29,7 @@ export const SignUpPage: FC = () => {
 
         if (data) {
           history.push('/');
-          window.location.reload();
+          //window.location.reload();
         }
       } catch (err) {
         if (err instanceof Error) {
