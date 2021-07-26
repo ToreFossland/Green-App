@@ -1,8 +1,11 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useContext, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { signUp, isAuthenticated } from '../utils/auth';
 import SignupForm from 'components/SignupForm';
+import { user } from 'state/user/userActions';
+import { GlobalContext } from 'state/context';
+import getUser from 'utils/user';
 
 export const SignUpPage: FC = () => {
   const history = useHistory();
@@ -12,6 +15,7 @@ export const SignUpPage: FC = () => {
   const [password, setPassword] = useState<string>('');
   const [passwordConfirmation, setPasswordConfirmation] = useState<string>('');
   const [error, setError] = useState<string>('');
+  const { dispatch } = useContext(GlobalContext);
 
   const handleSubmit = async (_: React.MouseEvent) => {
     // Password confirmation validation
@@ -28,8 +32,11 @@ export const SignUpPage: FC = () => {
         );
 
         if (data) {
+          const myUser = await getUser();
+          console.log(data);
+          dispatch(user(myUser));
           history.push('/');
-          window.location.reload();
+          // window.location.reload();
         }
       } catch (err) {
         if (err instanceof Error) {
