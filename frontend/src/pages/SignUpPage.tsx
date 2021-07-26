@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { signUp, isAuthenticated } from '../utils/auth';
-import SignupForm from 'components/SignupForm';
+import SignupForm from 'forms/SignupForm';
 
 export const SignUpPage: FC = () => {
   const history = useHistory();
