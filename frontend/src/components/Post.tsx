@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CardActionArea } from '@material-ui/core';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -14,6 +14,22 @@ import PostImage from 'testImages/sykkel.jpg';
 import StCard from 'styledComponents/StCard';
 
 export default function Post() {
+    const [liked, setLiked] = useState<boolean>(false);
+    const [likeButtonColor, setLikeButtonColor] = useState<"default" | "secondary" | "inherit" | "primary" | undefined >("default");
+
+    const likeButtonColorChange = () => {
+        if (!liked) {
+            setLikeButtonColor('secondary');
+        } else {
+            setLikeButtonColor('default');
+        }
+    }
+
+    const onLikeButtonClick = () => {
+        setLiked(!(liked));
+        likeButtonColorChange();
+    };
+
     return (
         <StCard>
             <CardActionArea>
@@ -37,7 +53,7 @@ export default function Post() {
                 />
             </CardActionArea>
             <CardActions style={{alignItems: 'center', justifyContent: 'space-between'}} >
-                <IconButton aria-label="add to favorites">
+                <IconButton aria-label="add to favorites" color={likeButtonColor} onClick={onLikeButtonClick} >
                     <FavoriteIcon />
                 </IconButton>
                 <IconButton aria-label="add a comment">

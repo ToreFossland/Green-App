@@ -1,23 +1,20 @@
 import React, { FC, useContext, useState } from 'react';
-import {  Grid, TextField } from '@material-ui/core';
-import { Lock, Eco } from '@material-ui/icons';
-import { Alert } from '@material-ui/lab';
 import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router';
-import StSubmitButton from 'styledComponents/StSubmitButton';
-import StPaper from 'styledComponents/StPaper';
 import { login, isAuthenticated } from '../utils/auth';
 import { GlobalContext } from 'state/context';
 import { user } from 'state/user/userActions';
+import { activities } from 'state/activities/activitiesActions';
 import getUser from 'utils/user';
 import getActivities from 'utils/activity';
+import LoginForm from 'forms/LoginForm';
 
 export const Login: FC = () => {
   const history = useHistory();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<string>('');
-  //const [checked, setChecked] = React.useState(true); 
+  //const [checked, setChecked] = React.useState(true);
   const { dispatch } = useContext(GlobalContext);
 
   // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,6 +30,7 @@ export const Login: FC = () => {
         const myActivities = await getActivities();
         console.log(myActivities);
         dispatch(user(myUser));
+        dispatch(activities(myActivities));
         history.push('/');
       }
     } catch (err) {
@@ -49,62 +47,15 @@ export const Login: FC = () => {
   return isAuthenticated() ? (
     <Redirect to="/" />
   ) : (
-    <StPaper>
-      <Grid container spacing={8} alignItems="flex-end">
-        <Grid item>
-          <Eco />
-        </Grid>
-        <Grid item md={true} sm={true} xs={true}>
-          <TextField
-            id="email"
-            label="Email"
-            type="email"
-            value={email}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setEmail(e.currentTarget.value)
-            }
-            fullWidth
-            autoFocus
-            required
-          />
-        </Grid>
-      </Grid>
-      <Grid container spacing={8} alignItems="flex-end">
-        <Grid item>
-          <Lock />
-        </Grid>
-        <Grid item md={true} sm={true} xs={true}>
-          <TextField
-            id="password"
-            label="Password"
-            type="password"
-            value={password}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setPassword(e.currentTarget.value)
-            }
-            fullWidth
-            required
-          />
-        </Grid>
-      </Grid>
-      <br />
-      <Grid container alignItems="center">
-        {error && (
-          <Grid item>
-            <Alert severity="error">{error}</Alert>
-          </Grid>
-        )}
-      </Grid>
-      <Grid container alignItems="center" justifyContent="space-between"></Grid>
-      <Grid container justifyContent="center">
-        {' '}
-        <StSubmitButton onClick={handleSubmit}>Login</StSubmitButton>
-        <StSubmitButton onClick={() => history.push('/signup')}>
-          Sign Up
-        </StSubmitButton>{' '}
-        &nbsp;
-      </Grid>
-    </StPaper>
+    <LoginForm
+      email = {email}
+      password = {password}
+      error = {error}
+      onEmailChange = {(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.currentTarget.value)}
+      onPasswordChange = {(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.currentTarget.value)}
+      onLoginClick = {handleSubmit}
+      onSignupClick = {() => history.push('/signup')}
+    />
   );
 };
 

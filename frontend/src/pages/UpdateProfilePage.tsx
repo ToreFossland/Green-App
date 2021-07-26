@@ -2,7 +2,7 @@ import React from 'react';
 import { useContext, useState } from 'react';
 import { useHistory } from 'react-router';
 import { GlobalContext } from 'state/context';
-import UpdateProfileForm from 'components/UpdateProfileForm';
+import UpdateProfileForm from 'forms/UpdateProfileForm';
 import { updateUser } from 'utils/auth';
 
 function UpdateProfilePage() {
@@ -57,7 +57,7 @@ function UpdateProfilePage() {
         console.log(error);
       }
     }
-  }
+  };
 
   return (
     <UpdateProfileForm
@@ -65,8 +65,12 @@ function UpdateProfilePage() {
       lastname={state.user?.last_name}
       handleImageUpload={handleImageUpload}
       uploadedImage={uploadedImage}
-      onFirstnameChange={(e: React.ChangeEvent<HTMLInputElement>) => setFirstname(e.currentTarget.value)}
-      onLastnameChange={(e: React.ChangeEvent<HTMLInputElement>) => setLastname(e.currentTarget.value)}
+      onFirstnameChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+        setFirstname(e.currentTarget.value)
+      }
+      onLastnameChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+        setLastname(e.currentTarget.value)
+      }
       onSubmitButtonClick={handleSubmit}
     />
   );

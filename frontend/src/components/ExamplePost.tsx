@@ -15,9 +15,6 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import GlobalTheme from 'GlobalTheme';
-
-const theme = GlobalTheme;
 
 const useStyles = makeStyles((theme) =>
   createStyles({

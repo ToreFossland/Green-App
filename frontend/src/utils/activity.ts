@@ -1,6 +1,6 @@
 import IActivity from "interfaces/IActivity";
 
-const getActivities = async() : Promise<IActivity> =>{
+const getActivities = async() : Promise<IActivity[]> =>{
     let token:string = localStorage.getItem('token')||'{}';
     let httpHeaders = {
       'Content-Type' : 'application/x-www-form-urlencoded',
