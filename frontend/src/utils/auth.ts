@@ -45,7 +45,6 @@ export const login = async (email: string, password: string) => {
     }
     throw data;
   }
-
   if ('access_token' in data) {
     const decodedToken: any = decodeJwt(data['access_token']);
     localStorage.setItem('token', data['access_token']);
