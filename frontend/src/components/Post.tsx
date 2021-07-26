@@ -17,10 +17,6 @@ export default function Post() {
     const [liked, setLiked] = useState<boolean>(false);
     const [likeButtonColor, setLikeButtonColor] = useState<"default" | "secondary" | "inherit" | "primary" | undefined >("default");
 
-    console.log('liked:', liked, likeButtonColor );
-
-    //trenger ID på hver post
-
     const likeButtonColorChange = () => {
         if (!liked) {
             setLikeButtonColor('secondary');
