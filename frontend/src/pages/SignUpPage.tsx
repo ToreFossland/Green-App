@@ -2,7 +2,7 @@ import React, { FC, useContext, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { signUp, isAuthenticated } from '../utils/auth';
-import SignupForm from 'components/SignupForm';
+import SignupForm from 'forms/SignupForm';
 import { user } from 'state/user/userActions';
 import { GlobalContext } from 'state/context';
 import getUser from 'utils/user';
