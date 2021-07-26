@@ -5,11 +5,11 @@ import { IActivitiesState } from './activitiesState';
 export interface Activities {
     type: ActionType.Activities;
     payload: {
-        value: any;
+        value: IActivity[];
     };
 }
 
-export const activities = (value: any): Activities => (
+export const activities = (value: IActivity[]): Activities => (
     {
     type: ActionType.Activities,
     payload: {
