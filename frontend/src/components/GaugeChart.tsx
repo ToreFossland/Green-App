@@ -6,7 +6,7 @@ export const StGaugeChart = (result: any) => {
   let percentage = typeof result.points === 'number' ? result.points / 100 : 0;
   return (
     <div>
-      <h2>You are {percentage * 100 + '%'} successful this week.</h2>
+      <h3>You are {percentage * 100 + '%'} successful this week.</h3>
       <GaugeChart
         id="gauge-chart6"
         animate={false}
