@@ -8,7 +8,7 @@ import { EditButton } from 'components/EditButton';
 
 function Profile() {
   const { state } = useContext(GlobalContext);
-
+  let point: number = state.user?.points!;
   return (
     <div>
       <StPaper>
@@ -27,7 +27,7 @@ function Profile() {
         </div>
       </StPaper>
       <StPaper>
-        <StGaugeChart />
+        <StGaugeChart points={point} />
       </StPaper>
     </div>
   );
