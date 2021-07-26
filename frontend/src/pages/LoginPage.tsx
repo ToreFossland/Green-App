@@ -13,13 +13,14 @@ import { activities } from 'state/activities/activitiesActions';
 import getUser from 'utils/user';
 import getActivities from 'utils/activity';
 import { SelectInput } from 'react-admin';
+import LoginForm from 'forms/LoginForm';
 
 export const Login: FC = () => {
   const history = useHistory();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<string>('');
-  //const [checked, setChecked] = React.useState(true); 
+  //const [checked, setChecked] = React.useState(true);
   const { dispatch } = useContext(GlobalContext);
 
   // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
