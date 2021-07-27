@@ -87,7 +87,6 @@ export const GoogleMaps = () => {
         {selected.location && (
           <InfoWindow
             position={selected.location}
-            clickable={true}
             onCloseClick={() => setSelected({})}
           >
             <p>{selected.name}</p>
