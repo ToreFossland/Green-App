@@ -1,13 +1,13 @@
 import React from 'react';
-import StHeader from 'styledComponents/StHeader';
+import StPaper from 'styledComponents/StPaper';
 import { Button, ButtonGroup } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 
-function SettingsPage() {
+function Settings() {
     return (
-        <StHeader>
-            <ButtonGroup variant="contained">
+        <StPaper elevation={0}>
+            <ButtonGroup orientation="vertical" variant="contained">
                 <Button onClick={(e) => {
                     e.preventDefault();
                     console.log('click');
@@ -22,8 +22,8 @@ function SettingsPage() {
                     Delete user
                 </Button>
             </ButtonGroup>
-        </StHeader>
+        </StPaper>
     )
 }
 
-export default SettingsPage;
+export default Settings;

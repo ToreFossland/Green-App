@@ -13,14 +13,14 @@ import MyBottomNavigation from './components/MyBottomNavigation';
 import UpdateProfilePage from './pages/UpdateProfilePage';
 import AddActivities from './pages/AddActivitiesPage';
 import { GlobalContext } from 'state/context';
-import SettingsPage from 'pages/SettingsPage';
+import SettingsPage from 'components/Settings';
 import StBackgroundPaper from 'styledComponents/StBackgroundPaper';
 import ScoreboardPage from 'pages/ScoreboardPage';
 
 
 export const Routes: FC = () => {
   const { state } = useContext(GlobalContext);
-  
+
 
   return (
     <ThemeProvider theme={GlobalTheme}>

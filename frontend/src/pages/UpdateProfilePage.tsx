@@ -6,6 +6,7 @@ import UpdateProfileForm from 'forms/UpdateProfileForm';
 import { updateUser } from 'utils/auth';
 import { user } from 'state/user/userActions';
 import getUser from 'utils/user';
+import Settings from 'components/Settings';
 
 function UpdateProfilePage() {
   const history = useHistory();
@@ -68,19 +69,23 @@ function UpdateProfilePage() {
   };
 
   return (
-    <UpdateProfileForm
-      firstname={state.user?.first_name}
-      lastname={state.user?.last_name}
-      handleImageUpload={handleImageUpload}
-      uploadedImage={uploadedImage}
-      onFirstnameChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-        setFirstname(e.currentTarget.value)
-      }
-      onLastnameChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-        setLastname(e.currentTarget.value)
-      }
-      onSubmitButtonClick={handleSubmit}
-    />
+    <div>
+      <UpdateProfileForm
+        firstname={state.user?.first_name}
+        lastname={state.user?.last_name}
+        handleImageUpload={handleImageUpload}
+        uploadedImage={uploadedImage}
+        onFirstnameChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setFirstname(e.currentTarget.value)
+        }
+        onLastnameChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setLastname(e.currentTarget.value)
+        }
+        onSubmitButtonClick={handleSubmit}
+      />
+
+      <Settings />
+    </div>
   );
 }
 
