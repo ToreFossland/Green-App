@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { isAuthenticated } from '../utils/auth';
 import StPaper from 'styledComponents/StPaper';
 
-const HomePage: FC = () => {
+const HomePageLinks: FC = () => {
 
   return (
     <div>
@@ -31,10 +31,8 @@ const HomePage: FC = () => {
           </>
         )}
       </StPaper>
-
-
     </div>
   );
 };
 
-export default HomePage;
+export default HomePageLinks;
