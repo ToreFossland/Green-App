@@ -5,7 +5,6 @@ import {
   InfoWindow,
 } from '@react-google-maps/api';
 import React, { useEffect, useState } from 'react';
-import ActivityLocation from './ActivityLocation';
 export const GoogleMaps = () => {
   const [selected, setSelected] = useState<any>({});
 
