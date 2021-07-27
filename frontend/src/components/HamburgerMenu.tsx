@@ -2,13 +2,12 @@ import React from 'react';
 import {
   Drawer,
   Button,
-  Divider,
   List,
   ListItem,
   ListItemText,
   ListItemIcon,
 } from '@material-ui/core';
-import { Menu, Settings, Lock, Report, EmojiEvents } from '@material-ui/icons';
+import { Menu, Lock, Report } from '@material-ui/icons';
 import { useHistory } from 'react-router-dom';
 import { logout } from '../utils/auth';
 import { Link as RouterLink } from 'react-router-dom';
@@ -47,16 +46,6 @@ export default function HamburgerMenu() {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List>
-        <ListItem button key="Settings" component={RouterLink} to="/settings">
-          <ListItemIcon>
-            {' '}
-            <Settings />{' '}
-          </ListItemIcon>
-          <ListItemText> Settings </ListItemText>
-        </ListItem>
-      </List>
-      <Divider />
       <List>
         <ListItem button key="Report problem" component={RouterLink} to="/">
           <ListItemIcon>
