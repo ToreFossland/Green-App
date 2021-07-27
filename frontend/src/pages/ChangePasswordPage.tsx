@@ -46,6 +46,7 @@ function ChangePasswordPage() {
 
     return (
         <ChangePasswordForm
+            error={error}
             onOldPasswordChange = {(e: React.ChangeEvent<HTMLInputElement>) =>
                 setOldPassword(e.currentTarget.value)}
             onNewPasswordChange = {(e: React.ChangeEvent<HTMLInputElement>) =>

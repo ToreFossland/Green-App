@@ -1,14 +1,18 @@
+import { Alert } from '@material-ui/lab'
 import React from 'react'
 import StPaper from 'styledComponents/StPaper'
 import StSubmitButton from 'styledComponents/StSubmitButton'
 import StTextField from 'styledComponents/StTextField'
+import { Grid } from '@material-ui/core'
 
 const ChangePasswordForm = ({
+    error,
     onOldPasswordChange,
     onNewPasswordChange,
     onNewPasswordConfirmationChange,
     onSubmitButtonClick,
   }: {
+    error: any;
     onOldPasswordChange: (e: any) => void;
     onNewPasswordChange: (e: any) => void;
     onNewPasswordConfirmationChange: (e: any) => void;
@@ -40,6 +44,10 @@ const ChangePasswordForm = ({
                 variant="outlined"
                 onChange={onNewPasswordConfirmationChange}
             />
+            <br />
+            {error && (
+                <Alert severity="error">{error}</Alert>
+            )}
             <StSubmitButton onClick={onSubmitButtonClick}>
                 Save changes
             </StSubmitButton>
