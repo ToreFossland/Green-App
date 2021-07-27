@@ -94,8 +94,6 @@ export const signUp = async (
   formData.append('last_name', lastname);
   formData.append('password', password);
 
-  console.log('Signup:', firstname, lastname);
-
   const request = new Request('/api/signup/' + firstname + '/' + lastname, {
     method: 'POST',
     body: formData,
@@ -179,7 +177,7 @@ export const logout = () => {
   const data = await response.json();
   if (response.status > 400 && response.status < 500) {
     if (data.detail) {
-      console.log(data.detail);
+      throw data.detail;
     }
     throw data;
   }

@@ -2,7 +2,6 @@ import React from 'react';
 import GaugeChart from 'react-gauge-chart';
 
 export const StGaugeChart = (result: any) => {
-  console.log(result.points);
   let percentage = typeof result.points === 'number' ? result.points / 100 : 0;
   return (
     <div>

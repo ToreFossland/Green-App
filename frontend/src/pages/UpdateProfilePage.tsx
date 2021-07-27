@@ -59,11 +59,9 @@ function UpdateProfilePage() {
       if (err instanceof Error) {
         // handle errors thrown from frontend
         setError(err.message);
-        console.log(error);
       } else {
         // handle errors thrown from backend
         setError(err);
-        console.log(error);
       }
     }
   };
