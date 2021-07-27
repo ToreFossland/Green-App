@@ -59,16 +59,17 @@ function UpdateProfilePage() {
       if (err instanceof Error) {
         // handle errors thrown from frontend
         setError(err.message);
+        console.log(error);
       } else {
         // handle errors thrown from backend
         setError(err);
+        console.log(error);
       }
     }
   };
 
   const PasswordChange = (_: React.MouseEvent) => {
-    console.log('click');
-
+    history.push('/changepassword');
   };
 
   const DeleteUser = (_: React.MouseEvent) => {

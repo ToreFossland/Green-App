@@ -1,5 +1,4 @@
 import decodeJwt from 'jwt-decode';
-import { stringify } from 'querystring';
 
 export const isAuthenticated = () => {
   const permissions = localStorage.getItem('permissions');
@@ -129,11 +128,13 @@ export const logout = () => {
 
 
 /**
- * Sign up via backend and store JSON web token on success
+ * update user info
  *
  * @param email
- * @param password
- * @returns JSON data containing access token on success
+ * @param userID
+ * @param firstname
+ * @param lastname
+ * @returns JSON data on success
  * @throws Error on http errors or failed attempts
  */
  export const updateUser = async (
@@ -159,16 +160,62 @@ export const logout = () => {
   }
   formData.append('email', email); */
 
-  const data2 = {first_name: firstname, last_name: lastname, email: email};
+  const userData = {first_name: firstname, last_name: lastname, email: email};
 
   const request = new Request(`/api/users/${userID}`, {
     method: 'PUT',
     headers: new Headers(httpHeaders),
-    body: JSON.stringify(data2)
+    body: JSON.stringify(userData)
   });
 
   const response = await fetch(request);
 
+
+  if (response.status === 500) {
+    throw new Error('Internal server error');
+  }
+
+  const data = await response.json();
+  if (response.status > 400 && response.status < 500) {
+    if (data.detail) {
+      throw data.detail;
+    }
+    throw data;
+  }
+
+  return data;
+};
+
+/**
+ * update user password
+ *
+ * @param email
+ * @param userID
+ * @param newPassword
+ * @returns JSON data on success
+ * @throws Error on http errors or failed attempts
+ */
+ export const updateUserPassword = async (
+  userID: any,
+  email: any,
+  newPassword: string,
+) => {
+  let token:string = localStorage.getItem('token')||'{}';
+  let httpHeaders = {
+      'Content-Type' : 'application/x-www-form-urlencoded',
+      'Accept' : 'application/json',
+      'Authorization' : `Bearer ${token}`
+  };
+
+  const userData = {email: email, password: newPassword};
+
+  const request = new Request(`/api/users/${userID}`, {
+    method: 'PUT',
+    headers: new Headers(httpHeaders),
+    body: JSON.stringify(userData)
+  });
+
+  const response = await fetch(request);
 
   if (response.status === 500) {
     throw new Error('Internal server error');
