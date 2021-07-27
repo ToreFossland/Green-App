@@ -32,8 +32,22 @@ export const GoogleMaps = () => {
     {
       name: 'Bike to work',
       location: {
-        lat: 63.438439,
-        lng: 10.478938,
+        lat: 63.43059,
+        lng: 10.386,
+      },
+    },
+    {
+      name: 'Eat vegeterian',
+      location: {
+        lat: 63.44,
+        lng: 10.4021,
+      },
+    },
+    {
+      name: 'Go on a walk',
+      location: {
+        lat: 63.420643,
+        lng: 10.402145,
       },
     },
     {
@@ -58,27 +72,9 @@ export const GoogleMaps = () => {
       },
     },
   ];
-  const [currentPosition, setCurrentPosition] = useState({});
-
-  const success = (position: number) => {
-    const currentPosition = {
-      lat: position.coords.latitude,
-      lng: position.coords.longitude,
-    };
-    setCurrentPosition(currentPosition);
-  };
-
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(success);
-  });
   return (
     <LoadScript googleMapsApiKey="AIzaSyAkELw2NZ93B2RwfK5mvQFI7LSUS1k0uWI">
-      <GoogleMap
-        mapContainerStyle={mapStyles}
-        zoom={13}
-        center={currentPosition}
-      >
-        {currentPosition.lat && <Marker position={currentPosition} />}
+      <GoogleMap mapContainerStyle={mapStyles} zoom={14} center={defaultCenter}>
         {locations.map((item) => {
           return (
             <Marker
