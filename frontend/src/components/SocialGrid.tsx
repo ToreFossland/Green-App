@@ -7,9 +7,6 @@ function SocialGrid() {
     return (
         <Grid container direction="column" justifyContent="center" alignItems="stretch" >
             <Grid item>
-                <RecipeReviewCard/>
-            </Grid>
-            <Grid item>
                 <Post/>
             </Grid>
             <Grid item>
