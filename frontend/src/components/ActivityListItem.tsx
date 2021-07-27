@@ -5,10 +5,10 @@ import ListItem from '@material-ui/core/ListItem';
 import SliderEffort from './SliderEffort';
 import IActivity from 'interfaces/IActivity';
 import { Button } from '@material-ui/core';
-import { performActivity } from 'utils/performsActivities';
+import { performsActivity } from 'utils/performsActivities';
 import { GlobalContext } from 'state/context';
 
-export const ActivityListItem = (props : IActivity) => {
+export const  ActivityListItem = (props : IActivity) => {
   const [id, setId] = useState<number>(props.id);
   const [points, setPoints] = useState<number>(props.points);
   const [name, setName] = useState<string>(props.name);
@@ -21,7 +21,7 @@ export const ActivityListItem = (props : IActivity) => {
     setError('');
     try {
       console.log("User Id: ", user?.id, " activity Id: ", id, " date: ", " Today");
-      const data = await performActivity(user.id, id, "TODAY");
+      const data = await performsActivity(user.id, id, "TODAY");
       if (data) {
         console.log(data);
       }

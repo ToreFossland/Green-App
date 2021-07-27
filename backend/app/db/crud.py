@@ -134,6 +134,7 @@ def add_performsActivity(db: Session, performsActivities: schemas.performsActivi
     return db_performsActivities
 
 
+#.filter(models.User.id == 1)
 
 def get_performsActivities(
     db: Session, skip: int = 0, limit: int = 100
@@ -143,8 +144,6 @@ def get_performsActivities(
             models.User.id == models.performsActivities.user_id
         ).filter(
             models.Activity.id == models.performsActivities.activities_id
-        ).filter(
-            models.User.id == 1
         ).all()
     except ValidationError as e:
         print(e.json())

@@ -13,7 +13,9 @@ import ShareIcon from '@material-ui/icons/Share';
 import PostImage from 'testImages/sykkel.jpg';
 import StCard from 'styledComponents/StCard';
 
-export default function Post() {
+const Post = (props : any) => {
+    console.log(props);
+    let name = `${props.firstName} ${props.lastName}`
     const [liked, setLiked] = useState<boolean>(false);
     const [likeButtonColor, setLikeButtonColor] = useState<"default" | "secondary" | "inherit" | "primary" | undefined >("default");
 
@@ -35,12 +37,12 @@ export default function Post() {
             <CardActionArea>
                 <CardHeader
                     avatar={<Avatar style={{backgroundColor: 'purple'}}> EM </Avatar>}
-                    title="Elise Müller"
-                    subheader="13 July, 2021"
+                    title={name}
+                    subheader={props.date}
                 />
                 <CardContent>
                     <Typography variant="body1" color="textSecondary" component="p">
-                        Elise sykla til jobb i dag
+                        {props.activityName}
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
                         Varmt i dag! Fin tur med gjengen. Sjekk bildene
@@ -66,3 +68,5 @@ export default function Post() {
         </StCard>
     )
 }
+
+export default Post;

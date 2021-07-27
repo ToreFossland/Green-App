@@ -8,18 +8,15 @@ import { activities } from 'state/activities/activitiesActions';
 import getUser from 'utils/user';
 import getActivities from 'utils/activity';
 import LoginForm from 'forms/LoginForm';
+import getPerformsActivities from 'utils/performsActivities';
+import { performsActivities } from 'state/performsActivities/performsActivitiesActions';
 
 export const Login: FC = () => {
   const history = useHistory();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<string>('');
-  //const [checked, setChecked] = React.useState(true);
   const { dispatch } = useContext(GlobalContext);
-
-  // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   setChecked(event.target.checked);
-  // };
 
   const handleSubmit = async (_: React.MouseEvent) => {
     setError('');
@@ -28,9 +25,11 @@ export const Login: FC = () => {
       if (data) {
         const myUser = await getUser();
         const myActivities = await getActivities();
-        console.log(myActivities);
+        const myPerformsActivities = await getPerformsActivities();
+        console.log(myPerformsActivities);
         dispatch(user(myUser));
         dispatch(activities(myActivities));
+        dispatch(performsActivities(myPerformsActivities));
         history.push('/');
       }
     } catch (err) {

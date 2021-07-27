@@ -32,7 +32,7 @@ const getPerformsActivities = async() : Promise<IPerformsActivities> =>{
   }
 
 
-  export const performActivity = async (
+  export const performsActivity = async (
     userId: number,
     activityId: number,
     date: string,
@@ -56,12 +56,12 @@ const getPerformsActivities = async() : Promise<IPerformsActivities> =>{
       throw new Error('Date was not provided');
     }
 
-    const data2 = {user_id : userId, activities_id : activityId, date : "string23"};
+    const userData = {user_id : userId, activities_id : activityId, date : date};
   
-    const request = new Request('/api/performsActivies', {
+    const request = new Request('/api/performsActivities', {
       method: 'POST',
       headers: new Headers(httpHeaders),
-      body: JSON.stringify(data2),
+      body: JSON.stringify(userData),
     });
   
     const response = await fetch(request);
@@ -77,7 +77,6 @@ const getPerformsActivities = async() : Promise<IPerformsActivities> =>{
       }
       throw data;
     }
-  
     return data;
   };
 
