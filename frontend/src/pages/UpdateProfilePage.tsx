@@ -68,6 +68,15 @@ function UpdateProfilePage() {
     }
   };
 
+  const PasswordChange = (_: React.MouseEvent) => {
+    console.log('click');
+
+  };
+
+  const DeleteUser = (_: React.MouseEvent) => {
+    console.log('click');
+  };
+
   return (
     <div>
       <UpdateProfileForm
@@ -84,7 +93,10 @@ function UpdateProfilePage() {
         onSubmitButtonClick={handleSubmit}
       />
 
-      <Settings />
+      <Settings
+        onPasswordChange={PasswordChange}
+        onDelete={DeleteUser}
+      />
     </div>
   );
 }
