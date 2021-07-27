@@ -1,21 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useContext, useState } from 'react';
 import { useHistory } from 'react-router';
 import { GlobalContext } from 'state/context';
 import UpdateProfileForm from 'forms/UpdateProfileForm';
 import { updateUser } from 'utils/auth';
+import { user } from 'state/user/userActions';
+import getUser from 'utils/user';
 
 function UpdateProfilePage() {
   const history = useHistory();
-  const { state } = useContext(GlobalContext);
+  const { state, dispatch } = useContext(GlobalContext);
   const [firstname, setFirstname] = useState<string>('');
   const [lastname, setLastname] = useState<string>('');
   const [error, setError] = useState<string>('');
   const userID = state.user?.id;
   const email = state.user?.email;
 
+  useEffect(() => {
+    setFirstname(state.user?.first_name!);
+    setLastname(state.user?.last_name!);
+  }, [state])
 
-  console.log(typeof userID);
+
 
   // const [picture, setPicture] =
   const uploadedImage = React.useRef<HTMLImageElement>(null);
@@ -38,13 +44,14 @@ function UpdateProfilePage() {
   };
 
   const handleSubmit = async (_: React.MouseEvent) => {
-    console.log('click', firstname, lastname)
     setError('');
 
     try {
       const data = await updateUser(userID, email, firstname, lastname);
 
       if (data) {
+        const myUser = await getUser();
+        dispatch(user(myUser));
         history.push('/profile');
       }
     } catch (err) {

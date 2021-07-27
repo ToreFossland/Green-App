@@ -1,4 +1,5 @@
 import decodeJwt from 'jwt-decode';
+import { stringify } from 'querystring';
 
 export const isAuthenticated = () => {
   const permissions = localStorage.getItem('permissions');
@@ -143,7 +144,14 @@ export const logout = () => {
   firstname: string,
   lastname: string
 ) => {
-  const formData = new FormData();
+  let token:string = localStorage.getItem('token')||'{}';
+  let httpHeaders = {
+      'Content-Type' : 'application/x-www-form-urlencoded',
+      'Accept' : 'application/json',
+      'Authorization' : `Bearer ${token}`
+  };
+
+/*   const formData = new FormData();
 
   if (firstname.length > 0) {
     formData.append('first_name', firstname);
@@ -151,13 +159,14 @@ export const logout = () => {
   if (lastname.length > 0) {
     formData.append('last_name', lastname);
   }
-  formData.append('email', email);
+  formData.append('email', email); */
 
-  console.log('update profile:', userID, firstname, lastname);
+  const data2 = {first_name: firstname, last_name: lastname, email: email};
 
   const request = new Request(`/api/users/${userID}`, {
     method: 'PUT',
-    body: formData,
+    headers: new Headers(httpHeaders),
+    body: JSON.stringify(data2)
   });
 
   const response = await fetch(request);
@@ -171,7 +180,6 @@ export const logout = () => {
   if (response.status > 400 && response.status < 500) {
     if (data.detail) {
       console.log(data.detail);
-      throw data.detail;
     }
     throw data;
   }
