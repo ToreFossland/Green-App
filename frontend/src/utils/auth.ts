@@ -1,4 +1,5 @@
 import decodeJwt from 'jwt-decode';
+import { stringify } from 'querystring';
 
 export const isAuthenticated = () => {
   const permissions = localStorage.getItem('permissions');
@@ -74,10 +75,10 @@ export const signUp = async (
     throw new Error('Email was not provided');
   }
   if (!(firstname.length > 0)) {
-    throw new Error('Email was not provided');
+    throw new Error('First Name was not provided');
   }
   if (!(lastname.length > 0)) {
-    throw new Error('Email was not provided');
+    throw new Error('Last Name was not provided');
   }
   if (!(password.length > 0)) {
     throw new Error('Password was not provided');
@@ -126,4 +127,62 @@ export const signUp = async (
 export const logout = () => {
   localStorage.removeItem('token');
   localStorage.removeItem('permissions');
+};
+
+
+/**
+ * Sign up via backend and store JSON web token on success
+ *
+ * @param email
+ * @param password
+ * @returns JSON data containing access token on success
+ * @throws Error on http errors or failed attempts
+ */
+ export const updateUser = async (
+  userID: any,
+  email: any,
+  firstname: string,
+  lastname: string
+) => {
+  let token:string = localStorage.getItem('token')||'{}';
+  let httpHeaders = {
+      'Content-Type' : 'application/x-www-form-urlencoded',
+      'Accept' : 'application/json',
+      'Authorization' : `Bearer ${token}`
+  };
+
+/*   const formData = new FormData();
+
+  if (firstname.length > 0) {
+    formData.append('first_name', firstname);
+  }
+  if (lastname.length > 0) {
+    formData.append('last_name', lastname);
+  }
+  formData.append('email', email); */
+
+  const data2 = {first_name: firstname, last_name: lastname, email: email};
+
+  const request = new Request(`/api/users/${userID}`, {
+    method: 'PUT',
+    headers: new Headers(httpHeaders),
+    body: JSON.stringify(data2)
+  });
+
+  const response = await fetch(request);
+
+
+  if (response.status === 500) {
+    throw new Error('Internal server error');
+  }
+
+  const data = await response.json();
+  if (response.status > 400 && response.status < 500) {
+    if (data.detail) {
+      console.log(data.detail);
+    }
+    throw data;
+  }
+
+  return data;
 };
