@@ -14,9 +14,8 @@ import MyBottomNavigation from './components/MyBottomNavigation';
 import UpdateProfilePage from './pages/UpdateProfilePage';
 import AddActivities from './pages/AddActivitiesPage';
 import { GlobalContext } from 'state/context';
-import SettingsPage from 'pages/SettingsPage';
 import StBackgroundPaper from 'styledComponents/StBackgroundPaper';
-import ScoreboardPage from 'pages/ScoreboardPage';
+import ChangePasswordPage from 'pages/ChangePasswordPage';
 
 export const Routes: FC = () => {
   const { state } = useContext(GlobalContext);
@@ -48,8 +47,11 @@ export const Routes: FC = () => {
             component={UpdateProfilePage}
           />
           <PrivateRoute exact path="/add" component={AddActivities} />
-          <PrivateRoute exact path="/settings" component={SettingsPage} />
-          <PrivateRoute exact path="/scoreboard" component={ScoreboardPage} />
+          <PrivateRoute
+            exact
+            path="/changepassword"
+            component={ChangePasswordPage}
+          />
           <PrivateRoute exact path="/map" component={MapPage} />
         </Switch>
       </StBackgroundPaper>

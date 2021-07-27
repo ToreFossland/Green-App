@@ -49,7 +49,6 @@ const UpdateProfileForm = ({
         </Container>
       </div>
       <StPaper elevation={0}>
-        {/* <form noValidate autoComplete="off"> */}
         <StTextField
           required
           id="changeFirstName"
@@ -66,7 +65,6 @@ const UpdateProfileForm = ({
           variant="outlined"
           onChange={onLastnameChange}
         />
-        {/* </form> */}
       </StPaper>
       <StSubmitButton onClick={onSubmitButtonClick}>
         Save changes
