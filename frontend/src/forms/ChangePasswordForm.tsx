@@ -3,31 +3,20 @@ import React from 'react'
 import StPaper from 'styledComponents/StPaper'
 import StSubmitButton from 'styledComponents/StSubmitButton'
 import StTextField from 'styledComponents/StTextField'
-import { Grid } from '@material-ui/core'
 
 const ChangePasswordForm = ({
     error,
-    onOldPasswordChange,
     onNewPasswordChange,
     onNewPasswordConfirmationChange,
     onSubmitButtonClick,
   }: {
     error: any;
-    onOldPasswordChange: (e: any) => void;
     onNewPasswordChange: (e: any) => void;
     onNewPasswordConfirmationChange: (e: any) => void;
     onSubmitButtonClick: any;
   }) => {
     return (
         <StPaper elevation={0}>
-            <StTextField
-                required
-                id="oldPassword"
-                type="password"
-                label={'Current Password'}
-                variant="outlined"
-                onChange={onOldPasswordChange}
-            />
             <StTextField
                 required
                 id="newPassword"
