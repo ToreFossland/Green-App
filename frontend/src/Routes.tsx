@@ -30,28 +30,12 @@ export const Routes: FC = () => {
           </Route>
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/signup" component={SignUpPage} />
-          <Route
-            exact
-            path="/logout"
-            component={LoginPage}
-            // render={() => {
-            //   logout();
-            //   return null;
-            // }}
-          />
+          <Route exact path="/logout" component={LoginPage} />
           <PrivateRoute exact path="/" component={HomePage} />
           <PrivateRoute exact path="/profile" component={Profile} />
-          <PrivateRoute
-            exact
-            path="/updateprofile"
-            component={UpdateProfilePage}
-          />
+          <PrivateRoute exact path="/updateprofile" component={UpdateProfilePage} />
           <PrivateRoute exact path="/add" component={AddActivities} />
-          <PrivateRoute
-            exact
-            path="/changepassword"
-            component={ChangePasswordPage}
-          />
+          <PrivateRoute exact path="/changepassword" component={ChangePasswordPage} />
           <PrivateRoute exact path="/map" component={MapPage} />
         </Switch>
       </StBackgroundPaper>
