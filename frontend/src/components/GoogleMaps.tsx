@@ -1,60 +1,103 @@
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
-import React from 'react';
+import {
+  GoogleMap,
+  LoadScript,
+  Marker,
+  InfoWindow,
+} from '@react-google-maps/api';
+import React, { useEffect, useState } from 'react';
+import ActivityLocation from './ActivityLocation';
 export const GoogleMaps = () => {
+  const [selected, setSelected] = useState<any>({});
+
+  const onSelect = (item: any) => {
+    setSelected(item);
+  };
   const mapStyles = {
     height: '100vh',
     width: '100%',
   };
 
   const defaultCenter = {
-    lat: 41.3851,
-    lng: 2.1734,
+    lat: 63.42692,
+    lng: 10.395202,
   };
 
   const locations = [
     {
-      name: 'Location 1',
+      name: 'Pick up trash',
       location: {
-        lat: 41.3954,
-        lng: 2.162,
+        lat: 63.427664,
+        lng: 10.394891,
       },
     },
     {
-      name: 'Location 2',
+      name: 'Bike to work',
       location: {
-        lat: 41.3917,
-        lng: 2.1649,
+        lat: 63.438439,
+        lng: 10.478938,
       },
     },
     {
-      name: 'Location 3',
+      name: 'Clean up park',
       location: {
-        lat: 41.3773,
-        lng: 2.1585,
+        lat: 63.430597,
+        lng: 10.39101,
       },
     },
     {
-      name: 'Location 4',
+      name: 'Plant some trees',
       location: {
-        lat: 41.3797,
-        lng: 2.1682,
+        lat: 63.433289,
+        lng: 10.398756,
       },
     },
     {
-      name: 'Location 5',
+      name: 'Donate your old clothes',
       location: {
-        lat: 41.4055,
-        lng: 2.1915,
+        lat: 63.43095499043331,
+        lng: 10.402535233541014,
       },
     },
   ];
+  const [currentPosition, setCurrentPosition] = useState({});
 
+  const success = (position: number) => {
+    const currentPosition = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude,
+    };
+    setCurrentPosition(currentPosition);
+  };
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(success);
+  });
   return (
     <LoadScript googleMapsApiKey="AIzaSyAkELw2NZ93B2RwfK5mvQFI7LSUS1k0uWI">
-      <GoogleMap mapContainerStyle={mapStyles} zoom={13} center={defaultCenter}>
+      <GoogleMap
+        mapContainerStyle={mapStyles}
+        zoom={13}
+        center={currentPosition}
+      >
+        {currentPosition.lat && <Marker position={currentPosition} />}
         {locations.map((item) => {
-          return <Marker key={item.name} position={item.location} />;
+          return (
+            <Marker
+              key={item.name}
+              position={item.location}
+              onClick={() => onSelect(item)}
+            />
+          );
         })}
+        {selected.location && (
+          <InfoWindow
+            position={selected.location}
+            clickable={true}
+            onCloseClick={() => setSelected({})}
+          >
+            <p>{selected.name}</p>
+          </InfoWindow>
+        )}
       </GoogleMap>
     </LoadScript>
   );
