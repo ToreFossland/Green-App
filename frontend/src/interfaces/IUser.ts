@@ -1,7 +1,7 @@
 
 export default interface IUser {
  email: string,
-  id: BigInteger,
+  id: number,
   is_active: boolean,
   is_superuser: boolean,
   points: number,

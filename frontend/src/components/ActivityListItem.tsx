@@ -5,18 +5,23 @@ import ListItem from '@material-ui/core/ListItem';
 import SliderEffort from './SliderEffort';
 import IActivity from 'interfaces/IActivity';
 import { Button } from '@material-ui/core';
+import { performsActivity } from 'utils/performsActivities';
+import { GlobalContext } from 'state/context';
 
-export const ActivityListItem = (props : IActivity) => {
+export const  ActivityListItem = (props : IActivity) => {
   const [id, setId] = useState<number>(props.id);
   const [points, setPoints] = useState<number>(props.points);
   const [name, setName] = useState<string>(props.name);
   const [error, setError] = useState<string>('');
+  const { state } = React.useContext(GlobalContext);
+  const user = state.user!;
   
 
   const handleSubmit = async (_: React.MouseEvent) => {
     setError('');
     try {
-      const data = 1;
+      console.log("User Id: ", user?.id, " activity Id: ", id, " date: ", " Today");
+      const data = await performsActivity(user.id, id, "TODAY");
       if (data) {
         console.log(data);
       }
@@ -37,7 +42,7 @@ export const ActivityListItem = (props : IActivity) => {
         <div>
           <StFavorite />
           <label style={{ fontSize: '14pt' }}> {name} </label>
-          <Button onClick={() => handleSubmit} color={'primary'} > Submit </Button> 
+          <Button onClick={handleSubmit} color={'primary'} > Submit </Button> 
           <SliderEffort />
         </div>
       </ListItem>

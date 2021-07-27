@@ -1,5 +1,5 @@
 export default interface IPerformsActivities {
-    user_id: BigInteger,
-    activities_id: BigInteger,
+    user_id: number,
+    activities_id: number,
     date: string
    }

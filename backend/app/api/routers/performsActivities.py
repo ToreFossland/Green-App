@@ -3,6 +3,7 @@ import typing as t
 
 from app.db.session import get_db
 from app.db.crud import (
+    add_performsActivity,
     get_performsActivities,
     seed_performsActivities
 )
@@ -12,17 +13,17 @@ from app.core.auth import get_current_active_user, get_current_active_superuser
 performsActivities_router = r = APIRouter()
 
 
-@r.post("/performsActivies", response_model=performsActivities, response_model_exclude_none=True)
+@r.post("/performsActivities", response_model=performsActivities, response_model_exclude_none=True)
 async def user_create(
     request: Request,
     performsActivities: performsActivitiesCreate,
     db=Depends(get_db),
-    current_user=Depends(get_current_active_superuser),
+    current_user=Depends(get_current_active_user),
 ):
     """
     Create a new challenge
     """
-    return seed_performsActivities(db, performsActivities)
+    return add_performsActivity(db, performsActivities)
 
 
 @r.get(
@@ -34,7 +35,7 @@ async def user_create(
 async def performsActivities_list(
     response: Response,
     db=Depends(get_db),
-    current_user=Depends(get_current_active_superuser),
+    current_user=Depends(get_current_active_user),
 ):
     """
     Get all performed activities

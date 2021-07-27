@@ -121,6 +121,20 @@ def seed_performsActivities(db: Session, performsActivities: schemas.performsAct
     db.refresh(db_performsActivities)
     return db_performsActivities
 
+def add_performsActivity(db: Session, performsActivities: schemas.performsActivities):
+
+    db_performsActivities = models.performsActivities(
+        user_id=performsActivities.user_id,
+        activities_id=performsActivities.activities_id,
+        date=performsActivities.date
+    )
+    db.add(db_performsActivities)
+    db.commit()
+    db.refresh(db_performsActivities)
+    return db_performsActivities
+
+
+#.filter(models.User.id == 1)
 
 def get_performsActivities(
     db: Session, skip: int = 0, limit: int = 100
@@ -130,8 +144,6 @@ def get_performsActivities(
             models.User.id == models.performsActivities.user_id
         ).filter(
             models.Activity.id == models.performsActivities.activities_id
-        ).filter(
-            models.User.id == 1
         ).all()
     except ValidationError as e:
         print(e.json())
