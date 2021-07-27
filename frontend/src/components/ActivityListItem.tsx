@@ -15,7 +15,7 @@ export const  ActivityListItem = (props : IActivity) => {
   const [error, setError] = useState<string>('');
   const { state } = React.useContext(GlobalContext);
   const user = state.user!;
-  
+
 
   const handleSubmit = async (_: React.MouseEvent) => {
     setError('');
@@ -42,7 +42,7 @@ export const  ActivityListItem = (props : IActivity) => {
         <div>
           <StFavorite />
           <label style={{ fontSize: '14pt' }}> {name} </label>
-          <Button onClick={handleSubmit} color={'primary'} > Submit </Button> 
+          <Button variant="contained" onClick={handleSubmit} color={'primary'} > Submit </Button>
           <SliderEffort />
         </div>
       </ListItem>

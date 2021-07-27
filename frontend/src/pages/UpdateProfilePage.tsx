@@ -73,7 +73,7 @@ function UpdateProfilePage() {
   };
 
   const DeleteUser = (_: React.MouseEvent) => {
-    console.log('click');
+    console.log('click')
   };
 
   return (
