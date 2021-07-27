@@ -31,4 +31,54 @@ const getPerformsActivities = async() : Promise<IPerformsActivities> =>{
     return data;
   }
 
+
+  export const performActivity = async (
+    userId: number,
+    activityId: number,
+    date: string,
+  
+  ) => {
+    let token:string = localStorage.getItem('token')||'{}';
+    let httpHeaders = {
+      'Content-Type' : 'application/x-www-form-urlencoded',
+      'Accept' : 'application/json',
+      'Authorization' : `Bearer ${token}`
+    };
+
+    // Assert email or password or password confirmation is not empty
+    if (!(userId)) {
+      throw new Error('User ID was not provided');
+    }
+    if (!(activityId)) {
+      throw new Error('Activity ID was not provided');
+    }
+    if (!(date.length > 0)) {
+      throw new Error('Date was not provided');
+    }
+
+    const data2 = {user_id : userId, activities_id : activityId, date : "string23"};
+  
+    const request = new Request('/api/performsActivies', {
+      method: 'POST',
+      headers: new Headers(httpHeaders),
+      body: JSON.stringify(data2),
+    });
+  
+    const response = await fetch(request);
+  
+    if (response.status === 500) {
+      throw new Error('Internal server error');
+    }
+  
+    const data = await response.json();
+    if (response.status > 400 && response.status < 500) {
+      if (data.detail) {
+        console.log(data.detail);
+      }
+      throw data;
+    }
+  
+    return data;
+  };
+
 export default getPerformsActivities;

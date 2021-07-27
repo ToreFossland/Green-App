@@ -121,6 +121,19 @@ def seed_performsActivities(db: Session, performsActivities: schemas.performsAct
     db.refresh(db_performsActivities)
     return db_performsActivities
 
+def add_performsActivity(db: Session, performsActivities: schemas.performsActivities):
+
+    db_performsActivities = models.performsActivities(
+        user_id=performsActivities.user_id,
+        activities_id=performsActivities.activities_id,
+        date=performsActivities.date
+    )
+    db.add(db_performsActivities)
+    db.commit()
+    db.refresh(db_performsActivities)
+    return db_performsActivities
+
+
 
 def get_performsActivities(
     db: Session, skip: int = 0, limit: int = 100
