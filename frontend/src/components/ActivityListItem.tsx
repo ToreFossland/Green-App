@@ -46,7 +46,7 @@ export const  ActivityListItem = (props : IActivity) => {
           <Button variant="contained" onClick={handleSubmit} color={'primary'} > Submit </Button>
           <SliderEffort />
         </div>
-       
+
       </ListItem>
       <Divider component="li" />
     </div>

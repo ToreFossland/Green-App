@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import CommentIcon from '@material-ui/icons/Comment';
 import ShareIcon from '@material-ui/icons/Share';
-import PostImage from 'testImages/sykkel.jpg';
+import PostImage from 'testImages/sykletiljobb.svg';
 import StCard from 'styledComponents/StCard';
 
 const Post = (props : any) => {
@@ -45,7 +45,7 @@ const Post = (props : any) => {
                         {props.activityName}
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        Varmt i dag! Fin tur med gjengen. Sjekk bildene
+                        ... effort. ... points.
                     </Typography>
                 </CardContent>
                 <CardMedia
