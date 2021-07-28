@@ -46,6 +46,11 @@ const Post = (props : any) => {
                 avatar={<StAvatarFeed firstname={props.firstName} lastname={props.lastName} />}
                 title={name}
                 subheader={props.date}
+                action={
+                    <IconButton aria-label="settings">
+                      <MoreVertIcon />
+                    </IconButton>
+                  }
             />
             <CardContent>
                 <Typography variant="h6" color="textSecondary" component="p">
