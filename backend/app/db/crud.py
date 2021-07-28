@@ -95,7 +95,7 @@ def seed_challenges(db: Session, challenge: schemas.Challenge):
 
     db_challenge = models.Challenge(
         name=challenge.name,
-        points=challenge.points
+        description=challenge.description
     )
     db.add(db_challenge)
     db.commit()
@@ -108,11 +108,14 @@ def get_challenges(
 ) -> t.List[schemas.ChallengeOut]:
     return db.query(models.Challenge).offset(skip).limit(limit).all()
 
+
 def get_performsActivity(db: Session, performsActivity_id: int):
     print(performsActivity_id)
-    performsActivity = db.query(models.performsActivities).filter(models.performsActivities.id == performsActivity_id).first()
+    performsActivity = db.query(models.performsActivities).filter(
+        models.performsActivities.id == performsActivity_id).first()
     if not performsActivity:
-        raise HTTPException(status_code=404, detail="PerformsActivity not found")
+        raise HTTPException(
+            status_code=404, detail="PerformsActivity not found")
     return performsActivity
 
 
@@ -150,6 +153,7 @@ def get_performsActivities(
     """ join(
         performsActivities, user.id == performsActivities.user_id).join(activities, performsActivities.activity_id == activities.id)
  """
+
 
 def delete_performsActivity(db: Session, performsActivity_id: int):
     performsActivity = get_performsActivity(db, performsActivity_id)
