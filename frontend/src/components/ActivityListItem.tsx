@@ -19,9 +19,16 @@ export const ActivityListItem = (props: IActivity) => {
   const [points, setPoints] = useState<number>(props.points);
   const [name, setName] = useState<string>(props.name);
 
+  const convertDate = (date: Date) => {
+    var dd = String(date.getDate()).padStart(2, '0');
+    var mm = String(date.getMonth() + 1).padStart(2, '0');
+    var yyyy = date.getFullYear();
+
+    return dd + '/' + mm + '/' + yyyy;
+  };
+
   const handleSubmit = async (_: React.MouseEvent) => {
     setError('');
-    console.log(effort);
 
     try {
       console.log(
@@ -37,7 +44,7 @@ export const ActivityListItem = (props: IActivity) => {
       const data = await performsActivity(
         user.id,
         activityId,
-        'Hello World',
+        convertDate(props.date),
         effort
       );
       if (data) {
