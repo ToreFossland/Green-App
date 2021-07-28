@@ -52,7 +52,7 @@ const Post = (props : any) => {
                     {props.activityName}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    ... effort. ... points.
+                    {props.effort} effort. {props.points} points.
                 </Typography>
             </CardContent>
             <CardMedia
