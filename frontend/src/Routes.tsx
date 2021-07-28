@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect, useState } from 'react';
+import React, { FC, useContext, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/styles';
 import { PrivateRoute } from './components/PrivateRoute';
@@ -28,7 +28,6 @@ export const Routes: FC = () => {
 
   useEffect(() => {
     if(localStorage.getItem('token')){
-      console.log("true");
       const loadContext = async () => {
       const myUser = await getUser();
       const myActivities = await getActivities();
@@ -40,7 +39,7 @@ export const Routes: FC = () => {
       }
       loadContext();
     } 
-  }, []);
+  }, [dispatch]);
   
   return (
     <ThemeProvider theme={GlobalTheme}>
