@@ -9,7 +9,7 @@ function SocialGrid() {
     return (
         <Grid container direction="column" justifyContent="center" alignItems="stretch" >
             {/* item[2].id for å finne ut hvilken idrett */}
-            {state.performsActivities && state.performsActivities?.map((item: any) =>   
+            {state.performsActivities && state.performsActivities?.slice(0).reverse().map((item: any) =>   
                 // <Grid item>
                     <Post key= {item[1].id} 
                     firstName = {item[0].first_name} lastName = {item[0].last_name} 

@@ -76,7 +76,7 @@ const getPerformsActivities = async() : Promise<IPerformsActivities> =>{
       }
       throw data;
     }
-
+    console.log("PERFORMS", data);
     return data;
   };
 

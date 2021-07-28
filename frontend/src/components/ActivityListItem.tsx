@@ -5,7 +5,7 @@ import ListItem from '@material-ui/core/ListItem';
 import SliderEffort from './SliderEffort';
 import IActivity from 'interfaces/IActivity';
 import { Button } from '@material-ui/core';
-import { performsActivity } from 'utils/performsActivities';
+import getPerformsActivities, { performsActivity } from 'utils/performsActivities';
 import { GlobalContext } from 'state/context';
 import { performsActivities } from 'state/performsActivities/performsActivitiesActions';
 
@@ -22,8 +22,8 @@ export const  ActivityListItem = (props : IActivity) => {
       console.log("User Id: ", user?.id, " activity Id: ", activityId, " date: ", " Today");
       const data = await performsActivity(user.id, activityId, "Hello World");
       if (data) {
-        //dispatch(performsActivities([...state.performsActivities, data]));
-        console.log(data);
+        const myPerformsActivities = await getPerformsActivities();
+        dispatch(performsActivities(myPerformsActivities));
       }
     } catch (err) {
       if (err instanceof Error) {
