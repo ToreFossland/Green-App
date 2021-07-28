@@ -108,25 +108,21 @@ def get_challenges(
 ) -> t.List[schemas.ChallengeOut]:
     return db.query(models.Challenge).offset(skip).limit(limit).all()
 
+def get_performsActivity(db: Session, performsActivity_id: int):
+    print(performsActivity_id)
+    performsActivity = db.query(models.performsActivities).filter(models.performsActivities.id == performsActivity_id).first()
+    if not performsActivity:
+        raise HTTPException(status_code=404, detail="PerformsActivity not found")
+    return performsActivity
 
-def seed_performsActivities(db: Session, performsActivities: schemas.performsActivities):
-
-    db_performsActivities = models.performsActivities(
-        user_id=performsActivities.user_id,
-        activities_id=performsActivities.activities_id,
-        date=performsActivities.date
-    )
-    db.add(db_performsActivities)
-    db.commit()
-    db.refresh(db_performsActivities)
-    return db_performsActivities
 
 def add_performsActivity(db: Session, performsActivities: schemas.performsActivities):
 
     db_performsActivities = models.performsActivities(
         user_id=performsActivities.user_id,
         activities_id=performsActivities.activities_id,
-        date=performsActivities.date
+        date=performsActivities.date,
+        effort=performsActivities.effort
     )
     db.add(db_performsActivities)
     db.commit()
@@ -134,7 +130,7 @@ def add_performsActivity(db: Session, performsActivities: schemas.performsActivi
     return db_performsActivities
 
 
-#.filter(models.User.id == 1)
+# .filter(models.User.id == 1)
 
 def get_performsActivities(
     db: Session, skip: int = 0, limit: int = 100
@@ -154,3 +150,11 @@ def get_performsActivities(
     """ join(
         performsActivities, user.id == performsActivities.user_id).join(activities, performsActivities.activity_id == activities.id)
  """
+
+def delete_performsActivity(db: Session, performsActivity_id: int):
+    performsActivity = get_performsActivity(db, performsActivity_id)
+    if not performsActivity:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, detail="User not found")
+    db.delete(performsActivity)
+    db.commit()
+    return performsActivity

@@ -5,14 +5,14 @@ import React from 'react';
 const StyledAvatarFeed = styled(Avatar)({
   display: 'flex',
   fontSize: 20,
-  backgroundColor: 'green',
+  backgroundColor: '#8FBC8F',
 });
 
 const StAvatarFeed = (props: any) => {
-    const firstLetter: any = props.firstname.charAt(0);
-    const secondLetter: any = props.lastname.charAt(0);
-    const nameInitials: string = firstLetter.concat(secondLetter);
-    return <StyledAvatarFeed>{nameInitials}</StyledAvatarFeed>;
+  const firstLetter: any = props.firstname?.charAt(0);
+  const secondLetter: any = props.lastname?.charAt(0);
+  const nameInitials: string = firstLetter?.concat(secondLetter);
+  return <StyledAvatarFeed>{nameInitials}</StyledAvatarFeed>;
 };
 
 export default StAvatarFeed;
