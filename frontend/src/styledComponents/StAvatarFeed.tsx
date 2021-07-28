@@ -5,7 +5,7 @@ import React from 'react';
 const StyledAvatarFeed = styled(Avatar)({
   display: 'flex',
   fontSize: 20,
-  backgroundColor: 'green',
+  backgroundColor: '#8FBC8F',
 });
 
 const StAvatarFeed = (props: any) => {
