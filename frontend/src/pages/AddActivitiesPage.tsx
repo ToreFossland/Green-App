@@ -17,9 +17,14 @@ export default function AddActivities() {
       <StPaper elevation={0}>
         <Calender />
         <List style={{ width: '100%' }}>
-          {
-            activities?.map(item => <ActivityListItem key = {item.id} id = {item.id} points = {item.points} name={item.name} />)
-          }
+          {activities?.map((item) => (
+            <ActivityListItem
+              key={item.id}
+              id={item.id}
+              points={item.points}
+              name={item.name}
+            />
+          ))}
         </List>
       </StPaper>
     </div>
