@@ -24,7 +24,6 @@ function UpdateProfilePage() {
 
 
 
-  // const [picture, setPicture] =
   const uploadedImage = React.useRef<HTMLImageElement>(null);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore

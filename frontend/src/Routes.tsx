@@ -1,4 +1,4 @@
-import React, { FC, useContext } from 'react';
+import React, { FC, useContext, useEffect, useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/styles';
 import { PrivateRoute } from './components/PrivateRoute';
@@ -13,13 +13,35 @@ import MyAppBar from './components/MyAppBar';
 import MyBottomNavigation from './components/MyBottomNavigation';
 import UpdateProfilePage from './pages/UpdateProfilePage';
 import AddActivities from './pages/AddActivitiesPage';
-import { GlobalContext } from 'state/context';
 import StBackgroundPaper from 'styledComponents/StBackgroundPaper';
 import ChangePasswordPage from 'pages/ChangePasswordPage';
+import { GlobalContext } from 'state/context';
+import getUser from 'utils/user';
+import getActivities from 'utils/activity';
+import { user } from 'state/user/userActions';
+import { performsActivities } from 'state/performsActivities/performsActivitiesActions';
+import { activities } from 'state/activities/activitiesActions';
+import getPerformsActivities from 'utils/performsActivities';
 
 export const Routes: FC = () => {
-  const { state } = useContext(GlobalContext);
+  const { dispatch } = useContext(GlobalContext);
 
+  useEffect(() => {
+    if(localStorage.getItem('token')){
+      console.log("true");
+      const loadContext = async () => {
+      const myUser = await getUser();
+      const myActivities = await getActivities();
+      const myPerformsActivities = await getPerformsActivities();
+      console.log(myPerformsActivities);
+      dispatch(user(myUser));
+      dispatch(activities(myActivities));
+      dispatch(performsActivities(myPerformsActivities));
+      }
+      loadContext();
+    } 
+  }, []);
+  
   return (
     <ThemeProvider theme={GlobalTheme}>
       <MyAppBar />
@@ -30,28 +52,12 @@ export const Routes: FC = () => {
           </Route>
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/signup" component={SignUpPage} />
-          <Route
-            exact
-            path="/logout"
-            component={LoginPage}
-            // render={() => {
-            //   logout();
-            //   return null;
-            // }}
-          />
+          <Route exact path="/logout" component={LoginPage} />
           <PrivateRoute exact path="/" component={HomePage} />
           <PrivateRoute exact path="/profile" component={Profile} />
-          <PrivateRoute
-            exact
-            path="/updateprofile"
-            component={UpdateProfilePage}
-          />
+          <PrivateRoute exact path="/updateprofile" component={UpdateProfilePage} />
           <PrivateRoute exact path="/add" component={AddActivities} />
-          <PrivateRoute
-            exact
-            path="/changepassword"
-            component={ChangePasswordPage}
-          />
+          <PrivateRoute exact path="/changepassword" component={ChangePasswordPage} />
           <PrivateRoute exact path="/map" component={MapPage} />
         </Switch>
       </StBackgroundPaper>

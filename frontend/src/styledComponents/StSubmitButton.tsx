@@ -7,7 +7,6 @@ const StSubmitButton = styled(withTheme(Button))(props => ({
   },
   textTransform: 'none',
   variant: 'outline-secondary',
-  // color: theme.palette.primary.main,
   margin: props.theme.spacing(2),
   padding: props.theme.spacing(3),
   marginTop: 10,

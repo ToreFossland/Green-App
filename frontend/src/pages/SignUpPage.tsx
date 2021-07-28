@@ -35,7 +35,6 @@ export const SignUpPage: FC = () => {
           const myUser = await getUser();
           dispatch(user(myUser));
           history.push('/');
-          // window.location.reload();
         }
       } catch (err) {
         if (err instanceof Error) {

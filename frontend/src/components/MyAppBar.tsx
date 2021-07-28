@@ -11,10 +11,14 @@ export default function MyAppBar() {
   let location = useLocation();
 
   useEffect(() => {
-    if (location.pathname === '/profile') {
+    if (location.pathname === '/profile' || location.pathname === '/updateprofile' || location.pathname === '/changepassword') {
       setPath('Profile');
     } else if (location.pathname === '/add') {
       setPath('Add activities');
+    } else if (location.pathname === '/map') {
+      setPath('Find activities');
+    } else if (location.pathname === '/groups') {
+      setPath('Groups');
     } else {
       setPath('Home');
     }

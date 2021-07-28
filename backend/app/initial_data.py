@@ -20,21 +20,31 @@ def init() -> None:
             is_superuser=True,
         ),
     )
-    try:
-        seed_activities(
-            db,
-            ActivityCreate(
-                name="Play among us",
-                points=100,
-            ),
-        )
-    except ValidationError as e:
-        print(e.json())
+
+    activitylist = {
+        "Bike to work": 10,
+        "Eat a vegetarian meal": 10,
+        "Pick up trash": 10,
+        "Donate old clothes": 10,
+        }
+
+    for key in activitylist:
+        try:
+            seed_activities(
+                db,
+                ActivityCreate(
+                    name=key,
+                    points=activitylist[key],
+                ),
+            )
+        except ValidationError as e:
+            print(e.json())
+    
 
 
 if __name__ == "__main__":
     print("Creating superuser admin@green-app.com")
     print("Seeding activities")
-    print("Seeding challenges")
+    #print("Seeding challenges")
     init()
     print("Superuser created and activities seeded")

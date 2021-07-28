@@ -4,7 +4,7 @@ import {
   Marker,
   InfoWindow,
 } from '@react-google-maps/api';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 export const GoogleMaps = () => {
   const [selected, setSelected] = useState<any>({});
 

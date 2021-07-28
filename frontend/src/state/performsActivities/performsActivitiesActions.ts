@@ -1,4 +1,3 @@
-import IActivity from 'interfaces/IActivity';
 import { ActionType } from '../actions';
 export interface PerformsActivities {
     type: ActionType.PerformsActivities;

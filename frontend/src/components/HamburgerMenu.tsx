@@ -7,7 +7,7 @@ import {
   ListItemText,
   ListItemIcon,
 } from '@material-ui/core';
-import { Menu, Lock, Report } from '@material-ui/icons';
+import { Menu, Lock } from '@material-ui/icons';
 import { useHistory } from 'react-router-dom';
 import { logout } from '../utils/auth';
 import { Link as RouterLink } from 'react-router-dom';
@@ -34,7 +34,7 @@ export default function HamburgerMenu() {
     };
   const history = useHistory();
 
-  const handleClick = () => {
+  const handleLogout = () => {
     logout();
     history.push('/logout');
     window.location.reload();
@@ -47,19 +47,19 @@ export default function HamburgerMenu() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        <ListItem button key="Report problem" component={RouterLink} to="/">
+        {/* <ListItem button key="Report problem" component={RouterLink} to="/">
           <ListItemIcon>
             {' '}
             <Report />{' '}
           </ListItemIcon>
           <ListItemText> Report problem </ListItemText>
-        </ListItem>
+        </ListItem> */}
         <ListItem
           button
           key="Log out"
           component={RouterLink}
           to="/logout"
-          onClick={() => handleClick()}
+          onClick={() => handleLogout()}
         >
           <ListItemIcon>
             {' '}

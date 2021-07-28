@@ -1,5 +1,4 @@
 import IPerformsActivities from "interfaces/IPerformsActivities";
-import { useState } from "react";
 
 const getPerformsActivities = async() : Promise<IPerformsActivities> =>{
     let token:string = localStorage.getItem('token')||'{}';
@@ -78,6 +77,7 @@ const getPerformsActivities = async() : Promise<IPerformsActivities> =>{
       }
       throw data;
     }
+
     return data;
   };
 
