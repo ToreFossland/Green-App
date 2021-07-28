@@ -37,7 +37,7 @@ class Challenge(Base):
     __tablename__ = "challenge"
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String)
-    points = Column(Integer)
+    description = Column(String)
 
 
 class performsActivities(Base):

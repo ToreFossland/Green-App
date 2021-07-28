@@ -71,7 +71,7 @@ class ActivityOut(ActivityBase):
 
 class ChallengeBase(BaseModel):
     name: str
-    points: int
+    description: str
 
 
 class Challenge(ChallengeBase):
