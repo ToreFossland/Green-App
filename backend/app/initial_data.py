@@ -26,7 +26,7 @@ def init() -> None:
         "Eat a vegetarian meal": 10,
         "Pick up trash": 10,
         "Donate old clothes": 10,
-        }
+    }
 
     for key in activitylist:
         try:
@@ -39,7 +39,6 @@ def init() -> None:
             )
         except ValidationError as e:
             print(e.json())
-    
 
 
 if __name__ == "__main__":
