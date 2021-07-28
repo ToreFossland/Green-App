@@ -20,7 +20,7 @@ export const  ActivityListItem = (props : IActivity) => {
     setError('');
     try {
       console.log("User Id: ", user?.id, " activity Id: ", activityId, " date: ", " Today");
-      const data = await performsActivity(user.id, activityId, "TODAY");
+      const data = await performsActivity(user.id, activityId, "Hello World");
       if (data) {
         //dispatch(performsActivities([...state.performsActivities, data]));
         console.log(data);
