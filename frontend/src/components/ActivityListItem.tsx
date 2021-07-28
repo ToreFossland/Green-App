@@ -8,6 +8,8 @@ import { Button } from '@material-ui/core';
 import { performsActivity } from 'utils/performsActivities';
 import { GlobalContext } from 'state/context';
 import { performsActivities } from 'state/performsActivities/performsActivitiesActions';
+import StCard from 'styledComponents/StCard';
+import { CardHeader, CardMedia, CardContent, CardActions, Typography } from '@material-ui/core';
 
 export const  ActivityListItem = (props : IActivity) => {
   const [activityId] = useState<number>(props.id);
@@ -39,6 +41,18 @@ export const  ActivityListItem = (props : IActivity) => {
 
   return (
     <div>
+      <StCard>
+        <CardContent>
+            <Typography variant="body1" component="p">
+                {props.name}
+            </Typography>
+        </CardContent>
+        <CardActions style={{alignItems: 'center', justifyContent: 'center'}} >
+          <SliderEffort />
+        </CardActions>
+      </StCard>
+
+
       <ListItem style={{ justifyContent: 'center', width: '100%' }}>
         <div>
           <StFavorite />
