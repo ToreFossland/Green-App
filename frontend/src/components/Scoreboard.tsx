@@ -1,9 +1,25 @@
 import React from 'react';
-
+import { ScorePost } from './ScorePost';
+import { GlobalContext } from 'state/context';
+import { Grid } from '@material-ui/core';
+/* import { user } from 'state/user/userActions';
+import getUser from 'utils/user';
+ */
 export default function Scoreboard() {
-    return (
-        <div>
+  const { state } = React.useContext(GlobalContext);
+  const user = state.user!;
 
-        </div>
-    )
+  return (
+    <Grid
+      container
+      direction="column"
+      justifyContent="center"
+      alignItems="stretch"
+    >
+      {state.user?.map(item:any) => (
+        <ScorePost></ScorePost>
+      }
+      ))}
+    </Grid>
+  );
 }
