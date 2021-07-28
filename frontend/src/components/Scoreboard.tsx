@@ -16,8 +16,8 @@ export default function Scoreboard() {
       justifyContent="center"
       alignItems="stretch"
     >
-      {state.user?.map(item:any) => (
-        <ScorePost></ScorePost>
+      {state.user?.map(user:any) => (
+        <ScorePost user></ScorePost>
       }
       ))}
     </Grid>
