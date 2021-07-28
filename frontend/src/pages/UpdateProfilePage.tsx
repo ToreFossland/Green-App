@@ -20,28 +20,7 @@ function UpdateProfilePage() {
   useEffect(() => {
     setFirstname(state.user?.first_name!);
     setLastname(state.user?.last_name!);
-  }, [state])
-
-
-
-  const uploadedImage = React.useRef<HTMLImageElement>(null);
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  const handleImageUpload: any = (e) => {
-    const [file] = e!.target.files;
-    if (file) {
-      const reader = new FileReader();
-      const { current }: any = uploadedImage;
-      current.file = file;
-      reader.onload = (e: any) => {
-        const target: any = e?.target;
-        if (target) {
-          current.src = target?.result as any;
-        }
-      };
-      reader.readAsDataURL(file);
-    }
-  };
+  }, [state]);
 
   const handleSubmit = async (_: React.MouseEvent) => {
     setError('');
@@ -80,8 +59,6 @@ function UpdateProfilePage() {
       <UpdateProfileForm
         firstname={state.user?.first_name}
         lastname={state.user?.last_name}
-        handleImageUpload={handleImageUpload}
-        uploadedImage={uploadedImage}
         onFirstnameChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           setFirstname(e.currentTarget.value)
         }
@@ -91,10 +68,7 @@ function UpdateProfilePage() {
         onSubmitButtonClick={handleSubmit}
       />
 
-      <Settings
-        onPasswordChange={PasswordChange}
-        onDelete={DeleteUser}
-      />
+      <Settings onPasswordChange={PasswordChange} onDelete={DeleteUser} />
     </div>
   );
 }

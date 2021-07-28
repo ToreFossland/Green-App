@@ -6,7 +6,7 @@ import { performsActivity } from 'utils/performsActivities';
 
 const useStyles = makeStyles({
   root: {
-    width: 300,
+    width: '95%',
   },
 });
 
