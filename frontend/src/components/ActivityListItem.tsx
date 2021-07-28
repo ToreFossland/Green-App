@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import StFavorite from '../styledComponents/StFavorite';
 import { SliderEffort } from './SliderEffort';
 import IActivity from 'interfaces/IActivity';
 import { Button } from '@material-ui/core';
@@ -15,9 +14,6 @@ export const ActivityListItem = (props: IActivity) => {
   const { state, dispatch } = React.useContext(GlobalContext);
   const user = state.user!;
   const [effort, setEffort] = useState<number>(0);
-  const [id, setId] = useState<number>(props.id);
-  const [points, setPoints] = useState<number>(props.points);
-  const [name, setName] = useState<string>(props.name);
 
   const convertDate = (date: Date) => {
     var dd = String(date.getDate()).padStart(2, '0');
