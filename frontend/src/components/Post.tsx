@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { CardActionArea } from '@material-ui/core';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -12,14 +12,17 @@ import CommentIcon from '@material-ui/icons/Comment';
 import ShareIcon from '@material-ui/icons/Share';
 import PostImage from 'testImages/sykkel.jpg';
 import StCard from 'styledComponents/StCard';
+import getPerformsActivities, { deletePerformsActivity } from 'utils/performsActivities';
+import { GlobalContext } from 'state/context';
+import { performsActivities } from 'state/performsActivities/performsActivitiesActions';
 
 const Post = (props : any) => {
-    console.log(props);
+    const { dispatch } = useContext(GlobalContext);
     let name = `${props.firstName} ${props.lastName}`
     const [liked, setLiked] = useState<boolean>(false);
     const [likeButtonColor, setLikeButtonColor] = useState<"default" | "secondary" | "inherit" | "primary" | undefined >("default");
 
-    const likeButtonColorChange = () => {
+    const likeButtonColorChange = async () => {
         if (!liked) {
             setLikeButtonColor('secondary');
         } else {
@@ -30,6 +33,12 @@ const Post = (props : any) => {
     const onLikeButtonClick = () => {
         setLiked(!(liked));
         likeButtonColorChange();
+    };
+
+    const onCommentClick = async () => {
+        deletePerformsActivity(props.id);
+        const myPerformsActivities = await getPerformsActivities();
+        dispatch(performsActivities(myPerformsActivities));
     };
 
     return (
@@ -58,7 +67,7 @@ const Post = (props : any) => {
                 <IconButton aria-label="add to favorites" color={likeButtonColor} onClick={onLikeButtonClick} >
                     <FavoriteIcon />
                 </IconButton>
-                <IconButton aria-label="add a comment">
+                <IconButton aria-label="add a comment" onClick={onCommentClick}>
                     <CommentIcon />
                 </IconButton>
                 <IconButton aria-label="share">

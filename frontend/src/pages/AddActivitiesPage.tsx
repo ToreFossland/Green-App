@@ -8,7 +8,6 @@ import { GlobalContext } from 'state/context';
 export default function AddActivities() {
   const { state } = React.useContext(GlobalContext);
   const activities = state?.activities;
-  console.log(activities);
 
   return (
     <div>
