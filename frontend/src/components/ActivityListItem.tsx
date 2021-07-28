@@ -23,7 +23,7 @@ export const ActivityListItem = (props: IActivity) => {
     return dd + '/' + mm + '/' + yyyy;
   };
 
-  const handleSubmit = async (_: React.MouseEvent) => {
+  const handleAddActivity = async (_: React.MouseEvent) => {
     setError('');
 
     try {
@@ -75,7 +75,7 @@ export const ActivityListItem = (props: IActivity) => {
         />
       </CardActions>
       <CardActions style={{alignItems: 'center', justifyContent: 'center'}} >
-        <Button variant="contained" onClick={handleSubmit} color={'primary'}>
+        <Button variant="contained" onClick={handleAddActivity} color={'primary'}>
           {' '}Submit{' '}
         </Button>
       </CardActions>

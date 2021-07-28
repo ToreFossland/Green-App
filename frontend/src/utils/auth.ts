@@ -240,7 +240,7 @@ export const logout = () => {
  * @throws Error on http errors or failed attempts
  */
  export const deleteUser = async (
-  userID: number,
+  userID: any,
 ) => {
   let token:string = localStorage.getItem('token')||'{}';
   let httpHeaders = {
