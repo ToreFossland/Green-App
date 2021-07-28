@@ -13,19 +13,17 @@ export const ActivityListItem = (props: IActivity) => {
   const [activityId] = useState<number>(props.id);
   const [error, setError] = useState<string>('');
   const { state, dispatch } = React.useContext(GlobalContext);
-  const user = state.user!;
   const [effort, setEffort] = useState<number>(0);
-  const [id, setId] = useState<number>(props.id);
-  const [points, setPoints] = useState<number>(props.points);
-  const [name, setName] = useState<string>(props.name);
+  const [date, setDate] = useState<number>(Date.now());
+  const user = state.user!;
 
-  const convertDate = (date: Date) => {
-    var dd = String(date.getDate()).padStart(2, '0');
-    var mm = String(date.getMonth() + 1).padStart(2, '0');
-    var yyyy = date.getFullYear();
+  // const convertDate = (date: Date) => {
+  //   var dd = String(date.getDate()).padStart(2, '0');
+  //   var mm = String(date.getMonth() + 1).padStart(2, '0');
+  //   var yyyy = date.getFullYear();
 
-    return dd + '/' + mm + '/' + yyyy;
-  };
+  //   return dd + '/' + mm + '/' + yyyy;
+  // };
 
   const handleSubmit = async (_: React.MouseEvent) => {
     setError('');
@@ -44,7 +42,7 @@ export const ActivityListItem = (props: IActivity) => {
       const data = await performsActivity(
         user.id,
         activityId,
-        convertDate(props.date),
+        date,
         effort
       );
       if (data) {
