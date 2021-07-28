@@ -3,7 +3,6 @@ import Paper from '@material-ui/core/Paper';
 
 const StHeader = styled(withTheme(Paper))(props => ({
   boxShadow: '0px 0px 0px 0px',
-  //backgroundColor: theme.palette.primary.main,
   minHeight: props.theme.spacing(15),
   display: 'flex',
   flexDirection: 'row',
