@@ -1,4 +1,4 @@
-import React, { FC, useContext } from 'react';
+import React, { FC } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/styles';
 import { PrivateRoute } from './components/PrivateRoute';
@@ -13,13 +13,10 @@ import MyAppBar from './components/MyAppBar';
 import MyBottomNavigation from './components/MyBottomNavigation';
 import UpdateProfilePage from './pages/UpdateProfilePage';
 import AddActivities from './pages/AddActivitiesPage';
-import { GlobalContext } from 'state/context';
 import StBackgroundPaper from 'styledComponents/StBackgroundPaper';
 import ChangePasswordPage from 'pages/ChangePasswordPage';
 
 export const Routes: FC = () => {
-  const { state } = useContext(GlobalContext);
-
   return (
     <ThemeProvider theme={GlobalTheme}>
       <MyAppBar />

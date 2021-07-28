@@ -7,7 +7,7 @@ import {
   ListItemText,
   ListItemIcon,
 } from '@material-ui/core';
-import { Menu, Lock, Report } from '@material-ui/icons';
+import { Menu, Lock } from '@material-ui/icons';
 import { useHistory } from 'react-router-dom';
 import { logout } from '../utils/auth';
 import { Link as RouterLink } from 'react-router-dom';

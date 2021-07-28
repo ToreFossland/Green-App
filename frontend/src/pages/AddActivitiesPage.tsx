@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { ActivityListItem } from '../components/ActivityListItem';
 import StPaper from '../styledComponents/StPaper';
 import Calendar from '../components/Calendar';
 import List from '@material-ui/core/List';
 import { GlobalContext } from 'state/context';
-import getActivities from 'utils/activity';
-import { activities } from 'state/activities/activitiesActions';
 
 export default function AddActivities() {
   const { state } = React.useContext(GlobalContext);
