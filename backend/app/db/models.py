@@ -46,3 +46,4 @@ class performsActivities(Base):
     activities_id = Column(Integer, ForeignKey('activity.id'))
     user_id = Column(Integer, ForeignKey('user.id'))
     date = Column(String, default="15/07/2021")
+    effort = Column(Integer, default=0)
