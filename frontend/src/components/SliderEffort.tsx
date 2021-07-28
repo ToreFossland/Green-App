@@ -1,19 +1,11 @@
-import React, { useState, createContext } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
-import { performsActivity } from 'utils/performsActivities';
-
-const useStyles = makeStyles({
-  root: {
-    width: '85%',
-  },
-});
 
 const marks = [
   {
     value: 0,
-    label: 'None',
+    label: 'Minimal',
   },
   {
     value: 25,
@@ -29,7 +21,7 @@ const marks = [
   },
   {
     value: 100,
-    label: 'Very high',
+    label: 'Maximal',
   },
 ];
 
@@ -41,11 +33,11 @@ function valueLabelFormat(value: number) {
   return marks.findIndex((mark) => mark.value === value) + 1;
 }
 export function SliderEffort(props: any) {
-  const classes = useStyles();
+
 
   return (
-    <div className={classes.root}>
-      <Typography id="discrete-slider-restrict" gutterBottom>
+    <div style={{width: '85%'}}>
+      <Typography id="discrete-slider-restrict" color='textSecondary' gutterBottom>
         Activity Effort
       </Typography>
       <Slider

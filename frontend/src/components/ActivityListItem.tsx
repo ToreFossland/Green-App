@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import StFavorite from '../styledComponents/StFavorite';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
 import { SliderEffort } from './SliderEffort';
 import IActivity from 'interfaces/IActivity';
 import { Button } from '@material-ui/core';
@@ -9,7 +7,7 @@ import getPerformsActivities, { performsActivity } from 'utils/performsActivitie
 import { GlobalContext } from 'state/context';
 import { performsActivities } from 'state/performsActivities/performsActivitiesActions';
 import StCard from 'styledComponents/StCard';
-import { CardHeader, CardMedia, CardContent, CardActions, Typography } from '@material-ui/core';
+import { CardContent, CardActions, Typography } from '@material-ui/core';
 
 export const ActivityListItem = (props: IActivity) => {
   const [activityId] = useState<number>(props.id);
@@ -66,36 +64,25 @@ export const ActivityListItem = (props: IActivity) => {
   };
 
   return (
-    <div>
-      <StCard>
-        <CardContent>
-            <Typography variant="body1" component="p">
-                {props.name}
-            </Typography>
-        </CardContent>
-        <CardActions style={{alignItems: 'center', justifyContent: 'center'}} >
-          <SliderEffort />
-        </CardActions>
-      </StCard>
-
-
-      <ListItem style={{ justifyContent: 'center', width: '100%' }}>
-        <div>
-          <StFavorite />
-          <label style={{ fontSize: '14pt' }}> {props.name} </label>
-          <Button variant="contained" onClick={handleSubmit} color={'primary'}>
-            {' '}
-            Submit{' '}
-          </Button>
-          <SliderEffort
-            effort={effort}
-            onChangeEffort={(newEffort: any) => {
-              setEffort(newEffort);
-            }}
-          />
-        </div>
-      </ListItem>
-      <Divider component="li" />
-    </div>
+    <StCard>
+      <CardContent>
+        <Typography variant="h6" align="center" >
+            {props.name}
+        </Typography>
+      </CardContent>
+      <CardActions style={{alignItems: 'center', justifyContent: 'center'}} >
+        <SliderEffort
+          effort={effort}
+          onChangeEffort={(newEffort: any) => {
+            setEffort(newEffort);
+          }}
+        />
+      </CardActions>
+      <CardActions style={{alignItems: 'center', justifyContent: 'center'}} >
+        <Button variant="contained" onClick={handleSubmit} color={'primary'}>
+          {' '}Submit{' '}
+        </Button>
+      </CardActions>
+    </StCard>
   );
 };
