@@ -9,7 +9,7 @@ import { performsActivity } from 'utils/performsActivities';
 import { GlobalContext } from 'state/context';
 
 export const  ActivityListItem = (props : IActivity) => {
-  const [id, setId] = useState<number>(props.id);
+  const [activityId, setActivityId] = useState<number>(props.id);
   const [points, setPoints] = useState<number>(props.points);
   const [name, setName] = useState<string>(props.name);
   const [error, setError] = useState<string>('');
@@ -20,8 +20,8 @@ export const  ActivityListItem = (props : IActivity) => {
   const handleSubmit = async (_: React.MouseEvent) => {
     setError('');
     try {
-      console.log("User Id: ", user?.id, " activity Id: ", id, " date: ", " Today");
-      const data = await performsActivity(user.id, id, "TODAY");
+      console.log("User Id: ", user?.id, " activity Id: ", activityId, " date: ", " Today");
+      const data = await performsActivity(user.id, activityId, "TODAY");
       if (data) {
         console.log(data);
       }
@@ -45,6 +45,7 @@ export const  ActivityListItem = (props : IActivity) => {
           <Button variant="contained" onClick={handleSubmit} color={'primary'} > Submit </Button>
           <SliderEffort />
         </div>
+       
       </ListItem>
       <Divider component="li" />
     </div>
