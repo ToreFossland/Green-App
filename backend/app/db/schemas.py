@@ -95,6 +95,7 @@ class performsActivitiesBase(BaseModel):
     activities_id: int
     user_id: int
     date: t.Optional[str]
+    effort: t.Optional[int]
 
 
 class performsActivities(performsActivitiesBase):

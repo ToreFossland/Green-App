@@ -9,16 +9,12 @@ import StTextField from 'styledComponents/StTextField';
 const UpdateProfileForm = ({
   firstname,
   lastname,
-  handleImageUpload,
-  uploadedImage,
   onFirstnameChange,
   onLastnameChange,
   onSubmitButtonClick,
 }: {
   firstname?: string;
   lastname?: string;
-  handleImageUpload: (e: any) => void;
-  uploadedImage: any; // HTMLImageElement
   onFirstnameChange: (e: any) => void;
   onLastnameChange: (e: any) => void;
   onSubmitButtonClick: any;
@@ -28,26 +24,6 @@ const UpdateProfileForm = ({
       <StHeader>
         <StAvatar />
       </StHeader>
-      <div>
-        <Container maxWidth="sm">
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageUpload}
-            multiple={false}
-          />
-          <img
-            ref={uploadedImage}
-            alt="uploaded"
-            style={{
-              width: '75%',
-              height: '100%',
-              // alt: {'profile picture'},
-              // position: 'absolute',
-            }}
-          />
-        </Container>
-      </div>
       <StPaper elevation={0}>
         <StTextField
           required

@@ -115,12 +115,14 @@ def get_performsActivity(db: Session, performsActivity_id: int):
         raise HTTPException(status_code=404, detail="PerformsActivity not found")
     return performsActivity
 
+
 def add_performsActivity(db: Session, performsActivities: schemas.performsActivities):
 
     db_performsActivities = models.performsActivities(
         user_id=performsActivities.user_id,
         activities_id=performsActivities.activities_id,
-        date=performsActivities.date
+        date=performsActivities.date,
+        effort=performsActivities.effort
     )
     db.add(db_performsActivities)
     db.commit()
@@ -128,7 +130,7 @@ def add_performsActivity(db: Session, performsActivities: schemas.performsActivi
     return db_performsActivities
 
 
-#.filter(models.User.id == 1)
+# .filter(models.User.id == 1)
 
 def get_performsActivities(
     db: Session, skip: int = 0, limit: int = 100

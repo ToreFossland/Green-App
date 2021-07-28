@@ -35,6 +35,7 @@ const getPerformsActivities = async() : Promise<IPerformsActivities> =>{
     userId: number,
     activityId: number,
     date: string,
+    effort: number,
   
   ) => {
     let token:string = localStorage.getItem('token')||'{}';
@@ -55,7 +56,7 @@ const getPerformsActivities = async() : Promise<IPerformsActivities> =>{
       throw new Error('Date was not provided');
     }
 
-    const userData = {user_id : userId, activities_id : activityId, date : date};
+    const userData = {user_id : userId, activities_id : activityId, date : date, effort: effort};
   
     const request = new Request('/api/performsActivities', {
       method: 'POST',
