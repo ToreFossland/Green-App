@@ -3,7 +3,6 @@ import StPaper from 'styledComponents/StPaper';
 import StHeader from 'styledComponents/StHeader';
 import StAvatar from 'styledComponents/StAvatar';
 import StSubmitButton from 'styledComponents/StSubmitButton';
-import { Container } from '@material-ui/core';
 import StTextField from 'styledComponents/StTextField';
 
 const UpdateProfileForm = ({
