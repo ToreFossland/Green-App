@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import CommentIcon from '@material-ui/icons/Comment';
 import ShareIcon from '@material-ui/icons/Share';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 import PostImage from 'testImages/sykletiljobb.svg';
 import StCard from 'styledComponents/StCard';
 import getPerformsActivities, { deletePerformsActivity } from 'utils/performsActivities';
