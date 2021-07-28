@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, createContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
+import { performsActivity } from 'utils/performsActivities';
 
 const useStyles = makeStyles({
   root: {
@@ -39,8 +40,7 @@ function valuetext(value: number) {
 function valueLabelFormat(value: number) {
   return marks.findIndex((mark) => mark.value === value) + 1;
 }
-
-export default function SliderEffort() {
+export function SliderEffort(props: any) {
   const classes = useStyles();
 
   return (
@@ -56,6 +56,9 @@ export default function SliderEffort() {
         step={null}
         valueLabelDisplay="auto"
         marks={marks}
+        onChange={(_, value) => {
+          props.onChangeEffort(value);
+        }}
       />
     </div>
   );
