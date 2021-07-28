@@ -1,6 +1,5 @@
 import { styled } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
-import { AccountCircle } from '@material-ui/icons';
 import { useContext } from 'react';
 import { GlobalContext } from 'state/context';
 import React from 'react';

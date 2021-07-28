@@ -4,7 +4,6 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
@@ -12,6 +11,7 @@ import CommentIcon from '@material-ui/icons/Comment';
 import ShareIcon from '@material-ui/icons/Share';
 import PostImage from 'testImages/sykletiljobb.svg';
 import StCard from 'styledComponents/StCard';
+import StAvatarFeed from 'styledComponents/StAvatarFeed';
 
 const Post = (props : any) => {
     console.log(props);
@@ -36,7 +36,7 @@ const Post = (props : any) => {
         <StCard>
             <CardActionArea>
                 <CardHeader
-                    avatar={<Avatar style={{backgroundColor: 'purple'}}> EM </Avatar>}
+                    avatar={<StAvatarFeed firstname={props.firstName} lastname={props.lastName} />}
                     title={name}
                     subheader={props.date}
                 />
