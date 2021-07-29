@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { SliderEffort } from './SliderEffort';
 import IChallenge from 'interfaces/IChallenge';
-import { Button } from '@material-ui/core';
 import { GlobalContext } from 'state/context';
 import StCard from 'styledComponents/StCard';
 import { CardContent, CardActions, Typography } from '@material-ui/core';
+import StSubmitButton from 'styledComponents/StSubmitButton';
+import { Redirect, useHistory } from 'react-router-dom';
+import ChallengeInformationPage from 'pages/ChallengeInformationPage';
+import Button from '@material-ui/core/Button';
+import ScrollDialog from './ScrollingDialog';
 
 export const ChallengeListItem = (props: IChallenge) => {
-  console.log('here inside');
   const [activityId] = useState<number>(props.id);
   const [error, setError] = useState<string>('');
   const { state, dispatch } = React.useContext(GlobalContext);
@@ -18,7 +21,7 @@ export const ChallengeListItem = (props: IChallenge) => {
           {props.name}
         </Typography>
         <Typography
-          variant="subtitle2"
+          variant="subtitle1"
           align="center"
           style={{ marginBottom: 10, marginTop: 10 }}
         >
@@ -27,17 +30,6 @@ export const ChallengeListItem = (props: IChallenge) => {
         <Typography variant="subtitle1" align="center">
           Total points:<b> {props.points}</b>
         </Typography>
-        <CardActions
-          style={{
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <Button variant="contained" color={'primary'}>
-            {' '}
-            Challenge Completed{' '}
-          </Button>
-        </CardActions>
       </CardContent>
     </StCard>
   );
