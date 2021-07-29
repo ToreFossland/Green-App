@@ -8,14 +8,19 @@ import getUser from 'utils/user';
  */
 export default function Scoreboard() {
   const [users, setUsers] = useState<any>([]);
-  const sortUsers = async () => {
-    let users = await getUsers();
-    return users;
-  }
 
-  console.log(users);
 
-  //const sortedUsers = users.sort((a: any, b: any) => (a.points < b.points ? -1 : 1));
+  useEffect(() => {
+    const loadUsers = async () => {
+      const userArray = await getUsers();
+      setUsers(userArray);
+    }
+    loadUsers();
+  }, []);
+
+  const sortedUsers = users.sort((a: any, b: any) => (a.points < b.points ? -1 : 1));
+
+  console.log(sortedUsers);
 
 
   return (
