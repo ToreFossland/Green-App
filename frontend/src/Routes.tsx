@@ -23,6 +23,8 @@ import { performsActivities } from 'state/performsActivities/performsActivitiesA
 import { activities } from 'state/activities/activitiesActions';
 import getPerformsActivities from 'utils/performsActivities';
 import ChallengesPage from 'pages/ChallengesPage';
+import getChallenges from 'utils/challenge';
+import { challenges } from 'state/challenges/challengesActions';
 
 export const Routes: FC = () => {
   const { dispatch } = useContext(GlobalContext);
@@ -33,10 +35,12 @@ export const Routes: FC = () => {
         const myUser = await getUser();
         const myActivities = await getActivities();
         const myPerformsActivities = await getPerformsActivities();
+        const myChallenges = await getChallenges();
         console.log(myPerformsActivities);
         dispatch(user(myUser));
         dispatch(activities(myActivities));
         dispatch(performsActivities(myPerformsActivities));
+        dispatch(challenges(myChallenges));
       };
       loadContext();
     }
