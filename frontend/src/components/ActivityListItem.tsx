@@ -12,18 +12,14 @@ export const ActivityListItem = (props: IActivity) => {
   const [activityId] = useState<number>(props.id);
   const [error, setError] = useState<string>('');
   const { state, dispatch } = React.useContext(GlobalContext);
-  const user = state.user!;
   const [effort, setEffort] = useState<number>(0);
+  const user = state.user!;
 
-  const convertDate = (date: Date) => {
-    var dd = String(date.getDate()).padStart(2, '0');
-    var mm = String(date.getMonth() + 1).padStart(2, '0');
-    var yyyy = date.getFullYear();
 
-    return dd + '/' + mm + '/' + yyyy;
-  };
+  
 
-  const handleSubmit = async (_: React.MouseEvent) => {
+
+  const handleAddActivity = async (_: React.MouseEvent) => {
     setError('');
 
     try {
@@ -40,7 +36,7 @@ export const ActivityListItem = (props: IActivity) => {
       const data = await performsActivity(
         user.id,
         activityId,
-        convertDate(props.date),
+        Date.now(),
         effort
       );
       if (data) {
@@ -75,7 +71,7 @@ export const ActivityListItem = (props: IActivity) => {
         />
       </CardActions>
       <CardActions style={{alignItems: 'center', justifyContent: 'center'}} >
-        <Button variant="contained" onClick={handleSubmit} color={'primary'}>
+        <Button variant="contained" onClick={handleAddActivity} color={'primary'}>
           {' '}Submit{' '}
         </Button>
       </CardActions>

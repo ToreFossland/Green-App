@@ -34,7 +34,7 @@ const getPerformsActivities = async() : Promise<IPerformsActivities> =>{
   export const performsActivity = async (
     userId: number,
     activityId: number,
-    date: string,
+    date: number,
     effort: number,
   
   ) => {
@@ -52,7 +52,7 @@ const getPerformsActivities = async() : Promise<IPerformsActivities> =>{
     if (!(activityId)) {
       throw new Error('Activity ID was not provided');
     }
-    if (!(date.length > 0)) {
+    if (!(date > 0)) {
       throw new Error('Date was not provided');
     }
 
