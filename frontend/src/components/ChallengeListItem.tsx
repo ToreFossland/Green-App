@@ -17,12 +17,27 @@ export const ChallengeListItem = (props: IChallenge) => {
         <Typography variant="h6" align="center">
           {props.name}
         </Typography>
-        <Typography variant="h6" align="center">
+        <Typography
+          variant="subtitle2"
+          align="center"
+          style={{ marginBottom: 10, marginTop: 10 }}
+        >
           {props.description}
         </Typography>
+        <Typography variant="subtitle1" align="center">
+          Total points:<b> {props.points}</b>
+        </Typography>
         <CardActions
-          style={{ alignItems: 'center', justifyContent: 'center' }}
-        ></CardActions>
+          style={{
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <Button variant="contained" color={'primary'}>
+            {' '}
+            Challenge Completed{' '}
+          </Button>
+        </CardActions>
       </CardContent>
     </StCard>
   );
