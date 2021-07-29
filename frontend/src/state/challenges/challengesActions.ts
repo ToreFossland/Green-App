@@ -1,4 +1,4 @@
-import IChallenge from 'interfaces/IActivity';
+import IChallenge from 'interfaces/IChallenge';
 import { ActionType } from '../actions';
 
 export interface Challenges {
@@ -8,7 +8,7 @@ export interface Challenges {
     };
 }
 
-export const activities = (value: IChallenge[]): Challenges => (
+export const challenges = (value: IChallenge[]): Challenges => (
     {
     type: ActionType.Challenges,
     payload: {

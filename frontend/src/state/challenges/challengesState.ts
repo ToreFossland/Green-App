@@ -5,5 +5,5 @@ export interface IChallengesState{
 }
 
 export const initialChallengesState = {
-    activities: undefined
+    challenges: undefined
 };
