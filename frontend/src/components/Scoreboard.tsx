@@ -23,8 +23,6 @@ export default function Scoreboard() {
 
   console.log(sortedUsers);
 
-  function getComponent(user: any) {}
-
   return (
     <Grid
       container

@@ -6,6 +6,7 @@ import { GlobalContext } from 'state/context';
 import { StGaugeChart } from 'components/GaugeChart';
 import { EditButton } from 'components/EditButton';
 import Scoreboard from 'components/Scoreboard';
+import Table from 'components/Table';
 
 function Profile() {
   const { state } = useContext(GlobalContext);
@@ -30,7 +31,7 @@ function Profile() {
         <StGaugeChart points={point} />
       </StPaper>
       <StPaper>
-        <Scoreboard></Scoreboard>
+        <Table></Table>
       </StPaper>
     </div>
   );
