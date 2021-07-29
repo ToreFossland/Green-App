@@ -95,7 +95,8 @@ def seed_challenges(db: Session, challenge: schemas.Challenge):
 
     db_challenge = models.Challenge(
         name=challenge.name,
-        description=challenge.description
+        description=challenge.description,
+        points=challenge.points
     )
     db.add(db_challenge)
     db.commit()
