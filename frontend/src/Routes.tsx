@@ -77,7 +77,7 @@ export const Routes: FC = () => {
           <PrivateRoute exact path="/challenges" component={ChallengesPage} />
           <PrivateRoute
             exact
-            path="/challengesinformation/"
+            path="/challengesinformation"
             component={ChallengeInformationPage}
           />
         </Switch>
