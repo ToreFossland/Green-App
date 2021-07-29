@@ -25,6 +25,7 @@ import getPerformsActivities from 'utils/performsActivities';
 import ChallengesPage from 'pages/ChallengesPage';
 import getChallenges from 'utils/challenge';
 import { challenges } from 'state/challenges/challengesActions';
+import ChallengeInformationPage from 'pages/ChallengeInformationPage';
 
 export const Routes: FC = () => {
   const { dispatch } = useContext(GlobalContext);
@@ -74,6 +75,11 @@ export const Routes: FC = () => {
           />
           <PrivateRoute exact path="/map" component={MapPage} />
           <PrivateRoute exact path="/challenges" component={ChallengesPage} />
+          <PrivateRoute
+            exact
+            path="/challengesinformation/"
+            component={ChallengeInformationPage}
+          />
         </Switch>
       </StBackgroundPaper>
       <MyBottomNavigation />
