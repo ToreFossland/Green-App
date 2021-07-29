@@ -4,11 +4,6 @@ import IChallenge from 'interfaces/IChallenge';
 import { GlobalContext } from 'state/context';
 import StCard from 'styledComponents/StCard';
 import { CardContent, CardActions, Typography } from '@material-ui/core';
-import StSubmitButton from 'styledComponents/StSubmitButton';
-import { Redirect, useHistory } from 'react-router-dom';
-import ChallengeInformationPage from 'pages/ChallengeInformationPage';
-import Button from '@material-ui/core/Button';
-import ScrollDialog from './ScrollingDialog';
 
 export const ChallengeListItem = (props: IChallenge) => {
   const [activityId] = useState<number>(props.id);
