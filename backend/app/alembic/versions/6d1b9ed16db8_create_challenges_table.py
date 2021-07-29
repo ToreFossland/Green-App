@@ -21,7 +21,8 @@ def upgrade():
         "challenge",
         sa.Column("id", sa.Integer, primary_key=True),
         sa.Column("name", sa.String(50), nullable=False),
-        sa.Column("description", sa.String(50), nullable=True),
+        sa.Column("description", sa.String(400), nullable=True),
+        sa.Column("points", sa.Integer),
     )
     pass
 
