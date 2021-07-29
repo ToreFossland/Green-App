@@ -1,3 +1,4 @@
+import IUser from 'interfaces/IUser';
 import decodeJwt from 'jwt-decode';
 
 export const isAuthenticated = () => {
@@ -138,10 +139,7 @@ export const logout = () => {
  * @throws Error on http errors or failed attempts
  */
  export const updateUser = async (
-  userID: any,
-  email: any,
-  firstname: string,
-  lastname: string
+  ...props:any
 ) => {
   let token:string = localStorage.getItem('token')||'{}';
   let httpHeaders = {
@@ -150,19 +148,32 @@ export const logout = () => {
       'Authorization' : `Bearer ${token}`
   };
 
-/*   const formData = new FormData();
 
-  if (firstname.length > 0) {
-    formData.append('first_name', firstname);
+  // if (firstname.length > 0) {
+  //   formData.append('first_name', firstname);
+  // }
+  // if (lastname.length > 0) {
+  //   formData.append('last_name', lastname);
+  // }
+  // formData.append('email', email); */
+
+  const userData = {email : ""};
+  console.log(props);
+  console.log(props[1]);
+
+  if(props.length == 5){
+    console.log(props.length);
+    const userData = {first_name: props[2], last_name: props.last_name, email: props.email};
+    console.log(userData);
+  }else if(props.points){
+    const userData = {points: props.points, email: props.email};
+    console.log(userData);
   }
-  if (lastname.length > 0) {
-    formData.append('last_name', lastname);
-  }
-  formData.append('email', email); */
 
-  const userData = {first_name: firstname, last_name: lastname, email: email};
+  console.log("AFTER IF ",userData);
 
-  const request = new Request(`/api/users/${userID}`, {
+
+  const request = new Request(`/api/users/${props.id}`, {
     method: 'PUT',
     headers: new Headers(httpHeaders),
     body: JSON.stringify(userData)
@@ -178,7 +189,7 @@ export const logout = () => {
   const data = await response.json();
   if (response.status > 400 && response.status < 500) {
     if (data.detail) {
-      throw data.detail;
+      console.log(data.detail);
     }
     throw data;
   }
