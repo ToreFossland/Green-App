@@ -14,6 +14,8 @@ import getPerformsActivities, { deletePerformsActivity } from 'utils/performsAct
 import { GlobalContext } from 'state/context';
 import { performsActivities } from 'state/performsActivities/performsActivitiesActions';
 import StAvatarFeed from 'styledComponents/StAvatarFeed';
+import PostMenu from 'components/PostMenu';
+
 
 const Post = (props : any) => {
     const { dispatch } = useContext(GlobalContext);
@@ -34,12 +36,13 @@ const Post = (props : any) => {
         likeButtonColorChange();
     };
 
-    const onCommentClick = async () => {
+    const onDelete = async () => {
         deletePerformsActivity(props.id);
         const myPerformsActivities = await getPerformsActivities();
         dispatch(performsActivities(myPerformsActivities));
+        props.setDeleted(true);
     };
-    
+
     let timestamp : number = +props.date;
     let date : Date = new Date(timestamp);
 
@@ -49,6 +52,7 @@ const Post = (props : any) => {
                 avatar={<StAvatarFeed firstname={props.firstName} lastname={props.lastName} />}
                 title={name}
                 subheader={date.toDateString()}
+                action={ <PostMenu onDelete={onDelete} /> }
             />
             <CardContent>
                 <Typography variant="h6" color="textSecondary" component="p">
@@ -62,12 +66,14 @@ const Post = (props : any) => {
                 component="img"
                 image={PostImage}
                 title="Sykkel"
+                height= '300'
+                width='100%'
             />
             <CardActions style={{alignItems: 'center', justifyContent: 'space-between'}} >
                 <IconButton aria-label="add to favorites" color={likeButtonColor} onClick={onLikeButtonClick} >
                     <FavoriteIcon />
                 </IconButton>
-                <IconButton aria-label="add a comment" onClick={onCommentClick}>
+                <IconButton aria-label="add a comment">
                     <CommentIcon />
                 </IconButton>
                 <IconButton aria-label="share">

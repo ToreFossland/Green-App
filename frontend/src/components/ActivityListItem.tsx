@@ -7,10 +7,12 @@ import { GlobalContext } from 'state/context';
 import { performsActivities } from 'state/performsActivities/performsActivitiesActions';
 import StCard from 'styledComponents/StCard';
 import { CardContent, CardActions, Typography } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
 
 export const ActivityListItem = (props: IActivity) => {
   const [activityId] = useState<number>(props.id);
   const [error, setError] = useState<string>('');
+  const [success, setSuccess] = useState<boolean>(false);
   const { state, dispatch } = React.useContext(GlobalContext);
   const [effort, setEffort] = useState<number>(0);
   const user = state.user!;
@@ -42,6 +44,7 @@ export const ActivityListItem = (props: IActivity) => {
       if (data) {
         const myPerformsActivities = await getPerformsActivities();
         dispatch(performsActivities(myPerformsActivities));
+        setSuccess(true);
       }
     } catch (err) {
       if (err instanceof Error) {
@@ -75,6 +78,8 @@ export const ActivityListItem = (props: IActivity) => {
           {' '}Submit{' '}
         </Button>
       </CardActions>
+      {success && (<Alert severity="success" onClose={() => {setSuccess(false)}} > Your activity was saved </Alert>)}
+      {error && (<Alert severity="error" > Something went wrong </Alert>)}
     </StCard>
   );
 };
