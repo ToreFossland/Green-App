@@ -38,6 +38,7 @@ class Challenge(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String)
     description = Column(String)
+    points = Column(Integer)
 
 
 class performsActivities(Base):
