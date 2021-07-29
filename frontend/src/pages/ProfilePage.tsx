@@ -10,6 +10,12 @@ import ActivityChart from 'components/ActivityChart';
 function Profile() {
   const { state } = useContext(GlobalContext);
   let point: number = state.user?.points!;
+  const date = new Date();
+  const monthName = new Intl.DateTimeFormat('en', { month : 'long' });
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+
   return (
     <div>
       <StPaper>
@@ -30,8 +36,8 @@ function Profile() {
         <StGaugeChart points={point} />
       </StPaper>
       <StPaper>
-        <h2>My activities</h2>
-        <ActivityChart />
+        <h2>My activities {monthName.format(date)} {year} </h2>
+        <ActivityChart id={state.user?.id} month={month} day={day} />
       </StPaper>
     </div>
   );

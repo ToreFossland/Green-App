@@ -1,9 +1,12 @@
+import { stringify } from 'querystring';
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 
-function ActivityChart() {
+function ActivityChart(props: any) {
+    const month = props.month.toString();
+    console.log(month);
     const data = {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+        labels: ['1/'+month, '8/'+month, '15/'+month, '22/'+month, '29/'+month,],
         datasets: [
             {
                 label: 'Bike to Work',
