@@ -41,6 +41,7 @@ const Post = (props : any) => {
         const myPerformsActivities = await getPerformsActivities();
         dispatch(performsActivities(myPerformsActivities));
         props.setDeleted(true);
+        props.setOpen(true);
     };
 
     let timestamp : number = +props.date;
