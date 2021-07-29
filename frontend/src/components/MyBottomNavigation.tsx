@@ -1,6 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Home, AccountCircle, AddCircle, Group, Map } from '@material-ui/icons';
+import {
+  Home,
+  AccountCircle,
+  AddCircle,
+  EmojiEvents,
+  Map,
+} from '@material-ui/icons';
 import { isAuthenticated } from '../utils/auth';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import StBottomNavigation from 'styledComponents/StBottomNavigation';
@@ -43,7 +49,7 @@ function MyBottomNavigation() {
           <BottomNavigationAction
             label="Challenges"
             value="/challenges"
-            icon={<Group />}
+            icon={<EmojiEvents />}
             component={Link}
             to="/challenges"
           />
