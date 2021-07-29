@@ -1,3 +1,4 @@
+import IUser from 'interfaces/IUser';
 import decodeJwt from 'jwt-decode';
 
 export const isAuthenticated = () => {
@@ -138,10 +139,7 @@ export const logout = () => {
  * @throws Error on http errors or failed attempts
  */
  export const updateUser = async (
-  userID: any,
-  email: any,
-  firstname: string,
-  lastname: string
+  ...props:any
 ) => {
   let token:string = localStorage.getItem('token')||'{}';
   let httpHeaders = {
@@ -150,19 +148,19 @@ export const logout = () => {
       'Authorization' : `Bearer ${token}`
   };
 
-/*   const formData = new FormData();
-
-  if (firstname.length > 0) {
-    formData.append('first_name', firstname);
+  let userData;
+  //5 for change names
+  if(props.length == 5){
+    console.log(props.length);
+    userData = { user_id : props[0], email: props[1], first_name: props[2], last_name: props[3] };
+    console.log(userData);
+  //3 for change points
+  }else if(props.length == 3){
+    userData = {user_id : props[0], email: props[1], points: props[2]};
+    console.log(userData);
   }
-  if (lastname.length > 0) {
-    formData.append('last_name', lastname);
-  }
-  formData.append('email', email); */
 
-  const userData = {first_name: firstname, last_name: lastname, email: email};
-
-  const request = new Request(`/api/users/${userID}`, {
+  const request = new Request(`/api/users/${props[0]}`, {
     method: 'PUT',
     headers: new Headers(httpHeaders),
     body: JSON.stringify(userData)
@@ -178,7 +176,7 @@ export const logout = () => {
   const data = await response.json();
   if (response.status > 400 && response.status < 500) {
     if (data.detail) {
-      throw data.detail;
+      console.log(data.detail);
     }
     throw data;
   }
