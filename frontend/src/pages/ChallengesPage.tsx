@@ -9,15 +9,17 @@ const ChallengesPage = () => {
   console.log('here 1');
   const { state } = React.useContext(GlobalContext);
   const challenges = state?.challenges;
-  console.log(challenges);
+  console.log(state);
   return (
     <div>
       <List style={{ width: '100%' }}>
         {challenges?.map((item) => (
           <ChallengeListItem
+            key={item.id}
             id={item.id}
             name={item.name}
             description={item.description}
+            points={item.points}
           />
         ))}
       </List>
