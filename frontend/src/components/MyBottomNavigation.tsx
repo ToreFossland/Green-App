@@ -41,11 +41,11 @@ function MyBottomNavigation() {
             to="/add"
           />
           <BottomNavigationAction
-            label="Groups"
-            value="/groups"
+            label="Challenges"
+            value="/challenges"
             icon={<Group />}
             component={Link}
-            to="/groups"
+            to="/challenges"
           />
           <BottomNavigationAction
             label="Map"
