@@ -8,13 +8,13 @@ import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import CommentIcon from '@material-ui/icons/Comment';
 import ShareIcon from '@material-ui/icons/Share';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import PostImage from 'testImages/sykletiljobb.svg';
 import StCard from 'styledComponents/StCard';
 import getPerformsActivities, { deletePerformsActivity } from 'utils/performsActivities';
 import { GlobalContext } from 'state/context';
 import { performsActivities } from 'state/performsActivities/performsActivitiesActions';
 import StAvatarFeed from 'styledComponents/StAvatarFeed';
+import PostMenu from 'components/PostMenu';
 
 
 const Post = (props : any) => {
@@ -36,10 +36,11 @@ const Post = (props : any) => {
         likeButtonColorChange();
     };
 
-    const onCommentClick = async () => {
+    const onDelete = async () => {
         deletePerformsActivity(props.id);
         const myPerformsActivities = await getPerformsActivities();
         dispatch(performsActivities(myPerformsActivities));
+        props.setDeleted(true);
     };
 
     return (
@@ -48,11 +49,7 @@ const Post = (props : any) => {
                 avatar={<StAvatarFeed firstname={props.firstName} lastname={props.lastName} />}
                 title={name}
                 subheader={props.date}
-                action={
-                    <IconButton aria-label="settings">
-                      <MoreVertIcon />
-                    </IconButton>
-                  }
+                action={ <PostMenu onDelete={onDelete} /> }
             />
             <CardContent>
                 <Typography variant="h6" color="textSecondary" component="p">
@@ -73,7 +70,7 @@ const Post = (props : any) => {
                 <IconButton aria-label="add to favorites" color={likeButtonColor} onClick={onLikeButtonClick} >
                     <FavoriteIcon />
                 </IconButton>
-                <IconButton aria-label="add a comment" onClick={onCommentClick}>
+                <IconButton aria-label="add a comment">
                     <CommentIcon />
                 </IconButton>
                 <IconButton aria-label="share">
