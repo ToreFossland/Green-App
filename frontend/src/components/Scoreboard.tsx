@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ScorePost } from './ScorePost';
 import { GlobalContext } from 'state/context';
 import { Grid } from '@material-ui/core';
@@ -7,9 +7,16 @@ import { getUsers } from 'utils/user';
 import getUser from 'utils/user';
  */
 export default function Scoreboard() {
-  const { state } = React.useContext(GlobalContext);
-  const users = getUsers();
+  const [users, setUsers] = useState<any>([]);
+  const sortUsers = async () => {
+    let users = await getUsers();
+    return users;
+  }
+
   console.log(users);
+
+  //const sortedUsers = users.sort((a: any, b: any) => (a.points < b.points ? -1 : 1));
+
 
   return (
     <Grid

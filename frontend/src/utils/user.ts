@@ -1,6 +1,6 @@
 import IUser from 'interfaces/IUser';
 
-const getUser = async (): Promise<IUser> => {
+export const getUser = async (): Promise<IUser> => {
   let token: string = localStorage.getItem('token') || '{}';
   let httpHeaders = {
     'Content-Type': 'application/x-www-form-urlencoded',
@@ -28,7 +28,7 @@ const getUser = async (): Promise<IUser> => {
   return data;
 };
 
-export const getUsers = async (): Promise<IUser> => {
+export const getUsers = async (): Promise<IUser[]> => {
   let token: string = localStorage.getItem('token') || '{}';
   let httpHeaders = {
     'Content-Type': 'application/x-www-form-urlencoded',
@@ -55,5 +55,3 @@ export const getUsers = async (): Promise<IUser> => {
   }
   return data;
 };
-
-export default getUser;
