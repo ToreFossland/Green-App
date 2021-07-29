@@ -148,32 +148,19 @@ export const logout = () => {
       'Authorization' : `Bearer ${token}`
   };
 
-
-  // if (firstname.length > 0) {
-  //   formData.append('first_name', firstname);
-  // }
-  // if (lastname.length > 0) {
-  //   formData.append('last_name', lastname);
-  // }
-  // formData.append('email', email); */
-
-  const userData = {email : ""};
-  console.log(props);
-  console.log(props[1]);
-
+  let userData;
+  //5 for change names
   if(props.length == 5){
     console.log(props.length);
-    const userData = {first_name: props[2], last_name: props.last_name, email: props.email};
+    userData = { user_id : props[0], email: props[1], first_name: props[2], last_name: props[3] };
     console.log(userData);
-  }else if(props.points){
-    const userData = {points: props.points, email: props.email};
+  //3 for change points
+  }else if(props.length == 3){
+    userData = {user_id : props[0], email: props[1], points: props[2]};
     console.log(userData);
   }
 
-  console.log("AFTER IF ",userData);
-
-
-  const request = new Request(`/api/users/${props.id}`, {
+  const request = new Request(`/api/users/${props[0]}`, {
     method: 'PUT',
     headers: new Headers(httpHeaders),
     body: JSON.stringify(userData)

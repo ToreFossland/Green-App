@@ -7,13 +7,16 @@ import { GlobalContext } from 'state/context';
 import { performsActivities } from 'state/performsActivities/performsActivitiesActions';
 import StCard from 'styledComponents/StCard';
 import { CardContent, CardActions, Typography } from '@material-ui/core';
+import { updateUser } from 'utils/auth';
+import getUser from 'utils/user';
+import { user } from 'state/user/userActions';
 
 export const ActivityListItem = (props: IActivity) => {
   const [activityId] = useState<number>(props.id);
   const [error, setError] = useState<string>('');
   const { state, dispatch } = React.useContext(GlobalContext);
   const [effort, setEffort] = useState<number>(0);
-  const user = state.user!;
+  const currentUser = state.user!;
 
 
   
@@ -23,18 +26,18 @@ export const ActivityListItem = (props: IActivity) => {
     setError('');
 
     try {
-      console.log(
-        'User Id: ',
-        user?.id,
-        ' activity Id: ',
-        activityId,
-        ' date: ',
-        ' Today',
-        ' effort: ',
-        effort
-      );
+      // console.log(
+      //   'User Id: ',
+      //   user?.id,
+      //   ' activity Id: ',
+      //   activityId,
+      //   ' date: ',
+      //   ' Today',
+      //   ' effort: ',
+      //   effort
+      // );
       const data = await performsActivity(
-        user.id,
+        currentUser.id,
         activityId,
         Date.now(),
         effort
@@ -52,6 +55,24 @@ export const ActivityListItem = (props: IActivity) => {
         setError(err);
       }
       console.log(error);
+    }
+    try {
+      const data = await updateUser(currentUser.id, currentUser.email, currentUser.points + props.points);
+
+      if (data) {
+        const myUser = await getUser();
+        dispatch(user(myUser));
+      }
+    } catch (err) {
+      if (err instanceof Error) {
+        // handle errors thrown from frontend
+        setError(err.message);
+        console.log(error);
+      } else {
+        // handle errors thrown from backend
+        setError(err);
+        console.log(error);
+      }
     }
   };
 
