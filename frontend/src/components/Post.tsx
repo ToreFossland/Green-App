@@ -16,6 +16,7 @@ import { GlobalContext } from 'state/context';
 import { performsActivities } from 'state/performsActivities/performsActivitiesActions';
 import StAvatarFeed from 'styledComponents/StAvatarFeed';
 
+
 const Post = (props : any) => {
     const { dispatch } = useContext(GlobalContext);
     let name = `${props.firstName} ${props.lastName}`
@@ -65,6 +66,8 @@ const Post = (props : any) => {
                 component="img"
                 image={PostImage}
                 title="Sykkel"
+                height= '300'
+                width='100%'
             />
             <CardActions style={{alignItems: 'center', justifyContent: 'space-between'}} >
                 <IconButton aria-label="add to favorites" color={likeButtonColor} onClick={onLikeButtonClick} >
