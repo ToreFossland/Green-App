@@ -5,6 +5,7 @@ import React, { useContext } from 'react';
 import { GlobalContext } from 'state/context';
 import { StGaugeChart } from 'components/GaugeChart';
 import { EditButton } from 'components/EditButton';
+import ActivityChart from 'components/ActivityChart';
 
 function Profile() {
   const { state } = useContext(GlobalContext);
@@ -27,6 +28,10 @@ function Profile() {
       </StPaper>
       <StPaper>
         <StGaugeChart points={point} />
+      </StPaper>
+      <StPaper>
+        <h2>My activities</h2>
+        <ActivityChart />
       </StPaper>
     </div>
   );
