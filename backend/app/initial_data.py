@@ -40,6 +40,24 @@ def init() -> None:
         except ValidationError as e:
             print(e.json())
 
+    challengeslist = {
+        "Bike to work for a week": ["Join many others in getting healthier and saving the environment by biking to work!", 60],
+        "Eat a vegetarian during weekdays": ["Drop the meat on weekdays, the environment will thank you!", 40],
+        "Donate 10 pieces of clothing": ["Donate some old clothes that you no longer need or want to a local shop.", 40],
+    }
+
+    for key in challengeslist:
+        try:
+            seed_challenges(
+                db,
+                ChallengeCreate(
+                    name=key,
+                    description=challengeslist[key][0],
+                    points=challengeslist[key][1]),
+            )
+        except ValidationError as e:
+            print(e.json())
+
 
 if __name__ == "__main__":
     print("Creating superuser admin@green-app.com")
