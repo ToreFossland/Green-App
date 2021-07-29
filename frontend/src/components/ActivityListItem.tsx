@@ -13,16 +13,11 @@ export const ActivityListItem = (props: IActivity) => {
   const [error, setError] = useState<string>('');
   const { state, dispatch } = React.useContext(GlobalContext);
   const [effort, setEffort] = useState<number>(0);
-  const [date, setDate] = useState<number>(Date.now());
   const user = state.user!;
 
-  // const convertDate = (date: Date) => {
-  //   var dd = String(date.getDate()).padStart(2, '0');
-  //   var mm = String(date.getMonth() + 1).padStart(2, '0');
-  //   var yyyy = date.getFullYear();
 
-  //   return dd + '/' + mm + '/' + yyyy;
-  // };
+  
+
 
   const handleAddActivity = async (_: React.MouseEvent) => {
     setError('');
@@ -41,7 +36,7 @@ export const ActivityListItem = (props: IActivity) => {
       const data = await performsActivity(
         user.id,
         activityId,
-        date,
+        Date.now(),
         effort
       );
       if (data) {

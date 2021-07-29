@@ -39,13 +39,16 @@ const Post = (props : any) => {
         const myPerformsActivities = await getPerformsActivities();
         dispatch(performsActivities(myPerformsActivities));
     };
+    
+    let timestamp : number = +props.date;
+    let date : Date = new Date(timestamp);
 
     return (
         <StCard>
             <CardHeader
                 avatar={<StAvatarFeed firstname={props.firstName} lastname={props.lastName} />}
                 title={name}
-                subheader={props.date}
+                subheader={date.toDateString()}
             />
             <CardContent>
                 <Typography variant="h6" color="textSecondary" component="p">
