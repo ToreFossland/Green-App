@@ -28,14 +28,14 @@ const getUser = async (): Promise<IUser> => {
   return data;
 };
 
-const getUsers = async (): Promise<IUser> => {
+export const getUsers = async (): Promise<IUser> => {
   let token: string = localStorage.getItem('token') || '{}';
   let httpHeaders = {
     'Content-Type': 'application/x-www-form-urlencoded',
     Accept: 'application/json',
     Authorization: `Bearer ${token}`,
   };
-  const request = new Request('/api/users/', {
+  const request = new Request('/api/users', {
     method: 'GET',
     headers: new Headers(httpHeaders),
   });
