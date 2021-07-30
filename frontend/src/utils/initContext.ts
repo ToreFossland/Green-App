@@ -7,7 +7,7 @@ import { user } from "state/user/userActions";
 import getActivities from "./activity";
 import getChallenges from "./challenge";
 import getPerformsActivities from "./performsActivities";
-import getUser from "./user";
+import { getUser } from "./user";
 
 const InitContext = async (dispatch : any) => {
         const myUser = await getUser();
