@@ -8,7 +8,6 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import SocialGrid from './SocialGrid';
 
-
 interface TabPanelProps {
   children?: React.ReactNode;
   dir?: string;
@@ -29,7 +28,9 @@ function TabPanel(props: TabPanelProps) {
     >
       {value === index && (
         <Box p={3}>
-          <Typography component={'span'} variant={'body2'}>{children}</Typography>
+          <Typography component={'span'} variant={'body2'}>
+            {children}
+          </Typography>
         </Box>
       )}
     </div>
@@ -46,7 +47,7 @@ function a11yProps(index: any) {
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     backgroundColor: theme.palette.background.paper,
-    width: "100%",
+    width: '100%',
   },
 }));
 
@@ -54,7 +55,6 @@ export default function ActivityTabs() {
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
-
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
@@ -85,10 +85,10 @@ export default function ActivityTabs() {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-            <SocialGrid value = {value} />
+          <SocialGrid value={value} />
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-            <SocialGrid value = {value} />
+          <SocialGrid value={value} />
         </TabPanel>
       </SwipeableViews>
     </div>
