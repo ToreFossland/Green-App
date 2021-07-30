@@ -9,8 +9,6 @@ export default function AddActivities() {
   const { state } = React.useContext(GlobalContext);
   const activities = state?.activities;
   const [selectedDate, setSelectedDate] = React.useState<Date>(new Date());
-  console.log(activities);
-
   return (
     <div>
       <StPaper elevation={0}>
