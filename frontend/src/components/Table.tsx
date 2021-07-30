@@ -79,9 +79,9 @@ export default function StickyHeadTable() {
     loadUsers();
   }, []);
 
-  const sortedUsers = users.sort((a: any, b: any) =>
-    a.points < b.points ? -1 : 1
-  );
+  const sortedUsers = users
+    .sort((a: any, b: any) => (a.points < b.points ? -1 : 1))
+    .reverse();
   const rows = sortedUsers.map((e: any) =>
     createData(e.first_name, e.last_name, e.points)
   );
