@@ -1,10 +1,21 @@
-import { stringify } from 'querystring';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Line } from 'react-chartjs-2';
+import { GlobalContext } from 'state/context';
+import * as _ from 'lodash';
 
 function ActivityChart(props: any) {
+    const { state } = useContext(GlobalContext);
     const month = props.month.toString();
-    console.log(month);
+
+    console.log('activities', state.performsActivities);
+
+    const activities = state.performsActivities;
+
+    _.filter(activities, {user_id: state.user?.id});
+
+    console.log('activities:', activities);
+
+
     const data = {
         labels: ['1/'+month, '8/'+month, '15/'+month, '22/'+month, '29/'+month,],
         datasets: [

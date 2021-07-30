@@ -21,23 +21,9 @@ export const ActivityListItem = (props: IActivity) => {
   const currentUser = state.user!;
 
 
-  
-
-
   const handleAddActivity = async (_: React.MouseEvent) => {
     setError('');
-
     try {
-      // console.log(
-      //   'User Id: ',
-      //   user?.id,
-      //   ' activity Id: ',
-      //   activityId,
-      //   ' date: ',
-      //   ' Today',
-      //   ' effort: ',
-      //   effort
-      // );
       const data = await performsActivity(
         currentUser.id,
         activityId,
