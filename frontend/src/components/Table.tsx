@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
@@ -8,6 +9,8 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
+import { Grid } from '@material-ui/core';
+import { getUsers } from 'utils/user';
 
 interface Column {
   id: 'firstName' | 'lastName' | 'score';
@@ -20,7 +23,6 @@ interface Column {
 const columns: Column[] = [
   { id: 'firstName', label: 'First Name', minWidth: 170 },
   { id: 'lastName', label: 'Last name', minWidth: 170 },
-
   {
     id: 'score',
     label: 'Score',
@@ -44,7 +46,11 @@ function createData(
   return { first_name, last_name, score };
 }
 
-const rows = [createData('India', 'Lina', 13)];
+//const rows = [createData('India', 'Lina', 13)];
+
+/* const rows = sortedUsers.forEach((e: any) =>
+  createData(e.first_name, e.last_name, e.points)
+); */
 
 const useStyles = makeStyles({
   root: {
@@ -59,7 +65,7 @@ export default function StickyHeadTable() {
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
+  const [users, setUsers] = useState<any>([]);
   const handleChangePage = (event: unknown, newPage: number) => {
     setPage(newPage);
   };
@@ -70,6 +76,22 @@ export default function StickyHeadTable() {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
+  useEffect(() => {
+    //const [users, setUsers] = useState<any>([]);
+    const loadUsers = async () => {
+      const userArray = await getUsers();
+      setUsers(userArray);
+    };
+    loadUsers();
+  }, []);
+
+  const sortedUsers = users.sort((a: any, b: any) =>
+    a.points < b.points ? -1 : 1
+  );
+  const rows = sortedUsers.map((e: any) =>
+    createData(e.first_name, e.last_name, e.points)
+  );
 
   const indeks = 0;
 
@@ -91,33 +113,18 @@ export default function StickyHeadTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row) => {
-                return (
-                  <TableRow tabIndex={-1} key={indeks}>
-                    {columns.map((column) => {
-                      const value = indeks + 1;
-                      return (
-                        <TableCell key={column.id} align={column.align}>
-                          {/* { {column.format && typeof value === 'number'
-                            ? column.format(value)
-                            : value} } */}
-                          {row.last_name}
-                        </TableCell>
-                      );
-                    })}
-                    {/* <TableCell key={column.id} align={column.align}>
+            {rows.map((row: any) => (
+              <TableRow key={indeks}>
+                {
+                  <TableCell component="th" scope="row">
                     {row.first_name}
-                    <TableCell key={column.id} align={column.align}>
-                    {row.last_name}
-                    </TableCell>
-                    <TableCell key={column.id} align={column.align}>
-                    {row.score}
-                    </TableCell> */}
-                  </TableRow>
-                );
-              })}
+                  </TableCell>
+                }
+                {/* <TableCell align="right">{row.first_name}</TableCell> */}
+                <TableCell align="left">{row.last_name}</TableCell>
+                <TableCell align="right">{row.score}</TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </TableContainer>
