@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { isAuthenticated } from '../utils/auth';
 import StPaper from 'styledComponents/StPaper';
 
 const HomePageLinks: FC = () => {
@@ -10,26 +9,6 @@ const HomePageLinks: FC = () => {
         <a  href="/admin">
         Admin Dashboard
       </a>
-      </StPaper>
-
-      <StPaper>
-        {isAuthenticated() ? (
-          <div>
-            <a  href="/logout">
-              Log out
-            </a>
-          </div>
-
-        ) : (
-          <>
-            <a href="/login">
-              Login
-            </a>
-            <a  href="/signup">
-              Sign Up
-            </a>
-          </>
-        )}
       </StPaper>
     </div>
   );

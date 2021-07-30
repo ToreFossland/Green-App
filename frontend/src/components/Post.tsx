@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import { CardActionArea } from '@material-ui/core';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
@@ -40,29 +39,30 @@ const Post = (props : any) => {
         const myPerformsActivities = await getPerformsActivities();
         dispatch(performsActivities(myPerformsActivities));
     };
+    
+    let timestamp : number = +props.date;
+    let date : Date = new Date(timestamp);
 
     return (
         <StCard>
-            <CardActionArea>
-                <CardHeader
-                    avatar={<StAvatarFeed firstname={props.firstName} lastname={props.lastName} />}
-                    title={name}
-                    subheader={props.date}
-                />
-                <CardContent>
-                    <Typography variant="body1" color="textSecondary" component="p">
-                        {props.activityName}
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        ... effort. ... points.
-                    </Typography>
-                </CardContent>
-                <CardMedia
-                    component="img"
-                    image={PostImage}
-                    title="Sykkel"
-                />
-            </CardActionArea>
+            <CardHeader
+                avatar={<StAvatarFeed firstname={props.firstName} lastname={props.lastName} />}
+                title={name}
+                subheader={date.toDateString()}
+            />
+            <CardContent>
+                <Typography variant="h6" color="textSecondary" component="p">
+                    {props.activityName}
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                    {props.effort} effort. {props.points} points.
+                </Typography>
+            </CardContent>
+            <CardMedia
+                component="img"
+                image={PostImage}
+                title="Sykkel"
+            />
             <CardActions style={{alignItems: 'center', justifyContent: 'space-between'}} >
                 <IconButton aria-label="add to favorites" color={likeButtonColor} onClick={onLikeButtonClick} >
                     <FavoriteIcon />

@@ -33,7 +33,7 @@ async def user_create(
 async def activities_list(
     response: Response,
     db=Depends(get_db),
-    current_user=Depends(get_current_active_superuser),
+    current_user=Depends(get_current_active_user),
 ):
     """
     Get all Activities

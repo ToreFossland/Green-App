@@ -3,7 +3,7 @@ import { useContext, useState } from 'react';
 import { useHistory } from 'react-router';
 import { GlobalContext } from 'state/context';
 import UpdateProfileForm from 'forms/UpdateProfileForm';
-import { updateUser } from 'utils/auth';
+import { updateUser, deleteUser, logout } from 'utils/auth';
 import { user } from 'state/user/userActions';
 import {getUser} from 'utils/user';
 import Settings from 'components/Settings';
@@ -50,8 +50,27 @@ function UpdateProfilePage() {
     history.push('/changepassword');
   };
 
-  const DeleteUser = (_: React.MouseEvent) => {
-    console.log('click');
+  const DeleteUser = async (_: React.MouseEvent) => {
+    setError('');
+
+    try {
+      const data = await deleteUser(userID);
+
+      if (data) {
+        logout();
+        history.push('/logout');
+      }
+    } catch (err) {
+      if (err instanceof Error) {
+        // handle errors thrown from frontend
+        setError(err.message);
+        console.log(error);
+      } else {
+        // handle errors thrown from backend
+        setError(err);
+        console.log(error);
+      }
+    }
   };
 
   return (

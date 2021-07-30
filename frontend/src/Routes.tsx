@@ -41,6 +41,8 @@ export const Routes: FC = () => {
     } 
   }, [dispatch]);
   
+  let date =  Date.now();
+
   return (
     <ThemeProvider theme={GlobalTheme}>
       <MyAppBar />

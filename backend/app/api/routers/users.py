@@ -100,7 +100,7 @@ async def user_delete(
     request: Request,
     user_id: int,
     db=Depends(get_db),
-    current_user=Depends(get_current_active_superuser),
+    current_user=Depends(get_current_active_user),
 ):
     """
     Delete existing user
