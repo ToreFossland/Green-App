@@ -1,8 +1,10 @@
 
 import datetime
+from typing import List
 from sqlalchemy import Boolean, Column, Integer, String
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql.schema import ForeignKey, Table
+from sqlalchemy.sql.sqltypes import ARRAY
 
 from .session import Base
 
@@ -39,6 +41,7 @@ class Challenge(Base):
     name = Column(String)
     description = Column(String)
     points = Column(Integer)
+    activity_id = Column(String)
 
 
 class performsActivities(Base):

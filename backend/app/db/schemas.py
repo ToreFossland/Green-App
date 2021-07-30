@@ -1,3 +1,4 @@
+from sqlalchemy.sql.sqltypes import ARRAY
 from pydantic import BaseModel
 import typing as t
 
@@ -73,6 +74,7 @@ class ChallengeBase(BaseModel):
     name: str
     description: str
     points: int
+    activity_id: str
 
 
 class Challenge(ChallengeBase):
