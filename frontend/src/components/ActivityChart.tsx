@@ -12,9 +12,9 @@ function ActivityChart(props: any) {
 
     const activities = state.performsActivities;
 
-    _.filter(activities, [[{user_id: userID}]]);
+    const currentUserActivites =_.filter(activities, [[{user_id: userID}]]);
 
-    console.log('activities:', activities);
+    console.log('activities:', currentUserActivites);
 
 
     const data = {
