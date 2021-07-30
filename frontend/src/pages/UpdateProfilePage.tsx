@@ -5,7 +5,7 @@ import { GlobalContext } from 'state/context';
 import UpdateProfileForm from 'forms/UpdateProfileForm';
 import { updateUser, deleteUser, logout } from 'utils/auth';
 import { user } from 'state/user/userActions';
-import getUser from 'utils/user';
+import {getUser} from 'utils/user';
 import Settings from 'components/Settings';
 
 function UpdateProfilePage() {

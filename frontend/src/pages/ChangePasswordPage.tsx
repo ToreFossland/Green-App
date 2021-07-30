@@ -4,7 +4,7 @@ import { useHistory } from 'react-router';
 import { GlobalContext } from 'state/context';
 import { updateUserPassword } from 'utils/auth';
 import { user } from 'state/user/userActions';
-import getUser from 'utils/user';
+import {getUser} from 'utils/user';
 import ChangePasswordForm from 'forms/ChangePasswordForm';
 
 function ChangePasswordPage() {

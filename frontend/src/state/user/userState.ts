@@ -7,3 +7,4 @@ export interface IUserState {
 export const initialUserState = {
     user: undefined
 };
+

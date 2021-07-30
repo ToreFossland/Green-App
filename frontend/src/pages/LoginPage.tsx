@@ -6,7 +6,7 @@ import { GlobalContext } from 'state/context';
 import { user } from 'state/user/userActions';
 import { activities } from 'state/activities/activitiesActions';
 import { challenges } from 'state/challenges/challengesActions';
-import getUser from 'utils/user';
+import { getUser } from 'utils/user';
 import getActivities from 'utils/activity';
 import LoginForm from 'forms/LoginForm';
 import getPerformsActivities from 'utils/performsActivities';
