@@ -5,7 +5,7 @@ import { signUp, isAuthenticated } from '../utils/auth';
 import SignupForm from 'forms/SignupForm';
 import { user } from 'state/user/userActions';
 import { GlobalContext } from 'state/context';
-import getUser from 'utils/user';
+import {getUser} from 'utils/user';
 
 export const SignUpPage: FC = () => {
   const history = useHistory();

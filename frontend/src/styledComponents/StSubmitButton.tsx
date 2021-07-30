@@ -11,7 +11,7 @@ const StSubmitButton = styled(withTheme(Button))(props => ({
   padding: props.theme.spacing(3),
   marginTop: 10,
   border: `3px solid ${props.theme.palette.primary.main}`,
-  backgroundClip: props.theme.palette.success.main,
+  backgroundClip: props.theme.palette.success.main
 }));
 
 export default StSubmitButton;

@@ -16,7 +16,7 @@ import AddActivities from './pages/AddActivitiesPage';
 import StBackgroundPaper from 'styledComponents/StBackgroundPaper';
 import ChangePasswordPage from 'pages/ChangePasswordPage';
 import { GlobalContext } from 'state/context';
-import getUser from 'utils/user';
+import {getUser} from 'utils/user';
 import getActivities from 'utils/activity';
 import { user } from 'state/user/userActions';
 import { performsActivities } from 'state/performsActivities/performsActivitiesActions';
@@ -45,8 +45,6 @@ export const Routes: FC = () => {
       loadContext();
     }
   }, [dispatch]);
-
-  let date = Date.now();
 
   return (
     <ThemeProvider theme={GlobalTheme}>

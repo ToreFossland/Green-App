@@ -12,7 +12,8 @@ const LoginForm = ({
     onEmailChange,
     onPasswordChange,
     onLoginClick,
-    onSignupClick
+    onSignupClick,
+    onKeyPress
   }: {
     email?: string;
     password?: string;
@@ -21,6 +22,7 @@ const LoginForm = ({
     onPasswordChange: (e: any) => void;
     onLoginClick: any;
     onSignupClick: any;
+    onKeyPress: any;
   }) => {
     return (
         <StPaper>
@@ -35,6 +37,7 @@ const LoginForm = ({
                 type="email"
                 value={email}
                 onChange={onEmailChange}
+                onKeyPress ={onKeyPress}
                 fullWidth
                 autoFocus
                 required
@@ -52,6 +55,7 @@ const LoginForm = ({
                 type="password"
                 value={password}
                 onChange={onPasswordChange}
+                onKeyPress ={onKeyPress}
                 fullWidth
                 required
                 />

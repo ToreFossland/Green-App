@@ -1,4 +1,3 @@
-import IUser from 'interfaces/IUser';
 import decodeJwt from 'jwt-decode';
 
 export const isAuthenticated = () => {
@@ -150,12 +149,12 @@ export const logout = () => {
 
   let userData;
   //5 for change names
-  if(props.length == 5){
+  if(props.length === 5){
     console.log(props.length);
     userData = { user_id : props[0], email: props[1], first_name: props[2], last_name: props[3] };
     console.log(userData);
   //3 for change points
-  }else if(props.length == 3){
+  }else if(props.length === 3){
     userData = {user_id : props[0], email: props[1], points: props[2]};
     console.log(userData);
   }
@@ -194,8 +193,8 @@ export const logout = () => {
  * @throws Error on http errors or failed attempts
  */
  export const updateUserPassword = async (
-  userID: any,
-  email: any,
+  userID: number,
+  email: string,
   newPassword: string,
 ) => {
   let token:string = localStorage.getItem('token')||'{}';
@@ -238,7 +237,7 @@ export const logout = () => {
  * @throws Error on http errors or failed attempts
  */
  export const deleteUser = async (
-  userID: any,
+  userID: number,
 ) => {
   let token:string = localStorage.getItem('token')||'{}';
   let httpHeaders = {

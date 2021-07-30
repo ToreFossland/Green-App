@@ -6,6 +6,7 @@ import { GlobalContext } from 'state/context';
 import { StGaugeChart } from 'components/GaugeChart';
 import { EditButton } from 'components/EditButton';
 import ActivityChart from 'components/ActivityChart';
+import Table from 'components/Table';
 
 function Profile() {
   const { state } = useContext(GlobalContext);
@@ -38,6 +39,7 @@ function Profile() {
       <StPaper>
         <h2>My activities {monthName.format(date)} {year} </h2>
         <ActivityChart id={state.user?.id} month={month} day={day} />
+        <Table></Table>
       </StPaper>
     </div>
   );

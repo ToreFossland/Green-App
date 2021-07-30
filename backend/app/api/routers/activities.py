@@ -17,7 +17,7 @@ async def user_create(
     request: Request,
     activity: ActivityCreate,
     db=Depends(get_db),
-    current_user=Depends(get_current_active_superuser),
+    current_user=Depends(get_current_active_user),
 ):
     """
     Create a new activity
