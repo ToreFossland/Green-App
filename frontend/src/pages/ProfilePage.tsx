@@ -39,7 +39,7 @@ function Profile() {
       <StPaper>
         <h2>My activities {monthName.format(date)} {year} </h2>
         <ActivityChart id={state.user?.id} month={month} day={day} />
-        <Table></Table>
+        {/* <Table></Table> */}
       </StPaper>
     </div>
   );
