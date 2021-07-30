@@ -1,5 +1,4 @@
 import IChallenge from "interfaces/IChallenge";
-import { useState } from "react";
 
 const getChallenges = async() : Promise<IChallenge[]> =>{
     let token:string = localStorage.getItem('token')||'{}';

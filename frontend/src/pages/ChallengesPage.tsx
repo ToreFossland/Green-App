@@ -1,8 +1,8 @@
 import React from 'react';
 import { GlobalContext } from 'state/context';
 import List from '@material-ui/core/List';
-import getChallenges from 'utils/challenge';
 import ScrollingDialog from 'components/ScrollingDialog';
+
 const ChallengesPage = () => {
   const { state } = React.useContext(GlobalContext);
   const challenges = state?.challenges;

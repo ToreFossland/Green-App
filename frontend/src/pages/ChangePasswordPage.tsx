@@ -4,7 +4,7 @@ import { useHistory } from 'react-router';
 import { GlobalContext } from 'state/context';
 import { updateUserPassword } from 'utils/auth';
 import { user } from 'state/user/userActions';
-import getUser from 'utils/user';
+import {getUser} from 'utils/user';
 import ChangePasswordForm from 'forms/ChangePasswordForm';
 
 function ChangePasswordPage() {
@@ -13,7 +13,7 @@ function ChangePasswordPage() {
     const [newPassword, setNewPassword] = useState<string>('');
     const [newPasswordConfimation, setNewPasswordConfirmation] = useState<string>('');
     const [error, setError] = useState<string>('');
-    const userID = state.user?.id;
+    const userID = state.user?.id!;
     const email = state.user?.email!;
 
     const PasswordChange = async (_: React.MouseEvent) => {

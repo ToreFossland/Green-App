@@ -4,8 +4,13 @@ import Post from './Post';
 import { GlobalContext } from 'state/context';
 import Snackbar from '@material-ui/core/Snackbar';
 import Alert from '@material-ui/lab/Alert';
+import filter from 'lodash/filter';
 
-function SocialGrid() {
+interface ISocialGrid{
+    value: number
+}
+
+function SocialGrid(props: ISocialGrid) {
     const {state } = useContext(GlobalContext);
     const [deleted, setDeleted] = useState<boolean>(false);
     const [open, setOpen] = React.useState(false);
@@ -18,6 +23,13 @@ function SocialGrid() {
 
         setOpen(false);
     };
+    let performsActivities = state.performsActivities;
+    
+    if(props.value){
+        performsActivities = filter(performsActivities, function(item){
+            return item[0].id === state.user?.id;
+        });
+    }
 
     return (
         <Grid container direction="column" justifyContent="center" alignItems="stretch" >
@@ -32,7 +44,7 @@ function SocialGrid() {
                 </Grid>
                 )}
 
-            {state.performsActivities && state.performsActivities?.slice(0).reverse().map((item: any) =>
+            {performsActivities && performsActivities?.slice(0).reverse().map((item: any) =>
                 // <Grid item>
                     <Post key= {item[1].id}
                     id = {item[1].id}
