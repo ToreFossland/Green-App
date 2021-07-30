@@ -3,9 +3,8 @@ import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { signUp, isAuthenticated } from '../utils/auth';
 import SignupForm from 'forms/SignupForm';
-import { user } from 'state/user/userActions';
 import { GlobalContext } from 'state/context';
-import getUser from 'utils/user';
+import InitContext from 'utils/initContext';
 
 export const SignUpPage: FC = () => {
   const history = useHistory();
@@ -32,8 +31,7 @@ export const SignUpPage: FC = () => {
         );
 
         if (data) {
-          const myUser = await getUser();
-          dispatch(user(myUser));
+          InitContext(dispatch);
           history.push('/');
         }
       } catch (err) {

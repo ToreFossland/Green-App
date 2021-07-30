@@ -16,33 +16,15 @@ import AddActivities from './pages/AddActivitiesPage';
 import StBackgroundPaper from 'styledComponents/StBackgroundPaper';
 import ChangePasswordPage from 'pages/ChangePasswordPage';
 import { GlobalContext } from 'state/context';
-import getUser from 'utils/user';
-import getActivities from 'utils/activity';
-import { user } from 'state/user/userActions';
-import { performsActivities } from 'state/performsActivities/performsActivitiesActions';
-import { activities } from 'state/activities/activitiesActions';
-import getPerformsActivities from 'utils/performsActivities';
 import ChallengesPage from 'pages/ChallengesPage';
-import getChallenges from 'utils/challenge';
-import { challenges } from 'state/challenges/challengesActions';
+import InitContext from 'utils/initContext';
 
 export const Routes: FC = () => {
   const { dispatch } = useContext(GlobalContext);
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
-      const loadContext = async () => {
-        const myUser = await getUser();
-        const myActivities = await getActivities();
-        const myPerformsActivities = await getPerformsActivities();
-        const myChallenges = await getChallenges();
-        console.log(myPerformsActivities);
-        dispatch(user(myUser));
-        dispatch(activities(myActivities));
-        dispatch(performsActivities(myPerformsActivities));
-        dispatch(challenges(myChallenges));
-      };
-      loadContext();
+      InitContext(dispatch);
     }
   }, [dispatch]);
 
