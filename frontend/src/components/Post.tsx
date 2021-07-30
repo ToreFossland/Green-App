@@ -16,7 +16,7 @@ import { performsActivities } from 'state/performsActivities/performsActivitiesA
 import StAvatarFeed from 'styledComponents/StAvatarFeed';
 import PostMenu from 'components/PostMenu';
 import { updateUser } from 'utils/auth';
-import getUser from 'utils/user';
+import { getUser } from 'utils/user';
 import { user } from 'state/user/userActions';
 
 
