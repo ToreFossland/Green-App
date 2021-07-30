@@ -41,11 +41,10 @@ def init() -> None:
             print(e.json())
 
     challengeslist = {
-        "Bike to work for a week": ["Join many others in getting healthier and saving the environment by biking to work!", 60],
-        "Eat a vegetarian during weekdays": ["Drop the meat on weekdays, the environment will thank you!", 40],
-        "Donate 10 pieces of clothing": ["Donate some old clothes that you no longer need or want to a local shop.", 40],
+        "Bike to work for a week": ["Join many others in getting healthier and saving the environment by biking to work!", 60, "2, 3"],
+        "Eat a vegetarian during weekdays": ["Drop the meat on weekdays, the environment will thank you!", 40, "2, 1"],
+        "Donate 10 pieces of clothing": ["Donate some old clothes that you no longer need or want to a local shop.", 40, "1, 3"],
     }
-
     for key in challengeslist:
         try:
             seed_challenges(
@@ -53,8 +52,9 @@ def init() -> None:
                 ChallengeCreate(
                     name=key,
                     description=challengeslist[key][0],
-                    points=challengeslist[key][1]),
-            )
+                    points=challengeslist[key][1],
+                    activity_id=challengeslist[key][2]
+                ))
         except ValidationError as e:
             print(e.json())
 
