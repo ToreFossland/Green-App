@@ -9,7 +9,6 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
-import { Grid } from '@material-ui/core';
 import { getUsers } from 'utils/user';
 
 interface Column {
@@ -45,12 +44,6 @@ function createData(
 ): Data {
   return { first_name, last_name, score };
 }
-
-//const rows = [createData('India', 'Lina', 13)];
-
-/* const rows = sortedUsers.forEach((e: any) =>
-  createData(e.first_name, e.last_name, e.points)
-); */
 
 const useStyles = makeStyles({
   root: {
@@ -120,7 +113,6 @@ export default function StickyHeadTable() {
                     {row.first_name}
                   </TableCell>
                 }
-                {/* <TableCell align="right">{row.first_name}</TableCell> */}
                 <TableCell align="left">{row.last_name}</TableCell>
                 <TableCell align="right">{row.score}</TableCell>
               </TableRow>
