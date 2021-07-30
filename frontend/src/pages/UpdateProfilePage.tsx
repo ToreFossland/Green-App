@@ -13,20 +13,22 @@ function UpdateProfilePage() {
   const { state, dispatch } = useContext(GlobalContext);
   const [firstname, setFirstname] = useState<string>('');
   const [lastname, setLastname] = useState<string>('');
+  const [company, setCompany] = useState<string>('Equinor');
   const [error, setError] = useState<string>('');
-  const userID = state.user?.id;
-  const email = state.user?.email;
+  const userID = state.user?.id!;
+  const email = state.user?.email!;
 
   useEffect(() => {
     setFirstname(state.user?.first_name!);
     setLastname(state.user?.last_name!);
+    // setCompany(state.user?.company!);
   }, [state]);
 
   const handleSubmit = async (_: React.MouseEvent) => {
     setError('');
 
     try {
-      const data = await updateUser(userID, email, firstname, lastname);
+      const data = await updateUser(userID, email, firstname, lastname, company);
 
       if (data) {
         const myUser = await getUser();

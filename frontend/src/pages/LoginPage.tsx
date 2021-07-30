@@ -5,11 +5,13 @@ import { login, isAuthenticated } from '../utils/auth';
 import { GlobalContext } from 'state/context';
 import { user } from 'state/user/userActions';
 import { activities } from 'state/activities/activitiesActions';
-import {getUser} from 'utils/user';
+import { challenges } from 'state/challenges/challengesActions';
+import { getUser } from 'utils/user';
 import getActivities from 'utils/activity';
 import LoginForm from 'forms/LoginForm';
 import getPerformsActivities from 'utils/performsActivities';
 import { performsActivities } from 'state/performsActivities/performsActivitiesActions';
+import getChallenges from 'utils/challenge';
 
 export const Login: FC = () => {
   const history = useHistory();
@@ -26,10 +28,12 @@ export const Login: FC = () => {
         const myUser = await getUser();
         const myActivities = await getActivities();
         const myPerformsActivities = await getPerformsActivities();
+        const myChallenges = await getChallenges();
         console.log(myPerformsActivities);
         dispatch(user(myUser));
         dispatch(activities(myActivities));
         dispatch(performsActivities(myPerformsActivities));
+        dispatch(challenges(myChallenges));
         history.push('/');
       }
     } catch (err) {
@@ -47,13 +51,17 @@ export const Login: FC = () => {
     <Redirect to="/" />
   ) : (
     <LoginForm
-      email = {email}
-      password = {password}
-      error = {error}
-      onEmailChange = {(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.currentTarget.value)}
-      onPasswordChange = {(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.currentTarget.value)}
-      onLoginClick = {handleSubmit}
-      onSignupClick = {() => history.push('/signup')}
+      email={email}
+      password={password}
+      error={error}
+      onEmailChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+        setEmail(e.currentTarget.value)
+      }
+      onPasswordChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+        setPassword(e.currentTarget.value)
+      }
+      onLoginClick={handleSubmit}
+      onSignupClick={() => history.push('/signup')}
     />
   );
 };

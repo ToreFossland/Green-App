@@ -22,26 +22,31 @@ import { user } from 'state/user/userActions';
 import { performsActivities } from 'state/performsActivities/performsActivitiesActions';
 import { activities } from 'state/activities/activitiesActions';
 import getPerformsActivities from 'utils/performsActivities';
+import ChallengesPage from 'pages/ChallengesPage';
+import getChallenges from 'utils/challenge';
+import { challenges } from 'state/challenges/challengesActions';
 
 export const Routes: FC = () => {
   const { dispatch } = useContext(GlobalContext);
 
   useEffect(() => {
-    if(localStorage.getItem('token')){
+    if (localStorage.getItem('token')) {
       const loadContext = async () => {
-      const myUser = await getUser();
-      const myActivities = await getActivities();
-      const myPerformsActivities = await getPerformsActivities();
-      console.log(myPerformsActivities);
-      dispatch(user(myUser));
-      dispatch(activities(myActivities));
-      dispatch(performsActivities(myPerformsActivities));
-      }
+        const myUser = await getUser();
+        const myActivities = await getActivities();
+        const myPerformsActivities = await getPerformsActivities();
+        const myChallenges = await getChallenges();
+        console.log(myPerformsActivities);
+        dispatch(user(myUser));
+        dispatch(activities(myActivities));
+        dispatch(performsActivities(myPerformsActivities));
+        dispatch(challenges(myChallenges));
+      };
       loadContext();
-    } 
+    }
   }, [dispatch]);
-  
-  let date =  Date.now();
+
+  let date = Date.now();
 
   return (
     <ThemeProvider theme={GlobalTheme}>
@@ -56,10 +61,19 @@ export const Routes: FC = () => {
           <Route exact path="/logout" component={LoginPage} />
           <PrivateRoute exact path="/" component={HomePage} />
           <PrivateRoute exact path="/profile" component={Profile} />
-          <PrivateRoute exact path="/updateprofile" component={UpdateProfilePage} />
+          <PrivateRoute
+            exact
+            path="/updateprofile"
+            component={UpdateProfilePage}
+          />
           <PrivateRoute exact path="/add" component={AddActivities} />
-          <PrivateRoute exact path="/changepassword" component={ChangePasswordPage} />
+          <PrivateRoute
+            exact
+            path="/changepassword"
+            component={ChangePasswordPage}
+          />
           <PrivateRoute exact path="/map" component={MapPage} />
+          <PrivateRoute exact path="/challenges" component={ChallengesPage} />
         </Switch>
       </StBackgroundPaper>
       <MyBottomNavigation />
