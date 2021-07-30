@@ -6,12 +6,13 @@ import * as _ from 'lodash';
 function ActivityChart(props: any) {
     const { state } = useContext(GlobalContext);
     const month = props.month.toString();
+    const userID = state.user?.id;
 
     console.log('activities', state.performsActivities);
 
     const activities = state.performsActivities;
 
-    _.filter(activities, {user_id: state.user?.id});
+    _.filter(activities, [[{user_id: userID}]]);
 
     console.log('activities:', activities);
 
