@@ -5,7 +5,6 @@ import React, { useContext } from 'react';
 import { GlobalContext } from 'state/context';
 import { StGaugeChart } from 'components/GaugeChart';
 import { EditButton } from 'components/EditButton';
-import Scoreboard from 'components/Scoreboard';
 import Table from 'components/Table';
 
 function Profile() {
