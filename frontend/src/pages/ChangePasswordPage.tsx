@@ -13,7 +13,7 @@ function ChangePasswordPage() {
     const [newPassword, setNewPassword] = useState<string>('');
     const [newPasswordConfimation, setNewPasswordConfirmation] = useState<string>('');
     const [error, setError] = useState<string>('');
-    const userID = state.user?.id;
+    const userID = state.user?.id!;
     const email = state.user?.email!;
 
     const PasswordChange = async (_: React.MouseEvent) => {

@@ -20,7 +20,14 @@ export const Login: FC = () => {
   const [error, setError] = useState<string>('');
   const { dispatch } = useContext(GlobalContext);
 
-  const handleSubmit = async (_: React.MouseEvent) => {
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      console.log('Enter key pressed');
+      handleSubmit();
+    }
+  }
+
+  const handleSubmit = async () => {
     setError('');
     try {
       const data = await login(email, password);
@@ -62,6 +69,7 @@ export const Login: FC = () => {
       }
       onLoginClick={handleSubmit}
       onSignupClick={() => history.push('/signup')}
+      onKeyPress={handleKeyPress}
     />
   );
 };

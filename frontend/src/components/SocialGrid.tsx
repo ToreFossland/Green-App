@@ -23,19 +23,13 @@ function SocialGrid(props: ISocialGrid) {
 
         setOpen(false);
     };
-
     let performsActivities = state.performsActivities;
-
-    console.log(performsActivities);
-
+    
     if(props.value){
         performsActivities = filter(performsActivities, function(item){
             return item[0].id === state.user?.id;
         });
     }
-    
-
-    console.log(performsActivities);
 
     return (
         <Grid container direction="column" justifyContent="center" alignItems="stretch" >
