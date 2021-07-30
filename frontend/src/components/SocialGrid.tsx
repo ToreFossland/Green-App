@@ -9,6 +9,7 @@ function SocialGrid() {
     const {state } = useContext(GlobalContext);
     const [deleted, setDeleted] = useState<boolean>(false);
     const [open, setOpen] = React.useState(false);
+    const [error, setError] = useState<string>('');
 
     const handleClose = (event?: React.SyntheticEvent, reason?: string) => {
         setDeleted(false);
@@ -31,6 +32,15 @@ function SocialGrid() {
                     </Snackbar>
                 </Grid>
                 )}
+            {error && (
+                <Grid item>
+                    <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={6000} onClose={handleClose}>
+                        <Alert onClose={handleClose} severity="error">
+                            Something went wrong
+                        </Alert>
+                    </Snackbar>
+                </Grid>
+                )}
 
             {state.performsActivities && state.performsActivities?.slice(0).reverse().map((item: any) =>
                 // <Grid item>
@@ -39,7 +49,8 @@ function SocialGrid() {
                     firstName = {item[0].first_name} lastName = {item[0].last_name}
                     activityName = {item[2].name} date = {item[1].date}
                     points = {item[2].points} effort = {item[1].effort}
-                    setDeleted={setDeleted} setOpen={setOpen} />
+                    setDeleted={setDeleted} setOpen={setOpen}
+                    error = {error} setError = {setError} />
                 // </Grid>
                 )}
         </Grid>

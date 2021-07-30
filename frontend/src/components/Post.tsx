@@ -15,10 +15,14 @@ import { GlobalContext } from 'state/context';
 import { performsActivities } from 'state/performsActivities/performsActivitiesActions';
 import StAvatarFeed from 'styledComponents/StAvatarFeed';
 import PostMenu from 'components/PostMenu';
+import { updateUser } from 'utils/auth';
+import getUser from 'utils/user';
+import { user } from 'state/user/userActions';
 
 
 const Post = (props : any) => {
-    const { dispatch } = useContext(GlobalContext);
+    const { dispatch, state } = useContext(GlobalContext);
+    const currentUser = state.user!;
     let name = `${props.firstName} ${props.lastName}`
     const [liked, setLiked] = useState<boolean>(false);
     const [likeButtonColor, setLikeButtonColor] = useState<"default" | "secondary" | "inherit" | "primary" | undefined >("default");
@@ -42,6 +46,24 @@ const Post = (props : any) => {
         dispatch(performsActivities(myPerformsActivities));
         props.setDeleted(true);
         props.setOpen(true);
+        try {
+            const data = await updateUser(currentUser.id, currentUser.email, (currentUser.points - props.points));
+
+            if (data) {
+              const myUser = await getUser();
+              dispatch(user(myUser));
+            }
+          } catch (err) {
+            if (err instanceof Error) {
+              // handle errors thrown from frontend
+              props.setError(err.message);
+              console.log(props.error);
+            } else {
+              // handle errors thrown from backend
+              props.setError(err);
+              console.log(props.error);
+            }
+          }
     };
 
     let timestamp : number = +props.date;
