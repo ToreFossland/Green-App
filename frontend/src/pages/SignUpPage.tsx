@@ -76,7 +76,6 @@ export const SignUpPage: FC = () => {
         setPasswordConfirmation(e.currentTarget.value)
       }
       onSignupClick={handleSubmit}
-      onLoginClick={handleToLogin}
     />
   );
 };

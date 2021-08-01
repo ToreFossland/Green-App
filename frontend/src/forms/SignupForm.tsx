@@ -4,10 +4,11 @@ import StSubmitButton from "styledComponents/StSubmitButton";
 import { Grid, TextField } from "@material-ui/core";
 import { Face, Fingerprint } from "@material-ui/icons";
 import { Alert } from '@material-ui/lab';
+import { Link } from "react-router-dom";
 
 
-  const SignupForm = ({ email, onEmailChange, firstname, onFnameChange, lastname, onLnameChange, password, onPasswordChange, passwordConfirmation, onPasswordConfirmationChange, error, onSignupClick, onLoginClick }
-    : { email: string, onEmailChange: any, firstname: string, onFnameChange: any, lastname: string, onLnameChange: any, password: string, onPasswordChange: any, passwordConfirmation: string, onPasswordConfirmationChange: any, error: string, onSignupClick: any, onLoginClick: any }
+  const SignupForm = ({ email, onEmailChange, firstname, onFnameChange, lastname, onLnameChange, password, onPasswordChange, passwordConfirmation, onPasswordConfirmationChange, error, onSignupClick }
+    : { email: string, onEmailChange: any, firstname: string, onFnameChange: any, lastname: string, onLnameChange: any, password: string, onPasswordChange: any, passwordConfirmation: string, onPasswordConfirmationChange: any, error: string, onSignupClick: any }
     ) => {
     return (
 
@@ -107,7 +108,7 @@ import { Alert } from '@material-ui/lab';
                 <StSubmitButton onClick = {onSignupClick} >Sign Up</StSubmitButton>
             </Grid>
             <Grid container justifyContent="center">
-                <a onClick={onLoginClick}> Already have an account? Click here to log in </a>
+                <Link to={'/login' }> Already have an account? Click here to log in </Link>
             </Grid>
         </StSignUpPaper>
     )
