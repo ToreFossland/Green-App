@@ -17,6 +17,7 @@
     "react-admin": "^3.5.2",
     "react-dom": "^17.0.2",
     "react-gauge-chart": "^0.3.0",
+    "react-material-ui-carousel": "^2.2.7",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.3",
     "react-swipeable-views": "^0.14.0",

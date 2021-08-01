@@ -5,6 +5,7 @@ import { login, isAuthenticated } from '../utils/auth';
 import { GlobalContext } from 'state/context';
 import LoginForm from 'forms/LoginForm';
 import InitContext from 'utils/initContext';
+import NewLoginForm from 'forms/NewLoginForm';
 
 export const Login: FC = () => {
   const history = useHistory();
@@ -42,7 +43,7 @@ export const Login: FC = () => {
   return isAuthenticated() ? (
     <Redirect to="/" />
   ) : (
-    <LoginForm
+    <NewLoginForm
       email={email}
       password={password}
       error={error}
