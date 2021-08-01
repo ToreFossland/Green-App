@@ -71,7 +71,7 @@ export const SignUpPage: FC = () => {
       onPasswordConfirmationChange={(e: React.ChangeEvent<HTMLInputElement>) =>
         setPasswordConfirmation(e.currentTarget.value)
       }
-      onButtonClick={handleSubmit}
+      onSignupClick={handleSubmit}
     />
   );
 };
