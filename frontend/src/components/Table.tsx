@@ -106,8 +106,8 @@ export default function StickyHeadTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row: any) => (
-              <TableRow key={indeks}>
+            {rows.map((row: any, index: number) => (
+              <TableRow key={index}>
                 {
                   <TableCell component="th" scope="row">
                     {row.first_name}

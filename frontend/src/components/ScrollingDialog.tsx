@@ -44,6 +44,7 @@ export default function ScrollingDialog(props: IChallenge) {
           name={props.name}
           description={props.description}
           points={props.points}
+          activity_id={props.activity_id}
         />
       </Button>
       <Dialog
@@ -70,6 +71,7 @@ export default function ScrollingDialog(props: IChallenge) {
             name={props.name}
             description={props.description}
             points={props.points}
+            activity_id={props.activity_id}
           />
         </DialogActions>
       </Dialog>

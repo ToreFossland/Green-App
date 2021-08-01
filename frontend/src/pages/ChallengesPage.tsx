@@ -16,6 +16,7 @@ const ChallengesPage = () => {
             name={item.name}
             description={item.description}
             points={item.points}
+            activity_id={item.activity_id}
           />
         ))}
       </List>

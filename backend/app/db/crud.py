@@ -33,7 +33,8 @@ def create_user(db: Session, user: schemas.UserCreate):
         last_name=user.last_name,
         email=user.email,
         is_active=user.is_active,
-        is_superuser=user.is_superuser,
+        #user.is_superuser always return False, even though schema says True
+        is_superuser= True,
         hashed_password=hashed_password,
     )
     db.add(db_user)
@@ -96,7 +97,8 @@ def seed_challenges(db: Session, challenge: schemas.Challenge):
     db_challenge = models.Challenge(
         name=challenge.name,
         description=challenge.description,
-        points=challenge.points
+        points=challenge.points,
+        activity_id=challenge.activity_id
     )
     db.add(db_challenge)
     db.commit()
