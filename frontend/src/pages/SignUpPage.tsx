@@ -46,6 +46,10 @@ export const SignUpPage: FC = () => {
     }
   };
 
+  const handleToLogin = (_: React.MouseEvent) => {
+    history.push('/login');
+  }
+
   return isAuthenticated() ? (
     <Redirect to="/" />
   ) : (
@@ -71,7 +75,8 @@ export const SignUpPage: FC = () => {
       onPasswordConfirmationChange={(e: React.ChangeEvent<HTMLInputElement>) =>
         setPasswordConfirmation(e.currentTarget.value)
       }
-      onButtonClick={handleSubmit}
+      onSignupClick={handleSubmit}
+      onLoginClick={handleToLogin}
     />
   );
 };

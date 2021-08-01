@@ -9,5 +9,6 @@ const StSignUpPaper = styled(withTheme(Paper))(props => ({
   padding: props.theme.spacing(2),
   color: props.theme.palette.secondary.main,
   justifyContent: 'center',
+  boxShadow: '0px 0px 0px 0px',
 }));
 export default StSignUpPaper;

@@ -6,8 +6,8 @@ import { Face, Fingerprint } from "@material-ui/icons";
 import { Alert } from '@material-ui/lab';
 
 
-  const SignupForm = ({ email, onEmailChange, firstname, onFnameChange, lastname, onLnameChange, password, onPasswordChange, passwordConfirmation, onPasswordConfirmationChange, error, onButtonClick }
-    : { email: string, onEmailChange: any, firstname: string, onFnameChange: any, lastname: string, onLnameChange: any, password: string, onPasswordChange: any, passwordConfirmation: string, onPasswordConfirmationChange: any, error: string, onButtonClick: any }
+  const SignupForm = ({ email, onEmailChange, firstname, onFnameChange, lastname, onLnameChange, password, onPasswordChange, passwordConfirmation, onPasswordConfirmationChange, error, onSignupClick, onLoginClick }
+    : { email: string, onEmailChange: any, firstname: string, onFnameChange: any, lastname: string, onLnameChange: any, password: string, onPasswordChange: any, passwordConfirmation: string, onPasswordConfirmationChange: any, error: string, onSignupClick: any, onLoginClick: any }
     ) => {
     return (
 
@@ -104,7 +104,10 @@ import { Alert } from '@material-ui/lab';
                 )}
             </Grid>
             <Grid container justifyContent="center">
-                <StSubmitButton onClick = {onButtonClick} >Sign Up</StSubmitButton>
+                <StSubmitButton onClick = {onSignupClick} >Sign Up</StSubmitButton>
+            </Grid>
+            <Grid container justifyContent="center">
+                <a onClick={onLoginClick}> Already have an account? Click here to log in </a>
             </Grid>
         </StSignUpPaper>
     )
