@@ -3,7 +3,6 @@ import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { login, isAuthenticated } from '../utils/auth';
 import { GlobalContext } from 'state/context';
-import LoginForm from 'forms/LoginForm';
 import InitContext from 'utils/initContext';
 import NewLoginForm from 'forms/NewLoginForm';
 
