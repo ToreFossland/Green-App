@@ -2,18 +2,12 @@ import React from 'react';
 import Carousel from 'react-material-ui-carousel'
 import { CardMedia } from '@material-ui/core'
 import StCard from 'styledComponents/StCard';
-import soppel from 'testImages/plukkesoppel.svg';
-import sykkel from 'testImages/sykletiljobb.svg';
-import vegetar from 'testImages/spisevegetar.svg';
-import bike from 'testImages/bike-crop.svg';
-import chef from 'testImages/chef-crop.svg';
-import trash from 'testImages/trash-crop.svg';
+import bike from 'testImages/bikecrop.png';
+import chef from 'testImages/chefcrop.png';
+import trash from 'testImages/trashcrop.png';
 
 export function LoginCarousel(props: any) {
     var items = [
-        { image: sykkel },
-        { image: soppel },
-        { image: vegetar },
         { image: bike },
         { image: chef },
         { image: trash }
@@ -34,8 +28,9 @@ function CarouselItem(props: any) {
             <CardMedia component="img"
                 image={props.item.image}
                 title="Image Carousel"
-                height= '300'
-                width='100%' />
+                height= '275'
+                width='100%'
+            />
         </StCard>
     )
 }
