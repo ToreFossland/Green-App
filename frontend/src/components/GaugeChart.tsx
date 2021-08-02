@@ -11,7 +11,7 @@ export const StGaugeChart = (result: any) => {
         id="gauge-chart6"
         animate={false}
         nrOfLevels={3}
-        colors={['#ffdb83', '#8FBC8F']}
+        colors={['#f9f871', '#91e180', '#0fc198']}
         percent={percentage}
         needleColor="#00000"
         textColor="black"
