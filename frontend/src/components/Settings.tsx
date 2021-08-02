@@ -1,5 +1,4 @@
 import React from 'react';
-import StPaper from 'styledComponents/StPaper';
 import { Button, ButtonGroup } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Dialog from '@material-ui/core/Dialog';
@@ -28,7 +27,7 @@ const Settings = ({
 
 
     return (
-        <StPaper elevation={0}>
+        <div>
             <ButtonGroup orientation="vertical" variant="contained">
                 <Button onClick={onPasswordChange} >
                     Change password
@@ -59,7 +58,7 @@ const Settings = ({
                 </Button>
                 </DialogActions>
             </Dialog>
-        </StPaper>
+        </div>
     )
 }
 
