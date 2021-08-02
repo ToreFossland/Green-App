@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import { Line } from 'react-chartjs-2';
 import { GlobalContext } from 'state/context';
+import { useTheme } from '@material-ui/styles';
 import * as _ from 'lodash';
 
 function ActivityChart(props: any) {
     const { state } = useContext(GlobalContext);
+    const theme = useTheme();
     const month = props.month.toString();
     const currentUserActivites =_.filter(state.performsActivities, function(item){
       return item[1].user_id === state.user?.id;
@@ -34,8 +36,8 @@ function ActivityChart(props: any) {
                 label: 'Number of activities',
                 data: numberOfActivities,
                 fill: false,
-                backgroundColor: 'rgb(143, 188, 143)',
-                borderColor: 'rgba(143, 188, 143, 0.2)',
+                backgroundColor: 'primary',
+                borderColor: 'theme.info.main',
             },
         ],
     };
