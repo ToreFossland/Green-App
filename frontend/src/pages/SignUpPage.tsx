@@ -5,6 +5,7 @@ import { signUp, isAuthenticated } from '../utils/auth';
 import SignupForm from 'forms/SignupForm';
 import { GlobalContext } from 'state/context';
 import InitContext from 'utils/initContext';
+import NewSignupForm from 'forms/NewSignupForm';
 
 export const SignUpPage: FC = () => {
   const history = useHistory();
@@ -49,7 +50,7 @@ export const SignUpPage: FC = () => {
   return isAuthenticated() ? (
     <Redirect to="/" />
   ) : (
-    <SignupForm
+    <NewSignupForm
       email={email}
       firstname={firstname}
       lastname={lastname}

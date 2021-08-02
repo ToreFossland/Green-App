@@ -6,6 +6,7 @@ import StSubmitButton from 'styledComponents/StSubmitButton';
 import StTextField from 'styledComponents/StTextField';
 import StHeader from 'styledComponents/StHeader';
 import { LoginCarousel } from 'components/LoginCarousel';
+import { Link } from 'react-router-dom';
 
 const LoginForm = ({
     email,
@@ -35,6 +36,7 @@ const LoginForm = ({
                 id="email"
                 label="Email"
                 type="email"
+                variant="outlined"
                 value={email}
                 onChange={onEmailChange}
                 onKeyPress ={onKeyPress}
@@ -45,6 +47,7 @@ const LoginForm = ({
                 id="password"
                 label="Password"
                 type="password"
+                variant="outlined"
                 value={password}
                 onChange={onPasswordChange}
                 onKeyPress ={onKeyPress}
@@ -59,12 +62,13 @@ const LoginForm = ({
             )}
             </Grid>
             <Grid container justifyContent="center">
-            {' '}
             <StSubmitButton onClick={onLoginClick}>Login</StSubmitButton>
-            <StSubmitButton onClick={onSignupClick}>
-                Sign Up
-            </StSubmitButton>{' '}
-            &nbsp;
+            </Grid>
+            <Grid container justifyContent="center">
+                <p>
+                    Don't have an account? <Link to={'/signup' }> Sign up </Link>
+                </p>
+
             </Grid>
         </StPaper>
     )

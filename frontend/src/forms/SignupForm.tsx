@@ -108,7 +108,7 @@ import { Link } from "react-router-dom";
                 <StSubmitButton onClick = {onSignupClick} >Sign Up</StSubmitButton>
             </Grid>
             <Grid container justifyContent="center">
-                <Link to={'/login' }> Already have an account? Click here to log in </Link>
+                <Link to={'/login' }> Already have an account? Log in </Link>
             </Grid>
         </StSignUpPaper>
     )
