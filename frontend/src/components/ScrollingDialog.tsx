@@ -8,6 +8,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import { ChallengeListItem } from './ChallengeListItem';
 import IChallenge from 'interfaces/IChallenge';
 import ChallengeStepper from './ChallengeStepper';
+import StChallengeListItem from 'styledComponents/StChallengeListItem';
 
 export default function ScrollingDialog(props: IChallenge) {
   const [open, setOpen] = React.useState(false);
@@ -34,11 +35,11 @@ export default function ScrollingDialog(props: IChallenge) {
 
   return (
     <div>
-      <Button
+      <Button 
         onClick={handleClickOpen('paper')}
         style={{ textTransform: 'none' }}
       >
-        <ChallengeListItem
+        <StChallengeListItem
           key={props.id}
           id={props.id}
           name={props.name}
