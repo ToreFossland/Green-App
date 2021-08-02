@@ -26,7 +26,7 @@ const columns: Column[] = [
   {
     id: 'score',
     label: 'Score',
-    minWidth: 170,
+    minWidth: 100,
     align: 'right',
     format: (value: number) => value.toFixed(2),
   },
