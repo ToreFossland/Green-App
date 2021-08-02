@@ -1,9 +1,12 @@
 import React from 'react';
 import StPaper from 'styledComponents/StPaper';
-import { Grid, TextField } from '@material-ui/core';
-import { Lock, Eco } from '@material-ui/icons';
+import { Grid } from '@material-ui/core';
 import { Alert } from '@material-ui/lab';
 import StSubmitButton from 'styledComponents/StSubmitButton';
+import StTextField from 'styledComponents/StTextField';
+import StHeader from 'styledComponents/StHeader';
+import { LoginCarousel } from 'components/LoginCarousel';
+import { Link } from 'react-router-dom';
 
 const LoginForm = ({
     email,
@@ -26,57 +29,46 @@ const LoginForm = ({
   }) => {
     return (
         <StPaper elevation={0} >
-            <Grid container spacing={8} alignItems="flex-end">
-            <Grid item>
-                <Eco />
-            </Grid>
-            <Grid item md={true} sm={true} xs={true}>
-                <TextField
+            <StHeader>
+                <LoginCarousel />
+            </StHeader>
+            <StTextField
                 id="email"
                 label="Email"
                 type="email"
+                variant="outlined"
                 value={email}
                 onChange={onEmailChange}
                 onKeyPress ={onKeyPress}
-                fullWidth
                 autoFocus
                 required
-                />
-            </Grid>
-            </Grid>
-            <Grid container spacing={8} alignItems="flex-end">
-            <Grid item>
-                <Lock />
-            </Grid>
-            <Grid item md={true} sm={true} xs={true}>
-                <TextField
+            />
+            <StTextField
                 id="password"
                 label="Password"
                 type="password"
+                variant="outlined"
                 value={password}
                 onChange={onPasswordChange}
                 onKeyPress ={onKeyPress}
-                fullWidth
                 required
-                />
-            </Grid>
-            </Grid>
+            />
             <br />
-            <Grid container alignItems="center">
+            <Grid container alignItems="center" justifyContent="center" >
             {error && (
                 <Grid item>
                 <Alert severity="error">{error}</Alert>
                 </Grid>
             )}
             </Grid>
-            <Grid container alignItems="center" justifyContent="space-between"></Grid>
             <Grid container justifyContent="center">
-            {' '}
             <StSubmitButton onClick={onLoginClick}>Login</StSubmitButton>
-            <StSubmitButton onClick={onSignupClick}>
-                Sign Up
-            </StSubmitButton>{' '}
-            &nbsp;
+            </Grid>
+            <Grid container justifyContent="center">
+                <p>
+                    Don't have an account? <Link to={'/signup' }> Sign up </Link>
+                </p>
+
             </Grid>
         </StPaper>
     )
