@@ -6,8 +6,6 @@ import { GlobalContext } from 'state/context';
 import { StGaugeChart } from 'components/GaugeChart';
 import { EditButton } from 'components/EditButton';
 import ActivityChart from 'components/ActivityChart';
-import Table from 'components/Table';
-import StBackgroundPaper from 'styledComponents/StBackgroundPaper';
 import StBackgroundColor from 'styledComponents/StBackgroundColor';
 
 function Profile() {

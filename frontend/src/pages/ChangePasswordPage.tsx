@@ -6,7 +6,6 @@ import { updateUserPassword } from 'utils/auth';
 import { user } from 'state/user/userActions';
 import {getUser} from 'utils/user';
 import ChangePasswordForm from 'forms/ChangePasswordForm';
-import StPaper from 'styledComponents/StPaper';
 
 function ChangePasswordPage() {
     const history = useHistory();
