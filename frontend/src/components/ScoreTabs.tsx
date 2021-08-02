@@ -6,10 +6,10 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Table from './Table';
 import ScrollingDialog from 'components/ScrollingDialog';
 import { GlobalContext } from 'state/context';
 import StList from 'styledComponents/StList';
+import ScoreboardPage from 'pages/ScoreboardPage';
 interface TabPanelProps {
   children?: React.ReactNode;
   dir?: string;
@@ -95,7 +95,7 @@ export default function ScoreTabs() {
           </StList>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          <Table />
+          <ScoreboardPage />
         </TabPanel>
       </SwipeableViews>
     </div>

@@ -88,7 +88,7 @@ export default function StickyHeadTable() {
 
   return (
     <StPaper>
-      <h1>Current scoreboard</h1>
+      <h2>Current scoreboard</h2>
       <TableContainer className={classes.container}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
