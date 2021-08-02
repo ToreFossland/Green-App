@@ -47,16 +47,14 @@ function ChangePasswordPage() {
 
 
     return (
-        <StPaper elevation={0}>
-            <ChangePasswordForm
-                error={error}
-                onNewPasswordChange = {(e: React.ChangeEvent<HTMLInputElement>) =>
-                    setNewPassword(e.currentTarget.value)}
-                onNewPasswordConfirmationChange = {(e: React.ChangeEvent<HTMLInputElement>) =>
-                    setNewPasswordConfirmation(e.currentTarget.value)}
-                onSubmitButtonClick = {PasswordChange}
-            />
-        </StPaper>
+        <ChangePasswordForm
+            error={error}
+            onNewPasswordChange = {(e: React.ChangeEvent<HTMLInputElement>) =>
+                setNewPassword(e.currentTarget.value)}
+            onNewPasswordConfirmationChange = {(e: React.ChangeEvent<HTMLInputElement>) =>
+                setNewPasswordConfirmation(e.currentTarget.value)}
+            onSubmitButtonClick = {PasswordChange}
+        />
     )
 }
 
