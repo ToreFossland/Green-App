@@ -16,7 +16,7 @@ const ChangePasswordForm = ({
     onSubmitButtonClick: any;
   }) => {
     return (
-        <div>
+        <StPaper elevation={0}>
             <StTextField
                 required
                 id="newPassword"
@@ -40,7 +40,7 @@ const ChangePasswordForm = ({
             <StSubmitButton onClick={onSubmitButtonClick}>
                 Save changes
             </StSubmitButton>
-        </div>
+        </StPaper>
     )
 }
 
