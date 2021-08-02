@@ -9,6 +9,7 @@ import { ChallengeListItem } from './ChallengeListItem';
 import IChallenge from 'interfaces/IChallenge';
 import ChallengeStepper from './ChallengeStepper';
 import StChallengeListItem from 'styledComponents/StChallengeListItem';
+import StButton from 'styledComponents/StButton';
 
 export default function ScrollingDialog(props: IChallenge) {
   const [open, setOpen] = React.useState(false);
@@ -35,7 +36,7 @@ export default function ScrollingDialog(props: IChallenge) {
 
   return (
     <div>
-      <Button
+      <StButton
         onClick={handleClickOpen('paper')}
         style={{ textTransform: 'none' }}
       >
@@ -47,7 +48,7 @@ export default function ScrollingDialog(props: IChallenge) {
           points={props.points}
           activity_id={props.activity_id}
         />
-      </Button>
+      </StButton>
       <Dialog
         open={open}
         onClose={handleClose}
