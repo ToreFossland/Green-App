@@ -11,7 +11,7 @@ interface ISocialGrid{
 }
 
 function SocialGrid(props: ISocialGrid) {
-    const {state } = useContext(GlobalContext);
+    const { state } = useContext(GlobalContext);
     const [deleted, setDeleted] = useState<boolean>(false);
     const [open, setOpen] = React.useState(false);
 

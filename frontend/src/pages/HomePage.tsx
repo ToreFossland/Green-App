@@ -3,7 +3,7 @@ import ActivityTabs from 'components/ActivityTabs';
 
 const HomePage = () => {
   return (
-    <div>
+    <div style={{padding: 0, margin: 0}}>
       <ActivityTabs/>
     </div>
   );
