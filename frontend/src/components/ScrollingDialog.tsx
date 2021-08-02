@@ -35,7 +35,7 @@ export default function ScrollingDialog(props: IChallenge) {
 
   return (
     <div>
-      <Button 
+      <Button
         onClick={handleClickOpen('paper')}
         style={{ textTransform: 'none' }}
       >
