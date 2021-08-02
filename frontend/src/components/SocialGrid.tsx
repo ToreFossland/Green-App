@@ -5,6 +5,7 @@ import { GlobalContext } from 'state/context';
 import Snackbar from '@material-ui/core/Snackbar';
 import Alert from '@material-ui/lab/Alert';
 import filter from 'lodash/filter';
+import StPaperGray from 'styledComponents/StPaperGray';
 
 interface ISocialGrid {
   value: number;
@@ -33,7 +34,7 @@ function SocialGrid(props: ISocialGrid) {
   }
 
   return performsActivities === undefined || performsActivities.length === 0 ? (
-    <p>No activity has been added yet, try it out! </p>
+    <StPaperGray>No activity has been added yet, try it out! </StPaperGray>
   ) : (
     <Grid
       container
