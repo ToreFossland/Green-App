@@ -6,6 +6,7 @@ const StAppBar = styled(AppBar)({
   width: '100%',
   position: 'fixed',
   top: 0,
+  boxShadow: '0px 0px 0px 0px',
 });
 
 export default StAppBar;
