@@ -90,8 +90,8 @@ export default function StickyHeadTable() {
 
   return (
     <StPaper>
-      <h2>Current scoreboard              <FontAwesomeIcon icon={faClipboardList} /></h2>
-  
+      <h2>Current scoreboard <FontAwesomeIcon icon={faClipboardList} /></h2>
+
       <TableContainer className={classes.container}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
