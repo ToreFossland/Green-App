@@ -6,14 +6,13 @@ import * as _ from 'lodash';
 
 function ActivityChart(props: any) {
     const { state } = useContext(GlobalContext);
-    const theme = GlobalTheme;
-    const strokeColor = theme.palette.primary.main;
+    const strokeColor = GlobalTheme.palette.primary.main;
     const month = props.month.toString();
     const currentUserActivites =_.filter(state.performsActivities, function(item){
       return item[1].user_id === state.user?.id;
       });
 
-    let numberOfActivities = [0, 0, 0, 0, 0];
+    let numberOfActivities = [0, 0, 0, 0];
 
     currentUserActivites.forEach(function( item ){
       let timestamp : number = +item[1].date;
@@ -25,10 +24,8 @@ function ActivityChart(props: any) {
         numberOfActivities[1]++
       }else if(day < 22){
         numberOfActivities[2]++
-      }else if(day < 29){
-        numberOfActivities[3]++
       }else{
-        numberOfActivities[4]++
+        numberOfActivities[3]++
       }
     });
 
@@ -48,10 +45,6 @@ function ActivityChart(props: any) {
         {
           name: '22/'+month,
           numberOfActivities: numberOfActivities[3],
-        },
-        {
-          name: '29/'+month,
-          numberOfActivities: numberOfActivities[4],
         },
       ];
 
