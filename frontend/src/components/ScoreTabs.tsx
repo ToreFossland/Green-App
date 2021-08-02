@@ -7,9 +7,9 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Table from './Table';
-import List from '@material-ui/core/List';
 import ScrollingDialog from 'components/ScrollingDialog';
 import { GlobalContext } from 'state/context';
+import StList from 'styledComponents/StList';
 interface TabPanelProps {
   children?: React.ReactNode;
   dir?: string;
@@ -89,7 +89,7 @@ export default function ActivityTabs() {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          <List style={{ width: '100%' }}>
+          <StList>
             {challenges?.map((item) => (
               <ScrollingDialog
                 key={item.id}
@@ -100,7 +100,7 @@ export default function ActivityTabs() {
                 activity_id={item.activity_id}
               />
             ))}
-          </List>
+          </StList>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
           <Table />
