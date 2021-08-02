@@ -41,9 +41,11 @@ def init() -> None:
             print(e.json())
 
     challengeslist = {
-        "Bike to work for a week": ["Join many others in getting healthier and saving the environment by biking to work!", 60, "2, 3"],
-        "Eat a vegetarian during weekdays": ["Drop the meat on weekdays, the environment will thank you!", 40, "2, 1"],
-        "Donate 10 pieces of clothing": ["Donate some old clothes that you no longer need or want to a local shop.", 40, "1, 3"],
+        "Bike to work 7 times": ["Join many others in getting healthier and saving the environment by biking to work!", 200, "1,1,1,1,1,1,1"],
+        "Complete listed activities": ["Complete these 4 challenges to win points. ", 80, "4,3,2,1"],
+        "Eat vegetarian 3 times": ["Drop the meat, the environment will thank you!", 60, "2,2,2"],
+        "Donate clothing 3 times": ["Donate some old clothes that you no longer need or want to a local shop and help clean the environment.", 60, "3,3,3"],
+
     }
     for key in challengeslist:
         try:
