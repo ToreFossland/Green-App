@@ -46,15 +46,7 @@ function a11yProps(index: any) {
   };
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    backgroundColor: theme.palette.background.paper,
-    width: '100%',
-  },
-}));
-
 export default function ActivityTabs() {
-  const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
   const { state } = React.useContext(GlobalContext);
@@ -69,7 +61,7 @@ export default function ActivityTabs() {
   };
 
   return (
-    <div className={classes.root}>
+    <div>
       <AppBar position="static" color="default">
         <Tabs
           value={value}
