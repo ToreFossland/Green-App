@@ -29,6 +29,7 @@ function Profile() {
         </StHeader>
         <div>
           <p> Email: {state.user?.email} </p>
+          {state.user?.company && (<p> Company: {state.user?.company} </p>)}
           <h4> Total points: {state.user?.total_points}</h4>
           <h4> Weekly points: {state.user?.weekly_points}</h4>
         </div>
