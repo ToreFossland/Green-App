@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { Line } from 'react-chartjs-2';
 import { GlobalContext } from 'state/context';
 import * as _ from 'lodash';
-import { time } from 'console';
 
 function ActivityChart(props: any) {
     const { state } = useContext(GlobalContext);
@@ -31,7 +30,7 @@ function ActivityChart(props: any) {
 
     console.log(numberOfActivities);
 
-    
+
 
     const data = {
         labels: ['1/'+month, '8/'+month, '15/'+month, '22/'+month, '29/'+month,],
