@@ -88,6 +88,7 @@ export default function StickyHeadTable() {
 
   return (
     <StPaper>
+      <h1>Current scoreboard</h1>
       <TableContainer className={classes.container}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
@@ -118,7 +119,7 @@ export default function StickyHeadTable() {
           </TableBody>
         </Table>
       </TableContainer>
-      <TablePagination
+      {/*       <TablePagination
         rowsPerPageOptions={[10, 25]}
         component="div"
         count={rows.length}
@@ -126,7 +127,7 @@ export default function StickyHeadTable() {
         page={page}
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
-      />
+      /> */}
     </StPaper>
   );
 }

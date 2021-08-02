@@ -1,19 +1,11 @@
-import React, { useState } from 'react';
-import { SliderEffort } from './SliderEffort';
+import React from 'react';
 import IChallenge from 'interfaces/IChallenge';
-import { GlobalContext } from 'state/context';
 import StCard from 'styledComponents/StCard';
-import { CardContent, CardActions, Typography } from '@material-ui/core';
+import { CardContent, Typography } from '@material-ui/core';
 
 export const ChallengeListItem = (props: IChallenge) => {
-  const [activityId] = useState<number>(props.id);
-  const [error, setError] = useState<string>('');
-  const [activityDisplay, setActivityDisplay] = useState<string>();
-
-  const findactivity = (activities: number[]) => {};
-
   return (
-    <StCard>
+    <StCard elevation={0}>
       <CardContent>
         <Typography variant="h6" align="center">
           {props.name}

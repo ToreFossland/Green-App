@@ -150,13 +150,10 @@ export const logout = () => {
   let userData;
   //5 for change names
   if(props.length === 5){
-    console.log(props.length);
     userData = { user_id : props[0], email: props[1], first_name: props[2], last_name: props[3] };
-    console.log(userData);
   //3 for change points
   }else if(props.length === 3){
     userData = {user_id : props[0], email: props[1], points: props[2]};
-    console.log(userData);
   }
 
   const request = new Request(`/api/users/${props[0]}`, {

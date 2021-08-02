@@ -1,4 +1,4 @@
-import { styled,withTheme } from '@material-ui/core/styles';
+import { styled, withTheme } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 
 const StHeader = styled(withTheme(Paper))(props => ({
