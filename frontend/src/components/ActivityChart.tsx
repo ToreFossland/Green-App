@@ -12,12 +12,33 @@ function ActivityChart(props: any) {
       });
     console.log('activities:', currentUserActivites);
 
+    let numberOfActivities = [0, 0, 0, 0, 0];
+
+    currentUserActivites.forEach(function( item ){
+      let timestamp : number = +item[1].date;
+      let date : Date = new Date(timestamp);
+      let day = date.getDate();
+      if(day < 8){
+        numberOfActivities[1]++
+      }else if(day < 16){
+        numberOfActivities[2]++
+      }else if(day < 23){
+        numberOfActivities[3]++
+      }else if(day < 30){
+        numberOfActivities[4]++
+      }
+    });
+
+    console.log(numberOfActivities);
+
+    
+
     const data = {
         labels: ['1/'+month, '8/'+month, '15/'+month, '22/'+month, '29/'+month,],
         datasets: [
             {
                 label: 'Number of activities',
-                data: [12, 3, 18, 14, 9],
+                data: numberOfActivities,
                 fill: false,
                 backgroundColor: 'rgb(143, 188, 143)',
                 borderColor: 'rgba(143, 188, 143, 0.2)',
