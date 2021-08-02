@@ -50,7 +50,6 @@ export default function ChallengeStepper(props: IChallenge) {
     activitiesArray.includes(a.id)
   )!;
 
-  console.log(wantedActivities);
   let performActivity = state?.performsActivities;
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
@@ -75,9 +74,7 @@ export default function ChallengeStepper(props: IChallenge) {
 
   const handleAddChallenge = async (_: React.MouseEvent) => {
     index += 1;
-    console.log(index);
     setDisabledBtn(handleDisabled(index).length <= 0);
-    console.log(disabledBtn);
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
     if (activeStep === steps.length - 1) {
       setError('');
