@@ -86,8 +86,6 @@ export default function StickyHeadTable() {
     createData(e.first_name, e.last_name, e.points)
   );
 
-  const indeks = 0;
-
   return (
     <Paper className={classes.root}>
       <TableContainer className={classes.container}>

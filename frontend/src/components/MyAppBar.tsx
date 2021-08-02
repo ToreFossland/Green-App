@@ -10,6 +10,7 @@ export default function MyAppBar() {
   const [path, setPath] = React.useState('Home');
   let location = useLocation();
 
+  
   useEffect(() => {
     if (
       location.pathname === '/profile' ||

@@ -1,7 +1,5 @@
-import { Dispatch, useContext } from "react";
 import { activities } from "state/activities/activitiesActions";
 import { challenges } from "state/challenges/challengesActions";
-import { GlobalContext } from "state/context";
 import { performsActivities } from "state/performsActivities/performsActivitiesActions";
 import { user } from "state/user/userActions";
 import getActivities from "./activity";
