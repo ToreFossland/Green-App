@@ -7,8 +7,8 @@ import StSubmitButton from "styledComponents/StSubmitButton";
 import StTextField from "styledComponents/StTextField";
 
 
-  const SignupForm = ({ email, onEmailChange, firstname, onFnameChange, lastname, onLnameChange, password, onPasswordChange, passwordConfirmation, onPasswordConfirmationChange, error, onSignupClick }
-    : { email: string, onEmailChange: any, firstname: string, onFnameChange: any, lastname: string, onLnameChange: any, password: string, onPasswordChange: any, passwordConfirmation: string, onPasswordConfirmationChange: any, error: string, onSignupClick: any }
+  const SignupForm = ({ email, onEmailChange, firstname, onFnameChange, lastname, onLnameChange, company, onCompanyChange, password, onPasswordChange, passwordConfirmation, onPasswordConfirmationChange, error, onSignupClick }
+    : { email: string, onEmailChange: any, firstname: string, onFnameChange: any, lastname: string, onLnameChange: any, company: string, onCompanyChange: any, password: string, onPasswordChange: any, passwordConfirmation: string, onPasswordConfirmationChange: any, error: string, onSignupClick: any }
     ) => {
     return (
 
@@ -37,6 +37,15 @@ import StTextField from "styledComponents/StTextField";
                 onChange={onLnameChange}
                 autoFocus
                 required
+            />
+            <StTextField
+                id="company"
+                label="Company"
+                type="company"
+                variant="outlined"
+                value={company}
+                onChange={onCompanyChange}
+                autoFocus
             />
             <StTextField
                 id="email"
