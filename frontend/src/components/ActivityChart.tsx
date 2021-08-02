@@ -50,6 +50,7 @@ function ActivityChart(props: any) {
             {
               ticks: {
                 beginAtZero: true,
+                precision: 0,
               },
             },
           ],
