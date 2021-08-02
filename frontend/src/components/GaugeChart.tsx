@@ -3,9 +3,10 @@ import GaugeChart from 'react-gauge-chart';
 
 export const StGaugeChart = (result: any) => {
   let percentage = typeof result.points === 'number' ? result.points / 100 : 0;
+  percentage = percentage > 1 ? percentage = 1 : percentage;
   return (
     <div>
-      <h3>You are {percentage * 100 + '%'} successful this week.</h3>
+      <h3>Keep up the good work! </h3>
       <GaugeChart
         id="gauge-chart6"
         animate={false}

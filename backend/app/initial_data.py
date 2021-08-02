@@ -16,6 +16,8 @@ def init() -> None:
         UserCreate(
             email="admin@green-app.com",
             password="password",
+            first_name = "admin",
+            last_name = "user",
             is_active=True,
             is_superuser=True,
         ),

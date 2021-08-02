@@ -31,7 +31,11 @@ function SocialGrid(props: ISocialGrid) {
         });
     }
 
-    return (
+    console.log(performsActivities);
+
+    return performsActivities === undefined || performsActivities.length === 0 ? (
+    <p>No activity has been added yet, try it out! </p>
+    ) : (
         <Grid container direction="column" justifyContent="center" alignItems="stretch" >
             {/* item[2].id for å finne ut hvilken idrett */}
             {deleted && (
@@ -43,6 +47,8 @@ function SocialGrid(props: ISocialGrid) {
                     </Snackbar>
                 </Grid>
                 )}
+
+            
 
             {performsActivities && performsActivities?.slice(0).reverse().map((item: any) =>
                 // <Grid item>
