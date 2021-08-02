@@ -15,7 +15,6 @@ export const Login: FC = () => {
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
-      console.log('Enter key pressed');
       handleSubmit();
     }
   }

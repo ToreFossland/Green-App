@@ -24,14 +24,12 @@ function SocialGrid(props: ISocialGrid) {
         setOpen(false);
     };
     let performsActivities = state.performsActivities;
-    
+
     if(props.value){
         performsActivities = filter(performsActivities, function(item){
             return item[0].id === state.user?.id;
         });
     }
-
-    console.log(performsActivities);
 
     return performsActivities === undefined || performsActivities.length === 0 ? (
     <p>No activity has been added yet, try it out! </p>
@@ -48,7 +46,7 @@ function SocialGrid(props: ISocialGrid) {
                 </Grid>
                 )}
 
-            
+
 
             {performsActivities && performsActivities?.slice(0).reverse().map((item: any) =>
                 // <Grid item>
