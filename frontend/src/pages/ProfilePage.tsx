@@ -7,6 +7,7 @@ import { StGaugeChart } from 'components/GaugeChart';
 import { EditButton } from 'components/EditButton';
 import ActivityChart from 'components/ActivityChart';
 import StBackgroundColor from 'styledComponents/StBackgroundColor';
+import ActivityChart2 from 'components/ActivityChart2';
 
 function Profile() {
   const { state } = useContext(GlobalContext);
@@ -36,10 +37,13 @@ function Profile() {
       <StPaper>
         <StGaugeChart points={point} />
       </StPaper>
-      <StPaper>
+      {/* <StPaper>
         <h2>My activities {monthName.format(date)} {year} </h2>
         <ActivityChart id={state.user?.id} month={month} day={day} />
-        {/* <Table></Table> */}
+      </StPaper> */}
+      <StPaper>
+        <h2>My activities {monthName.format(date)} {year} </h2>
+        <ActivityChart2 id={state.user?.id} month={month} day={day}/>
       </StPaper>
     </StBackgroundColor>
   );
