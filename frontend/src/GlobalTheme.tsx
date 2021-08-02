@@ -9,7 +9,7 @@ const GlobalTheme = createTheme({
       main: '#D22B2B',
     },
     info: {
-      main: '#a9d2ff',
+      main: '#6792bf',
     },
     warning: {
       main: '#e19f20',
