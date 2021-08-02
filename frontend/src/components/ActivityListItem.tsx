@@ -74,10 +74,10 @@ export const ActivityListItem = (props: IActivity) => {
     <StCard>
       <CardContent>
         <Typography variant="h6" align="center">
-          {props.index == 0 && (<FontAwesomeIcon icon={faBiking} />)} 
-          {props.index == 1 && (<FontAwesomeIcon icon={faCarrot} />)} 
-          {props.index == 2 && (<FontAwesomeIcon icon={faTrashAlt} />)} 
-          {props.index == 3 && (<FontAwesomeIcon icon={faTshirt} />)} 
+          {props.index === 0 && (<FontAwesomeIcon icon={faBiking} />)}
+          {props.index === 1 && (<FontAwesomeIcon icon={faCarrot} />)}
+          {props.index === 2 && (<FontAwesomeIcon icon={faTrashAlt} />)}
+          {props.index === 3 && (<FontAwesomeIcon icon={faTshirt} />)}
         </Typography>
         <Typography variant="h6" align="center">
           {props.name}
