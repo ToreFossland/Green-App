@@ -54,7 +54,7 @@ function ActivityChart(props: any) {
                 data={data}
                 margin={{
                     top: 5,
-                    right: 5,
+                    right: 10,
                     left: -35,
                     bottom: 0,
                 }}
