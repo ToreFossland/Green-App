@@ -23,7 +23,8 @@ def upgrade():
         sa.Column("name", sa.String(50), nullable=False),
         sa.Column("description", sa.String(400), nullable=True),
         sa.Column("points", sa.Integer),
-    )
+        sa.Column("activity_id", sa.String(50)
+                  ))
     pass
 
 
