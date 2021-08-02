@@ -44,6 +44,9 @@ _Note: If you see an Nginx error at first with a `502: Bad Gateway` page, you ma
 Auto-generated docs will be at
 http://localhost:8000/api/docs
 
+User admin page will be at 
+http://localhost:8000/admin
+
 ### Rebuilding containers:
 
 ```
