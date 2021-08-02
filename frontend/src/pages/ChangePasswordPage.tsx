@@ -6,6 +6,7 @@ import { updateUserPassword } from 'utils/auth';
 import { user } from 'state/user/userActions';
 import {getUser} from 'utils/user';
 import ChangePasswordForm from 'forms/ChangePasswordForm';
+import StPaper from 'styledComponents/StPaper';
 
 function ChangePasswordPage() {
     const history = useHistory();
@@ -46,14 +47,16 @@ function ChangePasswordPage() {
 
 
     return (
-        <ChangePasswordForm
-            error={error}
-            onNewPasswordChange = {(e: React.ChangeEvent<HTMLInputElement>) =>
-                setNewPassword(e.currentTarget.value)}
-            onNewPasswordConfirmationChange = {(e: React.ChangeEvent<HTMLInputElement>) =>
-                setNewPasswordConfirmation(e.currentTarget.value)}
-            onSubmitButtonClick = {PasswordChange}
-        />
+        <StPaper elevation={0}>
+            <ChangePasswordForm
+                error={error}
+                onNewPasswordChange = {(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setNewPassword(e.currentTarget.value)}
+                onNewPasswordConfirmationChange = {(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setNewPasswordConfirmation(e.currentTarget.value)}
+                onSubmitButtonClick = {PasswordChange}
+            />
+        </StPaper>
     )
 }
 

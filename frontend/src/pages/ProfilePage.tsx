@@ -7,6 +7,8 @@ import { StGaugeChart } from 'components/GaugeChart';
 import { EditButton } from 'components/EditButton';
 import ActivityChart from 'components/ActivityChart';
 import Table from 'components/Table';
+import StBackgroundPaper from 'styledComponents/StBackgroundPaper';
+import StBackgroundColor from 'styledComponents/StBackgroundColor';
 
 function Profile() {
   const { state } = useContext(GlobalContext);
@@ -18,7 +20,7 @@ function Profile() {
   const year = date.getFullYear();
 
   return (
-    <div>
+    <StBackgroundColor>
       <StPaper>
         <StHeader>
           <StAvatar />
@@ -41,7 +43,7 @@ function Profile() {
         <ActivityChart id={state.user?.id} month={month} day={day} />
         {/* <Table></Table> */}
       </StPaper>
-    </div>
+    </StBackgroundColor>
   );
 }
 

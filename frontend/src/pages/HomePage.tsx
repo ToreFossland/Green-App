@@ -1,11 +1,12 @@
 import React from 'react';
 import ActivityTabs from 'components/ActivityTabs';
+import StBackgroundColor from 'styledComponents/StBackgroundColor';
 
 const HomePage = () => {
   return (
-    <div style={{padding: 0, margin: 0}}>
+    <StBackgroundColor>
       <ActivityTabs/>
-    </div>
+    </StBackgroundColor>
   );
 };
 
