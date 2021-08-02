@@ -28,7 +28,7 @@ function CarouselItem(props: any) {
             <CardMedia component="img"
                 image={props.item.image}
                 title="Image Carousel"
-                height= '275'
+                height= '250'
                 width='100%'
             />
         </StCard>
