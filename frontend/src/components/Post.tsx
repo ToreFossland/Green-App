@@ -79,7 +79,7 @@ const Post = (props : any) => {
                 subheader={date.toDateString()}
                 action={ <PostMenu onDelete={onDelete} /> }
             />
-            <Grid container direction="row" justifyContent="space-around" alignItems="stretch" >
+            <Grid container direction="row" justifyContent="flex-start" alignItems="stretch" >
                 <CardContent>
                     <Typography variant="h6" color="textSecondary" component="p">
                         {props.activityName}
@@ -89,11 +89,11 @@ const Post = (props : any) => {
                     </Typography>
                 </CardContent>
                 <CardContent>
-                    <Typography variant="h6" color="textSecondary" component="p">
-                        {props.activityName === "Bike to work" && (<FontAwesomeIcon icon={faBiking} />)} 
-                        {props.activityName === "Eat a vegetarian meal" && (<FontAwesomeIcon icon={faCarrot} />)} 
-                        {props.activityName === "Pick up trash" && (<FontAwesomeIcon icon={faTrashAlt} />)} 
-                        {props.activityName === "Donate old clothes" && (<FontAwesomeIcon icon={faTshirt} />)} 
+                    <Typography variant="h6" color="primary" component="p" >
+                        {props.activityName === "Bike to work" && (<FontAwesomeIcon icon={faBiking} />)}
+                        {props.activityName === "Eat a vegetarian meal" && (<FontAwesomeIcon icon={faCarrot} />)}
+                        {props.activityName === "Pick up trash" && (<FontAwesomeIcon icon={faTrashAlt} />)}
+                        {props.activityName === "Donate old clothes" && (<FontAwesomeIcon icon={faTshirt} />)}
                     </Typography>
                 </CardContent>
             </Grid>
