@@ -16,7 +16,6 @@ const InitContext = async (dispatch : any) => {
         const myPerformsActivities = await getPerformsActivities();
         const myChallenges = await getChallenges();
         const myPerformsChallenges = await getPerformsChallenge();
-        console.log(myPerformsActivities);
         dispatch(user(myUser));
         dispatch(activities(myActivities));
         dispatch(performsActivities(myPerformsActivities));
