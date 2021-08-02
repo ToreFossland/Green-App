@@ -5,9 +5,8 @@ import React, { useContext } from 'react';
 import { GlobalContext } from 'state/context';
 import { StGaugeChart } from 'components/GaugeChart';
 import { EditButton } from 'components/EditButton';
-import ActivityChart from 'components/ActivityChart';
 import StBackgroundColor from 'styledComponents/StBackgroundColor';
-import ActivityChart2 from 'components/ActivityChart2';
+import ActivityChart from 'components/ActivityChart';
 
 function Profile() {
   const { state } = useContext(GlobalContext);
@@ -43,7 +42,7 @@ function Profile() {
       </StPaper> */}
       <StPaper>
         <h2>My activities {monthName.format(date)} {year} </h2>
-        <ActivityChart2 id={state.user?.id} month={month} day={day}/>
+        <ActivityChart id={state.user?.id} month={month} day={day}/>
       </StPaper>
     </StBackgroundColor>
   );
