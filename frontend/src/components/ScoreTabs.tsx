@@ -46,7 +46,7 @@ function a11yProps(index: any) {
   };
 }
 
-export default function ActivityTabs() {
+export default function ScoreTabs() {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
   const { state } = React.useContext(GlobalContext);

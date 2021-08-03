@@ -26,16 +26,6 @@ export const ActivityListItem = (props: IActivity) => {
     setError('');
 
     try {
-      // console.log(
-      //   'User Id: ',
-      //   user?.id,
-      //   ' activity Id: ',
-      //   activityId,
-      //   ' date: ',
-      //   ' Today',
-      //   ' effort: ',
-      //   effort
-      // );
       const data = await performsActivity(
         currentUser.id,
         activityId,
