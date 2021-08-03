@@ -13,7 +13,8 @@ import { updateUser } from 'utils/auth';
 import { getUser } from 'utils/user';
 import { user } from 'state/user/userActions';
 import Alert from '@material-ui/lab/Alert';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBiking, faCarrot, faTrashAlt, faTshirt } from '@fortawesome/free-solid-svg-icons';
 export const ActivityListItem = (props: IActivity) => {
   const [error, setError] = useState<string>('');
   const [success, setSuccess] = useState<boolean>(false);
@@ -72,6 +73,12 @@ export const ActivityListItem = (props: IActivity) => {
   return (
     <StCard>
       <CardContent>
+        <Typography variant="h6" align="center">
+          {props.index == 0 && (<FontAwesomeIcon icon={faBiking} />)} 
+          {props.index == 1 && (<FontAwesomeIcon icon={faCarrot} />)} 
+          {props.index == 2 && (<FontAwesomeIcon icon={faTrashAlt} />)} 
+          {props.index == 3 && (<FontAwesomeIcon icon={faTshirt} />)} 
+        </Typography>
         <Typography variant="h6" align="center">
           {props.name}
         </Typography>

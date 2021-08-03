@@ -16,6 +16,10 @@ import PostMenu from 'components/PostMenu';
 import { updateUser } from 'utils/auth';
 import { getUser } from 'utils/user';
 import { user } from 'state/user/userActions';
+import Grid from '@material-ui/core/Grid';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBiking, faCarrot, faTrashAlt, faTshirt } from '@fortawesome/free-solid-svg-icons';
 
 
 const Post = (props : any) => {
@@ -75,14 +79,24 @@ const Post = (props : any) => {
                 subheader={date.toDateString()}
                 action={ <PostMenu onDelete={onDelete} /> }
             />
-            <CardContent>
-                <Typography variant="h6" color="textSecondary" component="p">
-                    {props.activityName}
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                    {props.effort} effort. {props.points} points.
-                </Typography>
-            </CardContent>
+            <Grid container direction="row" justifyContent="space-around" alignItems="stretch" >
+                <CardContent>
+                    <Typography variant="h6" color="textSecondary" component="p">
+                        {props.activityName}
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary" component="p">
+                        {props.effort} effort. {props.points} points.
+                    </Typography>
+                </CardContent>
+                <CardContent>
+                    <Typography variant="h6" color="textSecondary" component="p">
+                        {props.activityName === "Bike to work" && (<FontAwesomeIcon icon={faBiking} />)} 
+                        {props.activityName === "Eat a vegetarian meal" && (<FontAwesomeIcon icon={faCarrot} />)} 
+                        {props.activityName === "Pick up trash" && (<FontAwesomeIcon icon={faTrashAlt} />)} 
+                        {props.activityName === "Donate old clothes" && (<FontAwesomeIcon icon={faTshirt} />)} 
+                    </Typography>
+                </CardContent>
+            </Grid>
             <CardActions style={{alignItems: 'center', justifyContent: 'space-between'}} >
                 <IconButton aria-label="add to favorites" color={likeButtonColor} onClick={onLikeButtonClick} >
                     <FavoriteIcon />

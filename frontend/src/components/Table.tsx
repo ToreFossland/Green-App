@@ -10,6 +10,8 @@ import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import { getUsers } from 'utils/user';
 import StPaper from 'styledComponents/StPaper';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrophy, faMedal, faAward, faClipboardList } from '@fortawesome/free-solid-svg-icons';
 
 interface Column {
   id: 'firstName' | 'lastName' | 'score';
@@ -88,7 +90,8 @@ export default function StickyHeadTable() {
 
   return (
     <StPaper>
-      <h2>Current scoreboard</h2>
+      <h2>Current scoreboard              <FontAwesomeIcon icon={faClipboardList} /></h2>
+  
       <TableContainer className={classes.container}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
@@ -109,7 +112,10 @@ export default function StickyHeadTable() {
               <TableRow key={index}>
                 {
                   <TableCell component="th" scope="row">
-                    {row.first_name} {row.last_name}
+                    {index === 0 && (<FontAwesomeIcon icon={faTrophy} />)}
+                    {index === 1 && (<FontAwesomeIcon icon={faMedal} />)}
+                    {index === 2 && (<FontAwesomeIcon icon={faAward} />)}
+                     {"  " + row.first_name} {row.last_name}
                   </TableCell>
                 }
                 {/* <TableCell align="left">{row.last_name}</TableCell> */}

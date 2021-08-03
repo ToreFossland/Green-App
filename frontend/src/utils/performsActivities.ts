@@ -35,8 +35,7 @@ const getPerformsActivities = async() : Promise<IPerformsActivities> =>{
     userId: number,
     activityId: number,
     date: number,
-    effort: number,
-  
+    effort: number
   ) => {
     let token:string = localStorage.getItem('token')||'{}';
     let httpHeaders = {
