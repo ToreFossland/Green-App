@@ -5,7 +5,7 @@ import { GlobalContext } from 'state/context';
 import UpdateProfileForm from 'forms/UpdateProfileForm';
 import { updateUser, deleteUser, logout } from 'utils/auth';
 import { user } from 'state/user/userActions';
-import {getUser} from 'utils/user';
+import { getUser } from 'utils/user';
 import Settings from 'components/Settings';
 import StPaper from 'styledComponents/StPaper';
 
@@ -14,7 +14,6 @@ function UpdateProfilePage() {
   const { state, dispatch } = useContext(GlobalContext);
   const [firstname, setFirstname] = useState<string>('');
   const [lastname, setLastname] = useState<string>('');
-  const [company, setCompany] = useState<string>('Equinor');
   const [error, setError] = useState<string>('');
   const userID = state.user?.id!;
   const email = state.user?.email!;
@@ -22,14 +21,13 @@ function UpdateProfilePage() {
   useEffect(() => {
     setFirstname(state.user?.first_name!);
     setLastname(state.user?.last_name!);
-    // setCompany(state.user?.company!);
   }, [state]);
 
   const handleSubmit = async (_: React.MouseEvent) => {
     setError('');
 
     try {
-      const data = await updateUser(userID, email, firstname, lastname, company);
+      const data = await updateUser(userID, email, firstname, lastname);
 
       if (data) {
         const myUser = await getUser();
