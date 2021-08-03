@@ -45,6 +45,7 @@ async def performsActivities_list(
     response.headers["Content-Range"] = f"0-9/{len(performsActivities)}"
     return performsActivities
 
+
 @r.delete(
     "/performsActivities/{performsActivity_id}", response_model=performsActivities, response_model_exclude_none=True
 )
@@ -55,6 +56,6 @@ async def performsActivity_delete(
     current_user=Depends(get_current_active_user),
 ):
     """
-    Delete existing user
+    Delete existing Activity
     """
     return delete_performsActivity(db, performsActivity_id)
