@@ -7,6 +7,7 @@ from app.api.routers.auth import auth_router
 from app.api.routers.activities import activities_router
 from app.api.routers.performsActivities import performsActivities_router
 from app.api.routers.challenges import challenges_router
+from app.api.routers.performsChallenges import performsChallenge_router
 from app.core import config
 from app.db.session import SessionLocal
 from app.core.auth import get_current_active_user
@@ -42,6 +43,8 @@ app.include_router(activities_router, prefix="/api", tags=["activities"]),
 app.include_router(challenges_router, prefix="/api", tags=["challenges"]),
 app.include_router(performsActivities_router, prefix="/api",
                    tags=["performsActivities"])
+app.include_router(performsChallenge_router, prefix="/api",
+                   tags=["performsChallenge"])
 
 
 if __name__ == "__main__":
