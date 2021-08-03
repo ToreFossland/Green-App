@@ -5,13 +5,20 @@ import React, { useContext } from 'react';
 import { GlobalContext } from 'state/context';
 import { StGaugeChart } from 'components/GaugeChart';
 import { EditButton } from 'components/EditButton';
-import Table from 'components/Table';
+import ActivityChart from 'components/ActivityChart';
+import StBackgroundColor from 'styledComponents/StBackgroundColor';
 
 function Profile() {
   const { state } = useContext(GlobalContext);
   let point: number = state.user?.points!;
+  const date = new Date();
+  const monthName = new Intl.DateTimeFormat('en', { month : 'long' });
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+
   return (
-    <div>
+    <StBackgroundColor>
       <StPaper>
         <StHeader>
           <StAvatar />
@@ -30,9 +37,11 @@ function Profile() {
         <StGaugeChart points={point} />
       </StPaper>
       <StPaper>
-        <Table></Table>
+        <h2>My activities {monthName.format(date)} {year} </h2>
+        <ActivityChart id={state.user?.id} month={month} day={day} />
+        {/* <Table></Table> */}
       </StPaper>
-    </div>
+    </StBackgroundColor>
   );
 }
 

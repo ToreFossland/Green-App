@@ -2,8 +2,8 @@ import React from 'react';
 import { ActivityListItem } from '../components/ActivityListItem';
 import StPaper from '../styledComponents/StPaper';
 import Calendar from '../components/Calendar';
-import List from '@material-ui/core/List';
 import { GlobalContext } from 'state/context';
+import StList from 'styledComponents/StList';
 
 export default function AddActivities() {
   const { state } = React.useContext(GlobalContext);
@@ -18,7 +18,8 @@ export default function AddActivities() {
             setSelectedDate(newDate);
           }}
         />
-        <List style={{ width: '100%' }}>
+        </StPaper>
+        <StList>
           {activities?.map((item) => (
             <ActivityListItem
               key={item.id}
@@ -28,8 +29,7 @@ export default function AddActivities() {
               date={selectedDate}
             />
           ))}
-        </List>
-      </StPaper>
+        </StList>
     </div>
   );
 }

@@ -16,6 +16,8 @@ def init() -> None:
         UserCreate(
             email="admin@green-app.com",
             password="password",
+            first_name = "admin",
+            last_name = "user",
             is_active=True,
             is_superuser=True,
         ),
@@ -64,6 +66,6 @@ def init() -> None:
 if __name__ == "__main__":
     print("Creating superuser admin@green-app.com")
     print("Seeding activities")
-    #print("Seeding challenges")
+    print("Seeding challenges")
     init()
-    print("Superuser created and activities seeded")
+    print("Superuser created, activities and challenges seeded")

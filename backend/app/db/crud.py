@@ -135,9 +135,6 @@ def add_performsActivity(db: Session, performsActivities: schemas.performsActivi
     db.refresh(db_performsActivities)
     return db_performsActivities
 
-
-# .filter(models.User.id == 1)
-
 def get_performsActivities(
     db: Session, skip: int = 0, limit: int = 100
 ) -> t.List[schemas.performsActivitiesOut]:

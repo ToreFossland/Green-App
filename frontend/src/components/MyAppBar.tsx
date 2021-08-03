@@ -10,6 +10,7 @@ export default function MyAppBar() {
   const [path, setPath] = React.useState('Home');
   let location = useLocation();
 
+  
   useEffect(() => {
     if (
       location.pathname === '/profile' ||
@@ -23,7 +24,13 @@ export default function MyAppBar() {
       setPath('Find activities');
     } else if (location.pathname === '/challenges') {
       setPath('Challenges');
-    } else {
+    } else if (location.pathname === '/login') {
+      setPath('Login');
+    }else if (location.pathname === '/signup') {
+      setPath('Signup');
+    }else if (location.pathname === '/logout') {
+      setPath('Login');
+    }else {
       setPath('Home');
     }
   }, [location.pathname]);
@@ -38,7 +45,7 @@ export default function MyAppBar() {
               <Typography variant="h6">{path}</Typography>
             </>
           ) : (
-            <Typography variant="h6">Login</Typography>
+            <Typography variant="h6">{path}</Typography>
           )}
         </Toolbar>
       </StAppBar>

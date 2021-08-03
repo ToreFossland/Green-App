@@ -6,8 +6,10 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import SocialGrid from './SocialGrid';
-
+import ScrollingDialog from 'components/ScrollingDialog';
+import { GlobalContext } from 'state/context';
+import StList from 'styledComponents/StList';
+import ScoreboardPage from 'pages/ScoreboardPage';
 interface TabPanelProps {
   children?: React.ReactNode;
   dir?: string;
@@ -44,9 +46,11 @@ function a11yProps(index: any) {
   };
 }
 
-export default function ActivityTabs() {
+export default function ScoreTabs() {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
+  const { state } = React.useContext(GlobalContext);
+  const challenges = state?.challenges;
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
@@ -67,8 +71,8 @@ export default function ActivityTabs() {
           variant="fullWidth"
           aria-label="full width tabs example"
         >
-          <Tab label="All Activity" {...a11yProps(0)} />
-          <Tab label="My Activity" {...a11yProps(1)} />
+          <Tab label="Challenges" {...a11yProps(0)} />
+          <Tab label="Scoreboard" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
       <SwipeableViews
@@ -77,10 +81,21 @@ export default function ActivityTabs() {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          <SocialGrid value={value} />
+          <StList>
+            {challenges?.map((item) => (
+              <ScrollingDialog
+                key={item.id}
+                id={item.id}
+                name={item.name}
+                description={item.description}
+                points={item.points}
+                activity_id={item.activity_id}
+              />
+            ))}
+          </StList>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          <SocialGrid value={value} />
+          <ScoreboardPage />
         </TabPanel>
       </SwipeableViews>
     </div>

@@ -11,9 +11,10 @@ interface ISocialGrid{
 }
 
 function SocialGrid(props: ISocialGrid) {
-    const {state } = useContext(GlobalContext);
+    const { state } = useContext(GlobalContext);
     const [deleted, setDeleted] = useState<boolean>(false);
     const [open, setOpen] = React.useState(false);
+    const [error, setError] = useState<string>('');
 
     const handleClose = (event?: React.SyntheticEvent, reason?: string) => {
         setDeleted(false);
@@ -24,14 +25,16 @@ function SocialGrid(props: ISocialGrid) {
         setOpen(false);
     };
     let performsActivities = state.performsActivities;
-    
+
     if(props.value){
         performsActivities = filter(performsActivities, function(item){
             return item[0].id === state.user?.id;
         });
     }
 
-    return (
+    return performsActivities === undefined || performsActivities.length === 0 ? (
+        <p>No activity has been added yet, try it out! </p>
+    ) : (
         <Grid container direction="column" justifyContent="center" alignItems="stretch" >
             {/* item[2].id for å finne ut hvilken idrett */}
             {deleted && (
@@ -43,6 +46,17 @@ function SocialGrid(props: ISocialGrid) {
                     </Snackbar>
                 </Grid>
                 )}
+            {error && (
+                <Grid item>
+                    <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={6000} onClose={handleClose}>
+                        <Alert onClose={handleClose} severity="error">
+                            Something went wrong
+                        </Alert>
+                    </Snackbar>
+                </Grid>
+                )}
+
+
 
             {performsActivities && performsActivities?.slice(0).reverse().map((item: any) =>
                 // <Grid item>
@@ -51,7 +65,8 @@ function SocialGrid(props: ISocialGrid) {
                     firstName = {item[0].first_name} lastName = {item[0].last_name}
                     activityName = {item[2].name} date = {item[1].date}
                     points = {item[2].points} effort = {item[1].effort}
-                    setDeleted={setDeleted} setOpen={setOpen} />
+                    setDeleted={setDeleted} setOpen={setOpen}
+                    error = {error} setError = {setError} />
                 // </Grid>
                 )}
         </Grid>

@@ -1,11 +1,13 @@
 import Table from 'components/Table';
 import React from 'react';
-import StPaper from 'styledComponents/StPaper';
+import StBackgroundColor from 'styledComponents/StBackgroundColor';
 
 function ScoreboardPage() {
   return (
-    <StPaper>
-      <Table></Table>
-    </StPaper>
+    <StBackgroundColor>
+      <Table />
+    </StBackgroundColor>
   );
 }
+
+export default ScoreboardPage;

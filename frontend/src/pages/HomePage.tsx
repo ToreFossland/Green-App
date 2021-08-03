@@ -1,13 +1,12 @@
 import React from 'react';
-import HomePageLinks from 'components/HomePageLinks';
 import ActivityTabs from 'components/ActivityTabs';
+import StBackgroundColor from 'styledComponents/StBackgroundColor';
 
 const HomePage = () => {
   return (
-    <div>
-      <HomePageLinks />
+    <StBackgroundColor>
       <ActivityTabs/>
-    </div>
+    </StBackgroundColor>
   );
 };
 
