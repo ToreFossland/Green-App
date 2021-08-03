@@ -1,11 +1,12 @@
 import React from 'react';
 import ScoreTabs from 'components/ScoreTabs';
+import StBackgroundColor from 'styledComponents/StBackgroundColor';
 
 const ChallengesPage = () => {
   return (
-    <div>
+    <StBackgroundColor>
       <ScoreTabs />
-    </div>
+    </StBackgroundColor>
   );
 };
 
