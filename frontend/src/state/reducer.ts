@@ -1,8 +1,9 @@
 import { StateActions } from './actions';
+import { IGlobalState } from './state';
 import { activitiesReducer } from './activities/activitiesReducer';
 import { challengesReducer } from './challenges/challengesReducer';
 import { performsActivitiesReducer } from './performsActivities/performsActivitiesReducer';
-import { IGlobalState } from './state';
+import { performsChallengesReducer } from './performsChallenges/performsChallengesReducer';
 import { userReducer } from './user/userReducer';
 
 export function stateReducer(state: IGlobalState, action: StateActions): IGlobalState {
@@ -14,5 +15,7 @@ export function stateReducer(state: IGlobalState, action: StateActions): IGlobal
     if(performsActivities) return performsActivities;
     const challenges = challengesReducer(state, action);
     if(challenges) return challenges;
+    const performsChallenges = performsChallengesReducer(state, action);
+    if(performsChallenges) return performsChallenges;
     return state;
 }
