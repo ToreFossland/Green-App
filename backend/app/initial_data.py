@@ -45,8 +45,8 @@ def init() -> None:
         "Complete listed activities": ["Complete these 4 challenges to win points. ", 80, "4,3,2,1"],
         "Eat vegetarian 3 times": ["Drop the meat, the environment will thank you!", 60, "2,2,2"],
         "Donate clothing 3 times": ["Donate some old clothes that you no longer need or want to a local shop and help clean the environment.", 60, "3,3,3"],
-
     }
+
     for key in challengeslist:
         try:
             seed_challenges(
