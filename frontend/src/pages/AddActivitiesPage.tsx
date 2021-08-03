@@ -18,6 +18,7 @@ export default function AddActivities() {
             setSelectedDate(newDate);
           }}
         />
+        </StPaper>
         <StList>
           {activities?.map((item) => (
             <ActivityListItem
@@ -29,7 +30,6 @@ export default function AddActivities() {
             />
           ))}
         </StList>
-      </StPaper>
     </div>
   );
 }

@@ -8,7 +8,7 @@ const StPaper = styled(withTheme(Paper))(props => ({
   paddingTop: props.theme.spacing(2),
   paddingBottom: props.theme.spacing(2),
   marginTop: props.theme.spacing(1),
-  marginBottom: props.theme.spacing(1),
+  marginBottom: props.theme.spacing(2),
   textAlign: 'left',
   color: props.theme.palette.text.primary,
   width: '100%',

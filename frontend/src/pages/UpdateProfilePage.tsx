@@ -7,6 +7,7 @@ import { updateUser, deleteUser, logout } from 'utils/auth';
 import { user } from 'state/user/userActions';
 import {getUser} from 'utils/user';
 import Settings from 'components/Settings';
+import StPaper from 'styledComponents/StPaper';
 
 function UpdateProfilePage() {
   const history = useHistory();
@@ -76,7 +77,7 @@ function UpdateProfilePage() {
   };
 
   return (
-    <div>
+    <StPaper elevation={0}>
       <UpdateProfileForm
         firstname={state.user?.first_name}
         lastname={state.user?.last_name}
@@ -90,7 +91,7 @@ function UpdateProfilePage() {
       />
 
       <Settings onPasswordChange={PasswordChange} onDelete={DeleteUser} />
-    </div>
+    </StPaper>
   );
 }
 

@@ -33,7 +33,7 @@ function SocialGrid(props: ISocialGrid) {
     }
 
     return performsActivities === undefined || performsActivities.length === 0 ? (
-    <p>No activity has been added yet, try it out! </p>
+        <p>No activity has been added yet, try it out! </p>
     ) : (
         <Grid container direction="column" justifyContent="center" alignItems="stretch" >
             {/* item[2].id for å finne ut hvilken idrett */}

@@ -17,11 +17,9 @@ interface TabPanelProps {
 
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
-  const theme = useTheme();
 
   return (
     <div
-      style={{marginLeft: theme.spacing(-3), marginRight: theme.spacing(-3), overflowX: 'auto'}}
       role="tabpanel"
       hidden={value !== index}
       id={`full-width-tabpanel-${index}`}
@@ -29,7 +27,7 @@ function TabPanel(props: TabPanelProps) {
       {...other}
     >
       {value === index && (
-        <Box p={3}>
+        <Box>
           <Typography component={'span'} variant={'body2'}>
             {children}
           </Typography>
