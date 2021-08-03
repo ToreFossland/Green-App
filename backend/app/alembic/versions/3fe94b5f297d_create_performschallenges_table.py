@@ -20,10 +20,10 @@ def upgrade():
     op.create_table(
         "performsChallenge",
         sa.Column("id", sa.Integer, primary_key=True),
-        sa.Column("performsActivity_id", sa.Integer),
+        sa.Column("performsActivity_id", sa.Integer, nullable=True),
         sa.ForeignKeyConstraint(('performsActivity_id',), [
                                 'performsActivities.id'], ),
-        sa.Column("challenge_id", sa.Integer),
+        sa.Column("challenge_id", sa.Integer, nullable=True),
         sa.ForeignKeyConstraint(('challenge_id',), ['challenge.id'], ),
     )
     pass
