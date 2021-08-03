@@ -1,13 +1,13 @@
-import IPerformsActivities from "interfaces/IPerformsActivities";
+import IPerformsChallenges from "interfaces/IperformsChallenges";
 
-const getPerformsActivities = async() : Promise<IPerformsActivities> =>{
+const getPerformsChallenge = async() : Promise<IPerformsChallenges> =>{
     let token:string = localStorage.getItem('token')||'{}';
     let httpHeaders = { 
       'Content-Type' : 'application/x-www-form-urlencoded', 
       'Accept' : 'application/json',
       'Authorization' : `Bearer ${token}`
     };
-    const request = new Request('/api/performsActivities', {
+    const request = new Request('/api/performsChallenge', {
       method: 'GET',
       headers: new Headers(httpHeaders)
       },
@@ -23,7 +23,7 @@ const getPerformsActivities = async() : Promise<IPerformsActivities> =>{
     const data = await response.json();
     if (response.status > 400 && response.status < 500) {
       if (data.detail) {
-        throw data.detail;
+        console.log(data.detail);
       }
       throw data;
     }
@@ -31,11 +31,9 @@ const getPerformsActivities = async() : Promise<IPerformsActivities> =>{
   }
 
 
-  export const performsActivity = async (
-    userId: number,
-    activityId: number,
-    date: number,
-    effort: number,
+  export const performsChallenge = async (
+    challengeId: number,
+    performsActivityId: number
   
   ) => {
     let token:string = localStorage.getItem('token')||'{}';
@@ -46,19 +44,16 @@ const getPerformsActivities = async() : Promise<IPerformsActivities> =>{
     };
 
     // Assert email or password or password confirmation is not empty
-    if (!(userId)) {
-      throw new Error('User ID was not provided');
+    if (!(challengeId)) {
+      throw new Error('Challenge ID was not provided');
     }
-    if (!(activityId)) {
-      throw new Error('Activity ID was not provided');
-    }
-    if (!(date > 0)) {
-      throw new Error('Date was not provided');
+    if (!(performsActivityId)) {
+      throw new Error('PerformsActivity ID was not provided');
     }
 
-    const userData = {user_id : userId, activities_id : activityId, date : date, effort: effort};
+    const userData = {challenge_id : challengeId, performsActivty_id : performsActivityId};
   
-    const request = new Request('/api/performsActivities', {
+    const request = new Request('/api/performsChallenge', {
       method: 'POST',
       headers: new Headers(httpHeaders),
       body: JSON.stringify(userData),
@@ -80,8 +75,8 @@ const getPerformsActivities = async() : Promise<IPerformsActivities> =>{
     return data;
   };
 
-  export const deletePerformsActivity = async (
-    performsActivityID: number,
+  export const deletePerformsChallenge = async (
+    performsChallengeID: number,
   ) => {
     let token:string = localStorage.getItem('token')||'{}';
     let httpHeaders = {
@@ -90,7 +85,7 @@ const getPerformsActivities = async() : Promise<IPerformsActivities> =>{
         'Authorization' : `Bearer ${token}`
     };
   
-    const request = new Request(`/api/performsActivities/${performsActivityID}`, {
+    const request = new Request(`/api/performsChallenge/${performsChallengeID}`, {
       method: 'DELETE',
       headers: new Headers(httpHeaders),
     });
@@ -104,11 +99,11 @@ const getPerformsActivities = async() : Promise<IPerformsActivities> =>{
     const data = await response.json();
     if (response.status > 400 && response.status < 500) {
       if (data.detail) {
-        throw data.detail;
+        console.log(data.detail);
       }
       throw data;
     }
     return data;
   };
 
-export default getPerformsActivities;
+  export default getPerformsChallenge;
