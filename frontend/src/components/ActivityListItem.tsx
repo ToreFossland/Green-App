@@ -15,7 +15,6 @@ import { user } from 'state/user/userActions';
 import Alert from '@material-ui/lab/Alert';
 
 export const ActivityListItem = (props: IActivity) => {
-  const [activityId] = useState<number>(props.id);
   const [error, setError] = useState<string>('');
   const [success, setSuccess] = useState<boolean>(false);
   const { state, dispatch } = React.useContext(GlobalContext);
@@ -27,8 +26,8 @@ export const ActivityListItem = (props: IActivity) => {
     try {
       const data = await performsActivity(
         currentUser.id,
-        activityId,
-        Date.now(),
+        props.id,
+        props.date.getTime(),
         effort
       );
       if (data) {
