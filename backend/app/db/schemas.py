@@ -116,3 +116,25 @@ class performsActivitiesCreate(performsActivitiesBase):
 
 class performsActivitiesOut(performsActivitiesBase):
     pass
+
+
+class performsChallengeBase(BaseModel):
+    challenge_id: int
+    performsActivity_id: int
+
+
+class performsChallenge(performsChallengeBase):
+    id: int
+
+    class Config:
+        orm_mode = True
+
+
+class performsChallengeCreate(performsChallengeBase):
+
+    class Config:
+        orm_mode = True
+
+
+class performsChallengeOut(performsChallengeBase):
+    pass
