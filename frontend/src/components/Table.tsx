@@ -21,7 +21,7 @@ interface Column {
 
 const columns: Column[] = [
   { id: 'firstName', label: 'Name', minWidth: 170 },
-  //{ id: 'lastName', label: 'Last name', minWidth: 170 },
+
   {
     id: 'score',
     label: 'Score',
@@ -119,15 +119,17 @@ export default function StickyHeadTable() {
           </TableBody>
         </Table>
       </TableContainer>
-      {/*       <TablePagination
-        rowsPerPageOptions={[10, 25]}
-        component="div"
-        count={rows.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-      /> */}
+      {
+        <TablePagination
+          rowsPerPageOptions={[10, 25]}
+          component="div"
+          count={rows.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
+      }
     </StPaper>
   );
 }
