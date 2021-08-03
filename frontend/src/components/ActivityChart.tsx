@@ -9,7 +9,6 @@ function ActivityChart(props: any) {
     const currentUserActivites =_.filter(state.performsActivities, function(item){
       return item[1].user_id === state.user?.id;
       });
-    console.log('activities:', currentUserActivites);
 
     let numberOfActivities = [0, 0, 0, 0, 0];
 
@@ -27,10 +26,6 @@ function ActivityChart(props: any) {
         numberOfActivities[4]++
       }
     });
-
-    console.log(numberOfActivities);
-
-
 
     const data = {
         labels: ['1/'+month, '8/'+month, '15/'+month, '22/'+month, '29/'+month,],
@@ -50,6 +45,7 @@ function ActivityChart(props: any) {
             {
               ticks: {
                 beginAtZero: true,
+                precision: 0,
               },
             },
           ],

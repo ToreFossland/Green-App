@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -9,12 +9,9 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import IChallenge from 'interfaces/IChallenge';
 import { GlobalContext } from 'state/context';
-import IActivity from 'interfaces/IActivity';
-import { challenges } from 'state/challenges/challengesActions';
 import { updateUser } from 'utils/auth';
 import { getUser } from 'utils/user';
 import { user } from 'state/user/userActions';
-import IPerformsActivities from 'interfaces/IPerformsActivities';
 import { filter } from 'lodash';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -39,7 +36,7 @@ const isThisMonth = (dateAdd: number) => {
   let timestamp: number = +dateAdd;
   let date: Date = new Date(timestamp);
   const today = new Date();
-  return today.getMonth() == date.getMonth();
+  return today.getMonth() === date.getMonth();
 };
 export default function ChallengeStepper(props: IChallenge) {
   const { state, dispatch } = React.useContext(GlobalContext);
@@ -53,7 +50,6 @@ export default function ChallengeStepper(props: IChallenge) {
     activitiesArray.includes(a.id)
   )!;
 
-  console.log(wantedActivities);
   let performActivity = state?.performsActivities;
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
@@ -78,9 +74,7 @@ export default function ChallengeStepper(props: IChallenge) {
 
   const handleAddChallenge = async (_: React.MouseEvent) => {
     index += 1;
-    console.log(index);
     setDisabledBtn(handleDisabled(index).length <= 0);
-    console.log(disabledBtn);
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
     if (activeStep === steps.length - 1) {
       setError('');

@@ -7,7 +7,6 @@ import StList from 'styledComponents/StList';
 export default function AddActivities() {
   const { state } = React.useContext(GlobalContext);
   const activities = state?.activities;
-  console.log(activities);
   const [selectedDate, setSelectedDate] = React.useState<Date>(new Date());
   return (
     <div>
