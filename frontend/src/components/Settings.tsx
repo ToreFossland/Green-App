@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, ButtonGroup } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
+import LockIcon from '@material-ui/icons/Lock';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -28,8 +29,8 @@ const Settings = ({
 
     return (
         <div>
-            <ButtonGroup orientation="vertical" variant="contained">
-                <Button onClick={onPasswordChange} >
+            <ButtonGroup orientation="vertical" variant="contained" size="large">
+                <Button color="primary" startIcon={<LockIcon />} onClick={onPasswordChange} >
                     Change password
                 </Button>
 
