@@ -33,8 +33,8 @@ def create_user(db: Session, user: schemas.UserCreate):
         last_name=user.last_name,
         email=user.email,
         is_active=user.is_active,
-        #user.is_superuser always return False, even though schema says True
-        is_superuser= True,
+        # user.is_superuser always return False, even though schema says True
+        is_superuser=True,
         hashed_password=hashed_password,
     )
     db.add(db_user)
@@ -165,3 +165,55 @@ def delete_performsActivity(db: Session, performsActivity_id: int):
     db.delete(performsActivity)
     db.commit()
     return performsActivity
+
+
+def get_performsChallenge(db: Session, performsChallenge_id: int):
+    performsChallenge = db.query(models.performsChallenge).filter(
+        models.performsChallenge.id == performsChallenge_id).first()
+    if not performsChallenge:
+        raise HTTPException(
+            status_code=404, detail="PerformsChallenge not found")
+    return performsChallenge
+
+
+def add_performsChallenge(db: Session, performsChallenge: schemas.performsChallenge):
+
+    db_performsChallenge = models.performsChallenge(
+        challenge_id=performsChallenge.challenge_id,
+        performsActivity_id=performsChallenge.performsActivity_id
+    )
+    db.add(db_performsChallenge)
+    db.commit()
+    db.refresh(db_performsChallenge)
+    return db_performsChallenge
+
+
+# .filter(models.User.id == 1)
+
+def get_performsChallenge(
+    db: Session, skip: int = 0, limit: int = 100
+) -> t.List[schemas.performsChallengeOut]:
+    try:
+        return db.query(models.Challenge, models.performsActivities, models.performsChallenge).join(
+            models.Challenge, models.Challenge.id == models.performsChallenge.challenge_id
+        ).join(
+            models.performsActivities, models.performsActivities.id == models.performsChallenge.performsActivity_id
+        ).all()
+    except ValidationError as e:
+        print(e.json())
+
+    # return db.query(models.User, models.Activity, models.performsActivities).join(
+    #     models.performsActivities, models.User.id == models.performsActivities.user_id).join(models.Activity, models.Activity.id == models.performsActivities.activities_id)
+
+    """ join(
+        performsActivities, user.id == performsActivities.user_id).join(activities, performsActivities.activity_id == activities.id)
+ """
+
+
+def delete_performsChallenge(db: Session, performsChallenge_id: int):
+    performsChallenge = get_performsActivity(db, performsChallenge_id)
+    if not performsChallenge:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, detail="User not found")
+    db.delete(performsChallenge)
+    db.commit()
+    return performsChallenge
