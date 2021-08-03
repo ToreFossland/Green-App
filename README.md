@@ -1,5 +1,7 @@
 # green-app
 
+GreenApp is meant to be an application for competing with yourself and others to live a more environmentally life.
+
 ## Features
 
 - **FastAPI** with Python 3.8
@@ -17,7 +19,6 @@
 The only dependencies for this project should be docker and docker-compose.
 
 ### Quick Start
-
 
 Change into your project directory and run:
 
@@ -44,7 +45,7 @@ _Note: If you see an Nginx error at first with a `502: Bad Gateway` page, you ma
 Auto-generated docs will be at
 http://localhost:8000/api/docs
 
-User admin page will be at 
+User admin page will be at
 http://localhost:8000/admin
 
 ### Rebuilding containers:
