@@ -71,7 +71,7 @@ export default function ChallengeStepper(props: IChallenge) {
 
   const handleDisabled = (currentActivity: number) => {
     performActivity = filter(performActivity, function (item) {
-      return item[1].activities_id === wantedActivities[currentActivity].id;
+      return item[1].activities_id === wantedActivities[currentActivity]?.id;
     });
     return performActivity;
   };
