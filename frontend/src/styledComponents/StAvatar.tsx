@@ -7,7 +7,8 @@ import React from 'react';
 const StAvatar = styled(Avatar)({
   display: 'flex',
   fontSize: 20,
-  marginRight: 5,
+  marginRight: '25px',
+  marginLeft: '10px',
 });
 
 const StyledAvatar = () => {
