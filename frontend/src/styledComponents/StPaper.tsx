@@ -12,7 +12,6 @@ const StPaper = styled(withTheme(Paper))(props => ({
   textAlign: 'left',
   color: props.theme.palette.text.primary,
   width: '100%',
-  backgroundColor: '#f5f6f7'
 }));
 
 export default StPaper;
