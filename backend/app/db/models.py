@@ -42,6 +42,8 @@ class Challenge(Base):
     description = Column(String)
     points = Column(Integer)
     activity_id = Column(String)
+    performs = relationship("performsChallenge",
+                            uselist=False, backref="challenge")
 
 
 class performsActivities(Base):
@@ -51,3 +53,13 @@ class performsActivities(Base):
     user_id = Column(Integer, ForeignKey('user.id'))
     date = Column(String, default="15/07/2021")
     effort = Column(Integer, default=0)
+    challenge = relationship("performsChallenge",
+                             uselist=False, backref="performsActivities")
+
+
+class performsChallenge(Base):
+    __tablename__ = "performsChallenge"
+    id = Column(Integer, primary_key=True, index=True)
+    performsActivity_id = Column(
+        Integer, ForeignKey('performsActivities.id'))
+    challenge_id = Column(Integer, ForeignKey('challenge.id'))
