@@ -2,9 +2,9 @@ import React from 'react';
 import Carousel from 'react-material-ui-carousel'
 import { CardMedia } from '@material-ui/core'
 import StCard from 'styledComponents/StCard';
-import bike from 'testImages/bikecrop.png';
-import chef from 'testImages/chefcrop.png';
-import trash from 'testImages/trashcrop.png';
+import bike from 'testImages/bikeblue.png';
+import chef from 'testImages/chefblue.png';
+import trash from 'testImages/trashblue.png';
 
 export function LoginCarousel(props: any) {
     var items = [

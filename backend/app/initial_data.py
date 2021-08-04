@@ -16,8 +16,8 @@ def init() -> None:
         UserCreate(
             email="admin@green-app.com",
             password="password",
-            first_name = "admin",
-            last_name = "user",
+            first_name="admin",
+            last_name="user",
             is_active=True,
             is_superuser=True,
         ),
@@ -28,6 +28,10 @@ def init() -> None:
         "Eat a vegetarian meal": 10,
         "Pick up trash": 10,
         "Donate old clothes": 10,
+        "Carpool to location": 10,
+        "Plant a tree": 10,
+        "Limit food waste": 10,
+        "Use public transport": 10
     }
 
     for key in activitylist:

@@ -14,7 +14,16 @@ import { getUser } from 'utils/user';
 import { user } from 'state/user/userActions';
 import Alert from '@material-ui/lab/Alert';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBiking, faCarrot, faTrashAlt, faTshirt } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBiking,
+  faCarrot,
+  faTrashAlt,
+  faTshirt,
+  faCar,
+  faTree,
+  faDrumstickBite,
+  faBus,
+} from '@fortawesome/free-solid-svg-icons';
 export const ActivityListItem = (props: IActivity) => {
   const [error, setError] = useState<string>('');
   const [success, setSuccess] = useState<boolean>(false);
@@ -74,10 +83,14 @@ export const ActivityListItem = (props: IActivity) => {
     <StCard>
       <CardContent>
         <Typography variant="h6" align="center">
-          {props.index === 0 && (<FontAwesomeIcon icon={faBiking} />)}
-          {props.index === 1 && (<FontAwesomeIcon icon={faCarrot} />)}
-          {props.index === 2 && (<FontAwesomeIcon icon={faTrashAlt} />)}
-          {props.index === 3 && (<FontAwesomeIcon icon={faTshirt} />)}
+          {props.index === 0 && <FontAwesomeIcon icon={faBiking} />}
+          {props.index === 1 && <FontAwesomeIcon icon={faCarrot} />}
+          {props.index === 2 && <FontAwesomeIcon icon={faTrashAlt} />}
+          {props.index === 3 && <FontAwesomeIcon icon={faTshirt} />}
+          {props.index === 4 && <FontAwesomeIcon icon={faCar} />}
+          {props.index === 5 && <FontAwesomeIcon icon={faTree} />}
+          {props.index === 6 && <FontAwesomeIcon icon={faDrumstickBite} />}
+          {props.index === 7 && <FontAwesomeIcon icon={faBus} />}
         </Typography>
         <Typography variant="h6" align="center">
           {props.name}

@@ -13,7 +13,8 @@ import StBottomNavigation from 'styledComponents/StBottomNavigation';
 
 function BottomNavigation() {
   const pathname = window.location.pathname; // in case user visits the path directly. The BottomNavBar is able to follow suit.
-  const [value, setValue] = React.useState(pathname);
+  const [value, setValue] = React.useState('/');
+  console.log(value);
   const handleChange = async (
     event: React.ChangeEvent<{}>,
     newValue: string
@@ -23,7 +24,7 @@ function BottomNavigation() {
 
   return (
     <div>
-      {isAuthenticated() ? (
+      {isAuthenticated() && (
         <StBottomNavigation value={value} onChange={handleChange}>
           <BottomNavigationAction
             label="Home"
@@ -66,8 +67,6 @@ function BottomNavigation() {
             showLabel={true}
           />
         </StBottomNavigation>
-      ) : (
-        <div></div>
       )}
     </div>
   );
