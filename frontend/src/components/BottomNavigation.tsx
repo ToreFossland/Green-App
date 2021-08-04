@@ -10,7 +10,6 @@ import {
 import { isAuthenticated } from '../utils/auth';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import StBottomNavigation from 'styledComponents/StBottomNavigation';
-import { maxLength } from 'react-admin';
 
 function BottomNavigation() {
   let pathname = window.location.pathname; // in case user visits the path directly. The BottomNavBar is able to follow suit.
