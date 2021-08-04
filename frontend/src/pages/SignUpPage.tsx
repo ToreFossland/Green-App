@@ -4,7 +4,7 @@ import { useHistory } from 'react-router';
 import { signUp, isAuthenticated } from '../utils/auth';
 import { GlobalContext } from 'state/context';
 import InitContext from 'utils/initContext';
-import NewSignupForm from 'forms/NewSignupForm';
+import NewSignupForm from 'forms/SignupForm';
 
 export const SignUpPage: FC = () => {
   const history = useHistory();

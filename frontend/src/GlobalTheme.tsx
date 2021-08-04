@@ -6,19 +6,19 @@ const GlobalTheme = createTheme({
       main: '#184e77',
     },
     secondary: {
-      main: '#d56c6f',
+      main: '#D22B2B',
     },
     info: {
-      main: '#0092bb',
+      main: '#6792bf',
     },
     warning: {
-      main: '#FAEDCD',
+      main: '#e19f20',
     },
     error: {
-      main: '#D4A373',
+      main: '#e19f20',
     },
     success: {
-      main: '#A9D2FF',
+      main: '#37c190',
     },
   },
 });

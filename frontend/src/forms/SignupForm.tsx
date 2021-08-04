@@ -1,10 +1,10 @@
 import React from "react";
-import StSignUpPaper from "styledComponents/StSignUpPaper";
-import StSubmitButton from "styledComponents/StSubmitButton";
-import { Grid, TextField } from "@material-ui/core";
-import { Face, Fingerprint } from "@material-ui/icons";
+import { Grid } from "@material-ui/core";
 import { Alert } from '@material-ui/lab';
 import { Link } from "react-router-dom";
+import StPaper from "styledComponents/StPaper";
+import StSubmitButton from "styledComponents/StSubmitButton";
+import StTextField from "styledComponents/StTextField";
 
 
   const SignupForm = ({ email, onEmailChange, firstname, onFnameChange, lastname, onLnameChange, password, onPasswordChange, passwordConfirmation, onPasswordConfirmationChange, error, onSignupClick }
@@ -12,92 +12,63 @@ import { Link } from "react-router-dom";
     ) => {
     return (
 
-        <StSignUpPaper>
-            <Grid container spacing={8} justifyContent="center" alignItems="flex-end">
-                <Grid item>
-                    <Face />
-                </Grid>
-                <Grid item md={true} sm={true} xs={true}>
-                    <TextField
-                        id="firstname"
-                        label="First Name"
-                        type="firstname"
-                        value={firstname}
-                        onChange={onFnameChange}
-                        fullWidth
-                        autoFocus
-                        required
-                    />
-                </Grid>
+        <StPaper elevation={0}>
+            <Grid container justifyContent="center">
+                <p>
+                    Already have an account? <Link to={'/login' }> Sign in </Link>
+                </p>
             </Grid>
-            <Grid container spacing={8} justifyContent="center" alignItems="flex-end">
-                <Grid item>
-                    <Face />
-                </Grid>
-                <Grid item md={true} sm={true} xs={true}>
-                    <TextField
-                        id="lastname"
-                        label="Last Name"
-                        type="lastname"
-                        value={lastname}
-                        onChange={onLnameChange}
-                        fullWidth
-                        autoFocus
-                        required
-                    />
-                </Grid>
-            </Grid>
-            <Grid container spacing={8} justifyContent="center" alignItems="flex-end">
-                <Grid item>
-                    <Face />
-                </Grid>
-                <Grid item md={true} sm={true} xs={true}>
-                    <TextField
-                        id="email"
-                        label="Email"
-                        type="email"
-                        value={email}
-                        onChange={onEmailChange}
-                        fullWidth
-                        autoFocus
-                        required
-                    />
-                </Grid>
-            </Grid>
-            <Grid container spacing={8} alignItems="flex-end">
-                <Grid item>
-                    <Fingerprint />
-                </Grid>
-                <Grid item md={true} sm={true} xs={true}>
-                    <TextField
-                        id="password"
-                        label="Password"
-                        type="password"
-                        value={password}
-                        onChange={onPasswordChange}
-                        fullWidth
-                        required
-                    />
-                </Grid>
-            </Grid>
-            <Grid container spacing={8} alignItems="flex-end">
-                <Grid item>
-                    <Fingerprint />
-                </Grid>
-                <Grid item md={true} sm={true} xs={true}>
-                    <TextField
-                        id="passwordConfirmation"
-                        label="Confirm password"
-                        type="password"
-                        value={passwordConfirmation}
-                        onChange={onPasswordConfirmationChange}
-                        fullWidth
-                        required
-                    />
-                </Grid>
-            </Grid>
+            <StTextField
+                id="firstname"
+                label="First Name"
+                type="firstname"
+                variant="outlined"
+                value={firstname}
+                onChange={onFnameChange}
+                autoFocus
+                required
+            />
+            <StTextField
+                id="lastname"
+                label="Last Name"
+                type="lastname"
+                variant="outlined"
+                value={lastname}
+                onChange={onLnameChange}
+                autoFocus
+                required
+            />
+            <StTextField
+                id="email"
+                label="Email"
+                type="email"
+                variant="outlined"
+                value={email}
+                onChange={onEmailChange}
+                autoFocus
+                required
+            />
+            <StTextField
+                id="password"
+                label="Password"
+                type="password"
+                variant="outlined"
+                value={password}
+                onChange={onPasswordChange}
+                required
+            />
+            <StTextField
+                id="passwordConfirmation"
+                label="Confirm password"
+                type="password"
+                variant="outlined"
+                value={passwordConfirmation}
+                onChange={onPasswordConfirmationChange}
+                required
+            />
+
             <br />
-            <Grid container alignItems="center">
+            <Grid container alignItems="center" justifyContent="center">
                 {error && (
                 <Grid item>
                     <Alert severity="error">{error}</Alert>
@@ -107,10 +78,7 @@ import { Link } from "react-router-dom";
             <Grid container justifyContent="center">
                 <StSubmitButton onClick = {onSignupClick} >Sign Up</StSubmitButton>
             </Grid>
-            <Grid container justifyContent="center">
-                <Link to={'/login' }> Already have an account? Log in </Link>
-            </Grid>
-        </StSignUpPaper>
+        </StPaper>
     )
 }
 

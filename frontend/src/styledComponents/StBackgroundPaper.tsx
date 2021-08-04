@@ -6,7 +6,6 @@ const StBackgroundPaper = styled(withTheme(Paper))(props => ({
     paddingTop: props.theme.spacing(6.5),
     paddingBottom: props.theme.spacing(6.5),
     width: '100%',
-    color: props.theme.palette.text.primary,
 }));
 
 export default StBackgroundPaper;
