@@ -34,13 +34,15 @@ export const ChallengeListItem = (props: IChallenge) => {
     <StCard elevation={0}>
       <CardContent>
         <Typography variant="h6" align="center">
+          {checkActivities.length > 0 && (
+            <FontAwesomeIcon color="#59981A" icon={faCheckCircle} />
+          )}
+        </Typography>
+        <Typography variant="h6" align="center">
           {props.name}
         </Typography>
         <Typography variant="subtitle1" align="center">
           Total points:<b> {props.points}</b>{' '}
-          {checkActivities.length > 0 && (
-            <FontAwesomeIcon icon={faCheckCircle} />
-          )}
         </Typography>
       </CardContent>
     </StCard>
