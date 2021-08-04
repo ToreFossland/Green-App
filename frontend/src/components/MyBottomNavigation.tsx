@@ -42,7 +42,7 @@ function MyBottomNavigation() {
             showLabel={true}
           />
           <BottomNavigationAction
-            label="Record"
+            label="Activity"
             value="/add"
             icon={<AddCircle />}
             component={Link}
