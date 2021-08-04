@@ -26,6 +26,10 @@ import {
   faCarrot,
   faTrashAlt,
   faTshirt,
+  faCar,
+  faTree,
+  faDrumstickBite,
+  faBus,
 } from '@fortawesome/free-solid-svg-icons';
 
 const Post = (props: any) => {
@@ -82,7 +86,6 @@ const Post = (props: any) => {
 
   let timestamp: number = +props.date;
   let date: Date = new Date(timestamp);
-
   return (
     <StCard>
       <CardHeader
@@ -111,18 +114,16 @@ const Post = (props: any) => {
         </CardContent>
         <CardContent>
           <Typography variant="h6" color="primary" component="p">
-            {props.activityName === 'Bike to work' && (
-              <FontAwesomeIcon icon={faBiking} />
+            {props.activity_id === 1 && <FontAwesomeIcon icon={faBiking} />}
+            {props.activity_id === 2 && <FontAwesomeIcon icon={faCarrot} />}
+            {props.activity_id === 3 && <FontAwesomeIcon icon={faTrashAlt} />}
+            {props.activity_id === 4 && <FontAwesomeIcon icon={faTshirt} />}
+            {props.activity_id === 5 && <FontAwesomeIcon icon={faCar} />}
+            {props.activity_id === 6 && <FontAwesomeIcon icon={faTree} />}
+            {props.activity_id === 7 && (
+              <FontAwesomeIcon icon={faDrumstickBite} />
             )}
-            {props.activityName === 'Eat a vegetarian meal' && (
-              <FontAwesomeIcon icon={faCarrot} />
-            )}
-            {props.activityName === 'Pick up trash' && (
-              <FontAwesomeIcon icon={faTrashAlt} />
-            )}
-            {props.activityName === 'Donate old clothes' && (
-              <FontAwesomeIcon icon={faTshirt} />
-            )}
+            {props.activity_id === 8 && <FontAwesomeIcon icon={faBus} />}
           </Typography>
         </CardContent>
       </Grid>
