@@ -98,6 +98,7 @@ export const ActivityListItem = (props: IActivity) => {
       </CardContent>
       <CardActions style={{ alignItems: 'center', justifyContent: 'center' }}>
         <SliderEffort
+          index={props.index}
           effort={effort}
           onChangeEffort={(newEffort: any) => {
             setEffort(newEffort);
