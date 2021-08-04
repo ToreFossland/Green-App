@@ -6,7 +6,7 @@ import React from 'react';
 
 const StBAvatar = styled(Avatar)({
   display: 'flex',
-  fontSize: 20,
+  fontSize: 35,
   marginRight: '25px',
   marginLeft: '10px',
   height: '70px',
@@ -24,4 +24,4 @@ const StyledBAvatar = () => {
   return <StBAvatar></StBAvatar>;
 };
 
-export default StBAvatar;
+export default StyledBAvatar;
