@@ -11,7 +11,7 @@ import { isAuthenticated } from '../utils/auth';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import StBottomNavigation from 'styledComponents/StBottomNavigation';
 
-function MyBottomNavigation() {
+function BottomNavigation() {
   const pathname = window.location.pathname; // in case user visits the path directly. The BottomNavBar is able to follow suit.
   const [value, setValue] = React.useState(pathname);
   const handleChange = async (
@@ -73,4 +73,4 @@ function MyBottomNavigation() {
   );
 }
 
-export default MyBottomNavigation;
+export default BottomNavigation;

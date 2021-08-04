@@ -9,8 +9,8 @@ import LoginPage from 'pages/LoginPage';
 import MapPage from 'pages/MapPage';
 import { SignUpPage } from 'pages/SignUpPage';
 import GlobalTheme from './GlobalTheme';
-import MyAppBar from './components/MyAppBar';
-import MyBottomNavigation from './components/MyBottomNavigation';
+import AppBar from './components/AppBar';
+import BottomNavigation from './components/BottomNavigation';
 import UpdateProfilePage from './pages/UpdateProfilePage';
 import AddActivities from './pages/AddActivitiesPage';
 import StBackgroundPaper from 'styledComponents/StBackgroundPaper';
@@ -30,7 +30,7 @@ export const Routes: FC = () => {
 
   return (
     <ThemeProvider theme={GlobalTheme}>
-      <MyAppBar />
+      <AppBar />
       <StBackgroundPaper>
         <Switch>
           <Route path="/admin">
@@ -56,7 +56,7 @@ export const Routes: FC = () => {
           <PrivateRoute exact path="/challenges" component={ChallengesPage} />
         </Switch>
       </StBackgroundPaper>
-      <MyBottomNavigation />
+      <BottomNavigation />
     </ThemeProvider>
   );
 };

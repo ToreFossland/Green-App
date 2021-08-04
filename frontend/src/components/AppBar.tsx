@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 import HamburgerMenu from 'components/HamburgerMenu';
 import StAppBar from 'styledComponents/StAppBar';
 
-export default function MyAppBar() {
+export default function AppBar() {
   const [path, setPath] = React.useState('Home');
   let location = useLocation();
 
@@ -27,7 +27,7 @@ export default function MyAppBar() {
     } else if (location.pathname === '/login') {
       setPath('Login');
     }else if (location.pathname === '/signup') {
-      setPath('Signup');
+      setPath('Sign Up');
     }else if (location.pathname === '/logout') {
       setPath('Login');
     }else {
