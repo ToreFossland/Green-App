@@ -1,4 +1,5 @@
 import IUser from 'interfaces/IUser';
+import { logout } from './auth';
 
 export const getUser = async (): Promise<IUser> => {
   let token: string = localStorage.getItem('token') || '{}';
@@ -16,6 +17,10 @@ export const getUser = async (): Promise<IUser> => {
 
   if (response.status === 500) {
     throw new Error('Internal server error');
+  }
+
+  if (response.status === 401) {
+    logout();
   }
 
   const data = await response.json();
