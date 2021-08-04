@@ -85,6 +85,10 @@ export const signUp = async (
   if (!(passwordConfirmation.length > 0)) {
     throw new Error('Password confirmation was not provided');
   }
+  const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if(!re.test(String(email).toLowerCase())){
+    throw new Error('Email format invalid');
+    }
 
   const formData = new FormData();
   // OAuth2 expects form data, not JSON data

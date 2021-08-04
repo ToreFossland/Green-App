@@ -18,6 +18,7 @@ export const SignUpPage: FC = () => {
 
   const handleSubmit = async (_: React.MouseEvent) => {
     // Password confirmation validation
+
     if (password !== passwordConfirmation) setError('Passwords do not match');
     else {
       setError('');
