@@ -19,7 +19,7 @@ const GlobalTheme = createTheme({
       main: '#D4A373',
     },
     success: {
-      main: green[500],
+      main: '#A9D2FF',
     },
   },
 });

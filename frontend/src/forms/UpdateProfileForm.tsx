@@ -1,7 +1,7 @@
 import React from 'react';
 import StPaper from 'styledComponents/StPaper';
 import StHeader from 'styledComponents/StHeader';
-import StBAvatar from 'styledComponents/StBAvatar';
+import StAvatarBig from 'styledComponents/StAvatarBig';
 import StSubmitButton from 'styledComponents/StSubmitButton';
 import StTextField from 'styledComponents/StTextField';
 
@@ -21,7 +21,7 @@ const UpdateProfileForm = ({
   return (
     <StPaper elevation={0}>
       <StHeader>
-        <StBAvatar />
+        <StAvatarBig />
       </StHeader>
       <StPaper elevation={0}>
         <StTextField

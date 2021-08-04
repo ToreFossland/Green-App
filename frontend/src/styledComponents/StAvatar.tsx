@@ -1,15 +1,16 @@
-import { styled } from '@material-ui/core/styles';
+import { styled, withTheme } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import { useContext } from 'react';
 import { GlobalContext } from 'state/context';
 import React from 'react';
 
-const StAvatar = styled(Avatar)({
+const StAvatar = styled(withTheme(Avatar))((props) => ({
   display: 'flex',
   fontSize: 20,
   marginRight: '25px',
-  marginLeft: '10px', 
-});
+  marginLeft: '10px',
+  backgroundColor: props.theme.palette.info.main,
+}));
 
 const StyledAvatar = () => {
   const { state } = useContext(GlobalContext);
