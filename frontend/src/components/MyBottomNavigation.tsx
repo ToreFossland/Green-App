@@ -31,20 +31,23 @@ function MyBottomNavigation() {
             icon={<Home />}
             component={Link}
             to="/"
+            showLabel={true}
           />
           <BottomNavigationAction
-            label="My Profile"
+            label="Profile"
             value="/profile"
             icon={<AccountCircle />}
             component={Link}
             to="/profile"
+            showLabel={true}
           />
           <BottomNavigationAction
-            label="Add Activity"
+            label="Record"
             value="/add"
             icon={<AddCircle />}
             component={Link}
             to="/add"
+            showLabel={true}
           />
           <BottomNavigationAction
             label="Challenges"
@@ -52,6 +55,7 @@ function MyBottomNavigation() {
             icon={<EmojiEvents />}
             component={Link}
             to="/challenges"
+            showLabel={true}
           />
           <BottomNavigationAction
             label="Map"
@@ -59,6 +63,7 @@ function MyBottomNavigation() {
             icon={<Map />}
             component={Link}
             to="/map"
+            showLabel={true}
           />
         </StBottomNavigation>
       ) : (
