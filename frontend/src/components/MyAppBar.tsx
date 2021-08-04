@@ -21,7 +21,7 @@ export default function MyAppBar() {
     } else if (location.pathname === '/add') {
       setPath('Add activities');
     } else if (location.pathname === '/map') {
-      setPath('Find activities');
+      setPath('Locate activities');
     } else if (location.pathname === '/challenges') {
       setPath('Challenges');
     } else if (location.pathname === '/login') {
