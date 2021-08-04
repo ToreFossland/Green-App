@@ -8,7 +8,7 @@ const StAvatar = styled(Avatar)({
   display: 'flex',
   fontSize: 20,
   marginRight: '25px',
-  marginLeft: '10px',
+  marginLeft: '10px', 
 });
 
 const StyledAvatar = () => {
