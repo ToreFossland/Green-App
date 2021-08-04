@@ -4,7 +4,7 @@ import green from '@material-ui/core/colors/green';
 const GlobalTheme = createTheme({
   palette: {
     primary: {
-      main: '#8FBC8F',
+      main: '#184e77',
     },
     secondary: {
       main: '#d56c6f',
