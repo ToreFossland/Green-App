@@ -75,9 +75,9 @@ export default function HamburgerMenu() {
     <div>
       {(['left'] as Anchor[]).map((anchor) => (
         <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>
-            <Menu />
-          </Button>
+          <Button onClick={toggleDrawer(anchor, true)} >
+            <Menu style={{fill: '#ffffff' }} />
+          </Button> 
           <Drawer
             anchor={anchor}
             open={state[anchor]}
