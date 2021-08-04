@@ -20,10 +20,10 @@ def upgrade():
     op.create_table(
         "challenge",
         sa.Column("id", sa.Integer, primary_key=True),
-        sa.Column("name", sa.String(50), nullable=False),
+        sa.Column("name", sa.String(400), nullable=False),
         sa.Column("description", sa.String(400), nullable=True),
         sa.Column("points", sa.Integer),
-        sa.Column("activity_id", sa.String(50)
+        sa.Column("activity_id", sa.String(400)
                   ))
     pass
 
