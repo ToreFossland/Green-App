@@ -2,8 +2,34 @@ import React from 'react';
 import IChallenge from 'interfaces/IChallenge';
 import StCard from 'styledComponents/StCard';
 import { CardContent, Typography } from '@material-ui/core';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { GlobalContext } from 'state/context';
+import { filter } from 'lodash';
+
+const isThisMonth = (dateAdd: number) => {
+  let timestamp: number = +dateAdd;
+  let date: Date = new Date(timestamp);
+  const today = new Date();
+  return today.getMonth() === date.getMonth();
+};
 
 export const ChallengeListItem = (props: IChallenge) => {
+  const { state } = React.useContext(GlobalContext);
+  var activitiesArray = props.activity_id.split(',').map((a) => parseInt(a));
+  const wantedActivities = state?.activities?.filter((a) =>
+    activitiesArray.includes(a.id)
+  )!;
+  let performActivity = state?.performsActivities;
+  performActivity = filter(performActivity, function (item) {
+    //Sorting activities based on user id and month
+    return item[0].id === state.user?.id && isThisMonth(item[1].date);
+  });
+
+  const checkActivities = performActivity.filter((a: any) =>
+    wantedActivities.map((b) => b.id).includes(a[2].id)
+  );
+
   return (
     <StCard elevation={0}>
       <CardContent>
@@ -11,7 +37,10 @@ export const ChallengeListItem = (props: IChallenge) => {
           {props.name}
         </Typography>
         <Typography variant="subtitle1" align="center">
-          Total points:<b> {props.points}</b>
+          Total points:<b> {props.points}</b>{' '}
+          {checkActivities.length > 0 && (
+            <FontAwesomeIcon icon={faCheckCircle} />
+          )}
         </Typography>
       </CardContent>
     </StCard>
