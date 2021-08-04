@@ -1,52 +1,95 @@
 # green-app
 
-GreenApp is meant to be an application for competing with yourself and others to live a more environmentally life.
-
 ## Features
 
-- **FastAPI** with Python 3.8
-- **React 16** with Typescript, Redux, and react-router
-- Postgres
-- SqlAlchemy with Alembic for migrations
-- Pytest for backend tests
-- Jest for frontend tests
-- Perttier/Eslint (with Airbnb style guide)
-- Docker compose for easier development
-- Nginx as a reverse proxy to allow backend and frontend on the same port
+- **[FastAPI](https://fastapi.tiangolo.com/)** (Python 3.8)
+  - JWT authentication using [OAuth2 "password
+    flow"](https://fastapi.tiangolo.com/tutorial/security/simple-oauth2/) and
+    PyJWT
+- **[React](https://reactjs.org/)** (with Typescript)
+  - [react-router v5](https://reacttraining.com/react-router/) to handle routing
+  - [Utility functions](#Frontend-Utilities) and [higher-order
+    components](#Higher-Order-Components) for handling authentication
+  - [Context API](https://reactjs.org/docs/context.html) for global state management
+- **[PostgreSQL](https://www.postgresql.org/)** for the database
+- **[SqlAlchemy](https://www.sqlalchemy.org/)** for ORM
+- **[Alembic](https://alembic.sqlalchemy.org/en/latest/)** for database
+  migrations
+- **[Pytest](https://docs.pytest.org/en/latest/)** for backend tests
+  - Includes test database, transaction rollbacks after each test, and reusable
+    [Pytest fixtures](#fixtures).
+- **[Prettier](https://prettier.io/)**/**[ESLint](https://eslint.org/)** (Airbnb
+  style guide)
+- **[Docker Compose](https://docs.docker.com/compose/)** for development
+- **[Nginx](https://www.nginx.com/)** as a reverse proxy to allow
+  backend/frontend on the same port
+- **[MaterialUI](https://material-ui.com/)** using
+  [styled-components](https://styled-components.com/) for styling.
+- **[react-admin](https://github.com/marmelab/react-admin)** for the admin
+  dashboard
+  - Using the same token based authentication as FastAPI backend (JWT)
 
-## Development
 
-The only dependencies for this project should be docker and docker-compose.
+## Table of Contents
+
+- [Background](#background)
+- [Quick Start](#quick-start)
+- [Develop](#develop)
+- [Admin Dashboard](#admin-dashboard)
+
+## Background
+
+GreenApp's goal is to promote a more environmentally friendly life through friendly competition with yourself and others.
 
 ### Quick Start
 
-Change into your project directory and run:
+First, install docker-compose if you don't already have it:
 
+[docker-compose installation official
+docs](https://docs.docker.com/compose/install/).
+
+Then change into your project directory and run:
+
+```bash
 chmod +x scripts/build.sh
 ./scripts/build.sh
+```
 
-Starting the project with hot-reloading enabled
-(the first time it will take a while):
+This will build and run the docker containers, run the alembic migrations, and load the initial data (a user, activities and challenges).
+
+Credentials for the user:
+email: admin@green-app.com
+password: password
+
+It may take a while to build the first time it's run since it needs to fetch all the docker images.
+
+Once you've built the images once, you can simply use regular `docker-compose`
+commands to manage your development environment, for example to start your
+containers:
 
 ```bash
 docker-compose up -d
 ```
 
-To run the alembic migrations (for the users table):
+To run the alembic table migrations seperately:
 
 ```bash
 docker-compose run --rm backend alembic upgrade head
 ```
 
-And navigate to http://localhost:8000
+Once this finishes you can navigate to the port `localhost:8000`, and you should see our application:
 
 _Note: If you see an Nginx error at first with a `502: Bad Gateway` page, you may have to wait for webpack to build the development server (the nginx container builds much more quickly)._
 
-Auto-generated docs will be at
-http://localhost:8000/api/docs
+The backend docs will be at `http://localhost:8000/api/docs`.
 
-User admin page will be at
-http://localhost:8000/admin
+## Admin Dashboard
+
+This project uses [react-admin](https://marmelab.com/react-admin/) for a admin dashboard displaying all users.
+
+After starting the project, navigate to `http://localhost:8000/admin`. You
+should see a login screen. Use the username/password for the default user mentioned above.
+
 
 ### Rebuilding containers:
 
@@ -65,19 +108,6 @@ docker-compose restart
 ```
 docker-compose down
 ```
-
-### Frontend Development
-
-Alternatively to running inside docker, it can sometimes be easier
-to use npm directly for quicker reloading. To run using npm:
-
-```
-cd frontend
-npm install
-npm start
-```
-
-This should redirect you to http://localhost:3000
 
 ### Frontend Tests
 
@@ -148,9 +178,9 @@ backend
     ├── alembic
     │   └── versions # where migrations are located
     ├── api
-    │   └── endpoints
+    │   └── routers # contains all the endpoints for each table in the database.
     ├── core    # config
-    ├── db      # db models
+    ├── db      # db models, schemas and crud
     ├── tests   # pytest
     └── main.py # entrypoint to backend
 

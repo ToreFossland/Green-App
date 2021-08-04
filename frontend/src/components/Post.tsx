@@ -60,7 +60,8 @@ const Post = (props: any) => {
       const data = await updateUser(
         currentUser.id,
         currentUser.email,
-        currentUser.points - props.points
+        currentUser.total_points + props.points,
+        currentUser.weekly_points + props.points
       );
 
       if (data) {

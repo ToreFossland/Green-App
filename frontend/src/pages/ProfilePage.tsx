@@ -10,7 +10,6 @@ import StBackgroundColor from 'styledComponents/StBackgroundColor';
 
 function Profile() {
   const { state } = useContext(GlobalContext);
-  let point: number = state.user?.points!;
   const date = new Date();
   const monthName = new Intl.DateTimeFormat('en', { month : 'long' });
   const day = date.getDate();
@@ -30,11 +29,12 @@ function Profile() {
         </StHeader>
         <div>
           <p> Email: {state.user?.email} </p>
-          <h4> Your points: {state.user?.points}</h4>
+          <h4> Total points: {state.user?.total_points}</h4>
+          <h4> Weekly points: {state.user?.weekly_points}</h4>
         </div>
       </StPaper>
       <StPaper>
-        <StGaugeChart points={point} />
+        <StGaugeChart points={state.user?.weekly_points} />
       </StPaper>
       <StPaper>
         <h2>My activities {monthName.format(date)} {year} </h2>

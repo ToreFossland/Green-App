@@ -17,7 +17,8 @@ depends_on = None
 
 
 def upgrade():
-    op.add_column("user", sa.Column("points", sa.Integer, nullable=True))
+    op.add_column("user", sa.Column("total_points", sa.Integer, nullable=True))
+    op.add_column("user", sa.Column("weekly_points", sa.Integer, nullable=True))
     op.add_column("user", sa.Column("company", sa.String(100), nullable=True))
     pass
 

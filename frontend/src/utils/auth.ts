@@ -156,8 +156,8 @@ export const logout = () => {
   if(props.length === 5){
     userData = { user_id : props[0], email: props[1], first_name: props[2], last_name: props[3] };
   //3 for change points
-  }else if(props.length === 3){
-    userData = {user_id : props[0], email: props[1], points: props[2]};
+  }else if(props.length === 4){
+    userData = {user_id : props[0], email: props[1], total_points: props[2], weekly_points: props[3]};
   }
 
   const request = new Request(`/api/users/${props[0]}`, {
