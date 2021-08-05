@@ -42,7 +42,6 @@ function SocialGrid(props: ISocialGrid) {
       justifyContent="center"
       alignItems="stretch"
     >
-      {/* item[2].id for å finne ut hvilken idrett */}
       {deleted && (
         <Grid item>
           <Snackbar
@@ -78,7 +77,6 @@ function SocialGrid(props: ISocialGrid) {
           .reverse()
           .map(
             (item: any) => (
-              // <Grid item>
               <Post
                 key={item[1].id}
                 id={item[1].id}
@@ -95,7 +93,6 @@ function SocialGrid(props: ISocialGrid) {
                 setError={setError}
               />
             )
-            // </Grid>
           )}
     </Grid>
   );

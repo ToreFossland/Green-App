@@ -1,10 +1,10 @@
-import Table from 'components/Table';
+import Scoreboard from 'components/Scoreboard';
 import React from 'react';
 
 function ScoreboardPage() {
   return (
     <div>
-      <Table />
+      <Scoreboard />
     </div>
   );
 }
