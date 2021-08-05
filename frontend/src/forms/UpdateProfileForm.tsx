@@ -29,7 +29,6 @@ const UpdateProfileForm = ({
       </StHeader>
       <StPaper elevation={0}>
         <StTextField
-          required
           id="changeFirstName"
           label={'First Name'}
           defaultValue={firstname}
@@ -37,7 +36,6 @@ const UpdateProfileForm = ({
           onChange={onFirstnameChange}
         />
         <StTextField
-          required
           id="changeLastName"
           label={'Last Name'}
           defaultValue={lastname}
@@ -45,7 +43,6 @@ const UpdateProfileForm = ({
           onChange={onLastnameChange}
         />
         <StTextField
-          required
           id="changeCompany"
           label={'Company'}
           defaultValue={company}

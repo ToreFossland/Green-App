@@ -18,7 +18,8 @@ export const UserList: FC = (props) => (
       <TextField source="last_name" />
       <BooleanField source="is_active" />
       <BooleanField source="is_superuser" />
-      <TextField source="points" />
+      <TextField source="total_points" />
+      <TextField source="weekly_points" />
       <TextField source="company" />
       <EditButton />
     </Datagrid>

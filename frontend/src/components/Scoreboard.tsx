@@ -56,7 +56,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function StickyHeadTable() {
+export default function Scoreboard() {
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -80,12 +80,13 @@ export default function StickyHeadTable() {
     };
     loadUsers();
   }, []);
-
+  console.log(users);
   const sortedUsers = users
-    .sort((a: any, b: any) => (a.points < b.points ? -1 : 1))
+    .sort((a: any, b: any) => (a.weekly_points < b.weekly_points ? -1 : 1))
     .reverse();
+  console.log(sortedUsers);
   const rows = sortedUsers.map((e: any) =>
-    createData(e.first_name, e.last_name, e.points)
+    createData(e.first_name, e.last_name, e.weekly_points)
   );
 
   return (

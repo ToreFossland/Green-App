@@ -11,6 +11,7 @@ export const SignUpPage: FC = () => {
   const [email, setEmail] = useState<string>('');
   const [firstname, setFirstname] = useState<string>('');
   const [lastname, setLastname] = useState<string>('');
+  const [company, setCompany] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [passwordConfirmation, setPasswordConfirmation] = useState<string>('');
   const [error, setError] = useState<string>('');
@@ -27,6 +28,7 @@ export const SignUpPage: FC = () => {
           email,
           firstname,
           lastname,
+          company,
           password,
           passwordConfirmation
         );
@@ -54,6 +56,7 @@ export const SignUpPage: FC = () => {
       email={email}
       firstname={firstname}
       lastname={lastname}
+      company={company}
       password={password}
       passwordConfirmation={passwordConfirmation}
       error={error}
@@ -65,6 +68,9 @@ export const SignUpPage: FC = () => {
       }
       onLnameChange={(e: React.ChangeEvent<HTMLInputElement>) =>
         setLastname(e.currentTarget.value)
+      }
+      onCompanyChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+        setCompany(e.currentTarget.value)
       }
       onPasswordChange={(e: React.ChangeEvent<HTMLInputElement>) =>
         setPassword(e.currentTarget.value)
