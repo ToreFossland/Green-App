@@ -28,7 +28,7 @@ export const ActivityListItem = (props: IActivity) => {
   const [error, setError] = useState<string>('');
   const [success, setSuccess] = useState<boolean>(false);
   const { state, dispatch } = React.useContext(GlobalContext);
-  const [effort, setEffort] = useState<number>(0);
+  const [effort, setEffort] = useState<number>(50);
   const currentUser = state.user!;
 
   const handleAddActivity = async (_: React.MouseEvent) => {
