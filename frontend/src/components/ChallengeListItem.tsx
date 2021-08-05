@@ -27,14 +27,26 @@ export const ChallengeListItem = (props: IChallenge) => {
     //Sorting activities based on user id and month
     return item[0].id === state.user?.id && isThisMonth(item[1].date);
   });
-  const checkActivities = performActivity.every((a: any) =>
-    wantedActivities.map((b: any) => b.id).includes(a[1].activities_id)
-  );
+
+  function arrayContainsAnotherArray(arr1: any, arr2: any) {
+    for (var i = 0; i < arr1.length; i++) {
+      if (arr2.indexOf(arr1[i]) === -1) return false;
+    }
+    return true;
+  }
+
+  const checkActivities =
+    performActivity.length > 0 &&
+    arrayContainsAnotherArray(
+      wantedActivities.map((b: any) => b.id),
+      performActivity.map((a: any) => a[1].activities_id)
+    );
+
   return (
     <StCard elevation={0}>
       <CardContent>
         <Typography variant="h6" align="center">
-          {checkActivities > 0 && (
+          {checkActivities && (
             <FontAwesomeIcon color={checkColor} icon={faCheckCircle} />
           )}
         </Typography>
