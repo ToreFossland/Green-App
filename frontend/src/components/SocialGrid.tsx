@@ -83,7 +83,6 @@ function SocialGrid(props: ISocialGrid) {
                 key={item[1].id}
                 id={item[1].id}
                 user_id={item[0].id}
-                activity_id={item[2].id}
                 firstName={item[0].first_name}
                 lastName={item[0].last_name}
                 activityName={item[2].name}
