@@ -6,7 +6,7 @@ import bike from 'testImages/bike-blue.png';
 import chef from 'testImages/chef-blue.png';
 import trash from 'testImages/trash-blue.png';
 
-export function LoginCarousel(props: any) {
+export function LoginCarousel() {
     var items = [
         { image: bike },
         { image: chef },
