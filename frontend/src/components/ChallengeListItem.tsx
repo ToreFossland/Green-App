@@ -25,16 +25,14 @@ export const ChallengeListItem = (props: IChallenge) => {
     //Sorting activities based on user id and month
     return item[0].id === state.user?.id && isThisMonth(item[1].date);
   });
-
-  const checkActivities = performActivity.filter((a: any) =>
-    wantedActivities.map((b) => b.id).includes(a[2].id)
+  const checkActivities = performActivity.every((a: any) =>
+    wantedActivities.map((b: any) => b.id).includes(a[1].activities_id)
   );
-
   return (
     <StCard elevation={0}>
       <CardContent>
         <Typography variant="h6" align="center">
-          {checkActivities.length > 0 && (
+          {checkActivities > 0 && (
             <FontAwesomeIcon color="#59981A" icon={faCheckCircle} />
           )}
         </Typography>
