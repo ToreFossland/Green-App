@@ -6,6 +6,7 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { GlobalContext } from 'state/context';
 import { filter } from 'lodash';
+import GlobalTheme from 'GlobalTheme';
 
 const isThisMonth = (dateAdd: number) => {
   let timestamp: number = +dateAdd;
@@ -16,6 +17,7 @@ const isThisMonth = (dateAdd: number) => {
 
 export const ChallengeListItem = (props: IChallenge) => {
   const { state } = React.useContext(GlobalContext);
+  const checkColor = GlobalTheme.palette.success.main;
   var activitiesArray = props.activity_id.split(',').map((a) => parseInt(a));
   const wantedActivities = state?.activities?.filter((a) =>
     activitiesArray.includes(a.id)
@@ -33,7 +35,7 @@ export const ChallengeListItem = (props: IChallenge) => {
       <CardContent>
         <Typography variant="h6" align="center">
           {checkActivities > 0 && (
-            <FontAwesomeIcon color="#59981A" icon={faCheckCircle} />
+            <FontAwesomeIcon color={checkColor} icon={faCheckCircle} />
           )}
         </Typography>
         <Typography variant="h6" align="center">
