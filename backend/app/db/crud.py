@@ -31,6 +31,7 @@ def create_user(db: Session, user: schemas.UserCreate):
     db_user = models.User(
         first_name=user.first_name,
         last_name=user.last_name,
+        company=user.company,
         email=user.email,
         is_active=user.is_active,
         # user.is_superuser always return False, even though schema says True
