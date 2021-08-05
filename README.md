@@ -39,7 +39,7 @@
 
 ## Background
 
-GreenApp's goal is to promote a more environmentally friendly life through friendly competition with yourself and others.
+GreenApp's goal is to promote a more sustainable lifestyle through friendly competition with yourself and others.
 
 ### Quick Start
 
@@ -57,7 +57,7 @@ chmod +x scripts/build.sh
 
 This will build and run the docker containers, run the alembic migrations, and load the initial data (a user, activities and challenges).
 
-Credentials for the user:
+Credentials for the user |
 email: admin@green-app.com
 password: password
 
@@ -69,12 +69,6 @@ containers:
 
 ```bash
 docker-compose up -d
-```
-
-To run the alembic table migrations seperately:
-
-```bash
-docker-compose run --rm backend alembic upgrade head
 ```
 
 Once this finishes you can navigate to the port `localhost:8000`, and you should see our application:
@@ -107,14 +101,6 @@ docker-compose restart
 
 ```
 docker-compose down
-```
-
-### Frontend Tests
-
-```
-cd frontend
-npm install
-npm test
 ```
 
 ## Migrations
@@ -187,12 +173,30 @@ backend
 frontend
 └── public
 └── src
-    ├── components
-    │   └── Home.tsx
+    ├── admin # for admin dashboard
+    │ 
+    ├── components # components that are not pages
+    │   └── ActivityChart.tsx
     ├── config
     │   └── index.tsx   # constants
-    ├── __tests__
+    ├── forms # form components
+    │ 
+    ├── interfaces # component interfaces
+    │ 
+    ├── pages # page components
+    │   └── HomePage.tsx
+    ├── state # context state management
+    │   └── activities
+    │   │   └── activitiesActions.ts
+    │   └── challenge
+    │   └── performsActivities
+    │  
+    ├── __tests__ # frontend tests
     │   └── test_home.tsx
+    ├── styledComponents # components styled with styled-components
+    │   └── StAppBar.tsx
+        ├── pages # page components
+    │   └── HomePage.tsx
     ├── index.tsx   # entrypoint
     └── App.tsx     # handles routing
 ```
