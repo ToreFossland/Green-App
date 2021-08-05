@@ -33,15 +33,17 @@ function valueLabelFormat(value: number) {
   return marks.findIndex((mark) => mark.value === value) + 1;
 }
 export function SliderEffort(props: any) {
-
-
   return (
-    <div style={{width: '85%'}}>
-      <Typography id="discrete-slider-restrict" color='textSecondary' gutterBottom>
+    <div style={{ width: '85%' }}>
+      <Typography
+        id="discrete-slider-restrict"
+        color="textSecondary"
+        gutterBottom
+      >
         Activity Effort
       </Typography>
       <Slider
-        defaultValue={2}
+        defaultValue={50}
         valueLabelFormat={valueLabelFormat}
         getAriaValueText={valuetext}
         aria-labelledby="discrete-slider-restrict"
