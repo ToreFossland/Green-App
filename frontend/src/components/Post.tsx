@@ -114,16 +114,30 @@ const Post = (props: any) => {
         </CardContent>
         <CardContent>
           <Typography variant="h6" color="primary" component="p">
-            {props.activity_id === 1 && <FontAwesomeIcon icon={faBiking} />}
-            {props.activity_id === 2 && <FontAwesomeIcon icon={faCarrot} />}
-            {props.activity_id === 3 && <FontAwesomeIcon icon={faTrashAlt} />}
-            {props.activity_id === 4 && <FontAwesomeIcon icon={faTshirt} />}
-            {props.activity_id === 5 && <FontAwesomeIcon icon={faCar} />}
-            {props.activity_id === 6 && <FontAwesomeIcon icon={faTree} />}
-            {props.activity_id === 7 && (
+            {props.activityName === 'Bike to work' && (
+              <FontAwesomeIcon icon={faBiking} />
+            )}
+            {props.activityName === 'Eat a vegetarian meal' && (
+              <FontAwesomeIcon icon={faCarrot} />
+            )}
+            {props.activityName === 'Pick up trash' && (
+              <FontAwesomeIcon icon={faTrashAlt} />
+            )}
+            {props.activityName === 'Donate old clothes' && (
+              <FontAwesomeIcon icon={faTshirt} />
+            )}
+            {props.activityName === 'Carpool to location' && (
+              <FontAwesomeIcon icon={faCar} />
+            )}
+            {props.activityName === 'Plant a tree' && (
+              <FontAwesomeIcon icon={faTree} />
+            )}
+            {props.activityName === 'Limit food waste' && (
               <FontAwesomeIcon icon={faDrumstickBite} />
             )}
-            {props.activity_id === 8 && <FontAwesomeIcon icon={faBus} />}
+            {props.activityName === 'Use public transport' && (
+              <FontAwesomeIcon icon={faBus} />
+            )}
           </Typography>
         </CardContent>
       </Grid>
