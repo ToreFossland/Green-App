@@ -6,6 +6,7 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { GlobalContext } from 'state/context';
 import { filter } from 'lodash';
+import GlobalTheme from 'GlobalTheme';
 
 const isThisMonth = (dateAdd: number) => {
   let timestamp: number = +dateAdd;
@@ -16,6 +17,7 @@ const isThisMonth = (dateAdd: number) => {
 
 export const ChallengeListItem = (props: IChallenge) => {
   const { state } = React.useContext(GlobalContext);
+  const checkColor = GlobalTheme.palette.success.main;
   var activitiesArray = props.activity_id.split(',').map((a) => parseInt(a));
   const wantedActivities = state?.activities?.filter((a) =>
     activitiesArray.includes(a.id)
@@ -26,16 +28,26 @@ export const ChallengeListItem = (props: IChallenge) => {
     return item[0].id === state.user?.id && isThisMonth(item[1].date);
   });
 
-  const checkActivities = performActivity.filter((a: any) =>
-    wantedActivities.map((b) => b.id).includes(a[2].id)
-  );
+  function arrayContainsAnotherArray(arr1: any, arr2: any) {
+    for (var i = 0; i < arr1.length; i++) {
+      if (arr2.indexOf(arr1[i]) === -1) return false;
+    }
+    return true;
+  }
+
+  const checkActivities =
+    performActivity.length > 0 &&
+    arrayContainsAnotherArray(
+      wantedActivities.map((b: any) => b.id),
+      performActivity.map((a: any) => a[1].activities_id)
+    );
 
   return (
     <StCard elevation={0}>
       <CardContent>
         <Typography variant="h6" align="center">
-          {checkActivities.length > 0 && (
-            <FontAwesomeIcon color="#59981A" icon={faCheckCircle} />
+          {checkActivities && (
+            <FontAwesomeIcon color={checkColor} icon={faCheckCircle} />
           )}
         </Typography>
         <Typography variant="h6" align="center">

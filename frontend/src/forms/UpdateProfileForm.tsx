@@ -8,14 +8,18 @@ import StTextField from 'styledComponents/StTextField';
 const UpdateProfileForm = ({
   firstname,
   lastname,
+  company,
   onFirstnameChange,
   onLastnameChange,
+  onCompanyChange,
   onSubmitButtonClick,
 }: {
   firstname?: string;
   lastname?: string;
+  company?: string;
   onFirstnameChange: (e: any) => void;
   onLastnameChange: (e: any) => void;
+  onCompanyChange: (e: any) => void;
   onSubmitButtonClick: any;
 }) => {
   return (
@@ -39,6 +43,14 @@ const UpdateProfileForm = ({
           defaultValue={lastname}
           variant="outlined"
           onChange={onLastnameChange}
+        />
+        <StTextField
+          required
+          id="changeCompany"
+          label={'Company'}
+          defaultValue={company}
+          variant="outlined"
+          onChange={onCompanyChange}
         />
       </StPaper>
       <StSubmitButton onClick={onSubmitButtonClick}>

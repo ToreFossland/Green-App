@@ -154,7 +154,7 @@ export const logout = () => {
   let userData;
   //5 for change names
   if(props.length === 5){
-    userData = { user_id : props[0], email: props[1], first_name: props[2], last_name: props[3] };
+    userData = { user_id : props[0], email: props[1], first_name: props[2], last_name: props[3], company: props[4] };
   //3 for change points
   }else if(props.length === 4){
     userData = {user_id : props[0], email: props[1], total_points: props[2], weekly_points: props[3]};
