@@ -10,7 +10,8 @@ class UserBase(BaseModel):
     first_name: str = None
     last_name: str = None
     company: t.Optional[str]
-    points: t.Optional[int] = 0
+    total_points: t.Optional[int] = 0
+    weekly_points: t.Optional[int] = 0
 
 
 class UserOut(UserBase):

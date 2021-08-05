@@ -5,12 +5,10 @@ import { isAuthenticated } from '../utils/auth';
 import { useLocation } from 'react-router-dom';
 import HamburgerMenu from 'components/HamburgerMenu';
 import StAppBar from 'styledComponents/StAppBar';
-
 export default function AppBar() {
   const [path, setPath] = React.useState('Home');
   let location = useLocation();
 
-  
   useEffect(() => {
     if (
       location.pathname === '/profile' ||
