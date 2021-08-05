@@ -18,6 +18,7 @@ def init() -> None:
             password="password",
             first_name="admin",
             last_name="user",
+            company="Equinor",
             is_active=True,
             is_superuser=True,
         ),

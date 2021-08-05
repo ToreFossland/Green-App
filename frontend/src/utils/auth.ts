@@ -66,7 +66,6 @@ export const signUp = async (
   email: string,
   firstname: string,
   lastname: string,
-  company: string,
   password: string,
   passwordConfirmation: string
 ) => {
@@ -96,7 +95,6 @@ export const signUp = async (
   formData.append('username', email);
   formData.append('first_name', firstname);
   formData.append('last_name', lastname);
-  formData.append('company', company);
   formData.append('password', password);
 
   const request = new Request('/api/signup/' + firstname + '/' + lastname, {

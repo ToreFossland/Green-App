@@ -16,9 +16,6 @@ import { filter } from 'lodash';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      width: '100%',
-    },
     button: {
       marginTop: theme.spacing(1),
       marginRight: theme.spacing(1),
@@ -106,7 +103,7 @@ export default function ChallengeStepper(props: IChallenge) {
   };
 
   return (
-    <div className={classes.root}>
+    <div style={{width: '100%'}}>
       <Stepper activeStep={activeStep} orientation="vertical">
         {steps.map((activity, key) => (
           <Step key={activity.id}>
