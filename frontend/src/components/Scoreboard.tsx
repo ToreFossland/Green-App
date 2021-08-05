@@ -80,11 +80,9 @@ export default function Scoreboard() {
     };
     loadUsers();
   }, []);
-  console.log(users);
   const sortedUsers = users
     .sort((a: any, b: any) => (a.weekly_points < b.weekly_points ? -1 : 1))
     .reverse();
-  console.log(sortedUsers);
   const rows = sortedUsers.map((e: any) =>
     createData(e.first_name, e.last_name, e.weekly_points)
   );
