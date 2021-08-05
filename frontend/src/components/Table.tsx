@@ -85,7 +85,7 @@ export default function StickyHeadTable() {
     .sort((a: any, b: any) => (a.points < b.points ? -1 : 1))
     .reverse();
   const rows = sortedUsers.map((e: any) =>
-    createData(e.first_name, e.last_name, e.points)
+    createData(e.first_name, e.last_name, e.weekly_points)
   );
 
   return (
@@ -119,7 +119,7 @@ export default function StickyHeadTable() {
                   </TableCell>
                 }
                 {/* <TableCell align="left">{row.last_name}</TableCell> */}
-                <TableCell align="right">{row.score}</TableCell>
+                <TableCell align="right">{row.weekly_points}</TableCell>
               </TableRow>
             ))}
           </TableBody>
