@@ -15,9 +15,6 @@
 - **[SqlAlchemy](https://www.sqlalchemy.org/)** for ORM
 - **[Alembic](https://alembic.sqlalchemy.org/en/latest/)** for database
   migrations
-- **[Pytest](https://docs.pytest.org/en/latest/)** for backend tests
-  - Includes test database, transaction rollbacks after each test, and reusable
-    [Pytest fixtures](#fixtures).
 - **[Prettier](https://prettier.io/)**/**[ESLint](https://eslint.org/)** (Airbnb
   style guide)
 - **[Docker Compose](https://docs.docker.com/compose/)** for development
