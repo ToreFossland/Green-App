@@ -34,8 +34,11 @@
 
 - [Background](#background)
 - [Quick Start](#quick-start)
-- [Develop](#develop)
 - [Admin Dashboard](#admin-dashboard)
+- [Migrations](#migrations)
+- [Logging](#logging)
+- [Project Layout](#project-layout)
+
 
 ## Background
 
@@ -77,13 +80,6 @@ _Note: If you see an Nginx error at first with a `502: Bad Gateway` page, you ma
 
 The backend docs will be at `http://localhost:8000/api/docs`.
 
-## Admin Dashboard
-
-This project uses [react-admin](https://marmelab.com/react-admin/) for a admin dashboard displaying all users.
-
-After starting the project, navigate to `http://localhost:8000/admin`. You
-should see a login screen. Use the username/password for the default user mentioned above.
-
 
 ### Rebuilding containers:
 
@@ -103,6 +99,13 @@ docker-compose restart
 docker-compose down
 ```
 
+## Admin Dashboard
+
+This project uses [react-admin](https://marmelab.com/react-admin/) for a admin dashboard displaying all users.
+
+After starting the project, navigate to `http://localhost:8000/admin`. You
+should see a login screen. Use the username/password for the default user mentioned above.
+
 ## Migrations
 
 Migrations are run using alembic. To run all migrations:
@@ -119,30 +122,6 @@ alembic revision -m "create users table"
 
 And fill in `upgrade` and `downgrade` methods. For more information see
 [Alembic's official documentation](https://alembic.sqlalchemy.org/en/latest/tutorial.html#create-a-migration-script).
-
-## Testing
-
-There is a helper script for both frontend and backend tests:
-
-```
-./scripts/test.sh
-```
-
-### Backend Tests
-
-```
-docker-compose run backend pytest
-```
-
-any arguments to pytest can also be passed after this command
-
-### Frontend Tests
-
-```
-docker-compose run frontend test
-```
-
-This is the same as running npm test from within the frontend directory
 
 ## Logging
 
