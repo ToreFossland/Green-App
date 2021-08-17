@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+spec:
+  selector:
+    app: backend
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8888
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: haavardm/greenapp-backend:latest
+        imagePullPolicy: Always
+        command:
+          - python
+          - app/main.py
+        resources:
+          requests:
+            memory: "10Mi"
+            cpu: "10m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8888
+        env:
+          - name: PYTHONPATH
+            value: .
+          - name: DATABASE_URL
+            value: 'postgresql://postgres:password@postgres:5432/postgres'
